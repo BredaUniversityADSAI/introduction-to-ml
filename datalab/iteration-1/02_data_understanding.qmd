@@ -60,9 +60,10 @@ In this course, you will work with datasets from multiple sources:
 |------|-----------|-------|----------|
 | Starter | 80 | `starter_dataset.xlsx` | SMILES, Molecular Descriptors, Targets |
 | HOPV | 350 | `HOPV_homolumo.data`, `HOPV_stability.csv` | SMILES, Targets |
-| Kaggle | 200 | `25261_classification_sample_submission.csv`, `25261_regression_sample_submission.csv` | SMILES |
+| Lab database | 232 | `lab_measurements.db` | SMILES, Targets |
+| Kaggle | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` | SMILES |
 
-The starter dataset is a subset of the HOPV dataset.
+The starter dataset is a subset of the HOPV dataset. You use the starter dataset in Iteration 1, HOPV from Iteration 2, and the lab database and the Kaggle molecules in Iteration 3+.
 
 ::: {.callout-important}
 To ensure a fair competition, the target values (HOMO, LUMO, and stability) for all datasets, including the Kaggle set, have been **synthetically generated** based on the real molecular properties. While they follow realistic chemical distributions, they will not match publicly available data for these specific molecules. Your goal is to model the relationships within the datasets we provide to you.
@@ -86,6 +87,6 @@ The file `HOPV_homolumo.data` does not contain stability information. This is pr
 
 ## The Kaggle Dataset
 
-The HOPV molecules form the development set for your classification and regression models. Once your models are ready, you will submit predictions for **200 SMILES molecules** on Kaggle. The true values for these molecules are hidden, but after submission, you will see your results on the platform.
+The HOPV molecules, and from Iteration 3+ the lab database, form the development set for your classification and regression models. Once your models are ready, you will submit predictions for **200 SMILES molecules** on Kaggle. The true values for these molecules are hidden, but after submission, you will see your results on the platform.
 
 Two files are provided — one for the classification competition and one for the regression competition. These files contain 200 SMILES molecules each, with placeholder values in the target columns. Your task is to replace these placeholders with your model predictions and submit the files in the same format.

@@ -87,7 +87,7 @@ If something breaks, delete the `.venv` folder and run `uv sync` again.
 ```
 self-study/   Self-study notebooks (001_–011_) and reading guides (01_–11_)
 datalab/      DataLab project notebooks, one folder per iteration
-data/         Datasets: raw HOPV data, the starter dataset, Kaggle files
+data/         Datasets: raw HOPV data, the lab database, the starter dataset, Kaggle files (see data/README.md)
 models/       Models you save while working through the notebooks (not tracked by Git)
 images/       Figures used in the notebooks and on the website
 ```

@@ -19,6 +19,88 @@ You will work on two machine-learning problems:
 
 Your current models from Iteration 2 are your starting point.
 
+## The data
+
+From now on you can use every data source of the project:
+
+| Source | Molecules | File | Contains |
+|---|---|---|---|
+| HOPV | 350 | `HOPV_homolumo.data`, `HOPV_stability.csv` (or your `xy_df_hopv.csv` from Iteration 2) | SMILES, targets |
+| Lab database | 232 | `lab_measurements.db` | SMILES, targets |
+| Kaggle | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` | SMILES only: these are the molecules you predict |
+
+The first two files are in `data/001_raw_data/`, the Kaggle files in `data/003_kaggle_competition_data/`. You compute the molecular descriptors of the new molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2.
+
+### Reading the lab database
+
+The client keeps a second set of measurements in a small database. You don't need to learn SQL to use it, but a few minutes of background help.
+
+::: {.callout-note collapse="true"}
+## Databases in five minutes
+
+- A **database** stores data in **tables**. A table looks like a DataFrame: rows are records (here: measurements), columns are fields (here: `smiles`, `homo`, `lumo`, `stability`).
+- You ask a database for data with **SQL**, a short query language. Four keywords take you a long way:
+  - `SELECT` the columns you want (`*` means all columns),
+  - `FROM` a table,
+  - `WHERE` a condition holds,
+  - `LIMIT` the number of rows.
+
+  For example, `SELECT smiles, homo FROM measurements WHERE stability = 'high' LIMIT 5`. `COUNT(*)` counts rows.
+- Most databases (PostgreSQL, MySQL, SQL Server) run as a server that you connect to over a network. **SQLite** is a complete database in a single file: there is no server and nothing to install, because Python includes the `sqlite3` module.
+- `pd.read_sql(query, connection)` runs a query and returns the result as a pandas DataFrame. From there, everything works as you're used to.
+
+Want to learn more? [SQLBolt](https://sqlbolt.com/) is a free, interactive introduction to SQL in the browser, and Kaggle's free [Intro to SQL](https://www.kaggle.com/learn/intro-to-sql) course practises it on larger datasets.
+:::
+
+```python
+import sqlite3
+import pandas as pd
+
+# adjust the path to where your notebook is
+con = sqlite3.connect("../../data/001_raw_data/lab_measurements.db")
+
+# Which tables are in the database?
+pd.read_sql("SELECT name FROM sqlite_master WHERE type = 'table'", con)
+
+# Which columns does the table have, and of which type?
+pd.read_sql("PRAGMA table_info(measurements)", con)
+
+# How many rows? And what do the first rows look like?
+pd.read_sql("SELECT COUNT(*) AS n_rows FROM measurements", con)
+pd.read_sql("SELECT * FROM measurements LIMIT 5", con)
+
+# Only some columns and rows
+pd.read_sql("SELECT smiles, homo, lumo FROM measurements WHERE stability = 'high'", con)
+
+# The whole table as a DataFrame
+lab_df = pd.read_sql("SELECT * FROM measurements", con)
+con.close()
+```
+
+## Things to investigate
+
+There is no recipe for this iteration, but these questions are good places to start:
+
+- **Where do the Kaggle molecules come from?** Compare them with the HOPV molecules: their size, their SMILES strings, a few descriptors. Plot all molecules together, for example with PCA, and colour them by source. Do the sources overlap?
+- **Which of your data sources looks most like the Kaggle molecules?** What does that mean for the data you train on?
+- **Does your validation tell the truth?** A model that does well in cross-validation on HOPV can still do badly on Kaggle. What do the molecules in your validation folds represent, and how could you make your validation more like the molecules you are scored on?
+- **Clustering is a tool, not just an exercise.** Cluster all molecules together (HOPV, lab database and Kaggle). Which training molecules end up in the same clusters as Kaggle molecules? How could you use that: for validation, for choosing or weighting training data, or as a feature?
+- **Combining sources needs care.** Check for duplicates between the files, missing values, and whether the values are on the same scale. A few descriptors are infinite for some molecules.
+- **Look at your mistakes.** Which molecules does your model get most wrong? Do they have something in common?
+
+## The Kaggle competition
+
+::: {.callout-important}
+The Kaggle competitions for this course are being prepared and open in early 2027. Until then, use the questions above and a validation strategy you trust.
+:::
+
+There are two competitions, one per problem:
+
+- **Stability** (classification): scored with the macro-averaged F1 score, so the classes `low`, `medium` and `high` count equally.
+- **Energy levels** (regression): scored with the mean absolute error (MAE) over `homo` and `lumo`, in eV.
+
+Replace the placeholder values in the sample submission files with your predictions and upload them. While the competition runs, the public leaderboard scores your submission on 20% of the molecules; the final ranking uses the other 80%. Don't over-tune to the public leaderboard: it is a small sample.
+
 ## Your workflow
 
 A strong machine-learning solution rarely comes from changing only the model.
