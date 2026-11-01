@@ -20,11 +20,11 @@ At this stage, keep things simple. Focus on getting from data to working models 
 
 Work through the following pages **in order**:
 
-1. [Business Understanding](task1_business_understanding.qmd)
-2. [Data Understanding](task1_data_understanding.qmd)
-3. [Classification](i1_t1_nb1_classification.ipynb)
-4. [Regression](i1_t1_nb2_regression.ipynb)
-5. [Clustering](i1_t1_nb3_clustering.ipynb)
+1. [Business Understanding](01_business_understanding.qmd)
+2. [Data Understanding](02_data_understanding.qmd)
+3. [Classification](03_classification.ipynb)
+4. [Regression](04_regression.ipynb)
+5. [Clustering](05_clustering.ipynb)
 
 Once you have completed all three notebooks, you have finished your first machine-learning cycle.
 

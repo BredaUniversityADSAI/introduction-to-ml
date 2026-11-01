@@ -22,8 +22,8 @@ Explore the HOPV data, identify the input and target variables, investigate data
 
 Complete **in order**:
 
-1. [Understanding HOPV Stability](i2_t3_nb1_understanding_hopv_stability_csv.ipynb)
-2. [Understanding HOMO/LUMO Data](i2_t3_nb2_understanding_hopv_homolumo_data.ipynb)
+1. [Understanding HOPV Stability](01_understanding_stability_data.ipynb)
+2. [Understanding HOMO/LUMO Data](02_understanding_homolumo_data.ipynb)
 
 ## Data Preparation
 
@@ -31,7 +31,7 @@ Turn the raw molecular data into data suitable for machine-learning models.
 
 Complete:
 
-* [Data Preparation](i2_t4_nb1_data_prep.ipynb)
+* [Data Preparation](03_data_preparation.ipynb)
 
 ## Classification
 
@@ -39,7 +39,7 @@ Build a classification model to predict molecular stability.
 
 Complete:
 
-* [Classification](i2_t5_nb1_classification.ipynb)
+* [Classification](04_classification.ipynb)
 
 ## Regression
 
@@ -47,7 +47,7 @@ Build regression models to predict HOMO and LUMO energy levels.
 
 Complete:
 
-* [Regression](i2_t6_nb1_regression.ipynb)
+* [Regression](05_regression.ipynb)
 
 ## Clustering
 
@@ -55,7 +55,7 @@ Use clustering to investigate molecular structure and identify patterns that may
 
 Complete:
 
-* [Clustering](i2_t7_nb1_clustering.ipynb)
+* [Clustering](06_clustering.ipynb)
 
 ## Keep iterating
 

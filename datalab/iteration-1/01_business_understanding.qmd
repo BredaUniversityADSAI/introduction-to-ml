@@ -7,11 +7,11 @@ number-sections: false
 
 The world is in a race to find sustainable energy sources to combat climate change. Solar energy, which converts sunlight into electricity, is a cornerstone of this transition. You've likely seen traditional solar panels on rooftops; these are amazing technologies, but the quest for even better, cheaper, and more versatile solutions is relentless. This project places you at the forefront of that quest, using data science to unlock the potential of a new generation of solar technology.
 
-Our client, OMEGALAB, is developing next-generation solar cells known as **Organic Photovoltaics (OPVs)**, a flexible, lightweight, and potentially low-cost alternative to traditional panels. They've asked you to predict key molecular properties based solely on chemical structure. Accurate predictions can significantly accelerate the discovery of new materials, replacing the slow and costly process of synthesizing and testing each candidate in the lab.
+Our client, the OMEGA Lab, is developing next-generation solar cells known as **Organic Photovoltaics (OPVs)**, a flexible, lightweight, and potentially low-cost alternative to traditional panels. They've asked you to predict key molecular properties based solely on chemical structure. Accurate predictions can significantly accelerate the discovery of new materials, replacing the slow and costly process of synthesizing and testing each candidate in the lab.
 
 <div style="display: flex; gap: 1rem; justify-content: center;">
-  <img src="../../images/iteration_1_business_understanding/figure_1a.jpg" alt="Silicon solar cell" style="width: 49%; height: 280px; object-fit: cover;">
-  <img src="../../images/iteration_1_business_understanding/figure_1b.jpg" alt="Organic solar cell" style="width: 49%; height: 280px; object-fit: cover;">
+  <img src="../../images/iteration-1/figure_1a.jpg" alt="Silicon solar cell" style="width: 49%; height: 280px; object-fit: cover;">
+  <img src="../../images/iteration-1/figure_1b.jpg" alt="Organic solar cell" style="width: 49%; height: 280px; object-fit: cover;">
 </div>
 <figure style="text-align: center; margin-top: 0.5rem;">
   <figcaption><em>Figure 1: A silicon solar cell (left) and an organic solar cell (right). Left: "125x125-pseudo-square-monocrystalline-solar.cell" by Stephan Kambor, Wikimedia Commons, CC BY-SA 2.5. Right: "OPV slot-die" by FreudianCritz, Wikimedia Commons, CC BY-SA 4.0.</em></figcaption>
@@ -25,10 +25,10 @@ For decades, the solar market has been dominated by silicon-based solar cells. S
 - **Insulators** (like rubber): Electrons are tightly held and don't flow.
 - **Semiconductors** (like silicon): These are in the middle. They are naturally insulators, but with a little energy (like from sunlight), we can excite their electrons, causing them to jump across an "energy gap" (called the **bandgap**) and start flowing as an electric current.
 
-The name 'Silicon Valley' itself comes from the silicon used in computer chips. The global industry that grew from that valley relies on incredible precision to manufacture those chips. Companies like ASML, a global semiconductor leader located just 60 km from our campus, are at the heart of this industry. ASML builds the highly complex lithography machines that create the microscopic transistors and circuits on silicon wafers — the brains powering everything from your phone to advanced data centers.
+The name 'Silicon Valley' itself comes from the silicon used in computer chips. The global industry that grew from that valley relies on incredible precision to manufacture those chips. Companies like ASML, a global semiconductor leader located just 60 km from Breda, are at the heart of this industry. ASML builds the highly complex lithography machines that create the microscopic transistors and circuits on silicon wafers — the brains powering everything from your phone to advanced data centers.
 
 <figure style="text-align: center;">
-  <img src="../../images/iteration_1_business_understanding/figure_2.png" alt="Silicon wafer" style="width: 50%;">
+  <img src="../../images/iteration-1/figure_2.png" alt="Silicon wafer" style="width: 50%;">
   <figcaption><em>Figure 2: A 4-inch silicon wafer used as a substrate in both photovoltaic cells and computer microchips. "4 inch float zone n-type silicon wafer with amorphous silicon thin film heterojunction structure" by Radiotrefoil, Wikimedia Commons, CC BY-SA 4.0.</em></figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ However, silicon has its drawbacks. The panels are rigid, heavy, and the manufac
 - **The Challenge:** Currently, OPVs are less efficient and less durable than silicon. Typical silicon panels can reach efficiencies of 20–23%, while commercial OPVs are often in the 10–15% range, and they can degrade more quickly when exposed to the elements. Our project aims to close this gap.
 
 <figure style="text-align: center;">
-  <img src="../../images/iteration_1_business_understanding/figure_3.jpg" alt="Examples of organic photovoltaic molecules" style="width: 60%;">
+  <img src="../../images/iteration-1/figure_3.jpg" alt="Examples of organic photovoltaic molecules" style="width: 60%;">
   <figcaption><em>Figure 3: Examples of organic photovoltaic molecules. "Examples of organic photovoltaic materials" by Leyo, Wikimedia Commons. Public domain.</em></figcaption>
 </figure>
 
@@ -54,7 +54,7 @@ The core of an OPV is the organic molecule that captures light. Its effectivenes
 The right combination of HOMO, LUMO, and high stability is the "holy grail" for a new OPV material. Finding it means creating a more efficient and commercially viable product.
 
 <figure style="text-align: center;">
-  <img src="../../images/iteration_1_business_understanding/figure_4.jpg" alt="HOMO-LUMO energy diagram" style="width: 60%;">
+  <img src="../../images/iteration-1/figure_4.jpg" alt="HOMO-LUMO energy diagram" style="width: 60%;">
   <figcaption><em>Figure 4: Diagram of HOMO and LUMO molecular orbitals, demonstrating how an electron can move from HOMO to LUMO upon excitation by light. "Molecule HOMO-LUMO diagram" by Tomgally and Parutakupiu, Wikimedia Commons. Public domain.</em></figcaption>
 </figure>
 

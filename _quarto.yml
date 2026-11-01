@@ -100,21 +100,21 @@ website:
     # Iteration
     - section: datalab/iteration-1/index.qmd
       contents:
-        - datalab/iteration-1/task1_business_understanding.qmd
-        - datalab/iteration-1/task1_data_understanding.qmd
-        - datalab/iteration-1/i1_t1_nb1_classification.ipynb
-        - datalab/iteration-1/i1_t1_nb2_regression.ipynb
-        - datalab/iteration-1/i1_t1_nb3_clustering.ipynb
+        - datalab/iteration-1/01_business_understanding.qmd
+        - datalab/iteration-1/02_data_understanding.qmd
+        - datalab/iteration-1/03_classification.ipynb
+        - datalab/iteration-1/04_regression.ipynb
+        - datalab/iteration-1/05_clustering.ipynb
 
     # Iteration 2
     - section: datalab/iteration-2/index.qmd
       contents:
-        - datalab/iteration-2/i2_t3_nb1_understanding_hopv_stability_csv.ipynb
-        - datalab/iteration-2/i2_t3_nb2_understanding_hopv_homolumo_data.ipynb
-        - datalab/iteration-2/i2_t4_nb1_data_prep.ipynb
-        - datalab/iteration-2/i2_t5_nb1_classification.ipynb
-        - datalab/iteration-2/i2_t6_nb1_regression.ipynb
-        - datalab/iteration-2/i2_t7_nb1_clustering.ipynb
+        - datalab/iteration-2/01_understanding_stability_data.ipynb
+        - datalab/iteration-2/02_understanding_homolumo_data.ipynb
+        - datalab/iteration-2/03_data_preparation.ipynb
+        - datalab/iteration-2/04_classification.ipynb
+        - datalab/iteration-2/05_regression.ipynb
+        - datalab/iteration-2/06_clustering.ipynb
   
     # Iteration 3
     - datalab/iteration-3/index.qmd
