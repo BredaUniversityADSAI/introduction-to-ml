@@ -36,7 +36,7 @@ Year 1 · Machine Learning
 :::
 
 ::: {.ml-lead}
-The Omega Lab is searching for molecules for next-generation solar cells. Testing each one in the lab is slow and expensive. They want you to build a machine-learning model that predicts molecular properties, so they can screen thousands in seconds and only test the top candidates.
+The OMEGA Lab is searching for molecules for next-generation solar cells. Testing each one in the lab is slow and expensive. They want you to build a machine-learning model that predicts molecular properties, so they can screen thousands in seconds and only test the top candidates.
 :::
 
 ::: {.ml-actions}
@@ -282,14 +282,14 @@ Apply what you learned to the real client challenge.
 Demonstrate how well your solution performs.
 
 - Predict on unseen molecules
-- Submit your solution to the Kaggle competition
+- Submit your solutions to the Kaggle competitions
 - Use your Kaggle score to evaluate and improve your model
 :::
 
 :::::
 
 ::: {.ml-note}
-**About the data:** The course uses real molecular structures and features. For a fair educational competition, course-specific target values are generated to follow realistic chemical distributions.
+**About the data:** The molecules are real, from published research datasets. The values you predict (HOMO, LUMO and stability) are synthetically generated for this course: they follow realistic chemical relationships, but they are not the published measurements.
 :::
 
 ::::::
@@ -471,9 +471,9 @@ The course repository contains the code and data used throughout the course. [Se
 <span class="ml-status">Under preparation</span>
 </div>
 
-### Kaggle competition
+### Kaggle competitions
 
-The course includes a Kaggle competition where you generate predictions for unseen molecules and submit them for evaluation. Your leaderboard score gives you an indication of how well your solution performs.
+The course includes two Kaggle competitions, stability and energy levels, where you generate predictions for unseen molecules and submit them for evaluation. Your leaderboard score gives you an indication of how well your solution performs.
 :::
 
 :::::

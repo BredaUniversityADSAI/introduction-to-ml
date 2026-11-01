@@ -37,7 +37,7 @@ However, silicon has its drawbacks. The panels are rigid, heavy, and the manufac
 - **What does "Organic" mean here?** In chemistry, "organic" refers to molecules primarily built from carbon atoms, often linked with hydrogen, oxygen, and nitrogen. These are the building blocks of plastics, polymers, and life itself.
 - **OPVs** use these specialized organic molecules to absorb light and generate electricity.
 - **The Promise of OPVs:** They can be lightweight, flexible, semi-transparent, and potentially manufactured at a low cost using printing-like techniques. Imagine solar-collecting windows or jackets.
-- **The Challenge:** Currently, OPVs are less efficient and less durable than silicon. Typical silicon panels can reach efficiencies of 20–23%, while commercial OPVs are often in the 10–15% range, and they can degrade more quickly when exposed to the elements. Our project aims to close this gap.
+- **The Challenge:** Currently, OPVs are less efficient and less durable than silicon. Typical silicon panels reach efficiencies of 20–23%. The best OPV cells in research labs now come close to 20%, but larger OPV modules and commercial products remain well below that, and they degrade more quickly when exposed to the elements. Our project aims to help close this gap.
 
 <figure style="text-align: center;">
   <img src="../../images/iteration-1/figure_3.jpg" alt="Examples of organic photovoltaic molecules" style="width: 60%;">
@@ -48,7 +48,7 @@ However, silicon has its drawbacks. The panels are rigid, heavy, and the manufac
 
 The core of an OPV is the organic molecule that captures light. Its effectiveness depends on specific electronic properties and its durability. The key properties we are interested in for this project are HOMO, LUMO, and stability. **HOMO and LUMO tell us how easily the molecule can move electrons; stability tells us how long it survives.**
 
-- **HOMO (Highest Occupied Molecular Orbital) & LUMO (Lowest Unoccupied Molecular Orbital):** You can think of these as the energy levels of the molecule's electrons. The difference between the HOMO and LUMO levels is effectively the molecule's bandgap. The absolute energy levels of HOMO and LUMO are critical for how efficiently the generated electrons can be extracted from the solar cell.
+- **HOMO (Highest Occupied Molecular Orbital) & LUMO (Lowest Unoccupied Molecular Orbital):** You can think of these as the energy levels of the molecule's electrons. The difference between the HOMO and LUMO levels is effectively the molecule's bandgap. The absolute energy levels of HOMO and LUMO are critical for how efficiently the generated electrons can be extracted from the solar cell. Both are energies in electronvolts (eV) and are negative numbers. The LUMO lies above the HOMO, so LUMO values are higher (closer to zero) than HOMO values.
 - **Stability:** Stability is related to the duration for which the molecule, and consequently the solar cell, remains intact before it breaks down and stops working effectively. A fantastic molecule that dies after a few days is useless for a real-world product that needs to last for years.
 
 The right combination of HOMO, LUMO, and high stability is the "holy grail" for a new OPV material. Finding it means creating a more efficient and commercially viable product.
@@ -80,4 +80,19 @@ C1=CC=C2C(=C1)C3=NC4=NC(=NC5=C6C=CC=CC6=C(N5)N=C7C8=CC=CC=C8C(=N7)N=C2N3)C9=CC=C
 
 Machine learning models work with numbers, but SMILES strings are text. So how do we convert them into numbers? We'll use [RDKit](https://www.rdkit.org), a powerful open-source cheminformatics library in Python, to parse SMILES strings and compute **molecular descriptors**. These descriptors are numerical features that capture the molecule's size, shape, and chemical properties. Your task is to build a model that takes these descriptors as input and predicts the HOMO, LUMO, and stability as output.
 
-By building a reliable predictive model, we can computationally screen millions of virtual molecules in the time it takes a lab to test one. This allows OMEGALAB to focus their expensive lab work only on the most promising candidates identified by your model, accelerating the pace of material discovery by orders of magnitude. This is not just a course project — it's a direct path to making a significant impact on the future of renewable energy.
+A reliable predictive model lets the OMEGA Lab screen many candidate molecules on a computer before making any of them, and focus its expensive lab work on the most promising ones. Predictions don't replace measurements, but they can make the search for better materials much faster.
+
+## What success looks like
+
+Your models are scored the same way as in the project's two Kaggle competitions:
+
+- **Stability** (the classes `low`, `medium` and `high`): the macro-averaged F1 score, so that every class counts equally, however rare it is. You will learn it in Iteration 2.
+- **HOMO and LUMO** (in eV): the mean absolute error (MAE), the average distance between a prediction and the true value. Lower is better.
+
+A model is only useful if it clearly beats a simple baseline, such as always predicting the most frequent class or the average value.
+
+## About the data in this course
+
+The molecules in this project are real: they come from published research datasets. The values you predict are not the published measurements. For this course, the HOMO, LUMO and stability values of all datasets were **synthetically generated** based on real molecular properties: they follow realistic chemical relationships and give everyone a fair, consistent competition. The client's "lab measurements" you receive later are part of this course scenario.
+
+So the problem is real, and so are the methods you learn. But a model built here has been tested on the course's values, not on new laboratory measurements: a good score in this course does not show how well it would predict real measurements.

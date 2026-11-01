@@ -8,13 +8,13 @@ The course has three core components:
 
 - **Self-study**: learn the concepts independently of the project. Jupyter notebooks and reading guides cover the fundamentals: classification, regression, clustering, the end-to-end ML workflow, scikit-learn pipelines, decision trees and ensembles.
 - **DataLab**: apply what you learned to the real client challenge. You work with real molecular data (the HOPV dataset) and improve your solution through successive CRISP-DM iterations, with less guidance in each one.
-- **Assessment**: demonstrate how well your solution performs. You predict properties of unseen molecules and submit them to a Kaggle competition, then use your score to evaluate and improve your model.
+- **Assessment**: demonstrate how well your solution performs. You predict properties of unseen molecules and submit them to two Kaggle competitions, then use your score to evaluate and improve your model.
 
-The on-campus course also assesses deliverables such as reports and presentations. This public version is adapted for independent learning without supervision or formal grading, so the Kaggle competition is the main way to evaluate your solution.
+The on-campus course also assesses deliverables such as reports and presentations. This public version is adapted for independent learning without supervision or formal grading, so the Kaggle competitions are the main way to evaluate your solution.
 
 📖 **Course website:** <https://ai.buas.nl/open-courses/introduction-to-ml/>
 
-> **Early release (v0.2).** The course is complete enough to learn from but still being finished: pages may change, and the Kaggle competitions open in early 2027. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
+> **Early release (v0.3).** The course is complete enough to learn from but still being finished: pages may change, and the Kaggle competitions open soon. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
 >
 > **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 
@@ -56,7 +56,10 @@ quarto preview   # local preview with live reload
 quarto render    # full build into _book/
 ```
 
-Every push to `main` is published to GitHub Pages automatically.
+The site at <https://ai.buas.nl/open-courses/introduction-to-ml/> is built from version tags: a tag `vX.Y.Z` builds
+the site and attaches it to a GitHub Release, and the ADS&AI department site serves the release it
+points to. Pushes to `main` only refresh the redirects from the old github.io address and run the
+checks (`.github/workflows/check.yml`).
 
 ## License
 

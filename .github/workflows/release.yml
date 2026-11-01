@@ -34,6 +34,9 @@ jobs:
         run: uv sync --frozen
 
       - name: Render the site
+        env:
+          # Colab buttons open the notebooks of this tag (filters/colab-button.lua)
+          COLAB_REF: ${{ github.ref_name }}
         run: quarto render
 
       - name: Package the site

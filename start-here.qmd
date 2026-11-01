@@ -8,7 +8,7 @@ The course has three parts (see the [overview](index.qmd#course-structure)):
 
 - **Self-study**: notebooks and reading guides that teach the concepts;
 - **DataLab**: a client project in three iterations, where you apply them to real molecules;
-- **Assessment**: a Kaggle competition that scores your predictions on molecules you haven't seen.
+- **Assessment**: two Kaggle competitions (stability and energy levels) that score your predictions on molecules you haven't seen.
 
 ## Choose your path
 
@@ -22,7 +22,7 @@ Every notebook page has an **Open in Colab** button that runs the notebook in yo
 
 ### The full course (recommended)
 
-[Set up your computer](setup.qmd) once (about 15 minutes), then follow the [8-week plan](#an-8-week-plan) below: Self-study and DataLab side by side, every exercise in the notebooks, and at the end your own model on the Kaggle leaderboard.
+[Set up your computer](setup.qmd) once (about 15 minutes), then follow the [8-week plan](#an-8-week-plan) below: Self-study and DataLab side by side, every exercise in the notebooks, and at the end your own models on the Kaggle leaderboards.
 
 ### You already know machine learning
 
@@ -45,17 +45,17 @@ This plan follows the order of the on-campus course and takes about **24 hours a
 | 5 | Theme 5: [Decision Trees](self-study/009_decision_trees.ipynb), [Random Forests](self-study/010_random_forests.ipynb), [Gradient Boosting](self-study/011_gradient_boosting.ipynb) and their readings | Iteration 3+: try tree-based models and boosting on the project |
 | 6 | (project week) | Iteration 3+: your validation strategy, clustering all molecules, error analysis |
 | 7 | Theme 6: [Communicating Technical Work](self-study/09_communicating_technical_work.qmd), [Understanding ML Research](self-study/10_understanding_ml_research.qmd), [Research to Practice](self-study/11_from_research_to_practice.qmd) | Iteration 3+: keep iterating |
-| 8 | | Finish: your final model and Kaggle submissions; write down what you tried and what you learned |
+| 8 | (project week) | Finish: your final models, predictions for the Kaggle molecules (submitted once the competitions are open), and a short write-up of what you tried and what you learned |
 
 ## What you need
 
 - **Prerequisites.** Basic Python, NumPy, pandas and Matplotlib (see the [overview](index.qmd)). If you need a refresher: the [Python tutorial](https://docs.python.org/3/tutorial/), [NumPy for absolute beginners](https://numpy.org/doc/stable/user/absolute_beginners.html), [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html), the [Matplotlib quick start](https://matplotlib.org/stable/users/explain/quick_start.html), or Kaggle's free [Python](https://www.kaggle.com/learn/python) and [pandas](https://www.kaggle.com/learn/pandas) courses. No chemistry is needed: the project explains what you need to know.
 - **The textbook.** The reading guides follow Aurélien Géron, *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* (3rd edition, O'Reilly). Many libraries offer it through the O'Reilly learning platform. Without the book you can still do the whole course: the reading guides say what each chapter is about, the [book's own notebooks](https://github.com/ageron/handson-ml3) are free, and the course notebooks stand on their own.
-- **A computer** with about 1 GB of free disk space for the [setup](setup.qmd). Any recent Windows, macOS or Linux computer works.
+- **A computer** with about 3 GB of free disk space for the [setup](setup.qmd). Any recent Windows, macOS or Linux computer works.
 
 ## Working through the notebooks
 
-The notebooks mix explanations with exercises, marked **Your Turn**, and empty cells marked `# YOUR CODE HERE`. Many exercises show the expected output, so you can check your result. There are no published solutions: working out the code yourself is where the learning happens. Read the documentation of the functions you use, and if you ask an AI assistant, ask it to explain rather than to write the code for you.
+The notebooks mix explanations with exercises, marked **Your Turn**, and empty cells marked `# YOUR CODE HERE`. Many exercises show the expected output, so you can check your result. Some Self-study notebooks show a worked solution right after an exercise (marked `SOLUTION` or "my solution"), so that you can compare it with your own: try first, then look. All other exercises, and the DataLab project, have no published solutions: working out the code yourself is where the learning happens. Read the documentation of the functions you use, and if you ask an AI assistant, ask it to explain rather than to write the code for you.
 
 ## When you are stuck
 
@@ -63,6 +63,6 @@ The notebooks mix explanations with exercises, marked **Your Turn**, and empty c
 - **Mistakes in the course:** use **Report an issue** under the table of contents of any page.
 - There is no staff support or grading. The course team looks at the Discussions when it can and fixes reported mistakes, but cannot answer every question.
 
-## The Kaggle competition
+## The Kaggle competitions
 
-The competition for this course opens in early 2027; see [What's new](whats-new.qmd). Until then, use a validation strategy you trust: Iteration 3+ has pointers.
+The competitions for this course are being prepared and open soon; see [What's new](whats-new.qmd). Until then, use a validation strategy you trust (Iteration 3+ has pointers), and prepare your predictions for the Kaggle molecules in the format of the sample submission files.

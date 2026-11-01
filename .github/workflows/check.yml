@@ -1,0 +1,56 @@
+name: Check the course
+
+# Catches the common regressions before a release: the data and the sample submissions,
+# the self-study notebooks (run from a fresh kernel, exercise cells left empty), and the
+# rendered site (broken links, missing images, Colab buttons pointing to missing notebooks).
+# The DataLab notebooks are almost all exercises, so they are not executed.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4
+        with:
+          enable-cache: true
+
+      - name: Install Python
+        run: uv python install
+
+      - name: Install Python dependencies
+        run: uv sync --frozen
+
+      - name: Check the setup (as in setup.qmd)
+        run: uv run python -c "import sklearn, rdkit, xgboost, lightgbm; print('All set')"
+
+      - name: Check the data and the sample submissions
+        run: uv run python tools/check_data.py
+
+      - name: Run the self-study notebooks
+        run: uv run python tools/run_notebooks.py self-study/0*.ipynb
+
+      - name: Render the site
+        run: |
+          quarto render 2>&1 | tee render.log
+          if grep -q "Unable to resolve" render.log; then
+            echo "Quarto could not resolve some links (see above)"; exit 1
+          fi
+
+      - name: Check links, images and Colab buttons
+        run: uv run python tools/check_site.py _book

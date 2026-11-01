@@ -4,7 +4,7 @@
 
 Read **Chapter 7: Ensemble Learning and Random Forests**, from the beginning of the chapter **up to, but not including, Boosting**.
 
-In the course edition, this corresponds approximately to **pp. 211–222**.
+These are the sections from *Voting Classifiers* through *Random Forests* (including *Bagging and Pasting* and *Random Patches and Random Subspaces*), about 12 pages in the print edition.
 
 This reading introduces the broader idea of ensemble learning before focusing on random forests. The central idea is that combining multiple models can produce a more reliable predictor than relying on a single model.
 

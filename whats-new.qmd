@@ -8,7 +8,21 @@ Found a mistake or something unclear? Use "Report an issue" on any page, or [ope
 
 ## Coming next
 
-- The Kaggle competitions for stability and energy levels (early 2027).
+- The Kaggle competitions for stability and energy levels (soon).
+
+## v0.3.0 · 1 November 2026
+
+Fixes and improvements after the first reviews of the course from a learner's point of view.
+
+- **Evaluation matches the competitions.** Iteration 2 classification now uses stratified cross-validation and reports macro-F1 next to accuracy, with a majority-class baseline and new expected results. Modeling & Evaluation explains stratified folds and how macro and weighted F1 differ. Business Understanding says how success is measured.
+- **Missing targets.** Iterations 1 and 2 remove only the rows where the target you predict is missing, which keeps far more molecules (72 instead of 46 in the starter dataset). A new exercise shows how much a score on a tiny test set depends on the split.
+- **Iteration 1 clustering** explains the noise label `-1` and has a new exercise: find out why one descriptor decides the clusters, then scale the features.
+- **Data leakage warning** in Iteration 2: the extra HOPV columns (gaps, efficiency, voltage, current, fill factor) are measurements, not features.
+- **The data is described more precisely:** the molecules are real, the target values are generated for this course. Iteration 3+ is clearer about missing descriptor values in the lab and Kaggle molecules, how the competitions are scored, and how to keep an experiment log.
+- **Finding your files:** the Iteration 2 notebooks say at the top which files they need and create; the setup guide has a notebook check and help for missing files. Files you create are now ignored by Git.
+- **Self-study notebooks 005–011 show their output on the website**, including the decision trees and pipeline diagrams. Corrections in 005, 007, 008 (reproducible Optuna search), 009 and 010.
+- pandas 3 wording (`str` instead of `object`), realistic disk space (about 3 GB), reading guides without page numbers of a specific print, open-access links, and smaller fixes.
+- The DataLab iterations are now nested under DataLab in the menu. On released versions, the Colab button opens the notebook of that version.
 
 ## v0.2.0 · 1 November 2026
 

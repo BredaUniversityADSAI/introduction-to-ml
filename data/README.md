@@ -8,7 +8,7 @@ All datasets of the DataLab project.
 | `001_raw_data/` | `HOPV_stability.csv` | 350 | SMILES, stability (`low`, `medium`, `high`) | Iteration 2 |
 | `001_raw_data/` | `lab_measurements.db` | 232 | SQLite database, table `measurements`: SMILES, HOMO, LUMO, stability | Iteration 3+ |
 | `002_processed_data/` | `starter_dataset.xlsx` | 80 | SMILES, 217 molecular descriptors, HOMO, LUMO, stability | Iteration 1 |
-| `003_kaggle_competition_data/` | `classification_sample_submission.csv`, `regression_sample_submission.csv` | 200 | SMILES and placeholder predictions | Iteration 3+ |
+| `003_kaggle_competition_data/` | `classification_sample_submission.csv`, `regression_sample_submission.csv` | 200 | SMILES and placeholder predictions (the format of a Kaggle submission) | Iteration 3+ |
 
 HOMO and LUMO are in electronvolts (eV). Missing values are part of the data.
 
@@ -21,4 +21,5 @@ real molecular properties. They follow realistic chemical relationships, but the
 published values for these molecules.
 
 Files you create while working through the notebooks (for example `HOPV_homolumo_processed.csv`
-and `xy_df_hopv.csv`) go in `002_processed_data/`.
+and `xy_df_hopv.csv`) go in `002_processed_data/`. Git ignores them there, so updating the course
+with `git pull` never touches them.

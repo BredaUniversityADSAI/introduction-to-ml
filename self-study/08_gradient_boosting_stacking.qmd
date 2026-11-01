@@ -4,7 +4,7 @@
 
 Continue reading **Chapter 7: Ensemble Learning and Random Forests**, starting with the **Boosting** section and continuing to the end of the chapter.
 
-In the course edition, this corresponds approximately to **pp. 222–235**.
+These are the sections *Boosting* (AdaBoost, gradient boosting, histogram-based gradient boosting) and *Stacking*, about 13 pages in the print edition.
 
 The main focus is gradient boosting: building trees sequentially so that each new model attempts to correct errors made by the models that came before it.
 

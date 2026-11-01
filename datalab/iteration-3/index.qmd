@@ -81,25 +81,25 @@ con.close()
 
 There is no recipe for this iteration, but these questions are good places to start:
 
-- **Where do the Kaggle molecules come from?** Compare them with the HOPV molecules: their size, their SMILES strings, a few descriptors. Plot all molecules together, for example with PCA, and colour them by source. Do the sources overlap?
+- **Where do the Kaggle molecules come from?** Compare them with the HOPV molecules: their size, their SMILES strings, a few descriptors. Plot all molecules together, for example with PCA, and colour them by source. Scale the descriptors first: unscaled, a few descriptors with huge values decide the whole picture, as you saw when clustering in Iteration 1. Do the sources overlap?
 - **Which of your data sources looks most like the Kaggle molecules?** What does that mean for the data you train on?
 - **Does your validation tell the truth?** A model that does well in cross-validation on HOPV can still do badly on Kaggle. What do the molecules in your validation folds represent, and how could you make your validation more like the molecules you are scored on?
 - **Clustering is a tool, not just an exercise.** Cluster all molecules together (HOPV, lab database and Kaggle). Which training molecules end up in the same clusters as Kaggle molecules? How could you use that: for validation, for choosing or weighting training data, or as a feature?
-- **Combining sources needs care.** Check for duplicates between the files, missing values, and whether the values are on the same scale. A few descriptors are infinite for some molecules.
+- **Combining sources needs care.** Check for duplicates between the files, missing values, and whether the values are on the same scale. A large share of the lab and Kaggle molecules have missing descriptor values, and one descriptor is infinite for one molecule: find out which molecules and descriptors are affected and why, and decide how to handle them. HOPV hardly has this problem, so a model trained on HOPV alone never learns to deal with it.
 - **Look at your mistakes.** Which molecules does your model get most wrong? Do they have something in common?
 
-## The Kaggle competition
+## The Kaggle competitions
 
 ::: {.callout-important}
-The Kaggle competitions for this course are being prepared and open in early 2027. Until then, use the questions above and a validation strategy you trust.
+The Kaggle competitions for this course are being prepared and open soon; the links will appear here and on [What's new](../../whats-new.qmd). Until then, use the questions above and a validation strategy you trust, and write your predictions for the Kaggle molecules in the format of the sample submission files, so that they are ready to submit.
 :::
 
 There are two competitions, one per problem:
 
 - **Stability** (classification): scored with the macro-averaged F1 score, so the classes `low`, `medium` and `high` count equally.
-- **Energy levels** (regression): scored with the mean absolute error (MAE) over `homo` and `lumo`, in eV.
+- **Energy levels** (regression): scored with the mean absolute error (MAE) over all `homo` and `lumo` predictions together, in eV. This is the average of the HOMO MAE and the LUMO MAE.
 
-Replace the placeholder values in the sample submission files with your predictions and upload them. While the competition runs, the public leaderboard scores your submission on 20% of the molecules; the final ranking uses the other 80%. Don't over-tune to the public leaderboard: it is a small sample.
+Replace the placeholder values in the sample submission files with your predictions and upload them. While a competition runs, the public leaderboard scores your submission on 20% of the molecules (40 of the 200); the final ranking uses the other 80%. Don't over-tune to the public leaderboard: it is a small sample.
 
 ## Your workflow
 
@@ -137,7 +137,14 @@ For each iteration:
 4. Evaluate the result.
 5. Decide what to do next.
 
-Keep track of your experiments so that you know which changes improved your solution and which did not.
+Keep track of your experiments so that you know which changes improved your solution and which did not. A spreadsheet or a CSV file with one row per experiment is enough, for example:
+
+| Date | Data | Features | Model and parameters | Validation | CV score (mean ± std) | Kaggle public score | Note |
+|---|---|---|---|---|---|---|---|
+| 12 Nov | HOPV, rows without stability removed (312) | 217 RDKit descriptors | random forest, defaults | `StratifiedKFold(5)`, shuffled, seed 42 | macro-F1 0.71 ± 0.04 | | first baseline |
+| 13 Nov | HOPV + lab database | same | same | same folds for HOPV, lab molecules always in training | ... | ... | does the lab data help? |
+
+Only compare scores that come from the same protocol: the same validation molecules, folds and metric. When you change the data you validate on, the folds or the metric, the old scores are no longer comparable: score your previous best model again under the new protocol. And never tune on the data you use for your final check.
 
 ## Go beyond the baseline
 

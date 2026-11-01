@@ -6,6 +6,10 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
+# Files learners create in the DataLab notebooks (data/README.md)
+data/002_processed_data/*
+!data/002_processed_data/starter_dataset.xlsx
+
 # Models saved by the notebooks; CatBoost training logs (notebook 011)
 models/*
 !models/.gitkeep

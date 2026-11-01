@@ -9,7 +9,7 @@ You install two tools:
 - **Git**, to download the course and get updates;
 - **uv**, which installs the right Python version (3.13) and every package the course uses. You don't need to install Python yourself.
 
-Everything together needs about 1 GB of disk space.
+Everything together needs about 3 GB of disk space: the course environment (about 0.7 GB on macOS, about 1.5 GB on Linux, where XGBoost also installs GPU libraries) and uv's download cache, which you can empty afterwards with `uv cache clean`.
 
 ## 1. Install Git
 
@@ -84,6 +84,19 @@ Choose one:
 
 - **VS Code** with the Python and Jupyter extensions. Open the course folder, open a notebook, click **Select Kernel** in the top right and choose the `.venv` environment. See [Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
 
+## 7. Check the notebooks
+
+Open `self-study/001_getting_started.ipynb` and run all cells. If they run without errors, you are ready to start. In any notebook, this cell shows which Python it uses and the folder it runs in:
+
+```python
+import sys
+from pathlib import Path
+print(sys.executable)  # should be inside the course's .venv folder
+print(Path.cwd())      # the folder of the notebook
+```
+
+The notebooks read the data with paths relative to their own folder: a DataLab notebook in `datalab/iteration-2/` reads `../../data/...`. Files you create (such as the processed CSV files) go in `data/002_processed_data/`, models in `models/`.
+
 ## What is where
 
 | Folder | Contents |
@@ -104,16 +117,18 @@ git pull
 uv sync
 ```
 
-`git pull` refuses to overwrite notebooks you have changed. The simplest way to avoid that: work in a copy of each notebook (for example `003_regression_mine.ipynb`), and keep the originals untouched.
+`git pull` refuses to overwrite notebooks you have changed. The simplest way to avoid that: work in a copy of each notebook (for example `003_regression_mine.ipynb`), and keep the originals untouched. The files you create in `data/002_processed_data/` and `models/` are ignored by Git, so they never get in the way of an update.
 
 ## If something goes wrong
 
 - **`uv` or `git`: command not found.** Close and reopen the terminal after installing. On Windows, use PowerShell.
 - **A package is missing or behaves strangely.** Delete the `.venv` folder and run `uv sync` again.
+- **`ModuleNotFoundError` in a notebook, although the check above printed `All set`.** The notebook runs in another Python. Start Jupyter with `uv run jupyter lab` from the course folder, or select the `.venv` kernel in VS Code.
+- **`FileNotFoundError` for a data file.** Print `Path.cwd()` (see step 7) and check the path relative to that folder. If the missing file is `HOPV_homolumo_processed.csv` or `xy_df_hopv.csv`, an earlier notebook hasn't saved it yet: each Iteration 2 notebook says at the top which files it needs and which notebook creates them.
 - **You want an extra package.** Run `uv add <package-name>` in the course folder and restart the notebook kernel. Don't use `pip install` inside a notebook: the package is lost at the next `uv sync`. Note that `uv add` changes `pyproject.toml` and `uv.lock`, which can make a later `git pull` complain about these files.
 - **Do not upgrade `rdkit`.** It is pinned to version 2025.9.3 on purpose: other versions compute some molecular descriptors differently from the course data.
 - Still stuck? Ask in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/q-a). Say which operating system you use and paste the full error message.
 
 ## Only a quick look? Google Colab
 
-Every notebook page on this website has an **Open in Colab** button. Colab runs the notebook in your browser, without installing anything, and the notebooks show how to load the data there. It is fine for a quick look or a single notebook. For the whole course, use the local setup: Colab forgets the files you create when the session ends, and the DataLab notebooks depend on files from earlier notebooks.
+Every notebook page on this website has an **Open in Colab** button. Colab runs the notebook in your browser, without installing anything, and the notebooks show how to load the data there. It is fine for a quick look or a single notebook. For the whole course, use the local setup: Colab forgets the files you create when the session ends, and the DataLab notebooks depend on files from earlier notebooks. If you still continue a DataLab notebook chain in Colab, download the files a notebook creates before the session ends, and upload them at the start of the next one.

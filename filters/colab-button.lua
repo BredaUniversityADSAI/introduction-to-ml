@@ -2,7 +2,13 @@
 -- The Colab URL is built from the notebook's path in the repository, so new
 -- notebooks get a working button automatically.
 
-local COLAB_BASE = "https://colab.research.google.com/github/BredaUniversityADSAI/introduction-to-ml/blob/main/"
+-- The branch or tag to open: the release workflow sets COLAB_REF to the version tag, so the
+-- button opens the same notebook the page shows; local and main builds use main.
+local COLAB_REF = os.getenv("COLAB_REF")
+if not COLAB_REF or COLAB_REF == "" then
+  COLAB_REF = "main"
+end
+local COLAB_BASE = "https://colab.research.google.com/github/BredaUniversityADSAI/introduction-to-ml/blob/" .. COLAB_REF .. "/"
 
 local function repo_relative_path()
   local input = quarto.doc.input_file

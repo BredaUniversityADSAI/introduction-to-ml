@@ -14,7 +14,7 @@ The process starts with a simple idea:
 ```{mermaid}
 flowchart LR
     A["SMILES String"] --> B["Machine Learning Model"]
-    B --> C["HOMO\nLUMO\nStability"]
+    B --> C["HOMO<br>LUMO<br>Stability"]
     style A fill:#f47a20,color:#fff,stroke:none
     style B fill:#00558c,color:#fff,stroke:none
     style C fill:#6c757d,color:#fff,stroke:none
@@ -25,9 +25,9 @@ But to make this work, SMILES strings need an intermediate step — conversion t
 ```{mermaid}
 flowchart LR
     A["SMILES String"] --> B["RDKit"]
-    B --> C["Molecular\nDescriptors"]
-    C --> D["Machine Learning\nModel"]
-    D --> E["HOMO\nLUMO\nStability"]
+    B --> C["Molecular<br>Descriptors"]
+    C --> D["Machine Learning<br>Model"]
+    D --> E["HOMO<br>LUMO<br>Stability"]
     style A fill:#f47a20,color:#fff,stroke:none
     style B fill:#adb5bd,color:#000,stroke:none
     style C fill:#f47a20,color:#fff,stroke:none

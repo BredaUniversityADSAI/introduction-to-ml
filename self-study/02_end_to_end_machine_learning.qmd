@@ -1,6 +1,6 @@
 # End-to-End Machine Learning
 
-**Estimated time: 7 hours**
+**Estimated time: 6.5 hours**
 
 Read **Chapter 2: End-to-End Machine Learning Project** from *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow*.
 

@@ -12,11 +12,11 @@ As you progress through the project, the level of guidance gradually decreases.
 |---|---|---|---|
 | **Iteration 1** | `starter_dataset.xlsx`: 80 molecules, ready for modelling | Step by step | Your first classification, regression and clustering models |
 | **Iteration 2** | The raw HOPV files: 350 molecules | Structured notebooks; more decisions are yours | Your own dataset and improved models |
-| **Iteration 3+** | HOPV + a lab database + the Kaggle molecules | Pointers only | A Kaggle score, and a model you can explain |
+| **Iteration 3+** | HOPV + a lab database + the Kaggle molecules | Pointers only | Kaggle scores, and a model you can explain |
 
 There are no deadlines and no grades: work at your own pace. The Kaggle leaderboard tells you how well your solution works on molecules it has never seen. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
 
-**Self-study and DataLab go side by side.** A good rhythm is to finish Self-study theme 1 before Iteration 1, themes 2 and 3 before Iteration 2, and to use themes 4 to 6 as your toolbox in Iteration 3+. The [8-week plan](../start-here.qmd#an-8-week-plan) puts this into a schedule.
+**Self-study and DataLab go side by side.** A good rhythm is to finish Self-study theme 1 before Iteration 1, to work through themes 2 and 3 alongside Iteration 2, and to use themes 4 to 6 as your toolbox in Iteration 3+. The [8-week plan](../start-here.qmd#an-8-week-plan) puts this into a schedule.
 
 ## Iterations
 
@@ -36,7 +36,7 @@ This iteration is still structured, but you will begin making more decisions you
 
 From this point onward, the project becomes open-ended.
 
-Use your existing models as a starting point and compete on the Kaggle challenges. Analyze your results, identify weaknesses, form hypotheses, and decide what to improve next.
+Use your existing models as a starting point and compete in the Kaggle competitions. Analyze your results, identify weaknesses, form hypotheses, and decide what to improve next.
 
 There is no fixed sequence. You may revisit any part of the machine-learning workflow, including data understanding, data preparation, feature engineering, validation, model selection, and hyperparameter tuning.
 

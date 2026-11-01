@@ -12,7 +12,7 @@ After completing this activity, you should be able to:
 
 ## How to Speak — 2 hours
 
-Watch **How to Speak** and take notes.
+Watch **How to Speak** by Patrick Winston (MIT) and take notes.
 
 As you watch, turn the main principles into a practical checklist that you can reuse whenever you prepare a presentation.
 
@@ -37,7 +37,7 @@ Turn principles like this into concrete checklist items. Use the checklist both:
 
 ## The Craft of Writing Effectively — 2 hours
 
-Watch **The Craft of Writing Effectively** and take notes.
+Watch **The Craft of Writing Effectively** by Larry McEnerney (University of Chicago) and take notes.
 
 Again, turn the main principles into a practical checklist that you can reuse whenever you write a technical document.
 
