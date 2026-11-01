@@ -10,6 +10,14 @@ Found a mistake or something unclear? Use "Report an issue" on any page, or [ope
 
 - The Kaggle competitions for stability and energy levels (soon).
 
+## v0.3.1 · 1 November 2026
+
+Three corrections after a second review.
+
+- [Random Forests](self-study/010_random_forests.ipynb): scikit-learn's `RandomForestClassifier` averages the trees' class probabilities instead of counting their votes; the notebook now explains the difference with the hand-made forest.
+- [Modeling & Evaluation](self-study/007_modeling_and_evaluation.ipynb): more trees do not make a random forest overfit (they make it slower and the gains level off); the depth of the trees is what matters.
+- [Iteration 3+](datalab/iteration-3/index.qmd): the experiment-log example now validates on lab molecules, which resemble the Kaggle molecules.
+
 ## v0.3.0 · 1 November 2026
 
 Fixes and improvements after the first reviews of the course from a learner's point of view.

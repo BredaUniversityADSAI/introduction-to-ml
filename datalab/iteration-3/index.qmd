@@ -142,7 +142,7 @@ Keep track of your experiments so that you know which changes improved your solu
 | Date | Data | Features | Model and parameters | Validation | CV score (mean ± std) | Kaggle public score | Note |
 |---|---|---|---|---|---|---|---|
 | 12 Nov | HOPV, rows without stability removed (312) | 217 RDKit descriptors | random forest, defaults | `StratifiedKFold(5)`, shuffled, seed 42 | macro-F1 0.71 ± 0.04 | | first baseline |
-| 13 Nov | HOPV + lab database | same | same | same folds for HOPV, lab molecules always in training | ... | ... | does the lab data help? |
+| 13 Nov | HOPV + lab database | same | same | validate on lab molecules only (they resemble the Kaggle molecules), HOPV always in training | ... | ... | does the lab data help? New protocol, so the baseline is scored again |
 
 Only compare scores that come from the same protocol: the same validation molecules, folds and metric. When you change the data you validate on, the folds or the metric, the old scores are no longer comparable: score your previous best model again under the new protocol. And never tune on the data you use for your final check.
 
