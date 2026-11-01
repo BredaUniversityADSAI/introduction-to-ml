@@ -6,6 +6,13 @@ website:
   title: "Introduction to Machine Learning"
   page-navigation: true
 
+  page-footer:
+    left: >-
+      © 2025–2026 [Breda University of Applied Sciences](https://www.buas.nl) ·
+      Content [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), code
+      [MIT](https://github.com/BredaUniversityADSAI/introduction-to-ml/blob/main/LICENSE.md)
+    right: "[Applied Data Science & AI](https://ai.buas.nl/)"
+
   # "Report an issue" link (with GitHub icon) under each page's table of contents.
   repo-url: https://github.com/BredaUniversityADSAI/introduction-to-ml
   repo-actions: [issue]

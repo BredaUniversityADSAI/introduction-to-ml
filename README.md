@@ -105,6 +105,13 @@ quarto render    # full build into _book/
 
 Every push to `main` is published to GitHub Pages automatically.
 
+## License
+
+You may use and adapt this course in your own teaching. The course content is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and the code under the MIT License; see
+[LICENSE.md](LICENSE.md) for the details, how to give credit and what is not covered.
+To cite the course, use [CITATION.cff](CITATION.cff) ("Cite this repository" on GitHub).
+
 ## Feedback
 
 Found a mistake or something unclear? [Open an issue](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues), or use "Report an issue" on any page of the website.

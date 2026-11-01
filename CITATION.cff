@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use or adapt this course, please cite it as below."
+title: "Introduction to Machine Learning"
+type: generic
+authors:
+  - family-names: Noyan
+    given-names: M. Alican
+    affiliation: "Applied Data Science & AI, Breda University of Applied Sciences"
+repository-code: "https://github.com/BredaUniversityADSAI/introduction-to-ml"
+url: "https://bredauniversityadsai.github.io/introduction-to-ml/"
+license: CC-BY-4.0
+keywords:
+  - machine learning
+  - open course
+  - scikit-learn
+  - organic photovoltaics
