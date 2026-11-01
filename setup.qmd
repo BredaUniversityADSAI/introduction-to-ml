@@ -1,0 +1,119 @@
+---
+title: "Set up your computer"
+---
+
+The course is made to be done on your own computer. The notebooks build on each other: one notebook saves a file or a model, and a later notebook uses it. A local setup keeps all of that in one place. It takes about 15 minutes.
+
+You install two tools:
+
+- **Git**, to download the course and get updates;
+- **uv**, which installs the right Python version (3.13) and every package the course uses. You don't need to install Python yourself.
+
+Everything together needs about 1 GB of disk space.
+
+## 1. Install Git
+
+Download Git from [git-scm.com](https://git-scm.com/downloads) and install it. On macOS, Git is often already there. Check it in a terminal (on Windows: PowerShell):
+
+```bash
+git --version
+```
+
+## 2. Install uv
+
+macOS and Linux:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Windows (PowerShell):
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Close and reopen your terminal, then check that it works:
+
+```bash
+uv --version
+```
+
+Other ways to install uv are in the [uv documentation](https://docs.astral.sh/uv/getting-started/installation/).
+
+## 3. Download the course
+
+Go to the folder where you keep your projects, then:
+
+```bash
+git clone https://github.com/BredaUniversityADSAI/introduction-to-ml.git
+cd introduction-to-ml
+```
+
+## 4. Install Python and the packages
+
+From the `introduction-to-ml` folder:
+
+```bash
+uv sync
+```
+
+The first time, this downloads Python 3.13 and all packages into a `.venv` folder inside the course folder. That takes a few minutes. Nothing is installed elsewhere on your computer.
+
+## 5. Check that it works
+
+```bash
+uv run python -c "import sklearn, rdkit, xgboost, lightgbm; print('All set')"
+```
+
+If you see `All set`, you are ready. On macOS, if this fails with a message about `libomp`, install the OpenMP runtime with [Homebrew](https://brew.sh/) and try again:
+
+```bash
+brew install libomp
+```
+
+## 6. Open the notebooks
+
+Choose one:
+
+- **Jupyter Lab** in your browser. From the course folder:
+
+  ```bash
+  uv run jupyter lab
+  ```
+
+- **VS Code** with the Python and Jupyter extensions. Open the course folder, open a notebook, click **Select Kernel** in the top right and choose the `.venv` environment. See [Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+
+## What is where
+
+| Folder | Contents |
+|---|---|
+| `self-study/` | Self-study notebooks (and the reading pages you see on this website) |
+| `datalab/` | DataLab notebooks, one folder per iteration |
+| `data/` | All datasets of the project (see `data/README.md`) |
+| `models/` | Models you save while working through the notebooks |
+
+The order of the activities is the order on this website, not the order of the file names. Follow the menu, or the [8-week plan](start-here.qmd#an-8-week-plan).
+
+## Getting updates
+
+The course is an early release and still changes. To get the latest version:
+
+```bash
+git pull
+uv sync
+```
+
+`git pull` refuses to overwrite notebooks you have changed. The simplest way to avoid that: work in a copy of each notebook (for example `003_regression_mine.ipynb`), and keep the originals untouched.
+
+## If something goes wrong
+
+- **`uv` or `git`: command not found.** Close and reopen the terminal after installing. On Windows, use PowerShell.
+- **A package is missing or behaves strangely.** Delete the `.venv` folder and run `uv sync` again.
+- **You want an extra package.** Run `uv add <package-name>` in the course folder and restart the notebook kernel. Don't use `pip install` inside a notebook: the package is lost at the next `uv sync`. Note that `uv add` changes `pyproject.toml` and `uv.lock`, which can make a later `git pull` complain about these files.
+- **Do not upgrade `rdkit`.** It is pinned to version 2025.9.3 on purpose: other versions compute some molecular descriptors differently from the course data.
+- Still stuck? Ask in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/q-a). Say which operating system you use and paste the full error message.
+
+## Only a quick look? Google Colab
+
+Every notebook page on this website has an **Open in Colab** button. Colab runs the notebook in your browser, without installing anything, and the notebooks show how to load the data there. It is fine for a quick look or a single notebook. For the whole course, use the local setup: Colab forgets the files you create when the session ends, and the DataLab notebooks depend on files from earlier notebooks.

@@ -14,77 +14,26 @@ The on-campus course also assesses deliverables such as reports and presentation
 
 📖 **Course website:** <https://ai.buas.nl/open-courses/introduction-to-ml/>
 
-> **Early release (v0.1).** The course is complete enough to learn from but still being finished: pages may change, and the Kaggle competitions open in early 2027. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
+> **Early release (v0.2).** The course is complete enough to learn from but still being finished: pages may change, and the Kaggle competitions open in early 2027. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
 >
 > **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 
-## Local setup
+## Getting started
 
-The course is designed to be done on your own machine. The notebooks pass data and processed files between each other, so a local setup is the way to work through the course. The "Open in Colab" buttons on the website are only meant for a quick look at a notebook.
+New to the course? Start with [How to use this course](https://ai.buas.nl/open-courses/introduction-to-ml/start-here.html): paths for different learners, an 8-week plan and where to get help.
 
-You need [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/). uv installs the correct Python version and all packages for you, so you do not need to install Python separately.
-
-### 1. Install uv
-
-macOS and Linux:
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-Windows (PowerShell):
-
-```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
-Restart your terminal afterwards and check that it works with `uv --version`. Other installation options are listed in the [uv documentation](https://docs.astral.sh/uv/getting-started/installation/).
-
-### 2. Get the course
+The course is designed to be done on your own computer. The full step-by-step guide, with troubleshooting, is [Set up your computer](https://ai.buas.nl/open-courses/introduction-to-ml/setup.html). In short, with [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed:
 
 ```bash
 git clone https://github.com/BredaUniversityADSAI/introduction-to-ml.git
 cd introduction-to-ml
+uv sync              # installs Python 3.13 and every package the course uses into .venv/
+uv run jupyter lab   # or open the folder in VS Code and select the .venv kernel
 ```
 
-### 3. Install Python and the packages
+`rdkit` is pinned to version 2025.9.3 on purpose: the course data was prepared with it. On macOS, `xgboost` and `lightgbm` may need `brew install libomp`.
 
-```bash
-uv python install   # installs Python 3.13 (the version in .python-version)
-uv sync             # creates .venv/ and installs the packages from uv.lock
-```
-
-The environment contains everything the course uses, including `rdkit`, `optuna`, `xgboost`, `lightgbm` and `catboost`.
-
-> **Note:** `rdkit` is pinned to exactly `2025.9.3`. Different RDKit versions can calculate some molecular descriptors slightly differently, and the course data was prepared with this version. Do not upgrade it.
-
-On macOS, `xgboost` and `lightgbm` also need the OpenMP runtime, which uv cannot install. If importing them fails with a message about `libomp`, install it with [Homebrew](https://brew.sh/):
-
-```bash
-brew install libomp
-```
-
-### 4. Open the notebooks
-
-Start Jupyter Lab from the project folder:
-
-```bash
-uv run jupyter lab
-```
-
-Or open the folder in VS Code (with the Python and Jupyter extensions), open a notebook, and select the `.venv` environment as the kernel.
-
-### Adding packages
-
-If you want to use a package that is not in the environment, run this from the project folder:
-
-```bash
-uv add <package-name>
-```
-
-Then restart the notebook kernel. Don't use `pip install` inside the notebooks: it skips `pyproject.toml` and `uv.lock`, so the package is lost the next time you run `uv sync`. Note that `uv add` changes `pyproject.toml` and `uv.lock`, so pulling later updates of this repository may then give a merge conflict in these files.
-
-If something breaks, delete the `.venv` folder and run `uv sync` again.
+Questions? Ask in the [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions).
 
 ## Repository structure
 
@@ -118,4 +67,4 @@ To cite the course, use [CITATION.cff](CITATION.cff) ("Cite this repository" on 
 
 ## Feedback
 
-Found a mistake or something unclear? [Open an issue](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues), or use "Report an issue" on any page of the website.
+Found a mistake or something unclear? [Open an issue](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues), or use "Report an issue" on any page of the website. Questions about the course material go to the [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions).

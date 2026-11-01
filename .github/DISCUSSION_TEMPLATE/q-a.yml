@@ -1,0 +1,41 @@
+title: "[Question] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking! Other learners (and sometimes the course team) answer here.
+        Please share hints and ideas, not complete solutions, so that others can still learn from the exercises.
+        Found a mistake in the course itself? Use "Report an issue" on the page instead.
+  - type: input
+    id: where
+    attributes:
+      label: Where in the course?
+      description: The page or notebook, and the exercise if there is one.
+      placeholder: "DataLab, Iteration 2, 03_data_preparation, Your Turn after 'Merge the two datasets'"
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What are you trying to do, and what happens instead?
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What you tried
+      description: Code you ran (only the relevant part) and what you looked up.
+      render: python
+  - type: textarea
+    id: error
+    attributes:
+      label: Error message
+      description: The full error message, if there is one.
+      render: text
+  - type: input
+    id: system
+    attributes:
+      label: Your setup
+      description: Operating system, and local (uv) or Colab.
+      placeholder: "Windows 11, local with uv"

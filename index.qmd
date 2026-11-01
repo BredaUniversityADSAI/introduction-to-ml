@@ -40,8 +40,8 @@ The Omega Lab is searching for molecules for next-generation solar cells. Testin
 :::
 
 ::: {.ml-actions}
-[Meet the client](#the-client){.ml-btn .ml-btn-primary}
-[How the course works](#course-structure){.ml-btn .ml-btn-secondary}
+[Start the course](start-here.qmd){.ml-btn .ml-btn-primary}
+[Meet the client](#the-client){.ml-btn .ml-btn-secondary}
 :::
 
 :::::
@@ -462,7 +462,7 @@ Course resources
 
 ### Course repository
 
-The course repository contains the setup instructions, code, and data used throughout the course. It also explains how to prepare your Python environment using uv.
+The course repository contains the code and data used throughout the course. [Set up your computer](setup.qmd) explains how to download it and prepare your Python environment with uv.
 :::
 
 ::: {.ml-resource-card}

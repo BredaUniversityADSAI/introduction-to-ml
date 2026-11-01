@@ -13,7 +13,7 @@ website:
   # Early-release banner on every page (dismissable).
   announcement:
     # Links in the banner are not rewritten per page: use an absolute URL.
-    content: "**Early release v0.1.** This course is still being finished: pages may change and the Kaggle competition opens in early 2027. [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"
+    content: "**Early release v0.2.** This course is still being finished: pages may change and the Kaggle competition opens in early 2027. [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"
     type: info
     icon: info-circle
     dismissable: true
@@ -42,9 +42,16 @@ website:
       - icon: github
         href: https://github.com/BredaUniversityADSAI/introduction-to-ml
         aria-label: GitHub repository
+      - icon: chat-dots
+        href: https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions
+        aria-label: Discussions (questions and help)
 
     contents:
     - index.qmd
+    - href: start-here.qmd
+      text: "How to use this course"
+    - href: setup.qmd
+      text: "Set up your computer"
 
     # Self-study: order is pedagogical (not by filename).
     # `text` sets the sidebar label; the page keeps its own heading.
