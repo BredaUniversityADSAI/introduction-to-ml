@@ -12,7 +12,7 @@ Before going deeper into the data, develop enough domain understanding to reason
 
 Read:
 
-* [SMILES: A Simplified Chemical Language](PATH-TO-PDF)
+* [SMILES: A Simplified Chemical Language](https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html) (Daylight Theory Manual)
 
 Your goal is **not to master chemistry**. Focus on understanding what SMILES strings represent and how they describe molecular structure.
 

@@ -6,6 +6,11 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
+# Models saved by the notebooks; CatBoost training logs (notebook 011)
+models/*
+!models/.gitkeep
+catboost_info/
+
 # Quarto
 .quarto/
 _book/

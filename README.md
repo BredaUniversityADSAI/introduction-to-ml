@@ -46,8 +46,18 @@ cd introduction-to-ml
 ### 3. Install Python and the packages
 
 ```bash
-uv python install   # installs Python 3.12 (the version in .python-version)
+uv python install   # installs Python 3.13 (the version in .python-version)
 uv sync             # creates .venv/ and installs the packages from uv.lock
+```
+
+The environment contains everything the course uses, including `rdkit`, `optuna`, `xgboost`, `lightgbm` and `catboost`.
+
+> **Note:** `rdkit` is pinned to exactly `2025.9.3`. Different RDKit versions can calculate some molecular descriptors slightly differently, and the course data was prepared with this version. Do not upgrade it.
+
+On macOS, `xgboost` and `lightgbm` also need the OpenMP runtime, which uv cannot install. If importing them fails with a message about `libomp`, install it with [Homebrew](https://brew.sh/):
+
+```bash
+brew install libomp
 ```
 
 ### 4. Open the notebooks
@@ -60,15 +70,17 @@ uv run jupyter lab
 
 Or open the folder in VS Code (with the Python and Jupyter extensions), open a notebook, and select the `.venv` environment as the kernel.
 
-### Missing a package?
+### Adding packages
 
-A few notebooks use packages that are not installed by default, such as `optuna` or `rdkit`. Those notebooks say so at the top. Add the package to your environment with:
+If you want to use a package that is not in the environment, run this from the project folder:
 
 ```bash
-uv add optuna
+uv add <package-name>
 ```
 
-Then restart the notebook kernel.
+Then restart the notebook kernel. Don't use `pip install` inside the notebooks: it skips `pyproject.toml` and `uv.lock`, so the package is lost the next time you run `uv sync`. Note that `uv add` changes `pyproject.toml` and `uv.lock`, so pulling later updates of this repository may then give a merge conflict in these files.
+
+If something breaks, delete the `.venv` folder and run `uv sync` again.
 
 ## Repository structure
 
@@ -76,6 +88,7 @@ Then restart the notebook kernel.
 self-study/   Self-study notebooks (001_–011_) and reading guides (01_–11_)
 datalab/      DataLab project notebooks, one folder per iteration
 data/         Datasets: raw HOPV data, the starter dataset, Kaggle files
+models/       Models you save while working through the notebooks (not tracked by Git)
 images/       Figures used in the notebooks and on the website
 ```
 
