@@ -1,4 +1,8 @@
-name: Publish website
+name: Redirect GitHub Pages to ai.buas.nl
+
+# The course is served at https://ai.buas.nl/open-courses/introduction-to-ml/ (tagged releases,
+# see release.yml). GitHub Pages only forwards the old address: every page redirects to the same
+# page on ai.buas.nl (tools/make_redirects.py).
 
 on:
   push:
@@ -40,16 +44,19 @@ jobs:
       - name: Install Python dependencies
         run: uv sync --frozen
 
-      - name: Render Quarto website
+      - name: Render Quarto website (for the list of pages)
         run: quarto render
+
+      - name: Replace the pages with redirects to ai.buas.nl
+        run: python3 tools/make_redirects.py _book _redirect
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload rendered site
+      - name: Upload the redirect pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _book
+          path: _redirect
 
       - name: Deploy to GitHub Pages
         id: deployment

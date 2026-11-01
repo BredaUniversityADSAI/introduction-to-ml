@@ -1,8 +1,0 @@
-# Release profile: the build that the ADS&AI department site serves at
-# https://ai.buas.nl/open-courses/introduction-to-ml/ (see .github/workflows/release.yml).
-#   quarto render --profile release
-# Only what differs from _quarto.yml: the site's own address.
-website:
-  site-url: https://ai.buas.nl/open-courses/introduction-to-ml/
-  announcement:
-    content: "**Early release v0.1.** This course is still being finished: pages may change and the Kaggle competition opens in early 2027. [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"

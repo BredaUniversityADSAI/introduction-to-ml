@@ -3,7 +3,7 @@ name: Release
 # Push a version tag (e.g. v0.1.0) to build the site for ai.buas.nl and attach it to a
 # GitHub Release as site.tar.gz. The ADS&AI department site downloads that file and serves
 # it at https://ai.buas.nl/open-courses/introduction-to-ml/ (it pins which release is live).
-# Pushes to main keep deploying to GitHub Pages via publish.yml.
+# Pushes to main only refresh the redirects on GitHub Pages (publish.yml).
 
 on:
   push:
@@ -33,8 +33,8 @@ jobs:
       - name: Install Python dependencies
         run: uv sync --frozen
 
-      - name: Render the release build
-        run: quarto render --profile release
+      - name: Render the site
+        run: quarto render
 
       - name: Package the site
         run: tar -C _book -czf site.tar.gz .

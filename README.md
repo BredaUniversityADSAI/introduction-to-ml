@@ -12,9 +12,9 @@ The course has three core components:
 
 The on-campus course also assesses deliverables such as reports and presentations. This public version is adapted for independent learning without supervision or formal grading, so the Kaggle competition is the main way to evaluate your solution.
 
-📖 **Course website:** <https://bredauniversityadsai.github.io/introduction-to-ml/>
+📖 **Course website:** <https://ai.buas.nl/open-courses/introduction-to-ml/>
 
-> **Early release (v0.1).** The course is complete enough to learn from but still being finished: pages may change, and the Kaggle competitions open in early 2027. See [What's new](https://bredauniversityadsai.github.io/introduction-to-ml/whats-new.html).
+> **Early release (v0.1).** The course is complete enough to learn from but still being finished: pages may change, and the Kaggle competitions open in early 2027. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
 >
 > **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 

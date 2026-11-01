@@ -26,3 +26,5 @@ CLAUDE.md
 
 # local review notes
 review.txt
+# redirect pages for GitHub Pages (tools/make_redirects.py)
+_redirect/
