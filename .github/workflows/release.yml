@@ -1,0 +1,52 @@
+name: Release
+
+# Push a version tag (e.g. v0.1.0) to build the site for ai.buas.nl and attach it to a
+# GitHub Release as site.tar.gz. The ADS&AI department site downloads that file and serves
+# it at https://ai.buas.nl/open-courses/introduction-to-ml/ (it pins which release is live).
+# Pushes to main keep deploying to GitHub Pages via publish.yml.
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4
+        with:
+          enable-cache: true
+
+      - name: Install Python
+        run: uv python install
+
+      - name: Install Python dependencies
+        run: uv sync --frozen
+
+      - name: Render the release build
+        run: quarto render --profile release
+
+      - name: Package the site
+        run: tar -C _book -czf site.tar.gz .
+
+      - name: Create the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          # Versions below 1.0 are the early release: mark them as pre-releases.
+          prerelease=""
+          case "$TAG" in v0.*) prerelease="--prerelease" ;; esac
+          gh release create "$TAG" site.tar.gz $prerelease \
+            --title "Introduction to Machine Learning $TAG" \
+            --notes "Site build for https://ai.buas.nl/open-courses/introduction-to-ml/ (asset: site.tar.gz). Release notes: https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html"
