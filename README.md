@@ -12,7 +12,7 @@ The course has three core components:
 
 The on-campus course also assesses deliverables such as reports and presentations. This public version is adapted for independent learning without supervision or formal grading, so the Kaggle competition is the main way to evaluate your solution.
 
-📖 **Course website:** <https://bredauniversityadsai.github.io/ml-book/>
+📖 **Course website:** <https://bredauniversityadsai.github.io/introduction-to-ml/>
 
 ## Local setup
 
@@ -39,8 +39,8 @@ Restart your terminal afterwards and check that it works with `uv --version`. Ot
 ### 2. Get the course
 
 ```bash
-git clone https://github.com/BredaUniversityADSAI/ml-book.git
-cd ml-book
+git clone https://github.com/BredaUniversityADSAI/introduction-to-ml.git
+cd introduction-to-ml
 ```
 
 ### 3. Install Python and the packages
@@ -94,4 +94,4 @@ Every push to `main` is published to GitHub Pages automatically.
 
 ## Feedback
 
-Found a mistake or something unclear? [Open an issue](https://github.com/BredaUniversityADSAI/ml-book/issues), or use "Report an issue" on any page of the website.
+Found a mistake or something unclear? [Open an issue](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues), or use "Report an issue" on any page of the website.

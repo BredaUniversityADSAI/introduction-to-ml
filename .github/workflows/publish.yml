@@ -1,4 +1,4 @@
-name: Publish Quarto Book
+name: Publish website
 
 on:
   push:
@@ -40,7 +40,7 @@ jobs:
       - name: Install Python dependencies
         run: uv sync --frozen
 
-      - name: Render Quarto book
+      - name: Render Quarto website
         run: quarto render
 
       - name: Configure GitHub Pages

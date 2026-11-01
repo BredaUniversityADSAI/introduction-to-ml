@@ -2,7 +2,7 @@
 -- The Colab URL is built from the notebook's path in the repository, so new
 -- notebooks get a working button automatically.
 
-local COLAB_BASE = "https://colab.research.google.com/github/BredaUniversityADSAI/ml-book/blob/main/"
+local COLAB_BASE = "https://colab.research.google.com/github/BredaUniversityADSAI/introduction-to-ml/blob/main/"
 
 local function repo_relative_path()
   local input = quarto.doc.input_file

@@ -453,7 +453,7 @@ Course resources
 ::: {.ml-resource-card}
 <div class="ml-resource-top">
 <span class="ml-resource-logo"><img src="images/icons/github.svg" alt="GitHub"></span>
-<a class="ml-status ml-status-live" href="https://github.com/BredaUniversityADSAI/ml-book" target="_blank" rel="noopener">View on GitHub →</a>
+<a class="ml-status ml-status-live" href="https://github.com/BredaUniversityADSAI/introduction-to-ml" target="_blank" rel="noopener">View on GitHub →</a>
 </div>
 
 ### Course repository

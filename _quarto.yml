@@ -7,7 +7,7 @@ website:
   page-navigation: true
 
   # "Report an issue" link (with GitHub icon) under each page's table of contents.
-  repo-url: https://github.com/BredaUniversityADSAI/ml-book
+  repo-url: https://github.com/BredaUniversityADSAI/introduction-to-ml
   repo-actions: [issue]
 
   # The sidebar defines both the visual hierarchy and the previous/next order.
@@ -20,7 +20,7 @@ website:
     # them automatically because a dark theme is configured below.
     tools:
       - icon: github
-        href: https://github.com/BredaUniversityADSAI/ml-book
+        href: https://github.com/BredaUniversityADSAI/introduction-to-ml
         aria-label: GitHub repository
 
     contents:
