@@ -1,0 +1,7 @@
+/*-- scss:defaults --*/
+
+// Self-hosted font (privacy: no request to Google Fonts). Cosmo's own
+// Google Fonts @import is switched off; the same font, Source Sans Pro
+// (SIL Open Font License, fonts/OFL.txt), is served from fonts/.
+// The @font-face rules are in styles.css (font files in fonts/).
+$web-font-path: false;

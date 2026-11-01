@@ -24,6 +24,9 @@ For example:
 If you changed the material, say so (for example "adapted from"). You don't need to ask us for
 permission, but we'd love to hear how you use it: [open an issue](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+The illustrations `images/ml-opv-hero.png`, `images/ml-opv-pipeline.png` and `images/crispdm.png` were
+created with ChatGPT (OpenAI) for this course and are licensed under CC BY 4.0 like the rest of the content.
+
 ## Data
 
 - `data/001_raw_data/HOPV_homolumo.data` is the Harvard Organic Photovoltaic Dataset (HOPV15),
@@ -47,3 +50,4 @@ permission, but we'd love to hear how you use it: [open an issue](https://github
   textbook (Aurélien Géron, *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow*,
   O'Reilly) and the YouTube videos.
 - The student quotes on the homepage.
+- The font files in `fonts/` (Source Sans Pro, SIL Open Font License, see `fonts/OFL.txt`).

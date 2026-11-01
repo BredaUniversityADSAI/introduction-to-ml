@@ -20,7 +20,7 @@ toc: false
 
 :::: {.ml-brand}
 
-![](https://www.buas.nl/sites/default/files/2018-09/Logo%20BUas_RGB.png){alt="Breda University of Applied Sciences logo"}
+![](images/buas-logo.png){alt="Breda University of Applied Sciences logo"}
 
 
 ::: {.ml-program}
@@ -64,7 +64,7 @@ The Omega Lab is searching for molecules for next-generation solar cells. Testin
 ::: {.ml-course-info-item}
 <div class="ml-course-info-label">Program</div>
 <div class="ml-course-info-value">Applied Data Science & AI</div>
-<div class="ml-course-info-meta">Year 1 · 2026/27</div>
+<div class="ml-course-info-meta">Year 1 · as taught in 2026/27</div>
 :::
 
 ::: {.ml-course-info-item}
@@ -247,6 +247,10 @@ In our program, every course has three core components: **Self-study**, **DataLa
 Self-study teaches the core concepts independently of the course project. DataLab is where you apply those concepts to a real client challenge. Just like in a real project, this work produces deliverables such as code, reports, and presentations. These deliverables then form the basis for assessment.
 
 For this public course, we kept all three components, but adapted them for independent learning without supervision or formal grading. Some activities that are part of the on-campus course are therefore simplified or omitted. For example, our students normally prepare and deliver a presentation as part of the assessment, while the public course focuses on the Kaggle competition as the main way to evaluate your solution and compare your performance.
+
+There is no registration, no deadline and no certificate: start whenever you like and learn at your own pace. The course is free to use, also for other teachers in their own courses ([license](https://github.com/BredaUniversityADSAI/introduction-to-ml/blob/main/LICENSE.md)).
+
+**Are you a BUas student?** Follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 
 ::::
 

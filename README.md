@@ -14,6 +14,10 @@ The on-campus course also assesses deliverables such as reports and presentation
 
 📖 **Course website:** <https://bredauniversityadsai.github.io/introduction-to-ml/>
 
+> **Early release (v0.1).** The course is complete enough to learn from but still being finished: pages may change, and the Kaggle competitions open in early 2027. See [What's new](https://bredauniversityadsai.github.io/introduction-to-ml/whats-new.html).
+>
+> **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
+
 ## Local setup
 
 The course is designed to be done on your own machine. The notebooks pass data and processed files between each other, so a local setup is the way to work through the course. The "Open in Colab" buttons on the website are only meant for a quick look at a notebook.

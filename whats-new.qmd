@@ -1,0 +1,21 @@
+---
+title: "What's new"
+---
+
+This course is an **early release**. Like an early-release book, it is complete enough to learn from, but it is still being finished: pages may change, and some parts are not available yet. Version numbers below 1.0 mark the early release. Version 1.0 follows when the Kaggle competitions are open and the course has been checked from start to finish.
+
+Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
+
+## Coming next
+
+- The Kaggle competitions for stability and energy levels (early 2027).
+- The course at its permanent address on the website of [Applied Data Science & AI](https://ai.buas.nl/).
+
+## v0.1.0 · 1 November 2026
+
+First public early release, adapted from the 2026/27 edition of the course at Breda University of Applied Sciences.
+
+- **Self-study:** six themes with eleven notebooks and twelve reading and activity pages.
+- **DataLab:** Iterations 1, 2 and 3+, with the course's own edition of the data, including a lab database for Iteration 3+.
+- **Setup:** one Python environment (Python 3.13, managed with uv) with every package the course uses.
+- **License:** content [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), code MIT, so you can reuse the course in your own teaching.

@@ -1,10 +1,24 @@
 project:
   type: website
   output-dir: _book
+  resources:
+    - fonts/
+    - images/icons/
 
 website:
   title: "Introduction to Machine Learning"
   page-navigation: true
+  site-url: https://bredauniversityadsai.github.io/introduction-to-ml/
+
+  # Early-release banner on every page (dismissable).
+  announcement:
+    # Links in the banner are not rewritten per page: use an absolute URL (the release
+    # profile, _quarto-release.yml, repeats this with the ai.buas.nl address).
+    content: "**Early release v0.1.** This course is still being finished: pages may change and the Kaggle competition opens in early 2027. [What's new](https://bredauniversityadsai.github.io/introduction-to-ml/whats-new.html)"
+    type: info
+    icon: info-circle
+    dismissable: true
+    position: below-navbar
 
   page-footer:
     left: >-
@@ -126,12 +140,15 @@ website:
     # Iteration 3
     - datalab/iteration-3/index.qmd
 
+    - href: whats-new.qmd
+      text: "What's new"
+
 
 format:
   html:
     theme:
-      light: cosmo
-      dark: [cosmo, theme-dark.scss]
+      light: [cosmo, theme-fonts.scss]
+      dark: [cosmo, theme-fonts.scss, theme-dark.scss]
     css: styles.css
     filters:
       - filters/colab-button.lua

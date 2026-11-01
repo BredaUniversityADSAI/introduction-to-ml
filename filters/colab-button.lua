@@ -17,11 +17,19 @@ local function repo_relative_path()
   return input:sub(#prefix + 1)
 end
 
-local function button_html(url)
+-- The badge image is served from images/icons/ (no request to Google until the
+-- visitor clicks). Raw HTML is not rewritten by Quarto, so the path is made
+-- relative to the page: one "../" per folder level of the notebook.
+local function badge_src(path)
+  local _, depth = path:gsub("/", "")
+  return string.rep("../", depth) .. "images/icons/colab-badge.svg"
+end
+
+local function button_html(url, path)
   return [[
 <p class="colab-launch">
   <a href="]] .. url .. [[" target="_blank" rel="noopener">
-    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">
+    <img src="]] .. badge_src(path) .. [[" alt="Open In Colab">
   </a>
 </p>
 ]]
@@ -35,7 +43,7 @@ function Pandoc(doc)
   if not path then
     return doc
   end
-  local button = pandoc.RawBlock("html", button_html(COLAB_BASE .. path))
+  local button = pandoc.RawBlock("html", button_html(COLAB_BASE .. path, path))
 
   -- Place the button directly below the page title. Notebooks whose title is
   -- a leading "# Heading" keep that heading in the body, so go after it.
