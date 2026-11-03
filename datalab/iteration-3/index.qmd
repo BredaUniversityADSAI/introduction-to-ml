@@ -95,7 +95,7 @@ There is no recipe for this iteration, but these questions are good places to st
 
 ## The Kaggle competitions
 
-There are two competitions, one per problem. A new edition of both opens every quarter, with new test molecules; the training data stays the same. The current edition is **2026 Q4**, open until 31 December 2026, 23:59 UTC:
+There are two competitions, one per problem. A new edition of both opens every quarter, with new test molecules; the training data stays the same. The current edition is **2026 Q4**, open until 31 December 2026, 23:00 UTC (midnight in the Netherlands):
 
 - **[OPV Molecule Stability 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-stability-2026-q4)** (classification): scored with the macro-averaged F1 score, so the classes `low`, `medium` and `high` count equally.
 - **[OPV Molecule Energy Levels 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-energy-levels-2026-q4)** (regression): scored with the mean absolute error (MAE) over all `homo` and `lumo` predictions together, in eV. This is the average of the HOMO MAE and the LUMO MAE.
