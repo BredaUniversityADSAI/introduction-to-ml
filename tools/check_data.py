@@ -1,8 +1,9 @@
-"""Checks the course data: files, columns, sizes, and that no competition answers are published.
+"""Checks the course data: files, columns, sizes, and that no competition files are published.
 
 usage: python tools/check_data.py   (from the repository root; exits with 1 on a failure)
 """
 import sqlite3
+import subprocess
 import sys
 from pathlib import Path
 
@@ -24,8 +25,6 @@ expected = [
     "001_raw_data/HOPV_stability.csv",
     "001_raw_data/lab_measurements.db",
     "002_processed_data/starter_dataset.xlsx",
-    "003_kaggle_competition_data/classification_sample_submission.csv",
-    "003_kaggle_competition_data/regression_sample_submission.csv",
 ]
 for f in expected:
     check((DATA / f).is_file(), f"data/{f} exists")
@@ -52,17 +51,10 @@ con.close()
 check(list(lab.columns) == ["id", "smiles", "homo", "lumo", "stability"] and len(lab) == 232,
       "lab_measurements.db: table measurements (id, smiles, homo, lumo, stability), 232 rows")
 
-# Kaggle sample submissions: schema, the same 200 molecules, placeholders only (no answers).
-cls = pd.read_csv(DATA / "003_kaggle_competition_data/classification_sample_submission.csv")
-reg = pd.read_csv(DATA / "003_kaggle_competition_data/regression_sample_submission.csv")
-check(list(cls.columns) == ["smiles", "stability"] and len(cls) == 200, "classification sample: smiles, stability; 200 rows")
-check(list(reg.columns) == ["smiles", "homo", "lumo"] and len(reg) == 200, "regression sample: smiles, homo, lumo; 200 rows")
-check(list(cls["smiles"]) == list(reg["smiles"]) and cls["smiles"].is_unique, "both samples list the same 200 unique molecules")
-check(cls["stability"].nunique() == 1 and reg["homo"].nunique() == 1 and reg["lumo"].nunique() == 1,
-      "sample submissions hold one placeholder value per column (no answers)")
-kaggle = set(cls["smiles"])
-check(not kaggle & set(lab["smiles"]) and not kaggle & set(stab["smiles"]) and not kaggle & set(starter["smiles"]),
-      "no Kaggle molecule appears in a labelled dataset")
+# The Kaggle test molecules are published per quarterly edition on Kaggle only, not in the repository.
+tracked = subprocess.run(["git", "ls-files", "data"], capture_output=True, text=True).stdout.split()
+check(not [f for f in tracked if "sample_submission" in f or f.startswith("data/003_")],
+      "no Kaggle sample submissions tracked in data/ (they are downloaded from Kaggle)")
 
 # No solution or ground-truth files anywhere in the repository.
 leaks = [str(p) for p in Path(".").rglob("*") if p.is_file() and ".venv" not in p.parts and ".git" not in p.parts

@@ -289,7 +289,7 @@ Demonstrate how well your solution performs.
 :::::
 
 ::: {.ml-note}
-**About the data:** The molecules are real, from published research datasets. The values you predict (HOMO, LUMO and stability) are synthetically generated for this course: they follow realistic chemical relationships, but they are not the published measurements.
+**About the data:** The molecules come from published research datasets: the HOPV molecules were made and tested in real solar cells; the other molecules are candidates designed for organic solar cells in a large computational screening. The values you predict (HOMO, LUMO and stability) are synthetically generated for this course: they follow realistic chemical relationships, but they are not the published measurements.
 :::
 
 ::::::
@@ -468,12 +468,12 @@ The course repository contains the code and data used throughout the course. [Se
 ::: {.ml-resource-card}
 <div class="ml-resource-top">
 <span class="ml-resource-logo ml-resource-logo-wide"><img src="images/icons/kaggle.svg" alt="Kaggle"></span>
-<span class="ml-status">Under preparation</span>
+<a class="ml-status ml-status-live" href="datalab/iteration-3/index.html#the-kaggle-competitions">Open now →</a>
 </div>
 
 ### Kaggle competitions
 
-The course includes two Kaggle competitions, stability and energy levels, where you generate predictions for unseen molecules and submit them for evaluation. Your leaderboard score gives you an indication of how well your solution performs.
+The course includes two Kaggle competitions, stability and energy levels, with a new edition every quarter. You generate predictions for unseen molecules and submit them for evaluation; your leaderboard score gives you an indication of how well your solution performs.
 :::
 
 :::::

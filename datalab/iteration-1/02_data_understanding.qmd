@@ -89,4 +89,8 @@ The file `HOPV_homolumo.data` does not contain stability information. This is pr
 
 The HOPV molecules, and from Iteration 3+ the lab database, form the development set for your classification and regression models. Once your models are ready, you will submit predictions for **200 SMILES molecules** on Kaggle. The true values for these molecules are hidden, but after submission, you will see your results on the platform.
 
-Two files are provided — one for the classification competition and one for the regression competition. These files contain 200 SMILES molecules each, with placeholder values in the target columns. Your task is to replace these placeholders with your model predictions and submit the files in the same format.
+Each competition has its own file, a sample submission with the 200 SMILES and placeholder values in the target columns, which you download from the competition's **Data** tab ([Iteration 3+](../iteration-3/index.qmd#the-kaggle-competitions) has the links). Your task is to replace these placeholders with your model predictions and submit the file in the same format.
+
+::: {.callout-note}
+The models you build in Iteration 1 are not meant for Kaggle: 80 molecules from one source are a first experiment, not a solution. You submit for the first time at the end of Iteration 2.
+:::

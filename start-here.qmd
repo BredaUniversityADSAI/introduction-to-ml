@@ -40,12 +40,12 @@ This plan follows the order of the on-campus course and takes about **24 hours a
 |---|---|---|
 | 1 | Theme 1: [What is Machine Learning?](self-study/00_what_is_machine_learning.qmd), [The Machine Learning Landscape](self-study/01_machine_learning_landscape.qmd), notebooks [Getting Started](self-study/001_getting_started.ipynb), [Classification](self-study/002_classification.ipynb), [Regression](self-study/003_regression.ipynb), [Unsupervised Learning](self-study/004_unsupervised_learning.ipynb) | [Iteration 1](datalab/iteration-1/index.qmd): your first classification, regression and clustering models |
 | 2 | Theme 2: [End-to-End ML Project](self-study/02_end_to_end_machine_learning.qmd), [Data Preparation](self-study/005_data_prep.ipynb), [Data Understanding](self-study/006_data_understanding.ipynb), [Modeling & Evaluation](self-study/007_modeling_and_evaluation.ipynb) | [Iteration 2](datalab/iteration-2/index.qmd): understand the raw HOPV data and prepare your own dataset |
-| 3 | Theme 3: [Classification](self-study/03_classification.qmd), [Regression](self-study/04_regression.qmd), [Unsupervised Learning](self-study/05_unsupervised_learning.qmd) (readings) | Iteration 2: classification, regression and clustering on the full dataset |
+| 3 | Theme 3: [Classification](self-study/03_classification.qmd), [Regression](self-study/04_regression.qmd), [Unsupervised Learning](self-study/05_unsupervised_learning.qmd) (readings) | Iteration 2: classification, regression and clustering on the full dataset; your first Kaggle submission |
 | 4 | Theme 4: [Pipelines & ColumnTransformer](self-study/008_advanced_scikitlearn.ipynb) | [Iteration 3+](datalab/iteration-3/index.qmd): add the lab database and the Kaggle molecules |
 | 5 | Theme 5: [Decision Trees](self-study/009_decision_trees.ipynb), [Random Forests](self-study/010_random_forests.ipynb), [Gradient Boosting](self-study/011_gradient_boosting.ipynb) and their readings | Iteration 3+: try tree-based models and boosting on the project |
 | 6 | (project week) | Iteration 3+: your validation strategy, clustering all molecules, error analysis |
 | 7 | Theme 6: [Communicating Technical Work](self-study/09_communicating_technical_work.qmd), [Understanding ML Research](self-study/10_understanding_ml_research.qmd), [Research to Practice](self-study/11_from_research_to_practice.qmd) | Iteration 3+: keep iterating |
-| 8 | (project week) | Finish: your final models, predictions for the Kaggle molecules (submitted once the competitions are open), and a short write-up of what you tried and what you learned |
+| 8 | (project week) | Finish: your final models, your final Kaggle submissions, and a short write-up of what you tried and what you learned |
 
 ## What you need
 
@@ -65,4 +65,4 @@ The notebooks mix explanations with exercises, marked **Your Turn**, and empty c
 
 ## The Kaggle competitions
 
-The competitions for this course are being prepared and open soon; see [What's new](whats-new.qmd). Until then, use a validation strategy you trust (Iteration 3+ has pointers), and prepare your predictions for the Kaggle molecules in the format of the sample submission files.
+Two competitions, stability and energy levels, with a new edition every quarter. The links, how to take part and how they are scored are in [Iteration 3+](datalab/iteration-3/index.qmd#the-kaggle-competitions). You submit for the first time at the end of Iteration 2; expect that first score to be lower than your cross-validation score.

@@ -63,4 +63,6 @@ Although the notebooks provide a structured path, the machine-learning workflow 
 
 What you discover during modelling may give you a reason to return to the data, change its preparation, investigate a new feature, reconsider your validation strategy, or revisit your understanding of the problem.
 
+When you have finished the notebooks, submit your models to the [Kaggle competitions](../iteration-3/index.qmd#the-kaggle-competitions). Expect a lower score than in your cross-validation: finding out why is where Iteration 3+ starts.
+
 In [Iteration 3+](../iteration-3/index.qmd), this process becomes open-ended.

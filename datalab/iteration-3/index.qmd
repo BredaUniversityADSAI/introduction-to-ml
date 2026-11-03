@@ -19,6 +19,11 @@ You will work on two machine-learning problems:
 
 Your current models from Iteration 2 are your starting point.
 
+::: {.callout-tip}
+## Your first submission
+Submit your Iteration 2 models to the [Kaggle competitions](#the-kaggle-competitions) first, before you change anything. Expect your Kaggle score to be much worse than your cross-validation score; for stability possibly no better than the sample submission, which predicts `medium` for every molecule (macro-F1 about 0.22). That is not a bug in your code. Finding out why is the first question of this iteration: start with [Things to investigate](#things-to-investigate).
+:::
+
 ## The data
 
 From now on you can use every data source of the project:
@@ -27,9 +32,9 @@ From now on you can use every data source of the project:
 |---|---|---|---|
 | HOPV | 350 | `HOPV_homolumo.data`, `HOPV_stability.csv` (or your `xy_df_hopv.csv` from Iteration 2) | SMILES, targets |
 | Lab database | 232 | `lab_measurements.db` | SMILES, targets |
-| Kaggle | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` | SMILES only: these are the molecules you predict |
+| Kaggle | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` (from Kaggle) | SMILES only: these are the molecules you predict |
 
-The first two files are in `data/001_raw_data/`, the Kaggle files in `data/003_kaggle_competition_data/`. You compute the molecular descriptors of the new molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2.
+The first two files are in `data/001_raw_data/`. The Kaggle files are not in the course repository: download them from the **Data** tab of the [current competitions](#the-kaggle-competitions) and put them in `data/003_kaggle_competition_data/` (Git ignores that folder). Every edition has new test molecules, so use the files of the edition you submit to. You compute the molecular descriptors of the new molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2.
 
 ### Reading the lab database
 
@@ -90,16 +95,12 @@ There is no recipe for this iteration, but these questions are good places to st
 
 ## The Kaggle competitions
 
-::: {.callout-important}
-The Kaggle competitions for this course are being prepared and open soon; the links will appear here and on [What's new](../../whats-new.qmd). Until then, use the questions above and a validation strategy you trust, and write your predictions for the Kaggle molecules in the format of the sample submission files, so that they are ready to submit.
-:::
+There are two competitions, one per problem. A new edition of both opens every quarter, with new test molecules; the training data stays the same. The current edition is **2026 Q4**, open until 31 December 2026, 23:59 UTC:
 
-There are two competitions, one per problem:
+- **[OPV Molecule Stability 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-stability-2026-q4)** (classification): scored with the macro-averaged F1 score, so the classes `low`, `medium` and `high` count equally.
+- **[OPV Molecule Energy Levels 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-energy-levels-2026-q4)** (regression): scored with the mean absolute error (MAE) over all `homo` and `lumo` predictions together, in eV. This is the average of the HOMO MAE and the LUMO MAE.
 
-- **Stability** (classification): scored with the macro-averaged F1 score, so the classes `low`, `medium` and `high` count equally.
-- **Energy levels** (regression): scored with the mean absolute error (MAE) over all `homo` and `lumo` predictions together, in eV. This is the average of the HOMO MAE and the LUMO MAE.
-
-Replace the placeholder values in the sample submission files with your predictions and upload them. While a competition runs, the public leaderboard scores your submission on 20% of the molecules (40 of the 200); the final ranking uses the other 80%. Don't over-tune to the public leaderboard: it is a small sample.
+You need a free Kaggle account. Join a competition and accept its rules, download its sample submission from the **Data** tab, replace the placeholder values with your predictions and upload the file. Everyone competes individually, with up to 3 submissions per day. While a competition runs, the public leaderboard scores your submission on half of the test molecules (100 of the 200); the final ranking uses the other half. Don't over-tune to the public leaderboard: it is a small sample. After the deadline, the edition that just closed stays open for late submissions until the next one closes: they are scored, but not ranked.
 
 ## Your workflow
 

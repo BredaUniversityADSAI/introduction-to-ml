@@ -10,6 +10,9 @@ __pycache__/
 data/002_processed_data/*
 !data/002_processed_data/starter_dataset.xlsx
 
+# Kaggle sample submissions, downloaded per edition from the competition's Data tab (data/README.md)
+data/003_kaggle_competition_data/
+
 # Models saved by the notebooks; CatBoost training logs (notebook 011)
 models/*
 !models/.gitkeep

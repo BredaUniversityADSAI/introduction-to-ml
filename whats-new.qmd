@@ -2,13 +2,19 @@
 title: "What's new"
 ---
 
-This course is an **early release**. Like an early-release book, it is complete enough to learn from, but it is still being finished: pages may change, and some parts are not available yet. Version numbers below 1.0 mark the early release. Version 1.0 follows when the Kaggle competitions are open and the course has been checked from start to finish.
+This course is an **early release**. Like an early-release book, it is complete enough to learn from, but it is still being finished: pages may change, and some parts are not available yet. Version numbers below 1.0 mark the early release. Version 1.0 follows when the course has been checked from start to finish.
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
-## Coming next
+## v0.4.0 · 3 November 2026
 
-- The Kaggle competitions for stability and energy levels (soon).
+The Kaggle competitions are open.
+
+- **[OPV Molecule Stability 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-stability-2026-q4)** and **[OPV Molecule Energy Levels 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-energy-levels-2026-q4)**, until 31 December 2026. A new edition with new test molecules opens every quarter; the training data stays the same. How to take part: [Iteration 3+](datalab/iteration-3/index.qmd#the-kaggle-competitions).
+- The test molecules are no longer in the course repository: download the sample submissions from the competition's Data tab (every edition has its own) into `data/003_kaggle_competition_data/`, which Git now ignores. A `git pull` removes the old files there.
+- The public leaderboard scores half of the test molecules (100 of the 200), not 20%: a more reliable public score.
+- When to submit and what to expect: Iterations 1, 2 and 3+ now say when your models are ready for Kaggle, and why the first score is usually lower than your cross-validation score.
+- The data is described more precisely: the HOPV molecules were made and tested in solar cells; the lab and test molecules are candidates from a computational screening ([data/README.md](https://github.com/BredaUniversityADSAI/introduction-to-ml/blob/main/data/README.md)).
 
 ## v0.3.1 · 1 November 2026
 
