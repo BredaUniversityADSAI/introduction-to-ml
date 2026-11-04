@@ -44,4 +44,83 @@ The map on the right shows the cost for every combination. Each spot on the map 
 
 Training a model means searching for the parameter values with the lowest cost. Real models can have millions of parameters, far too many to draw as a map, but the idea stays the same. Instead of you moving sliders, an algorithm does the search.
 
+## 4. Polynomial regression
+
+Not every relationship is a straight line. The data below was generated from a curve, $y = a x^2$, plus some noise. Try to fit it with a line, using the slope and the intercept.
+
+::: {.fit-demo data-stage="4.1"}
+:::
+
+However you set the sliders, the cost stays high. The badge appears when you reach the lowest cost a line can get, and even that line misses most of the points. The problem is not the parameters but the **model**: a straight line cannot bend.
+
+So we give the model a term that can bend, $x^2$:
+
+$$
+\hat{y} = a x^2 + b x + c
+$$
+
+This is **polynomial regression**. The highest power of $x$ is the **degree** of the model, so this is a degree-2 polynomial. A straight line is a degree-1 polynomial: with $a = 0$, the slope is $b$ and the intercept is $c$.
+
+Below is the same data. This time $b$ and $c$ are fixed at 0, so only $a$ can change. Find the best value for $a$.
+
+::: {.fit-demo data-stage="4.2"}
+:::
+
+One parameter is enough here, because the data was made from $a x^2$ alone. Real data rarely is that tidy. The next data set comes from a curve with all three terms, so you need all three sliders.
+
+::: {.fit-demo data-stage="4.3"}
+:::
+
+With three parameters the cost depends on three numbers at once, too many to draw as a map, but the search is the same: change the parameters until the cost is as low as it gets. You may notice the sliders depend on each other: after changing $a$, the best $c$ moves too.
+
+Nothing stops us at $x^2$. A polynomial of **degree** $n$ uses every power of $x$ up to $x^n$:
+
+$$
+\hat{y} = w_0 + w_1 x + w_2 x^2 + \dots + w_n x^n
+$$
+
+It has $n + 1$ parameters, $w_0$ to $w_n$. A line is degree 1 (two parameters), the curve above is degree 2 (three parameters).
+
+So there are two different things you can change, and it is important not to confuse them:
+
+- The **parameters** ($w_0, w_1, \dots$, or $a$, $b$, $c$ above) are what training finds: the values with the lowest cost. So far you found them with sliders.
+- The **degree** decides *which* parameters exist, and so how flexible the curve can be. It is chosen before training, and training does not change it.
+
+In the next demo the slider is the degree, not a parameter. For each degree, the best parameters are found for you, the way an algorithm would. The data was generated from a degree-4 curve, plus noise. Move the slider from degree 1 to 9 and watch the cost of each degree appear on the right.
+
+::: {.fit-demo data-stage="4.4"}
+:::
+
+Up to degree 4, the degree the data was made with, each extra degree lowers the cost a lot. But the cost keeps going down after degree 4, and at degree 9 the curve passes through every point, with a cost of exactly 0.
+
+A higher degree can always fit the training data at least as well, because it has every term of the lower degree plus more. So the lowest cost always belongs to the highest degree. Look at the degree-9 curve between the points, though. Would you trust its predictions there? The cost on the data we fit cannot answer that question. The next section shows what can.
+
+## 5. Training and test data
+
+So far you have been minimising the cost on the data you have. But that is not what we actually care about. A model is useful when it makes good predictions for **new data**: observations it has never seen. A fit that matches the known points perfectly is worthless if it gets the next one wrong.
+
+The demo below is the degree demo from section 4, with the same blue dots. They are the **training data**: for each degree, the curve is fitted to these points. There are also some new observations from the same degree-4 curve, the **test data**. The model never sees them during training, and they are hidden for now.
+
+1. Move the degree slider from 1 to 9, as before, and watch the training cost go down.
+2. Then switch on **Show test data**. Now you also see the test points and, on the right, the **test cost** of each degree: the same cost formula, calculated on the test data. Move the slider again.
+
+::: {.fit-demo data-stage="5"}
+:::
+
+The two costs tell different stories. The training cost keeps going down as the degree goes up. The test cost goes down until degree 4 and then up again: at degree 9 it is far above the top of the plot.
+
+**Why is the test cost lowest at degree 4?** The data was generated from a degree-4 curve, plus noise.
+
+- **Below degree 4**, the curve is too simple to follow the shape of the data. It misses the training points and the test points alike.
+- **At degree 4**, the model has exactly the terms of the curve that made the data. It follows that curve, not the noise, so it also predicts the new points well.
+- **Above degree 4**, the extra parameters have nothing real left to fit, so they fit the noise: the random ups and downs of the 10 training points. That lowers the training cost, but the test points have noise of their own, in other places. The curve bends towards training points that happen to lie high or low, and between them it swings far away from the real curve. At degree 9 it passes through every training point and predicts the test points worst of all.
+
+**Why is the test cost usually higher than the training cost?** Training finds the parameters with the lowest cost on the *training* data. Nothing guarantees that the same parameters also give the lowest cost on the test data, so the test cost is usually higher. Not always: in this demo, degrees 1 to 3 have a lower test cost. With only 8 test points, the test cost also depends on where those points happen to lie.
+
+**Where does test data come from?** In practice, nobody hands you unseen data with the answers attached. So you make it yourself: before training, you **split** the data you have into two parts. The model is trained on one part, the **training set**, and the other part, the **test set**, is put aside until the end. A common choice is 80% for training and 20% for testing. In this demo, 10 points are used for training and 8 are kept aside. You will do this split in code in the Classification notebook, with scikit-learn's `train_test_split`.
+
+One warning. Here you looked at the test cost to see which degree works best. In a real project, choosing the degree by the test cost uses the test data to make a decision, and then it is no longer unseen. The usual solution is a third part of the data for such choices, the **validation set**, so the test set is used only once, at the end. You will meet it in the Modeling and Evaluation notebook.
+
+The test cost is the better estimate of how well the model will do on new data. How it relates to the training cost tells you a lot about how a model behaves. A low training cost alone tells you little: a model can fit the training data very well and still predict new data badly. You will come back to this throughout the course.
+
 <script src="fit-demo.js"></script>

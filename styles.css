@@ -1359,6 +1359,8 @@ body.quarto-dark .ml-status-live:focus-visible {
   --fit-track: #e6e9ef;
   --fit-good: #138a5e;
   --fit-good-soft: #e7f6ef;
+  --fit-test: #8a3ffc;
+  --fit-test-residual: rgba(138, 63, 252, 0.5);
   --fit-ramp: linear-gradient(90deg, #f2f8fe, #9ec5f4, #5598e7, #256abf, #184f95);
 
   margin: 1.5rem 0 2rem;
@@ -1384,6 +1386,8 @@ body.quarto-dark .fit-demo {
   --fit-track: #2a3744;
   --fit-good: #4cc79a;
   --fit-good-soft: #12342a;
+  --fit-test: #be95ff;
+  --fit-test-residual: rgba(190, 149, 255, 0.55);
   --fit-ramp: linear-gradient(90deg, #cde2fb, #86b6ef, #3987e5, #1c5cab, #0d366b);
   box-shadow: none;
 }
@@ -1462,6 +1466,7 @@ body.quarto-dark .fit-demo {
 }
 
 .fit-line {
+  fill: none;
   stroke: var(--fit-model);
   stroke-width: 2.5;
   stroke-linecap: round;
@@ -1470,6 +1475,17 @@ body.quarto-dark .fit-demo {
 .fit-residual {
   stroke: var(--fit-residual);
   stroke-width: 1.5;
+}
+
+.fit-residual.is-test {
+  stroke: var(--fit-test-residual);
+  stroke-dasharray: 3 3;
+}
+
+.fit-point-test {
+  fill: var(--fit-card);
+  stroke: var(--fit-test);
+  stroke-width: 2.5;
 }
 
 .fit-cost-curve {
@@ -1484,6 +1500,50 @@ body.quarto-dark .fit-demo {
   stroke: var(--fit-model);
   stroke-width: 1;
   opacity: 0.45;
+}
+
+.fit-tried {
+  fill: var(--fit-curve);
+  stroke: var(--fit-card);
+  stroke-width: 2;
+}
+
+.fit-cost-curve.is-train {
+  stroke: var(--fit-point);
+}
+
+.fit-cost-curve.is-test {
+  stroke: var(--fit-test);
+  stroke-dasharray: 5 4;
+}
+
+.fit-tried.is-train {
+  fill: var(--fit-point);
+}
+
+.fit-tried.is-test {
+  fill: var(--fit-card);
+  stroke: var(--fit-test);
+  stroke-width: 2.5;
+}
+
+.fit-tried.is-test.is-current {
+  fill: var(--fit-test);
+}
+
+.fit-value.is-test {
+  fill: var(--fit-test);
+}
+
+.fit-value {
+  fill: var(--fit-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.fit-value.is-current {
+  fill: var(--fit-ink);
+  font-weight: 700;
 }
 
 .fit-current {
@@ -1696,8 +1756,125 @@ body.quarto-dark .fit-demo {
   transform: scale(1);
 }
 
+/* Locked parameters (shown but fixed), test-data toggle and key */
+
+.fit-slider.is-locked {
+  opacity: 0.4;
+}
+
+.fit-slider.is-locked input[type="range"] {
+  cursor: not-allowed;
+}
+
+/* Hidden but still taking its space, so the toggle never changes the layout. */
+.fit-cost.is-hidden {
+  visibility: hidden;
+}
+
+.fit-toolbar {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.fit-key {
+  display: flex;
+  gap: 1rem;
+  color: var(--fit-muted);
+  font-size: 0.8rem;
+}
+
+.fit-key span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.fit-key span::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.fit-key-train::before {
+  background: var(--fit-point);
+}
+
+.fit-key-test::before {
+  border: 2.5px solid var(--fit-test);
+}
+
+.fit-key .fit-key-test {
+  display: none;
+}
+
+.fit-key.is-test-on .fit-key-test {
+  display: inline-flex;
+}
+
+.fit-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  color: var(--fit-ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fit-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.fit-toggle-track {
+  position: relative;
+  width: 2.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: var(--fit-track);
+  transition: background 0.15s ease;
+}
+
+.fit-toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(1.25rem - 4px);
+  height: calc(1.25rem - 4px);
+  border-radius: 50%;
+  background: var(--fit-card);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.fit-toggle input:checked + .fit-toggle-track {
+  background: var(--fit-test);
+}
+
+.fit-toggle input:checked + .fit-toggle-track::after {
+  transform: translateX(1rem);
+}
+
+.fit-toggle input:focus-visible + .fit-toggle-track {
+  outline: 2px solid var(--fit-test);
+  outline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fit-tooltip,
+  .fit-toggle-track,
+  .fit-toggle-track::after,
   .fit-badge,
   .fit-slider input[type="range"]::-webkit-slider-thumb {
     transition: none;
