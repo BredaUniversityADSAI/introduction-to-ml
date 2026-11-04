@@ -6,6 +6,14 @@ From this point onward, the project becomes **open-ended**.
 
 There are no step-by-step notebooks and no fixed sequence to follow. Your goal is to improve your solution through repeated experimentation and evidence-based decisions.
 
+::: {.callout-note}
+## Iteration 3+ in the course route
+This page covers steps 8, 10 and 12 of the [course route](../../start-here.qmd#the-course-route). In between, you work through themes 5 and 6 of the Self-study and come back here.
+
+::: {.course-route from="8"}
+:::
+:::
+
 ## The challenge
 
 You will use your models to make predictions for previously unseen molecules and submit those predictions to Kaggle.

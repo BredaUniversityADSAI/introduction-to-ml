@@ -106,7 +106,7 @@ The notebooks read the data with paths relative to their own folder: a DataLab n
 | `data/` | All datasets of the project (see `data/README.md`) |
 | `models/` | Models you save while working through the notebooks |
 
-The order of the activities is the order on this website, not the order of the file names. Follow the menu, or the [8-week plan](start-here.qmd#an-8-week-plan).
+The order of the activities is the order on this website, not the order of the file names. Follow the [course route](start-here.qmd#the-course-route): it takes you through Self-study and DataLab in turn.
 
 ## Getting updates
 

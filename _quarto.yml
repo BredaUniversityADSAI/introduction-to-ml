@@ -151,5 +151,6 @@ format:
     css: styles.css
     filters:
       - filters/colab-button.lua
+      - filters/course-route.lua
     toc: true
     number-sections: false

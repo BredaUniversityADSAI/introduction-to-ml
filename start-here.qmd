@@ -22,7 +22,7 @@ Every notebook page has an **Open in Colab** button that runs the notebook in yo
 
 ### The full course (recommended)
 
-[Set up your computer](setup.qmd) once (about 15 minutes), then follow the [8-week plan](#an-8-week-plan) below: Self-study and DataLab side by side, every exercise in the notebooks, and at the end your own models on the Kaggle leaderboards.
+[Set up your computer](setup.qmd) once (about 15 minutes), then follow the [course route](#the-course-route) below: Self-study and DataLab in turn, every exercise in the notebooks, and at the end your own models on the Kaggle leaderboards.
 
 ### You already know machine learning
 
@@ -32,20 +32,14 @@ Go to the project. Read the [Business Understanding](datalab/iteration-1/01_busi
 
 You are welcome to use the course, or parts of it, in your own teaching: the content is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and the code under MIT (see the [license](https://github.com/BredaUniversityADSAI/introduction-to-ml/blob/main/LICENSE.md)). All notebooks, pages and data are in the [course repository](https://github.com/BredaUniversityADSAI/introduction-to-ml). We'd love to hear how you use it: post in [Show and tell](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell).
 
-## An 8-week plan
+## The course route
 
-This plan follows the order of the on-campus course and takes about **24 hours a week**, roughly three full days. Prefer a slower pace? Spread it over more weeks; the order is what matters, not the speed.
+Self-study and DataLab take turns: you learn a set of concepts, then apply them in the project, then learn the next set. Follow the steps in this order and take as long as each step needs.
 
-| Week | Self-study | DataLab |
-|---|---|---|
-| 1 | Theme 1: [What is Machine Learning?](self-study/00_what_is_machine_learning.qmd), notebooks [Getting Started](self-study/001_getting_started.ipynb), [Classification](self-study/002_classification.ipynb), [Regression](self-study/003_regression.ipynb), [Unsupervised Learning](self-study/004_unsupervised_learning.ipynb) | [Iteration 1](datalab/iteration-1/index.qmd): your first classification, regression and clustering models |
-| 2 | Theme 2: [End-to-End ML Project](self-study/02_end_to_end_machine_learning.qmd), [Data Preparation](self-study/005_data_prep.ipynb), [Data Understanding](self-study/006_data_understanding.ipynb), [Modeling & Evaluation](self-study/007_modeling_and_evaluation.ipynb) | [Iteration 2](datalab/iteration-2/index.qmd): understand the raw HOPV data and prepare your own dataset |
-| 3 | Theme 3: [Classification](self-study/03_classification.qmd), [Regression](self-study/04_regression.qmd), [Unsupervised Learning](self-study/05_unsupervised_learning.qmd) (readings) | Iteration 2: classification, regression and clustering on the full dataset; your first Kaggle submission |
-| 4 | Theme 4: [Pipelines & ColumnTransformer](self-study/008_advanced_scikitlearn.ipynb) | [Iteration 3+](datalab/iteration-3/index.qmd): add the lab database and the Kaggle molecules |
-| 5 | Theme 5: [Decision Trees](self-study/009_decision_trees.ipynb), [Random Forests](self-study/010_random_forests.ipynb), [Gradient Boosting](self-study/011_gradient_boosting.ipynb) and their readings | Iteration 3+: try tree-based models and boosting on the project |
-| 6 | (project week) | Iteration 3+: your validation strategy, clustering all molecules, error analysis |
-| 7 | Theme 6: [Communicating Technical Work](self-study/09_communicating_technical_work.qmd), [Understanding ML Research](self-study/10_understanding_ml_research.qmd), [Research to Practice](self-study/11_from_research_to_practice.qmd) | Iteration 3+: keep iterating |
-| 8 | (project week) | Finish: your final models, your final Kaggle submissions, and a short write-up of what you tried and what you learned |
+The menu lists all of Self-study before the DataLab, and so does the Next link at the bottom of each page. At the end of each step, a note on the page points you to the next one.
+
+::: {.course-route}
+:::
 
 ## What you need
 

@@ -1,0 +1,73 @@
+# The course route: the order in which Self-study and DataLab interleave.
+# Read by filters/course-route.lua, which
+#   - renders the numbered list on start-here.qmd ("The course route") and on
+#     datalab/iteration-3/index.qmd, wherever a `::: {.course-route}` div is
+#     (attribute `from="N"` starts the list at step N);
+#   - adds a "Next: step N+1" callout at the end of the page given as `ends`.
+#
+# Paths are relative to the project root. `title` and `text` are Markdown;
+# links in them (and in `finish`) are relative to the project root too.
+# `ends`: the last page of the step, in sidebar order; leave it out when the
+# step has no page of its own to end on (the steps on Iteration 3+).
+# `finish`: optional, shown in that callout before the pointer to the next step.
+# Keep `href` and `ends` in step with the sidebar in _quarto.yml.
+
+steps:
+  - title: "Self-study, Theme 1: Foundations of Machine Learning"
+    href: self-study/00_what_is_machine_learning.qmd
+    ends: self-study/004_unsupervised_learning.ipynb
+    text: "What machine learning is, and your first classification, regression and clustering models with scikit-learn."
+
+  - title: "DataLab, Iteration 1"
+    href: datalab/iteration-1/index.qmd
+    ends: datalab/iteration-1/05_clustering.ipynb
+    text: "The client's problem and a starter dataset of 80 molecules: your first classification, regression and clustering models for the project."
+
+  - title: "Self-study, Theme 2: The End-to-End ML Workflow"
+    href: self-study/02_end_to_end_machine_learning.qmd
+    ends: self-study/007_modeling_and_evaluation.ipynb
+    text: "The steps of a machine-learning project: data understanding, data preparation, modeling and evaluation."
+
+  - title: "DataLab, Iteration 2: data understanding and data preparation"
+    href: datalab/iteration-2/index.qmd
+    ends: datalab/iteration-2/03_data_preparation.ipynb
+    text: "The raw HOPV files of 350 molecules: understand the stability and HOMO/LUMO data, and prepare your own dataset."
+
+  # When the Theme 3 notebooks replace the readings, update `href` and `ends`.
+  - title: "Self-study, Theme 3: Supervised & Unsupervised Learning"
+    href: self-study/03_classification.qmd
+    ends: self-study/05_unsupervised_learning.qmd
+    text: "Classification, regression and clustering in more depth."
+
+  - title: "DataLab, Iteration 2: classification, regression and clustering"
+    href: datalab/iteration-2/04_classification.ipynb
+    ends: datalab/iteration-2/06_clustering.ipynb
+    text: "Models on your own dataset, and your first submission to the Kaggle competitions."
+    finish: "Before you continue, submit your Iteration 2 models to the [Kaggle competitions](datalab/iteration-3/index.qmd#the-kaggle-competitions)."
+
+  - title: "Self-study, Theme 4: Advanced Scikit-Learn"
+    href: self-study/008_advanced_scikitlearn.ipynb
+    ends: self-study/008_advanced_scikitlearn.ipynb
+    text: "Pipelines and the ColumnTransformer: preprocessing and model in one object."
+
+  - title: "DataLab, Iteration 3+: new data"
+    href: datalab/iteration-3/index.qmd
+    text: "Find out why your Kaggle score differs from your cross-validation score, and add the lab database and the Kaggle molecules to your data."
+
+  - title: "Self-study, Theme 5: Tree-Based Algorithms"
+    href: self-study/009_decision_trees.ipynb
+    ends: self-study/08_gradient_boosting_stacking.qmd
+    text: "Decision trees, random forests and gradient boosting."
+
+  - title: "DataLab, Iteration 3+: better models"
+    href: datalab/iteration-3/index.qmd#things-to-investigate
+    text: "Tree-based models and boosting on the project, a validation strategy that resembles the Kaggle molecules, clustering all molecules, and an analysis of your errors."
+
+  - title: "Self-study, Theme 6: Applied ML Research"
+    href: self-study/09_communicating_technical_work.qmd
+    ends: self-study/11_from_research_to_practice.qmd
+    text: "Communicating technical work, reading ML research, and testing its ideas in your own project."
+
+  - title: "DataLab, Iteration 3+: your final solution"
+    href: datalab/iteration-3/index.qmd#compete-iterate-improve
+    text: "Keep improving your models, make your final Kaggle submissions, and write a short summary of what you tried and what you learned."
