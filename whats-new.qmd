@@ -6,6 +6,14 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.4.1 · 4 November 2026
+
+A new first page, and one textbook reading less.
+
+- [What is Machine Learning?](self-study/00_what_is_machine_learning.qmd) is now an interactive introduction in eight short sections: fitting a line, measuring the fit with a cost, gradient descent, polynomial regression, generalization (training and test data, underfitting and overfitting), regression vs classification, and supervised vs unsupervised learning. It ends with three review questions.
+- The Machine Learning Landscape reading guide (Chapter 1 of the textbook) has been removed: the new page covers what the course needs from that chapter. [Classification](self-study/002_classification.ipynb), [Unsupervised Learning](self-study/004_unsupervised_learning.ipynb) and [Modeling & Evaluation](self-study/007_modeling_and_evaluation.ipynb) now refer to the new page instead.
+- [Getting Started](self-study/001_getting_started.ipynb) follows on from the new page and points to the setup guide and How to use this course.
+
 ## v0.4.0 · 3 November 2026
 
 The Kaggle competitions are open.
