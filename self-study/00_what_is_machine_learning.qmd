@@ -316,5 +316,9 @@ A weather service has data on many past days, and each day is labeled "rain" or 
 - Unsupervised learning. [Unsupervised learning has no labels. Here every past day is labeled "rain" or "no rain", so this is supervised learning (section 8).]{.feedback}
 :::
 
+## Next
+
+This page introduced the ideas behind machine learning without any code. In the notebooks that follow, you will see how these ideas look in Python, with scikit-learn: data with features and labels, training a model, making predictions and checking them on test data. The first one, [Getting Started](001_getting_started.ipynb), introduces the datasets used in the self-study notebooks.
+
 <script src="fit-demo.js"></script>
 <script src="quiz.js"></script>
