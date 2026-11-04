@@ -149,4 +149,29 @@ One warning. Here you looked at the test cost to see which degree works best. In
 
 The test cost is the better estimate of how well the model will do on new data. How it relates to the training cost tells you a lot about how a model behaves. A low training cost alone tells you little: a model can fit the training data very well and still predict new data badly. You will come back to this throughout the course.
 
+## 6. Regression vs classification
+
+Everything you have done so far is **regression**: the model predicts a number, a value on a continuous scale.
+
+::: {.column-margin}
+**Regression**: predicting a number, such as a price or an energy.
+:::
+
+Many problems ask a different question: which group does an input belong to? Is an email spam or not? Is a tumour malignant or benign? This is **classification**: the model predicts a **class**, one of a fixed set of options.
+
+::: {.column-margin}
+**Classification**: predicting a class, one of a fixed set of options, such as spam or not spam.
+:::
+
+In the DataLab project you will do both. Predicting a molecule's HOMO and LUMO energies is regression; predicting whether its stability is low, medium or high is classification.
+
+In the demo below, each point has two inputs, $x_1$ and $x_2$, and belongs to class A (blue circles) or class B (red squares). The model is again a straight line, but it has a different job: it does not go through the points, it separates them. For every point above the line the model predicts class B, for every point below it class A. The shading shows these predictions. The line is the model's **decision boundary**. Change the slope and intercept until every point is on the right side.
+
+::: {.fit-demo data-stage="6"}
+:::
+
+What plays the role of the cost here? The simplest measure is to count the mistakes: the misclassified points, ringed in orange. The share of correct predictions is the **accuracy**. A count changes in jumps, though, which makes it hard for an algorithm to search. That is why training algorithms use a smoother cost instead. The idea stays the same: adjust the parameters until the predictions match the data as well as possible.
+
+Everything from the earlier sections carries over. In real data the classes often overlap, so no line gets every point right. A straight line is not always enough either: just as a curve can fit data that a line cannot, a classifier can draw a curved boundary. And again, what matters is not the accuracy on the training data but on test data the model has not seen.
+
 <script src="fit-demo.js"></script>

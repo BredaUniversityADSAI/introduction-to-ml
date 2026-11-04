@@ -11,6 +11,8 @@
 //        parameters for that degree are computed, the cost is traced per degree
 //   5:   the 4.4 demo plus test data behind a toggle: training and test cost
 //        per degree
+//   6:   classification: two classes in the (x₁, x₂) plane, a straight line as
+//        the decision boundary, misclassified points counted
 // Colors come from CSS custom properties in styles.css, so the charts follow
 // the site's light/dark toggle.
 
@@ -39,6 +41,16 @@
     [-4.8, 10.0], [-3.4, 6.9], [-2.7, 7.1], [-1.5, 8.4], [-0.5, 8.2],
     [0.6, 5.4], [1.5, 4.5], [2.8, 3.1], [3.7, 8.6], [4.6, 10.7],
   ];
+  // Section 6: [x₁, x₂, class], class 0 = A, 1 = B. A straight line separates
+  // the classes (e.g. x₂ = 0.9·x₁ + 1.2); every point is at least 0.55 from it.
+  const CLASS_DATA = [
+    [0.8, 4.0, 1], [1.2, 7.6, 1], [1.4, 5.8, 1], [1.5, 1.4, 0], [1.7, 3.6, 1],
+    [3.9, 9.0, 1], [4.0, 5.8, 1], [4.0, 6.8, 1], [4.7, 3.1, 0], [4.8, 3.9, 0],
+    [5.1, 6.7, 1], [5.8, 5.2, 0], [5.9, 3.1, 0], [5.9, 2.2, 0], [5.9, 9.3, 1],
+    [6.3, 8.2, 1], [6.3, 4.7, 0], [7.1, 3.3, 0], [8.3, 4.3, 0], [8.9, 7.7, 0],
+  ];
+  const CLASS_NAMES = ["A", "B"];
+
   // Section 5: test data from the same curve. Test cost per degree 1-9, with
   // each degree fitted to QUARTIC_DATA: 1.91 1.22 0.89 0.49 0.89 1.80 2.11
   // 4.49 11.21 (lowest at 4).
@@ -101,6 +113,13 @@
     4.3: { data: QUAD_DATA, axes: CURVE_AXES, params: QUADRATIC([0.3, 0, 0]) },
     4.4: { data: QUARTIC_DATA, axes: DEGREE_AXES, degree: DEGREES },
     5: { data: QUARTIC_DATA, test: QUARTIC_TEST, axes: DEGREE_AXES, degree: DEGREES },
+    6: {
+      classify: true, data: CLASS_DATA,
+      params: [
+        { ...P.slope, range: { min: -1, max: 3, step: 0.01, digits: 2 }, init: 0 },
+        { ...P.intercept, range: { min: -4, max: 10, step: 0.1, digits: 1 }, init: 5 },
+      ],
+    },
   };
 
   // Lighter = lower cost, in both themes, so the page text stays true.
@@ -490,6 +509,65 @@
     return { build, update };
   }
 
+  // ---------- chart 4: classification with a straight decision boundary ----------
+
+  // Points above the line x₂ = s·x₁ + b are predicted class B, the rest class A.
+  const predictClass = (p, x1, x2) => (x2 > p.s * x1 + p.b ? 1 : 0);
+
+  function classChart(host, { data }) {
+    let f, regionA, regionB, line, rings, tip, state;
+    const D = [0, 10];
+
+    function build() {
+      f = frame(host, {
+        label: "Two classes of points in the plane of x₁ and x₂, with the model's decision boundary",
+        x: { domain: D, ticks: ticks(0, 10, 2), label: "x₁" },
+        y: { domain: D, ticks: ticks(0, 10, 2), label: "x₂" },
+      });
+      tip = host.querySelector(".fit-tooltip") || tooltip(host);
+      regionB = svgEl("path", { class: "fit-region is-b", "clip-path": f.clip }, f.svg);
+      regionA = svgEl("path", { class: "fit-region is-a", "clip-path": f.clip }, f.svg);
+      line = svgEl("line", { class: "fit-line", "clip-path": f.clip }, f.svg);
+      rings = data.map(([x1, x2]) => svgEl("circle", { class: "fit-wrong", cx: f.x(x1), cy: f.y(x2), r: 10 }, f.svg));
+      for (const [x1, x2, c] of data) {
+        const cx = f.x(x1);
+        const cy = f.y(x2);
+        if (c === 0) svgEl("circle", { class: "fit-class-a", cx, cy, r: 5.5 }, f.svg);
+        else svgEl("rect", { class: "fit-class-b", x: cx - 5, y: cy - 5, width: 10, height: 10 }, f.svg);
+        const hit = svgEl("circle", { class: "fit-hit", cx, cy, r: 13 }, f.svg);
+        hit.addEventListener("pointerenter", () => {
+          const pred = predictClass(state.p, x1, x2);
+          showTip(tip, host, cx, cy, `x₁ = ${x1}, x₂ = ${x2} · class ${CLASS_NAMES[c]} · predicted ${CLASS_NAMES[pred]} ${pred === c ? "✓" : "✗"}`);
+        });
+        hit.addEventListener("pointerleave", () => tip.classList.remove("is-visible"));
+      }
+      if (state) update(state);
+    }
+
+    function update(next) {
+      state = next;
+      const { s, b } = state.p;
+      // Line end points just outside the plot; the regions extend far beyond it and are clipped.
+      const [x0, x1] = [D[0] - 1, D[1] + 1];
+      const y0 = s * x0 + b;
+      const y1 = s * x1 + b;
+      const px = (v) => f.x(v).toFixed(1);
+      const py = (v) => Math.max(-1e4, Math.min(1e4, f.y(v))).toFixed(1);
+      line.setAttribute("x1", px(x0));
+      line.setAttribute("y1", py(y0));
+      line.setAttribute("x2", px(x1));
+      line.setAttribute("y2", py(y1));
+      const far = 1e3;
+      regionB.setAttribute("d", `M${px(x0)},${py(y0)} L${px(x1)},${py(y1)} L${px(x1)},${py(far)} L${px(x0)},${py(far)} Z`);
+      regionA.setAttribute("d", `M${px(x0)},${py(y0)} L${px(x1)},${py(y1)} L${px(x1)},${py(-far)} L${px(x0)},${py(-far)} Z`);
+      data.forEach(([a, c2, c], i) => {
+        rings[i].style.display = predictClass(state.p, a, c2) === c ? "none" : "";
+      });
+    }
+
+    return { build, update };
+  }
+
   // ---------- chart 3: cost map over two parameters ----------
 
   function costMapChart(host, { px: qx, py: qy, costAt, minCost, onPick }) {
@@ -742,9 +820,59 @@
     onResize(root, buildAll);
   }
 
+  // Classification demo: slope and intercept move the decision boundary.
+  function mountClassify(root, cfg) {
+    const { data, params } = cfg;
+    const state = { p: Object.fromEntries(params.map((q) => [q.key, q.init])) };
+
+    const plots = htmlEl("div", "fit-plots", root);
+    const bar = htmlEl("div", "fit-toolbar", plots);
+    const key = htmlEl("div", "fit-key", bar);
+    htmlEl("span", "fit-key-a", key, "Class A");
+    htmlEl("span", "fit-key-b", key, "Class B");
+    htmlEl("span", "fit-key-wrong", key, "Misclassified");
+    const charts = [classChart(panel(plots, null), { data })];
+
+    const controls = htmlEl("div", "fit-controls", root);
+    const sliders = htmlEl("div", "fit-sliders", controls);
+    for (const q of params) {
+      slider(sliders, q.label, q.range, q.init, (v) => {
+        state.p[q.key] = v;
+        refresh();
+      });
+    }
+    const readout = htmlEl("div", "fit-readout", controls);
+    readout.setAttribute("aria-live", "polite");
+    const eq = htmlEl("span", "fit-equation", readout);
+    const wrong = costReadout(readout, "Misclassified");
+    const acc = costReadout(readout, "Accuracy");
+    const badge = htmlEl("span", "fit-badge", readout, "✓ All correct");
+
+    function refresh() {
+      const { s, b } = state.p;
+      const n = data.filter(([x1, x2, c]) => predictClass(state.p, x1, x2) !== c).length;
+      eq.textContent = `boundary: x₂ = ${fmt(s, 2)}·x₁ ${b < 0 ? "−" : "+"} ${fmt(Math.abs(b), 1)}`;
+      wrong.value.textContent = `${n} of ${data.length}`;
+      acc.value.textContent = `${Math.round((100 * (data.length - n)) / data.length)}%`;
+      badge.classList.toggle("is-visible", n === 0);
+      for (const chart of charts) chart.update({ p: { ...state.p } });
+    }
+
+    const buildAll = () => {
+      for (const chart of charts) chart.build();
+      refresh();
+    };
+    buildAll();
+    onResize(root, buildAll);
+  }
+
   function mount(root) {
     const cfg = STAGES[root.dataset.stage];
     if (!cfg) return;
+    if (cfg.classify) {
+      mountClassify(root, cfg);
+      return;
+    }
     if (cfg.degree) {
       mountDegree(root, cfg);
       return;

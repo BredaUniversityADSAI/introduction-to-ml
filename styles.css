@@ -1361,6 +1361,9 @@ body.quarto-dark .ml-status-live:focus-visible {
   --fit-good-soft: #e7f6ef;
   --fit-test: #8a3ffc;
   --fit-test-residual: rgba(138, 63, 252, 0.5);
+  --fit-class-b: #c0306b;
+  --fit-region-a: rgba(0, 85, 140, 0.08);
+  --fit-region-b: rgba(192, 48, 107, 0.08);
   --fit-ramp: linear-gradient(90deg, #f2f8fe, #9ec5f4, #5598e7, #256abf, #184f95);
 
   margin: 1.5rem 0 2rem;
@@ -1388,6 +1391,9 @@ body.quarto-dark .fit-demo {
   --fit-good-soft: #12342a;
   --fit-test: #be95ff;
   --fit-test-residual: rgba(190, 149, 255, 0.55);
+  --fit-class-b: #f07aa6;
+  --fit-region-a: rgba(90, 174, 230, 0.12);
+  --fit-region-b: rgba(240, 122, 166, 0.12);
   --fit-ramp: linear-gradient(90deg, #cde2fb, #86b6ef, #3987e5, #1c5cab, #0d366b);
   box-shadow: none;
 }
@@ -1754,6 +1760,52 @@ body.quarto-dark .fit-demo {
 .fit-badge.is-visible {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Classification demo: classes, predicted regions, misclassified points */
+
+.fit-class-a {
+  fill: var(--fit-point);
+  stroke: var(--fit-card);
+  stroke-width: 2;
+}
+
+.fit-class-b {
+  fill: var(--fit-class-b);
+  stroke: var(--fit-card);
+  stroke-width: 2;
+}
+
+.fit-region {
+  stroke: none;
+}
+
+.fit-region.is-a {
+  fill: var(--fit-region-a);
+}
+
+.fit-region.is-b {
+  fill: var(--fit-region-b);
+}
+
+.fit-wrong {
+  fill: none;
+  stroke: var(--fit-model);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.fit-key-a::before {
+  background: var(--fit-point);
+}
+
+.fit-key-b::before {
+  background: var(--fit-class-b);
+  border-radius: 1px !important;
+}
+
+.fit-key-wrong::before {
+  border: 2px solid var(--fit-model);
 }
 
 /* Locked parameters (shown but fixed), test-data toggle and key */
