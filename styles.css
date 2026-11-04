@@ -1762,6 +1762,65 @@ body.quarto-dark .fit-demo {
   transform: scale(1);
 }
 
+/* Gradient descent demo */
+
+.fit-cost-curve.is-faint {
+  stroke: var(--fit-axis);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.fit-trail {
+  fill: none;
+  stroke: var(--fit-curve);
+  stroke-width: 1.5;
+}
+
+.fit-tangent {
+  stroke: var(--fit-model);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+
+.fit-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.fit-button {
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--fit-model);
+  border-radius: 999px;
+  background: var(--fit-model);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.fit-button.is-quiet {
+  background: transparent;
+  color: var(--fit-ink);
+  border-color: var(--fit-border);
+}
+
+.fit-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.fit-button:focus-visible {
+  outline: 2px solid var(--fit-model);
+  outline-offset: 2px;
+}
+
+.fit-badge.is-warning {
+  background: rgba(244, 122, 32, 0.12);
+  color: var(--fit-model);
+}
+
 /* Classification demo: classes, predicted regions, misclassified points */
 
 .fit-class-a {

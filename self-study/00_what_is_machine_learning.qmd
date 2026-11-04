@@ -60,11 +60,51 @@ The map on the right shows the cost for every combination. Each spot on the map 
 **Training**: searching for the parameter values with the lowest cost.
 :::
 
-## 4. Polynomial regression
+## 4. How does the machine learn?
+
+So far you found the best parameters yourself: you looked at the plots and moved the sliders until the cost was low. A computer cannot look at a plot. And with more than two parameters, nobody can draw the cost anyway. So how does the machine find the lowest cost?
+
+It can only calculate. For the current parameter values it can work out two things: the cost, and how the cost changes when a parameter changes a little. That second number is the **gradient**: how steep the cost curve is at the current point, and in which direction it goes down.
+
+::: {.column-margin}
+**Gradient**: how fast the cost changes when a parameter changes a little. It points uphill, so a step against it goes downhill.
+:::
+
+Imagine standing on a hillside in thick fog. You cannot see the valley, but you can feel which way the ground slopes under your feet. So you take a step downhill, feel again, and take another step. That is **gradient descent**:
+
+1. Start with some value for the parameter, for example slope 0.
+2. Calculate the gradient there.
+3. Take a step downhill: new slope = slope − learning rate × gradient.
+4. Repeat until the gradient is close to zero. At the bottom of the curve the ground is flat.
+
+::: {.column-margin}
+**Gradient descent**: finding the lowest cost by repeatedly taking a small step against the gradient.
+:::
+
+The **learning rate** sets the size of the steps. It is not a parameter of the model, and training does not change it: you choose it before training starts.
+
+::: {.column-margin}
+**Learning rate**: how big each gradient descent step is. Chosen before training.
+:::
+
+The demo uses the line from section 2: the intercept is fixed at 1 and gradient descent searches for the slope. Press "Step" to take one step, or "Run" to keep stepping. On the right, the dashed grey curve is the cost you saw in section 2. The algorithm never sees that curve. All it uses is the orange tangent: the gradient at the current point.
+
+::: {.fit-demo data-stage="4"}
+:::
+
+Try each learning rate, and press "Reset" (or change the learning rate) to start again from slope 0.
+
+- With a very small learning rate, the steps are tiny. The algorithm gets there in the end, but it takes many steps.
+- With a learning rate that is about right, it reaches the bottom in a few steps.
+- With a learning rate that is too large, each step jumps past the bottom to the other side, and the path zigzags. A little larger still, and every jump lands higher than the last: the slope runs away and the cost explodes. The algorithm has diverged.
+
+With two parameters nothing changes: the algorithm calculates the gradient for the slope and for the intercept, and changes both at once. On the cost map of section 3, that is walking downhill across the map. With millions of parameters, the rule is still the same. Many models are trained with gradient descent or a variant of it, from straight lines to large neural networks. For a straight line there is also a formula that gives the best parameters directly, but gradient descent works for almost any model with a cost you can calculate.
+
+## 5. Polynomial regression
 
 Not every relationship is a straight line. The data below was generated from a curve, $y = a x^2$, plus some noise. Try to fit it with a line, using the slope and the intercept.
 
-::: {.fit-demo data-stage="4.1"}
+::: {.fit-demo data-stage="5.1"}
 :::
 
 However you set the sliders, the cost stays high. The badge appears when you reach the lowest cost a line can get, and even that line misses most of the points. The problem is not the parameters but the model: a straight line cannot bend.
@@ -83,12 +123,12 @@ This is **polynomial regression**. The highest power of $x$ is the **degree** of
 
 Below is the same data. This time $b$ and $c$ are fixed at 0, so only $a$ can change. Find the best value for $a$.
 
-::: {.fit-demo data-stage="4.2"}
+::: {.fit-demo data-stage="5.2"}
 :::
 
 One parameter is enough here, because the data was made from $a x^2$ alone. Real data rarely is that tidy. The next data set comes from a curve with all three terms, so you need all three sliders.
 
-::: {.fit-demo data-stage="4.3"}
+::: {.fit-demo data-stage="5.3"}
 :::
 
 With three parameters the cost depends on three numbers at once, too many to draw as a map, but the search is the same: change the parameters until the cost is as low as it gets. You may notice the sliders depend on each other: after changing $a$, the best $c$ moves too.
@@ -108,18 +148,18 @@ So there are two different things you can change, and it is important not to con
 
 In the next demo the slider is the degree, not a parameter. For each degree, the best parameters are found for you, the way an algorithm would. The data was generated from a degree-4 curve, plus noise. Move the slider from degree 1 to 9 and watch the cost of each degree appear on the right.
 
-::: {.fit-demo data-stage="4.4"}
+::: {.fit-demo data-stage="5.4"}
 :::
 
 Up to degree 4, the degree the data was made with, each extra degree lowers the cost a lot. But the cost keeps going down after degree 4, and at degree 9 the curve passes through every point, with a cost of exactly 0.
 
 A higher degree can always fit the training data at least as well, because it has every term of the lower degree plus more. So the lowest cost always belongs to the highest degree. Look at the degree-9 curve between the points, though. Would you trust its predictions there? The cost on the data we fit cannot answer that question. The next section shows what can.
 
-## 5. Training and test data
+## 6. Training and test data
 
 So far you have been minimising the cost on the data you have. But that is not what we actually care about. A model is useful when it makes good predictions for new data: observations it has never seen. A fit that matches the known points perfectly is worthless if it gets the next one wrong.
 
-The demo below is the degree demo from section 4, with the same blue dots. They are the **training data**: for each degree, the curve is fitted to these points. There are also some new observations from the same degree-4 curve, the **test data**. The model never sees them during training, and they are hidden for now.
+The demo below is the degree demo from section 5, with the same blue dots. They are the **training data**: for each degree, the curve is fitted to these points. There are also some new observations from the same degree-4 curve, the **test data**. The model never sees them during training, and they are hidden for now.
 
 ::: {.column-margin}
 **Training data**: the data the model is fitted to.
@@ -130,7 +170,7 @@ The demo below is the degree demo from section 4, with the same blue dots. They 
 1. Move the degree slider from 1 to 9, as before, and watch the training cost go down.
 2. Then switch on "Show test data". Now you also see the test points and, on the right, the **test cost** of each degree: the same cost formula, calculated on the test data. Move the slider again.
 
-::: {.fit-demo data-stage="5"}
+::: {.fit-demo data-stage="6"}
 :::
 
 The two costs tell different stories. The training cost keeps going down as the degree goes up. The test cost goes down until degree 4 and then up again: at degree 9 it is far above the top of the plot.
@@ -149,7 +189,7 @@ One warning. Here you looked at the test cost to see which degree works best. In
 
 The test cost is the better estimate of how well the model will do on new data. How it relates to the training cost tells you a lot about how a model behaves. A low training cost alone tells you little: a model can fit the training data very well and still predict new data badly. You will come back to this throughout the course.
 
-## 6. Regression vs classification
+## 7. Regression vs classification
 
 Everything you have done so far is **regression**: the model predicts a number, a value on a continuous scale.
 
@@ -167,7 +207,7 @@ In the DataLab project you will do both. Predicting a molecule's HOMO and LUMO e
 
 In the demo below, each point has two inputs, $x_1$ and $x_2$, and belongs to class A (blue circles) or class B (red squares). The model is again a straight line, but it has a different job: it does not go through the points, it separates them. For every point above the line the model predicts class B, for every point below it class A. The shading shows these predictions. The line is the model's **decision boundary**. Change the slope and intercept until every point is on the right side.
 
-::: {.fit-demo data-stage="6"}
+::: {.fit-demo data-stage="7"}
 :::
 
 What plays the role of the cost here? The simplest measure is to count the mistakes: the misclassified points, ringed in orange. The share of correct predictions is the **accuracy**. A count changes in jumps, though, which makes it hard for an algorithm to search. That is why training algorithms use a smoother cost instead. The idea stays the same: adjust the parameters until the predictions match the data as well as possible.

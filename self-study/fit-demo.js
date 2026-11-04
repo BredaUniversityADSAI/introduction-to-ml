@@ -1,17 +1,19 @@
 // Interactive model-fitting demos for "What is Machine Learning?".
 //
 // Every `.fit-demo[data-stage]` element on the page becomes one demo:
+// The stage numbers follow the page's section numbers:
 //   1:   data + line, slope slider (intercept fixed)
-//   2:   same, plus the cost traced for every slope the reader tries
+//   2:   same, plus the cost traced from slope 0 up to the current slope
 //   3:   slope and intercept sliders, plus a cost map over both parameters
-//   4.1: curved data (y = a·x²), a line with slope and intercept: no good fit
-//   4.2: same data, model a·x² + b·x + c with b and c locked at 0
-//   4.3: data from a·x² + b·x + c, all three parameters free
-//   4.4: data from a degree-4 curve; the slider sets the degree, the best
+//   4:   gradient descent on the slope: step / run / reset, learning rate slider
+//   5.1: curved data (y = a·x²), a line with slope and intercept: no good fit
+//   5.2: same data, model a·x² + b·x + c with b and c locked at 0
+//   5.3: data from a·x² + b·x + c, all three parameters free
+//   5.4: data from a degree-4 curve; the slider sets the degree, the best
 //        parameters for that degree are computed, the cost is traced per degree
-//   5:   the 4.4 demo plus test data behind a toggle: training and test cost
+//   6:   the 5.4 demo plus test data behind a toggle: training and test cost
 //        per degree
-//   6:   classification: two classes in the (x₁, x₂) plane, a straight line as
+//   7:   classification: two classes in the (x₁, x₂) plane, a straight line as
 //        the decision boundary, misclassified points counted
 // Colors come from CSS custom properties in styles.css, so the charts follow
 // the site's light/dark toggle.
@@ -102,18 +104,24 @@
       data: LINE_DATA, axes: LINE_AXES, side: "map",
       params: [{ ...P.slope, range: SLOPE, init: 0.5 }, { ...P.intercept, range: INTERCEPT, init: 4 }],
     },
-    4.1: {
+    4: {
+      gd: true, data: LINE_DATA, axes: LINE_AXES,
+      params: [{ ...P.slope, range: SLOPE, init: 0 }, { ...P.intercept, range: INTERCEPT, init: 1, locked: "hidden" }],
+      rates: [0.001, 0.003, 0.01, 0.02, 0.03, 0.034], rate: 2,
+      slopeAxis: [-1, 5], maxSteps: 60,
+    },
+    5.1: {
       data: SQUARE_DATA, axes: CURVE_AXES, badge: "Best a line can do",
       params: [
         { ...P.slope, range: { min: -3, max: 3, step: 0.01, digits: 2 }, init: 1.5 },
         { ...P.intercept, range: { min: -4, max: 16, step: 0.1, digits: 1 }, init: 2 },
       ],
     },
-    4.2: { data: SQUARE_DATA, axes: CURVE_AXES, params: QUADRATIC([0.3, 0, 0], "shown") },
-    4.3: { data: QUAD_DATA, axes: CURVE_AXES, params: QUADRATIC([0.3, 0, 0]) },
-    4.4: { data: QUARTIC_DATA, axes: DEGREE_AXES, degree: DEGREES },
-    5: { data: QUARTIC_DATA, test: QUARTIC_TEST, axes: DEGREE_AXES, degree: DEGREES },
-    6: {
+    5.2: { data: SQUARE_DATA, axes: CURVE_AXES, params: QUADRATIC([0.3, 0, 0], "shown") },
+    5.3: { data: QUAD_DATA, axes: CURVE_AXES, params: QUADRATIC([0.3, 0, 0]) },
+    5.4: { data: QUARTIC_DATA, axes: DEGREE_AXES, degree: DEGREES },
+    6: { data: QUARTIC_DATA, test: QUARTIC_TEST, axes: DEGREE_AXES, degree: DEGREES },
+    7: {
       classify: true, data: CLASS_DATA,
       params: [
         { ...P.slope, range: { min: -1, max: 3, step: 0.01, digits: 2 }, init: 0 },
@@ -509,6 +517,55 @@
     return { build, update };
   }
 
+  // ---------- chart 2c: gradient descent on the cost curve ----------
+
+  // The whole cost curve is drawn faintly, for the reader; the algorithm only
+  // uses the cost and the gradient at the current point (the tangent).
+  function gdChart(host, { param, costAt, gradAt, axis }) {
+    let f, trail, tangent, layer, state;
+
+    function build() {
+      f = frame(host, {
+        label: "Gradient descent: the steps taken so far on the cost curve, and the gradient at the current slope",
+        x: { domain: axis, ticks: ticks(axis[0], axis[1], 1), label: param.label.toLowerCase() },
+        y: { domain: [0, COST_MAX], ticks: ticks(0, 125, 25), label: "cost" },
+      });
+      const steps = 200;
+      let d = "";
+      for (let i = 0; i <= steps; i++) {
+        const v = axis[0] + ((axis[1] - axis[0]) * i) / steps;
+        d += `${i ? "L" : "M"}${f.x(v).toFixed(1)},${Math.max(-1e4, f.y(costAt(v))).toFixed(1)}`;
+      }
+      svgEl("path", { class: "fit-cost-curve is-faint", d, "clip-path": f.clip }, f.svg);
+      trail = svgEl("path", { class: "fit-trail", "clip-path": f.clip }, f.svg);
+      tangent = svgEl("line", { class: "fit-tangent", "clip-path": f.clip }, f.svg);
+      layer = svgEl("g", { "clip-path": f.clip }, f.svg);
+      if (state) update(state);
+    }
+
+    function update(next) {
+      state = next;
+      const pts = state.path.map((v) => [f.x(v), Math.max(-1e4, f.y(costAt(v)))]);
+      trail.setAttribute("d", pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join(""));
+      layer.replaceChildren();
+      pts.forEach(([x, y], i) => {
+        const current = i === pts.length - 1;
+        svgEl("circle", { class: current ? "fit-current" : "fit-tried", cx: x, cy: y, r: current ? 6 : 3.5 }, layer);
+      });
+      // Tangent: the straight line with the gradient's steepness through the current point.
+      const v = state.path[state.path.length - 1];
+      const c = costAt(v);
+      const g = gradAt(v);
+      const dv = 0.7;
+      tangent.setAttribute("x1", f.x(v - dv));
+      tangent.setAttribute("x2", f.x(v + dv));
+      tangent.setAttribute("y1", Math.max(-1e4, f.y(c - g * dv)));
+      tangent.setAttribute("y2", Math.max(-1e4, f.y(c + g * dv)));
+    }
+
+    return { build, update };
+  }
+
   // ---------- chart 4: classification with a straight decision boundary ----------
 
   // Points above the line x₂ = s·x₁ + b are predicted class B, the rest class A.
@@ -688,7 +745,8 @@
 
   // ---------- controls ----------
 
-  function slider(parent, label, range, value, onInput, locked) {
+  function slider(parent, label, range, value, onInput, locked, format) {
+    const show = format || ((v) => fmt(v, range.digits));
     const wrap = htmlEl("label", `fit-slider${locked ? " is-locked" : ""}`, parent);
     htmlEl("span", "fit-slider-label", wrap, label);
     const input = htmlEl("input", "", wrap);
@@ -697,13 +755,13 @@
       input.disabled = true;
       wrap.title = `${label} is fixed at ${value} in this model`;
     }
-    const out = htmlEl("output", "fit-slider-value", wrap, fmt(value, range.digits));
+    const out = htmlEl("output", "fit-slider-value", wrap, show(value));
     const paintTrack = () => {
       const pct = ((input.value - range.min) / (range.max - range.min)) * 100;
       input.style.setProperty("--fit-fill", `${pct}%`);
     };
     input.addEventListener("input", () => {
-      out.textContent = fmt(+input.value, range.digits);
+      out.textContent = show(+input.value);
       paintTrack();
       onInput(+input.value);
     });
@@ -711,7 +769,7 @@
     return {
       set(v) {
         input.value = v;
-        out.textContent = fmt(v, range.digits);
+        out.textContent = show(v);
         paintTrack();
       },
     };
@@ -820,6 +878,109 @@
     onResize(root, buildAll);
   }
 
+  // Gradient descent demo: the slope is found by repeated steps downhill.
+  function mountGD(root, cfg) {
+    const { data, params, rates, axis = cfg.slopeAxis, maxSteps } = cfg;
+    const [q] = params;
+    const fixed = Object.fromEntries(params.map((r) => [r.key, r.init]));
+    const costAt = (v) => cost(params, { ...fixed, [q.key]: v }, data);
+    // Derivative of the mean squared error with respect to the slope.
+    const gradAt = (v) => {
+      const p = { ...fixed, [q.key]: v };
+      return data.reduce((sum, [x, y]) => sum - 2 * x * (y - predict(params, p, x)), 0) / data.length;
+    };
+    const minCost = costAt(bestFit(params, fixed, data)[q.key]);
+    const state = { rate: cfg.rate, path: [q.init], timer: null };
+    const at = () => state.path[state.path.length - 1];
+    const done = () => costAt(at()) <= minCost * 1.005;
+    const diverged = () => at() < axis[0] - 1 || at() > axis[1] + 1;
+
+    const plots = htmlEl("div", "fit-plots fit-plots-2", root);
+    const charts = [
+      dataChart(panel(plots, "Data and model"), { ...cfg, axes: cfg.axes, residuals: true }),
+      gdChart(panel(plots, "Steps on the cost curve"), { param: q, costAt, gradAt, axis }),
+    ];
+
+    const controls = htmlEl("div", "fit-controls", root);
+    const sliders = htmlEl("div", "fit-sliders", controls);
+    slider(sliders, "Learning rate", { min: 0, max: rates.length - 1, step: 1, digits: 0 }, state.rate, (i) => {
+      state.rate = i;
+      reset();
+    }, false, (i) => String(rates[i]));
+    const buttons = htmlEl("div", "fit-buttons", sliders);
+    const stepBtn = htmlEl("button", "fit-button", buttons, "Step");
+    const runBtn = htmlEl("button", "fit-button", buttons, "Run");
+    const resetBtn = htmlEl("button", "fit-button is-quiet", buttons, "Reset");
+    for (const b of [stepBtn, runBtn, resetBtn]) b.type = "button";
+
+    const readout = htmlEl("div", "fit-readout", controls);
+    readout.setAttribute("aria-live", "polite");
+    const stepOut = costReadout(readout, "Step");
+    const slopeOut = costReadout(readout, q.label);
+    const gradOut = costReadout(readout, "Gradient");
+    const costOut = costReadout(readout, "Cost");
+    const badge = htmlEl("span", "fit-badge", readout, "✓ Minimum reached");
+    const warn = htmlEl("span", "fit-badge is-warning", readout, "Diverged: the steps keep growing");
+
+    function step() {
+      if (done() || diverged() || state.path.length > maxSteps) return false;
+      state.path.push(at() - rates[state.rate] * gradAt(at()));
+      return true;
+    }
+
+    function stop() {
+      clearInterval(state.timer);
+      state.timer = null;
+      runBtn.textContent = "Run";
+    }
+
+    function reset() {
+      stop();
+      state.path = [q.init];
+      refresh();
+    }
+
+    function refresh() {
+      const v = at();
+      stepOut.value.textContent = String(state.path.length - 1);
+      slopeOut.value.textContent = fmt(v, 2);
+      gradOut.value.textContent = fmt(gradAt(v), 1);
+      costOut.value.textContent = Math.abs(v) > 1e3 ? "huge" : fmt(costAt(v), 2);
+      badge.classList.toggle("is-visible", done());
+      const outOfSteps = state.path.length > maxSteps && !done();
+      warn.textContent = diverged() ? "Diverged: the steps keep growing" : `Stopped after ${maxSteps} steps, not at the bottom yet`;
+      warn.classList.toggle("is-visible", diverged() || outOfSteps);
+      stepBtn.disabled = runBtn.disabled = done() || diverged() || state.path.length > maxSteps;
+      if (stepBtn.disabled) stop();
+      for (const chart of charts) chart.update({ p: { ...fixed, [q.key]: v }, path: state.path });
+    }
+
+    stepBtn.addEventListener("click", () => {
+      stop();
+      step();
+      refresh();
+    });
+    runBtn.addEventListener("click", () => {
+      if (state.timer) {
+        stop();
+        return;
+      }
+      runBtn.textContent = "Pause";
+      state.timer = setInterval(() => {
+        if (!step()) stop();
+        refresh();
+      }, 320);
+    });
+    resetBtn.addEventListener("click", reset);
+
+    const buildAll = () => {
+      for (const chart of charts) chart.build();
+      refresh();
+    };
+    buildAll();
+    onResize(root, buildAll);
+  }
+
   // Classification demo: slope and intercept move the decision boundary.
   function mountClassify(root, cfg) {
     const { data, params } = cfg;
@@ -871,6 +1032,10 @@
     if (!cfg) return;
     if (cfg.classify) {
       mountClassify(root, cfg);
+      return;
+    }
+    if (cfg.gd) {
+      mountGD(root, cfg);
       return;
     }
     if (cfg.degree) {
