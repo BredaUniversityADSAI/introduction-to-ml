@@ -61,8 +61,6 @@ website:
           contents:
             - href: self-study/00_what_is_machine_learning.qmd
               text: "What is Machine Learning?"
-            - href: self-study/01_machine_learning_landscape.qmd
-              text: "The Machine Learning Landscape"
             - href: self-study/001_getting_started.ipynb
               text: "Getting Started"
             - href: self-study/002_classification.ipynb

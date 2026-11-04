@@ -1991,3 +1991,117 @@ body.quarto-dark .fit-demo {
     transition: none;
   }
 }
+
+
+/* =========================================================
+   Multiple-choice questions (self-study/quiz.js)
+   ========================================================= */
+
+body {
+  counter-reset: quiz;
+}
+
+.quiz {
+  --quiz-card: #ffffff;
+  --quiz-border: #e6e9ef;
+  --quiz-hover: #f5f7fa;
+  --quiz-ink: #1f2937;
+  --quiz-good: #138a5e;
+  --quiz-good-soft: #e7f6ef;
+  --quiz-bad: #b42318;
+  --quiz-bad-soft: #fdecea;
+
+  counter-increment: quiz;
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--quiz-card);
+  border: 1px solid var(--quiz-border);
+  border-radius: 16px;
+  color: var(--quiz-ink);
+}
+
+body.quarto-dark .quiz {
+  --quiz-card: #141d26;
+  --quiz-border: #2a3744;
+  --quiz-hover: #1b2631;
+  --quiz-ink: #e3e9ef;
+  --quiz-good: #4cc79a;
+  --quiz-good-soft: #12342a;
+  --quiz-bad: #f97066;
+  --quiz-bad-soft: #3a1d1b;
+}
+
+/* Without the script the explanations would give the answers away. */
+.quiz .feedback {
+  display: none;
+}
+
+.quiz-question {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+}
+
+.quiz-question::before {
+  content: counter(quiz) ". ";
+}
+
+.quiz-options {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--quiz-border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  background: var(--quiz-hover);
+}
+
+.quiz-option input {
+  flex: none;
+  margin-top: 0.3rem;
+  accent-color: var(--quiz-ink);
+}
+
+.quiz-option.is-correct {
+  border-color: var(--quiz-good);
+  background: var(--quiz-good-soft);
+}
+
+.quiz-option.is-wrong {
+  border-color: var(--quiz-bad);
+  background: var(--quiz-bad-soft);
+}
+
+.quiz-result {
+  display: grid;
+  margin: 0.75rem 0 0;
+}
+
+/* Every explanation sits in the same cell; the cell is as tall as the
+   longest one, so the card keeps its height when one is shown. */
+.quiz-message {
+  grid-area: 1 / 1;
+  margin: 0;
+  visibility: hidden;
+}
+
+.quiz-message.is-shown {
+  visibility: visible;
+}
+
+.quiz-message.is-correct strong {
+  color: var(--quiz-good);
+}
+
+.quiz-message.is-wrong strong {
+  color: var(--quiz-bad);
+}
