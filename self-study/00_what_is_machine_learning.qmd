@@ -177,9 +177,15 @@ The two costs tell different stories. The training cost keeps going down as the 
 
 Why is the test cost lowest at degree 4? Because the data was generated from a degree-4 curve, plus noise.
 
-- Below degree 4, the curve is too simple to follow the shape of the data. It misses the training points and the test points alike.
+- Below degree 4, the curve is too simple to capture the signal: the real curve behind the data. It misses the training points and the test points alike. This is called **underfitting**.
 - At degree 4, the model has exactly the terms of the curve that made the data. It follows that curve, not the noise, so it also predicts the new points well.
-- Above degree 4, the extra parameters have nothing real left to fit, so they fit the noise: the random ups and downs of the 10 training points. That lowers the training cost, but the test points have noise of their own, in other places. The curve bends towards training points that happen to lie high or low, and between them it swings far away from the real curve. At degree 9 it passes through every training point and predicts the test points worst of all.
+- Above degree 4, the extra parameters have nothing real left to fit, so they fit the noise: the random ups and downs of the 10 training points. That lowers the training cost, but the test points have noise of their own, in other places. The curve bends towards training points that happen to lie high or low, and between them it swings far away from the real curve. At degree 9 it passes through every training point and predicts the test points worst of all. This is called **overfitting**: the model fits the noise in the training data, not just the signal.
+
+::: {.column-margin}
+**Underfitting**: the model cannot capture the signal in the data. Making it more flexible lowers both the training and the test cost.
+
+**Overfitting**: the model fits the noise in the training data. Making it more flexible lowers the training cost but raises the test cost.
+:::
 
 Why is the test cost usually higher than the training cost? Training finds the parameters with the lowest cost on the training data. Nothing guarantees that the same parameters also give the lowest cost on the test data, so the test cost is usually higher. Not always: in this demo, degrees 1 to 3 have a lower test cost. With only 8 test points, the test cost also depends on where those points happen to lie.
 
@@ -187,7 +193,12 @@ Where does test data come from? In practice, nobody hands you unseen data with t
 
 One warning. Here you looked at the test cost to see which degree works best. In a real project, choosing the degree by the test cost uses the test data to make a decision, and then it is no longer unseen. The usual solution is a third part of the data for such choices, the **validation set**, so the test set is used only once, at the end. You will meet it in the Modeling and Evaluation notebook.
 
-The test cost is the better estimate of how well the model will do on new data. How it relates to the training cost tells you a lot about how a model behaves. A low training cost alone tells you little: a model can fit the training data very well and still predict new data badly. You will come back to this throughout the course.
+The test cost is the better estimate of how well the model will do on new data. But a single cost cannot tell you whether a model underfits or overfits: whether a cost is high depends on how much noise the data has, and in practice you do not know that. What tells you is how the costs change as you make the model more flexible, here by raising the degree:
+
+- While the training cost and the test cost both go down, the model is underfitting. There is still signal left to capture.
+- Once the training cost keeps going down but the test cost goes up, the model is overfitting. The extra flexibility goes into fitting noise.
+
+The best degree is at the turning point, where the test cost is lowest: degree 4 in this demo. In a real project you make this comparison on the validation set, not the test set. You will meet underfitting and overfitting throughout the course, for every kind of model.
 
 ## 7. Regression vs classification
 
