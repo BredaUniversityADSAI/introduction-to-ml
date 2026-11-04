@@ -21,39 +21,41 @@
 (() => {
   "use strict";
 
-  // Sections 1-3: roughly linear data.
+  // Sections 1-4: house sizes (x, in 100 m²) and prices (y, in €100,000).
   const LINE_DATA = [
     [0.8, 3.5], [1.7, 3.0], [2.6, 7.8], [3.4, 7.1], [4.5, 11.3],
     [5.3, 9.7], [6.2, 14.0], [7.1, 17.0], [8.0, 15.8], [9.2, 19.0],
   ];
-  // Section 4.1-4.2: generated from y = 0.8·x² plus noise.
+  // Sections 5-6 are about traffic: x = hours from noon, y = delay in minutes.
+  // Section 5.1-5.2: generated from y = 0.8·x² plus noise.
   const SQUARE_DATA = [
     [-4.6, 16.2], [-3.3, 9.2], [-2.7, 6.2], [-1.8, 1.9], [-0.6, 2.3],
     [0.6, 1.1], [1.7, 1.1], [2.6, 4.4], [3.5, 10.1], [4.8, 18.7],
   ];
-  // Section 4.3 and 5: generated from y = 0.5·x² + 1.2·x + 2 plus noise.
+  // Section 5.3: generated from y = 0.5·x² + 1.2·x + 2 plus noise.
   const QUAD_DATA = [
     [-4.5, 7.2], [-3.5, 3.6], [-2.5, 1.9], [-1.7, 2.1], [-0.7, 2.1],
     [0.7, 2.6], [1.5, 4.6], [2.4, 6.0], [3.8, 15.5], [4.8, 19.1],
   ];
-  // Section 4.4: generated from a degree-4 curve plus noise (sd 0.96):
+  // Sections 5.4 and 6: generated from a degree-4 curve plus noise (sd 0.96):
   // y = 6.8 − 5.08·t − 1.71·t² + 6.98·t³ + 5.6·t⁴, with t = x / 5.
   // Training cost per degree 1-9: 5.08 3.15 2.15 1.08 0.46 0.23 0.16 0.06 0.
   const QUARTIC_DATA = [
     [-4.8, 10.0], [-3.4, 6.9], [-2.7, 7.1], [-1.5, 8.4], [-0.5, 8.2],
     [0.6, 5.4], [1.5, 4.5], [2.8, 3.1], [3.7, 8.6], [4.6, 10.7],
   ];
-  // Section 6: [x₁, x₂, class], class 0 = A, 1 = B. A straight line separates
-  // the classes (e.g. x₂ = 0.9·x₁ + 1.2); every point is at least 0.55 from it.
+  // Section 7: emails as [x₁ = length in 100 words, x₂ = number of links,
+  // class], class 0 = not spam, 1 = spam. A straight line separates the
+  // classes (e.g. x₂ = 0.9·x₁ + 1.2).
   const CLASS_DATA = [
-    [0.8, 4.0, 1], [1.2, 7.6, 1], [1.4, 5.8, 1], [1.5, 1.4, 0], [1.7, 3.6, 1],
-    [3.9, 9.0, 1], [4.0, 5.8, 1], [4.0, 6.8, 1], [4.7, 3.1, 0], [4.8, 3.9, 0],
-    [5.1, 6.7, 1], [5.8, 5.2, 0], [5.9, 3.1, 0], [5.9, 2.2, 0], [5.9, 9.3, 1],
-    [6.3, 8.2, 1], [6.3, 4.7, 0], [7.1, 3.3, 0], [8.3, 4.3, 0], [8.9, 7.7, 0],
+    [0.8, 4, 1], [1.2, 8, 1], [1.4, 6, 1], [1.5, 1, 0], [1.7, 4, 1],
+    [3.9, 9, 1], [4.0, 6, 1], [4.0, 7, 1], [4.7, 3, 0], [4.8, 4, 0],
+    [5.1, 7, 1], [5.8, 5, 0], [5.9, 3, 0], [5.9, 2, 0], [5.9, 9, 1],
+    [6.3, 8, 1], [6.3, 5, 0], [7.1, 3, 0], [8.3, 4, 0], [8.9, 8, 0],
   ];
-  const CLASS_NAMES = ["A", "B"];
+  const CLASS_NAMES = ["not spam", "spam"];
 
-  // Section 5: test data from the same curve. Test cost per degree 1-9, with
+  // Section 6: test data from the same curve. Test cost per degree 1-9, with
   // each degree fitted to QUARTIC_DATA: 1.91 1.22 0.89 0.49 0.89 1.80 2.11
   // 4.49 11.21 (lowest at 4).
   const QUARTIC_TEST = [
@@ -76,8 +78,23 @@
   };
   const SLOPE = { min: 0, max: 4, step: 0.01, digits: 2 };
   const INTERCEPT = { min: -4, max: 6, step: 0.1, digits: 1 };
-  const LINE_AXES = { x: [0, 10], xTicks: [0, 10, 2], y: [0, 24], yTicks: [0, 24, 4] };
-  const CURVE_AXES = { x: [-5, 5], xTicks: [-4, 4, 2], y: [0, 24], yTicks: [0, 24, 4] };
+  // "€350,000" or "€1.13 million" for a price in units of €100,000.
+  const euros = (y) => (y >= 10 ? `€${(y / 10).toFixed(2)} million` : `€${Math.round(y * 100000).toLocaleString("en-US")}`);
+  // "7:24" for x hours from noon.
+  const clock = (x) => {
+    const m = Math.round((12 + x) * 60);
+    return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, "0")}`;
+  };
+  const LINE_AXES = {
+    x: [0, 10], xTicks: [0, 10, 2], y: [0, 24], yTicks: [0, 24, 4],
+    xLabel: "x: size (100 m²)", yLabel: "y: price (€100,000)",
+    describe: (x, y) => `x = ${x} (${Math.round(x * 100)} m²), y = ${y} (${euros(y)})`,
+  };
+  const CURVE_AXES = {
+    x: [-5, 5], xTicks: [-4, 4, 2], y: [0, 24], yTicks: [0, 24, 4],
+    xLabel: "x: hours from noon", yLabel: "y: delay (minutes)",
+    describe: (x, y) => `x = ${x} (${clock(x)}), y = ${y} (${y} min delay)`,
+  };
   const DEGREE_AXES = { ...CURVE_AXES, y: [0, 16], yTicks: [0, 16, 4] };
   const DEGREES = { min: 1, max: 9, init: 1 };
   const A_RANGE = { min: -0.5, max: 1.5, step: 0.01, digits: 2 };
@@ -125,7 +142,7 @@
       classify: true, data: CLASS_DATA,
       params: [
         { ...P.slope, range: { min: -1, max: 3, step: 0.01, digits: 2 }, init: 0 },
-        { ...P.intercept, range: { min: -4, max: 10, step: 0.1, digits: 1 }, init: 5 },
+        { ...P.intercept, range: { min: -4, max: 10, step: 0.1, digits: 1 }, init: 5.5 },
       ],
     },
   };
@@ -337,9 +354,10 @@
           if (isTest && !state.showTest) return;
           const pred = model(px);
           const what = isTest ? "test point: " : "";
+          const point = axes.describe ? axes.describe(px, py) : `x = ${px}, y = ${py}`;
           const text = residuals
-            ? `${what}x = ${px}, y = ${py} · predicted ${fmt(pred, 1)} · error ${fmt(py - pred, 1)}`
-            : `x = ${px}, y = ${py}`;
+            ? `${what}${point} · predicted ${fmt(pred, 1)} · error ${fmt(py - pred, 1)}`
+            : point;
           showTip(tip, host, f.x(px), f.y(py), text);
         });
         hit.addEventListener("pointerleave", () => tip.classList.remove("is-visible"));
@@ -353,8 +371,8 @@
         label: test.length
           ? "Scatter plot of the training data, optional test data and the model's curve"
           : "Scatter plot of the data with the model's line",
-        x: { domain: axes.x, ticks: ticks(...axes.xTicks), label: "x" },
-        y: { domain: axes.y, ticks: ticks(...axes.yTicks), label: "y" },
+        x: { domain: axes.x, ticks: ticks(...axes.xTicks), label: axes.xLabel || "x" },
+        y: { domain: axes.y, ticks: ticks(...axes.yTicks), label: axes.yLabel || "y" },
       });
       tip = host.querySelector(".fit-tooltip") || tooltip(host);
       trainErr = points(data, false);
@@ -577,9 +595,9 @@
 
     function build() {
       f = frame(host, {
-        label: "Two classes of points in the plane of x₁ and x₂, with the model's decision boundary",
-        x: { domain: D, ticks: ticks(0, 10, 2), label: "x₁" },
-        y: { domain: D, ticks: ticks(0, 10, 2), label: "x₂" },
+        label: "Emails by length and number of links, spam and not spam, with the model's decision boundary",
+        x: { domain: D, ticks: ticks(0, 10, 2), label: "x₁: length (100 words)" },
+        y: { domain: D, ticks: ticks(0, 10, 2), label: "x₂: number of links" },
       });
       tip = host.querySelector(".fit-tooltip") || tooltip(host);
       regionB = svgEl("path", { class: "fit-region is-b", "clip-path": f.clip }, f.svg);
@@ -594,7 +612,9 @@
         const hit = svgEl("circle", { class: "fit-hit", cx, cy, r: 13 }, f.svg);
         hit.addEventListener("pointerenter", () => {
           const pred = predictClass(state.p, x1, x2);
-          showTip(tip, host, cx, cy, `x₁ = ${x1}, x₂ = ${x2} · class ${CLASS_NAMES[c]} · predicted ${CLASS_NAMES[pred]} ${pred === c ? "✓" : "✗"}`);
+          const words = Math.round(x1 * 100);
+          showTip(tip, host, cx, cy,
+            `x₁ = ${x1} (${words} words), x₂ = ${x2} links · ${CLASS_NAMES[c]} · predicted ${CLASS_NAMES[pred]} ${pred === c ? "✓" : "✗"}`);
         });
         hit.addEventListener("pointerleave", () => tip.classList.remove("is-visible"));
       }
@@ -989,8 +1009,8 @@
     const plots = htmlEl("div", "fit-plots", root);
     const bar = htmlEl("div", "fit-toolbar", plots);
     const key = htmlEl("div", "fit-key", bar);
-    htmlEl("span", "fit-key-a", key, "Class A");
-    htmlEl("span", "fit-key-b", key, "Class B");
+    htmlEl("span", "fit-key-a", key, "Not spam");
+    htmlEl("span", "fit-key-b", key, "Spam");
     htmlEl("span", "fit-key-wrong", key, "Misclassified");
     const charts = [classChart(panel(plots, null), { data })];
 

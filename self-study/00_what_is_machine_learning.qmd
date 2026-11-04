@@ -5,20 +5,42 @@ resources:
 
 # What is Machine Learning?
 
+Machine learning is about programs that get better at a task by learning from data, instead of following rules that a programmer wrote down. Tom Mitchell gave the classic definition in his 1997 textbook *Machine Learning*:
+
+> "A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E."
+
+So every machine learning problem has three parts: a task T (what the program should do), experience E (the data it learns from) and a performance measure P (how well it does the task). Two examples:
+
+|   | Spam detection | House prices |
+|---|---|---|
+| Task | Decide whether an email is spam or not spam. | Predict the selling price of a house. |
+| Experience | Emails labeled as spam or not spam. | Past house sales: size, location and the price each house sold for. |
+| Performance | Accuracy: the share of new emails classified correctly. | Mean absolute error: how far the predicted prices are from the real ones, on new sales. |
+
+In both examples, the program learns from data where the answers are known, and then makes **predictions**: it gives the answer for new cases, such as an email that has just arrived or a house that is for sale. That is also why the performance is measured on new data: what counts is how well the program does next time, not on the data it has already seen.
+
+::: {.column-margin}
+**Prediction**: the answer a model gives for a new case, such as "spam" for a new email or a price for a house that is for sale.
+:::
+
+Prediction is one of the main aims of machine learning, and it is what this page is about. It is not the only aim. Machine learning can also discover patterns in data without any answers to learn from, for example by finding groups of similar customers, or of similar molecules, without being told what the groups are. You will meet this later in the course as clustering.
+
+On this page you will build up the ideas behind prediction step by step, starting with the simplest model there is: a straight line.
+
 ## 1. Fit a line
 
-Each dot is one observation: $x$ is something we know, $y$ is something we want to predict. A straight line is our **model**: given any $x$, it predicts a $y$.
+We start with the house prices from the table. Each dot is one house that was sold: $x$ is its size, in units of 100 m², and $y$ is the price it sold for, in units of €100,000. So the dot at $x = 4.5$, $y = 11.3$ is a house of 450 m² that sold for €1.13 million. The size is something we know, the price is what we want to predict. A straight line is our **model**: given any size $x$, it predicts a price $y$.
 
 ::: {.column-margin}
 **Model**: a rule that turns an input $x$ into a prediction $\hat{y}$. Here, a straight line.
 :::
 
-The line always starts at $y = 1$. Move the slider to change its slope until the line fits the data as well as you can.
+The line is $\hat{y} = \text{slope} \cdot x + 1$. In words: predicted price = slope × size + 1. It always starts at $y = 1$: even the smallest house costs €100,000, for the plot of land. Move the slider to change its slope until the line fits the data as well as you can. Hover over a dot to see its house.
 
 ::: {.fit-demo data-stage="1"}
 :::
 
-You just did machine learning. You picked a model (a straight line) and adjusted its **parameter** (the slope) until the model matched the data. A machine learning algorithm does the same thing, without eyeballing.
+You just did machine learning. You picked a model (a straight line) and adjusted its **parameter** (the slope) until the model matched the data. A machine learning algorithm does the same thing, without eyeballing. The slope you found also tells you something about houses: a slope of 2 means that every extra 100 m² adds about 2 × €100,000 = €200,000 to the price.
 
 ::: {.column-margin}
 **Parameter**: a number inside the model that is adjusted to fit the data, such as the slope of the line.
@@ -45,9 +67,11 @@ where $\hat{y}_i$ is the line's prediction for point $i$. Change the slope again
 
 The best fit is simply the slope with the lowest cost. Finding the best line is now a search for the bottom of that curve.
 
+The cost itself is hard to read, because the errors are squared: at the best slope it is about 1.6, in units of (€100,000)². Its square root, about 1.3, is roughly how far off a typical prediction is: about €130,000.
+
 ## 3. Two parameters
 
-A line has two parameters: the slope and the intercept (where the line crosses the y-axis). Now both can change, so the cost depends on both of them.
+A line has two parameters: the slope and the intercept (where the line crosses the y-axis). For the houses, the intercept is the base price: what the line predicts for a house of size 0, the price of the plot of land. Now both can change, so the cost depends on both of them.
 
 The map on the right shows the cost for every combination. Each spot on the map is one possible line; lighter means lower cost. Use the sliders, or drag on the map, to find the lowest point.
 
@@ -102,7 +126,9 @@ With two parameters nothing changes: the algorithm calculates the gradient for t
 
 ## 5. Polynomial regression
 
-Not every relationship is a straight line. The data below was generated from a curve, $y = a x^2$, plus some noise. Try to fit it with a line, using the slope and the intercept.
+Not every relationship is a straight line. For the next demos the example changes to traffic on a busy commuter road. $x$ is the time of day, in hours from noon: $x = -4$ is 8:00 and $x = 3$ is 15:00. $y$ is the delay in minutes caused by traffic jams. The data is made up, to show what more flexible models can do.
+
+The data below was generated from a curve, $y = a x^2$, plus some noise: long delays in the morning and evening rush hours, short ones around noon. Try to fit it with a line, using the slope and the intercept.
 
 ::: {.fit-demo data-stage="5.1"}
 :::
@@ -126,7 +152,7 @@ Below is the same data. This time $b$ and $c$ are fixed at 0, so only $a$ can ch
 ::: {.fit-demo data-stage="5.2"}
 :::
 
-One parameter is enough here, because the data was made from $a x^2$ alone. Real data rarely is that tidy. The next data set comes from a curve with all three terms, so you need all three sliders.
+One parameter is enough here, because the data was made from $a x^2$ alone. Real data rarely is that tidy. The next data set, from another road where the evening rush is worse than the morning rush, comes from a curve with all three terms, so you need all three sliders.
 
 ::: {.fit-demo data-stage="5.3"}
 :::
@@ -153,13 +179,29 @@ In the next demo the slider is the degree, not a parameter. For each degree, the
 
 Up to degree 4, the degree the data was made with, each extra degree lowers the cost a lot. But the cost keeps going down after degree 4, and at degree 9 the curve passes through every point, with a cost of exactly 0.
 
-A higher degree can always fit the training data at least as well, because it has every term of the lower degree plus more. So the lowest cost always belongs to the highest degree. Look at the degree-9 curve between the points, though. Would you trust its predictions there? The cost on the data we fit cannot answer that question. The next section shows what can.
+A higher degree can always fit the training data at least as well, because it has every term of the lower degree plus more. So the lowest cost always belongs to the highest degree. Look at the degree-9 curve between the points, though. Would you trust its predictions there? Between 7:12 and 8:36, in the middle of the morning rush, it says the delay drops from 10 minutes to about 2 and then climbs back to 7. Around 16:20 it shoots up to almost 16 minutes, only to fall back to 11 by 16:36. And just after the last point it plunges below zero: from 16:46 on it predicts a negative delay, as if the traffic jam made you arrive early.
 
-## 6. Training and test data
+Nothing in the data says this is wrong: the curve passes through every point, with a cost of 0. You know it is wrong because you know how traffic works. Delays build up and fade away gradually; they do not drop to almost nothing in the middle of the rush hour, and a delay can never be negative. That is **domain knowledge**: it comes from understanding the problem, not from the data. It is one of the most important tools you have, because it tells you when a model with a low cost makes no sense.
 
-So far you have been minimising the cost on the data you have. But that is not what we actually care about. A model is useful when it makes good predictions for new data: observations it has never seen. A fit that matches the known points perfectly is worthless if it gets the next one wrong.
+::: {.column-margin}
+**Domain knowledge**: what you know about the problem itself, from outside the data. Here: how traffic behaves.
+:::
 
-The demo below is the degree demo from section 5, with the same blue dots. They are the **training data**: for each degree, the curve is fitted to these points. There are also some new observations from the same degree-4 curve, the **test data**. The model never sees them during training, and they are hidden for now.
+So domain knowledge cuts both ways. It catches models that make no sense, like a negative delay, but it can also tempt you to explain noise as if it were signal. Look at the dots at 10:30 and 11:30: they sit a little higher than the ones at 8:36 and 9:18, and it is easy to invent a reason, such as people driving to lunch. But this data was generated from a smooth curve that slowly goes down all morning. The bump is noise, and the higher-degree curves bend to follow it.
+
+The cost on the data we fit cannot tell you any of this. Domain knowledge helps, and new data settles it: the next section shows how.
+
+## 6. Generalization
+
+The whole point of machine learning is not to memorize what we've seen, but to generalize to what we haven't. **Generalization** is the ability of a trained model to perform well on new, previously unseen data.
+
+::: {.column-margin}
+**Generalization**: how well a trained model performs on new data it has not seen.
+:::
+
+So far you have been minimizing the cost on the data you have. But a fit that matches the known points perfectly is worthless if it gets the next one wrong.
+
+The demo below is the degree demo from section 5, with the same blue dots. They are the **training data**: for each degree, the curve is fitted to these points. There are also some new observations from the same degree-4 curve, measured on other days: the **test data**. The model never sees them during training, and they are hidden for now.
 
 ::: {.column-margin}
 **Training data**: the data the model is fitted to.
@@ -208,7 +250,7 @@ Everything you have done so far is **regression**: the model predicts a number, 
 **Regression**: predicting a number, such as a price or an energy.
 :::
 
-Many problems ask a different question: which group does an input belong to? Is an email spam or not? Is a tumour malignant or benign? This is **classification**: the model predicts a **class**, one of a fixed set of options.
+Many problems ask a different question: which group does an input belong to? Is an email spam or not? Is a tumor malignant or benign? This is **classification**: the model predicts a **class**, one of a fixed set of options.
 
 ::: {.column-margin}
 **Classification**: predicting a class, one of a fixed set of options, such as spam or not spam.
@@ -216,12 +258,12 @@ Many problems ask a different question: which group does an input belong to? Is 
 
 In the DataLab project you will do both. Predicting a molecule's HOMO and LUMO energies is regression; predicting whether its stability is low, medium or high is classification.
 
-In the demo below, each point has two inputs, $x_1$ and $x_2$, and belongs to class A (blue circles) or class B (red squares). The model is again a straight line, but it has a different job: it does not go through the points, it separates them. For every point above the line the model predicts class B, for every point below it class A. The shading shows these predictions. The line is the model's **decision boundary**. Change the slope and intercept until every point is on the right side.
+The demo below goes back to spam detection from the table at the top. Each point is an email with two inputs: $x_1$ is its length, in hundreds of words, and $x_2$ is the number of links in it. Blue circles are normal emails, red squares are spam. The model is again a straight line, but it has a different job: it does not go through the points, it separates them. For every email above the line the model predicts spam, for every email below it not spam. The shading shows these predictions. The line is the model's **decision boundary**. Change the slope and intercept until every point is on the right side.
 
 ::: {.fit-demo data-stage="7"}
 :::
 
-What plays the role of the cost here? The simplest measure is to count the mistakes: the misclassified points, ringed in orange. The share of correct predictions is the **accuracy**. A count changes in jumps, though, which makes it hard for an algorithm to search. That is why training algorithms use a smoother cost instead. The idea stays the same: adjust the parameters until the predictions match the data as well as possible.
+What plays the role of the cost here? The simplest measure is to count the mistakes: the misclassified emails, ringed in orange. The share of correct predictions is the **accuracy**. A count changes in jumps, though, which makes it hard for an algorithm to search. That is why training algorithms use a smoother cost instead. The idea stays the same: adjust the parameters until the predictions match the data as well as possible.
 
 Everything from the earlier sections carries over. In real data the classes often overlap, so no line gets every point right. A straight line is not always enough either: just as a curve can fit data that a line cannot, a classifier can draw a curved boundary. And again, what matters is not the accuracy on the training data but on test data the model has not seen.
 
