@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#00558c"/>
+    </marker>
+  </defs>
+  <rect width="900" height="470" rx="14" fill="#ffffff"/>
+
+  <!-- ===== Left: whole penguin, flipper length ===== -->
+  <g>
+    <!-- tail -->
+    <path d="M128 372 L92 420 L150 404 Z" fill="#1f2a36"/>
+    <!-- body -->
+    <path d="M214 62 C262 60 286 96 280 140 C276 172 300 210 302 268 C305 350 268 412 206 414 C148 416 110 366 112 290 C114 214 150 170 160 128 C168 90 180 64 214 62 Z" fill="#1f2a36"/>
+    <!-- white belly -->
+    <path d="M262 160 C292 210 296 300 284 350 C272 396 236 408 210 404 C246 360 252 300 246 240 C243 205 248 180 262 160 Z" fill="#f4f4f2"/>
+    <!-- white patch above eye (gentoo) -->
+    <path d="M206 92 C218 80 238 80 246 90 C236 92 222 96 210 102 Z" fill="#f4f4f2"/>
+    <!-- eye -->
+    <circle cx="240" cy="104" r="7" fill="#f4f4f2"/>
+    <circle cx="241" cy="104" r="3.5" fill="#111"/>
+    <!-- bill -->
+    <path d="M272 100 C292 102 312 108 324 118 C306 120 290 122 276 122 Z" fill="#e0632c"/>
+    <!-- flipper, held out from the body -->
+    <path d="M187 175 C150 215 112 262 84 314 C79 325 90 332 98 323 C132 286 176 240 213 195 C206 182 196 172 187 175 Z" fill="#3a4a5c" stroke="#8fa3b8" stroke-width="2"/>
+    <!-- feet -->
+    <path d="M182 410 C170 424 192 430 214 426 C228 424 226 412 214 410 Z" fill="#e0632c"/>
+    <path d="M226 408 C220 422 242 428 262 422 C272 418 266 406 254 406 Z" fill="#e0632c"/>
+
+    <!-- flipper length dimension, parallel to the flipper -->
+    <line x1="152" y1="140" x2="48" y2="280" stroke="#00558c" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="186" y1="172" x2="144" y2="132" stroke="#00558c" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <line x1="84" y1="316" x2="40" y2="274" stroke="#00558c" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="88" y="180" fill="#00558c" font-size="26" text-anchor="end">flipper</text>
+    <text x="88" y="210" fill="#00558c" font-size="26" text-anchor="end">length</text>
+
+    <!-- zoom circle around the head -->
+    <circle cx="262" cy="104" r="68" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <line x1="330" y1="104" x2="496" y2="176" stroke="#888" stroke-width="1.5" stroke-dasharray="6 4"/>
+  </g>
+
+  <!-- ===== Right: head close-up, culmen length and depth ===== -->
+  <g>
+    <!-- head and neck -->
+    <path d="M600 120 C670 116 712 160 712 222 C712 262 704 300 700 330 C696 380 690 430 690 470 L470 470 C474 410 480 350 488 300 C494 240 520 124 600 120 Z" fill="#1f2a36"/>
+    <!-- white throat -->
+    <path d="M700 300 C696 360 690 420 690 470 L640 470 C660 420 676 360 700 300 Z" fill="#f4f4f2"/>
+    <!-- white patch above eye -->
+    <path d="M560 170 C590 140 640 140 660 162 C632 168 598 176 570 190 Z" fill="#f4f4f2"/>
+    <!-- eye -->
+    <circle cx="646" cy="200" r="15" fill="#f4f4f2"/>
+    <circle cx="649" cy="200" r="7.5" fill="#111"/>
+    <!-- upper bill (culmen ridge on top) -->
+    <path d="M706 196 C760 196 812 210 846 240 C842 246 836 248 828 248 L708 248 Z" fill="#e0632c"/>
+    <!-- lower bill -->
+    <path d="M708 252 L826 252 C806 266 760 278 708 284 Z" fill="#c8501f"/>
+    <!-- ridge line -->
+    <path d="M706 196 C760 196 812 210 846 240" fill="none" stroke="#7a2e10" stroke-width="2"/>
+
+    <!-- culmen length: from base of bill to tip, above the bill -->
+    <line x1="708" y1="164" x2="846" y2="164" stroke="#00558c" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="708" y1="192" x2="708" y2="156" stroke="#00558c" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <line x1="846" y1="236" x2="846" y2="156" stroke="#00558c" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="777" y="146" fill="#00558c" font-size="26" text-anchor="middle">culmen length</text>
+
+    <!-- culmen depth: top to bottom of the bill, at its base -->
+    <line x1="868" y1="196" x2="868" y2="284" stroke="#00558c" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="712" y1="196" x2="876" y2="196" stroke="#00558c" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <line x1="720" y1="284" x2="876" y2="284" stroke="#00558c" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="876" y="320" fill="#00558c" font-size="26" text-anchor="end">culmen depth</text>
+  </g>
+</svg>
