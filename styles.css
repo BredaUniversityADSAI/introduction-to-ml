@@ -2105,3 +2105,10 @@ body.quarto-dark .quiz {
 .quiz-message.is-wrong strong {
   color: var(--quiz-bad);
 }
+
+/* Self-study "At a glance" table: keep the theme links ("Theme 1") on one line.
+   Bootstrap's `.table a { word-break: break-word }` otherwise breaks them. */
+.ml-glance td:first-child a {
+  word-break: normal;
+  white-space: nowrap;
+}

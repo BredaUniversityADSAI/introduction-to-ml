@@ -6,14 +6,18 @@ Work through the activities of a theme in order. The [course route](../start-her
 
 ## At a glance
 
-| | Activities | You learn |
-|---|---|---|
-| [Theme 1](theme-1.qmd) | 5 | What machine learning is, and how to train classification, regression and clustering models with scikit-learn |
-| [Theme 2](theme-2.qmd) | 4 | The stages of a machine-learning project, and how to prepare, explore, model and evaluate data |
-| [Theme 3](theme-3.qmd) | 3 | How linear regression, logistic regression and clustering work, and how to choose their settings |
-| [Theme 4](theme-4.qmd) | 1 | Pipelines and the ColumnTransformer: preprocessing and model in one object |
-| [Theme 5](theme-5.qmd) | 3 | Decision trees, random forests and gradient boosting |
-| [Theme 6](theme-6.qmd) | 3 | How to communicate technical work, read machine-learning research and test its ideas |
+::: {.ml-glance}
+
+| | You learn |
+|------|------------------------------|
+| [Theme 1](theme-1.qmd) | What machine learning is, and how to train classification, regression and clustering models with scikit-learn |
+| [Theme 2](theme-2.qmd) | The stages of a machine-learning project, and how to prepare, explore, model and evaluate data |
+| [Theme 3](theme-3.qmd) | How linear regression, logistic regression and clustering work, and how to choose their settings |
+| [Theme 4](theme-4.qmd) | Pipelines and the ColumnTransformer: preprocessing and model in one object |
+| [Theme 5](theme-5.qmd) | Decision trees, random forests and gradient boosting |
+| [Theme 6](theme-6.qmd) | How to communicate technical work, read machine-learning research and test its ideas |
+
+:::
 
 ## Themes
 
