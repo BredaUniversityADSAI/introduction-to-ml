@@ -6,6 +6,30 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.5.1 · 12 November 2026
+
+Each Self-study theme now prepares you for the DataLab iteration with the same number, and two new pages.
+
+- **Themes regrouped.**
+  - [Theme 1](self-study/theme-1.qmd) now ends with the [End-to-End ML Project](self-study/015_end_to_end_ml.ipynb).
+  - [Theme 2](self-study/theme-2.qmd) is now Data Preparation & Understanding.
+  - [Theme 3](self-study/theme-3.qmd) is now Modeling & Evaluation: it starts with the [Modeling & Evaluation](self-study/007_modeling_and_evaluation.ipynb) notebook, followed by linear regression, logistic regression and clustering.
+- **New in Theme 2: [Leakage & Distribution Shift](self-study/12_leakage_and_distribution_shift.qmd).** With examples from real projects:
+  - what a dataset represents;
+  - data unlike the training data;
+  - data from different sources;
+  - leakage between training and test data;
+  - how to make your development data match the data a model will be used on.
+
+  It ends with review questions.
+- **New in Iteration 2: [Understanding SMILES](datalab/iteration-2/00_understanding_smiles.qmd).** How to read a SMILES string, and what canonical SMILES are.
+- **DataLab.**
+  - The [project page](datalab/index.qmd) now starts with a short introduction to the problem.
+  - Iterations 1 to 3 begin with what each iteration is for.
+  - [Iteration 4](datalab/iteration-4/index.qmd) starts by rebuilding your models as pipelines.
+  - [Iteration 6](datalab/iteration-6/index.qmd) suggests research papers to go further, and ends with writing up your solution as a portfolio project.
+- The site has its own browser-tab icon and a preview image when you share a link.
+
 ## v0.5.0 · 12 November 2026
 
 A new structure in six steps, and no textbook needed.
