@@ -14,7 +14,7 @@ The course has three parts (see the [overview](index.qmd#course-structure)):
 
 ### Just reading
 
-Read the pages and notebooks here on the website. Nothing to install. The notebooks show the code and, in the first theme, its output. Start with [What is Machine Learning?](self-study/00_what_is_machine_learning.qmd), which you can try out in your browser. You will understand the ideas, but you only really learn machine learning by writing the code yourself.
+Read the pages and notebooks here on the website. Nothing to install. The notebooks show the code and, in the Self-study, its output. Start with [What is Machine Learning?](self-study/00_what_is_machine_learning.qmd), which you can try out in your browser. You will understand the ideas, but you only really learn machine learning by writing the code yourself.
 
 ### A quick look in Google Colab
 

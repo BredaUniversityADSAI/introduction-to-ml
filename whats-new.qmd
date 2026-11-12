@@ -6,6 +6,22 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.5.0 · 12 November 2026
+
+A new structure in six steps, and no textbook needed.
+
+- **Six steps.** The [course route](start-here.qmd#the-course-route) has six steps. Each step is a Self-study theme followed by the DataLab iteration with the same number: Theme 1 and Iteration 1, Theme 2 and Iteration 2, and so on. At the end of each theme and each iteration, a note points you to what comes next.
+- **No textbook needed.** The reading guides have been removed: the Self-study notebooks now teach everything the course needs. Many notebooks end with optional further reading, including a free online textbook.
+  - New in Theme 2: [End-to-End ML Project](self-study/015_end_to_end_ml.ipynb), one small project with the Palmer penguins from start to finish, with a section for each stage of CRISP-DM.
+  - New in Theme 3: [Linear Regression](self-study/012_linear_regression.ipynb), [Logistic Regression](self-study/013_logistic_regression.ipynb) and [Clustering](self-study/014_clustering.ipynb). Each notebook trains the model with scikit-learn first, then builds its algorithm by hand.
+  - New sections: grid and random search in [Modeling & Evaluation](self-study/007_modeling_and_evaluation.ipynb), regression trees in [Decision Trees](self-study/009_decision_trees.ipynb), voting and extra-trees in [Random Forests](self-study/010_random_forests.ipynb), and AdaBoost and stacking in [Gradient Boosting](self-study/011_gradient_boosting.ipynb).
+- **Overview pages for the Self-study.** [Self-study](self-study/index.qmd) and each of its six themes have an overview page that lists the activities in order, like the DataLab iterations.
+- **The DataLab in six iterations**, one after each theme.
+  - Iteration 2 ends with a new [Baseline](datalab/iteration-2/04_baseline.ipynb) notebook: your Iteration 1 models trained on your own dataset.
+  - [Iteration 3](datalab/iteration-3/index.qmd) improves them with cross-validation and hyperparameter tuning, has a new clustering notebook, and ends with your first Kaggle submission. The classification and regression notebooks of the old Iteration 2 are now Iteration 3 notebooks 01 and 02; their old addresses forward to the new ones.
+  - The old Iteration 3+ page is now three pages: [Iteration 4](datalab/iteration-4/index.qmd) (new data), [Iteration 5](datalab/iteration-5/index.qmd) (better models) and [Iteration 6](datalab/iteration-6/index.qmd) (your final solution).
+- [Getting Started](self-study/001_getting_started.ipynb) introduces the penguins dataset, with photos of the three species and of the measurements.
+
 ## v0.4.1 · 4 November 2026
 
 A new first page, and one textbook reading less.
