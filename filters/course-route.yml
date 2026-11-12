@@ -16,28 +16,28 @@ steps:
   - parts:
       - title: "Self-study, Theme 1: Foundations of Machine Learning"
         href: self-study/theme-1.qmd
-        ends: self-study/004_unsupervised_learning.ipynb
-        text: "What machine learning is, and your first classification, regression and clustering models with scikit-learn."
+        ends: self-study/015_end_to_end_ml.ipynb
+        text: "What machine learning is, your first classification, regression and clustering models with scikit-learn, and one small project from start to finish."
       - title: "DataLab, Iteration 1: first ML cycle"
         href: datalab/iteration-1/index.qmd
         ends: datalab/iteration-1/05_clustering.ipynb
         text: "The client's problem and a starter dataset of 80 molecules: your first classification, regression and clustering models for the project."
 
   - parts:
-      - title: "Self-study, Theme 2: The End-to-End ML Workflow"
+      - title: "Self-study, Theme 2: Data Preparation & Understanding"
         href: self-study/theme-2.qmd
-        ends: self-study/007_modeling_and_evaluation.ipynb
-        text: "The stages of a machine-learning project in one small example, then data preparation, data understanding, modeling and evaluation in depth."
+        ends: self-study/006_data_understanding.ipynb
+        text: "Preparing data (scaling, encoding, missing values) and exploring it (distributions, relationships, PCA)."
       - title: "DataLab, Iteration 2: your own dataset"
         href: datalab/iteration-2/index.qmd
         ends: datalab/iteration-2/04_baseline.ipynb
         text: "The raw HOPV files of 350 molecules: understand the stability and HOMO/LUMO data, prepare your own dataset, and train a baseline on it."
 
   - parts:
-      - title: "Self-study, Theme 3: Supervised & Unsupervised Learning"
+      - title: "Self-study, Theme 3: Modeling & Evaluation"
         href: self-study/theme-3.qmd
         ends: self-study/014_clustering.ipynb
-        text: "Linear regression, logistic regression and clustering: how the models work and how to choose their settings."
+        text: "Cross-validation, hyperparameter tuning and evaluation metrics, then linear regression, logistic regression and clustering: how the models work and how to choose their settings."
       - title: "DataLab, Iteration 3: better evaluation, first submission"
         href: datalab/iteration-3/index.qmd
         ends: datalab/iteration-3/03_clustering.ipynb
@@ -49,10 +49,10 @@ steps:
         href: self-study/theme-4.qmd
         ends: self-study/008_advanced_scikitlearn.ipynb
         text: "Pipelines and the ColumnTransformer: preprocessing and model in one object."
-      - title: "DataLab, Iteration 4: new data"
+      - title: "DataLab, Iteration 4: streamlined code, new data"
         href: datalab/iteration-4/index.qmd
         ends: datalab/iteration-4/index.qmd
-        text: "Find out why your Kaggle score differs from your cross-validation score, and add the lab database and the Kaggle molecules to your data."
+        text: "Rebuild your models as pipelines, add the lab database and the Kaggle molecules to your data, and find out why your Kaggle score differs from your cross-validation score."
 
   - parts:
       - title: "Self-study, Theme 5: Tree-Based Algorithms"
@@ -71,4 +71,4 @@ steps:
         text: "Communicating technical work, reading ML research, and testing its ideas in your own project."
       - title: "DataLab, Iteration 6: your final solution"
         href: datalab/iteration-6/index.qmd
-        text: "Apply a principle from a research paper, keep improving your models, make your final Kaggle submissions, and write a short summary of what you tried and what you learned."
+        text: "Ideas from research papers, your final Kaggle submissions, and a write-up of your solution as a portfolio project."

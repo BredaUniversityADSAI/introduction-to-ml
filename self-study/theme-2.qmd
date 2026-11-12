@@ -1,14 +1,14 @@
-# Theme 2: The End-to-End ML Workflow {.unnumbered}
+# Theme 2: Data Preparation & Understanding {.unnumbered}
 
-In Theme 1 you trained models on datasets that were ready to use. A real project needs more: you need to understand the problem, explore and prepare the data, and check that the model is good enough before anyone uses it. In this theme you first go through all stages of a project once, in one small example, and then study the main stages in depth.
+In Theme 1 you trained models on datasets that were ready to use, and in the End-to-End ML Project you went through all stages of a project once. Real data is rarely ready to use. In this theme you study the two data stages in depth: preparing the data and exploring it.
+
+Data Preparation comes before Data Understanding in this theme, the other way around from CRISP-DM. To understand a dataset, you often have to prepare it first, for example scale features before you compare them. The [End-to-End ML Project](015_end_to_end_ml.ipynb) explains this order in more detail.
 
 ## Activities
 
 Work through the activities in order:
 
-1. [End-to-End ML Project](015_end_to_end_ml.ipynb): one project from start to finish, with a section for each stage of CRISP-DM. It also explains why Data Preparation comes before Data Understanding in this theme.
-2. [Data Preparation](005_data_prep.ipynb): scaling, transforming, merging and encoding data, and handling missing values.
-3. [Data Understanding](006_data_understanding.ipynb): distributions, relationships between variables, and principal component analysis (PCA).
-4. [Modeling & Evaluation](007_modeling_and_evaluation.ipynb): cross-validation, validation and test sets, feature and model selection, hyperparameter tuning, overfitting, and metrics for classification and regression.
+1. [Data Preparation](005_data_prep.ipynb): scaling, transforming, merging and encoding data, and handling missing values.
+2. [Data Understanding](006_data_understanding.ipynb): distributions, relationships between variables, and principal component analysis (PCA).
 
-In [Theme 3](theme-3.qmd), you look inside three models and see how they learn.
+In [Theme 3](theme-3.qmd), you learn to evaluate and compare models, and you look inside three of them.

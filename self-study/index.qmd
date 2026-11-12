@@ -10,9 +10,9 @@ Work through the activities of a theme in order. The [course route](../start-her
 
 | | You learn |
 |------|------------------------------|
-| [Theme 1](theme-1.qmd) | What machine learning is, and how to train classification, regression and clustering models with scikit-learn |
-| [Theme 2](theme-2.qmd) | The stages of a machine-learning project, and how to prepare, explore, model and evaluate data |
-| [Theme 3](theme-3.qmd) | How linear regression, logistic regression and clustering work, and how to choose their settings |
+| [Theme 1](theme-1.qmd) | What machine learning is, how to train classification, regression and clustering models with scikit-learn, and the stages of a machine-learning project |
+| [Theme 2](theme-2.qmd) | How to prepare and explore data |
+| [Theme 3](theme-3.qmd) | How to evaluate, compare and tune models, and how linear regression, logistic regression and clustering work |
 | [Theme 4](theme-4.qmd) | Pipelines and the ColumnTransformer: preprocessing and model in one object |
 | [Theme 5](theme-5.qmd) | Decision trees, random forests and gradient boosting |
 | [Theme 6](theme-6.qmd) | How to communicate technical work, read machine-learning research and test its ideas |
@@ -23,15 +23,15 @@ Work through the activities of a theme in order. The [course route](../start-her
 
 ### [Theme 1: Foundations of Machine Learning](theme-1.qmd)
 
-What it means for a program to learn from data, and your first classification, regression and clustering models with scikit-learn.
+What it means for a program to learn from data, your first classification, regression and clustering models with scikit-learn, and one small project from start to finish.
 
-### [Theme 2: The End-to-End ML Workflow](theme-2.qmd)
+### [Theme 2: Data Preparation & Understanding](theme-2.qmd)
 
-One small project from start to finish, then data preparation, data understanding, modeling and evaluation in depth.
+Scaling, transforming, merging and encoding data, handling missing values, and exploring distributions and relationships between variables.
 
-### [Theme 3: Supervised & Unsupervised Learning](theme-3.qmd)
+### [Theme 3: Modeling & Evaluation](theme-3.qmd)
 
-A look inside three models: linear regression, logistic regression and K-Means. You train each one with scikit-learn, then build its algorithm yourself.
+Cross-validation, hyperparameter tuning and evaluation metrics, then a look inside three models: linear regression, logistic regression and K-Means. You train each one with scikit-learn, then build its algorithm yourself.
 
 ### [Theme 4: Advanced Scikit-Learn](theme-4.qmd)
 

@@ -71,22 +71,22 @@ website:
               text: "Regression"
             - href: self-study/004_unsupervised_learning.ipynb
               text: "Unsupervised Learning"
-
-        - section: "2. The End-to-End ML Workflow"
-          href: self-study/theme-2.qmd
-          contents:
             - href: self-study/015_end_to_end_ml.ipynb
               text: "End-to-End ML Project"
+
+        - section: "2. Data Preparation & Understanding"
+          href: self-study/theme-2.qmd
+          contents:
             - href: self-study/005_data_prep.ipynb
               text: "Data Preparation"
             - href: self-study/006_data_understanding.ipynb
               text: "Data Understanding"
-            - href: self-study/007_modeling_and_evaluation.ipynb
-              text: "Modeling & Evaluation"
 
-        - section: "3. Supervised & Unsupervised Learning"
+        - section: "3. Modeling & Evaluation"
           href: self-study/theme-3.qmd
           contents:
+            - href: self-study/007_modeling_and_evaluation.ipynb
+              text: "Modeling & Evaluation"
             - href: self-study/012_linear_regression.ipynb
               text: "Linear Regression"
             - href: self-study/013_logistic_regression.ipynb

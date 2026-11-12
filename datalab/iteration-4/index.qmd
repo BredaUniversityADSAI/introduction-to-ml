@@ -4,7 +4,17 @@ You now have working classification, regression, and clustering models, cross-va
 
 From this point onward, the project becomes **open-ended**.
 
-There are no step-by-step notebooks and no fixed sequence to follow. Your goal is to improve your solution through repeated experimentation and evidence-based decisions. In this iteration you find out why your Kaggle score differs from your cross-validation score, and you add two new data sources: the client's lab database and the Kaggle molecules.
+There are no step-by-step notebooks and no fixed sequence to follow. Your goal is to improve your solution through repeated experimentation and evidence-based decisions. In this iteration you first rebuild your models with the tools from the Self-study theme you just finished. Then you add two new data sources, the client's lab database and the Kaggle molecules, and find out why your Kaggle score differs from your cross-validation score.
+
+## Streamline your code
+
+From now on you will run many experiments, and each one repeats the same steps: compute the descriptors, handle missing values, scale, train, evaluate and predict the Kaggle molecules. If these steps are spread over many notebook cells, every experiment takes long and it is easy to make a mistake. So before you add new data, put your Iteration 3 work into a form that is quick to change:
+
+- Rebuild your classification and regression models as a `Pipeline`, with a `ColumnTransformer` or `SimpleImputer` and a scaler before the model. Cross-validate and tune the whole pipeline, the preprocessing included (`GridSearchCV` with parameter names such as `model__max_depth`).
+- Write the steps you repeat in every notebook, such as reading the data and computing the descriptors, as functions. You can keep them in a small Python file, for example `features.py`, and import them in each notebook.
+- Make predicting the Kaggle molecules a single call to the fitted pipeline, so that a new submission takes a minute.
+
+This may not change your scores much. The goal is faster and safer iteration. Check it anyway: cross-validate the pipeline under the same protocol as in Iteration 3 and record both scores in your experiment log (see [Iterate with a purpose](#iterate-with-a-purpose) below). If you scaled or imputed the whole dataset before cross-validation in Iteration 3, the pipeline now fits these steps inside each fold, on the training part only. The score can then drop a little. The new score is the more honest estimate, because the validation folds no longer influence the preprocessing.
 
 ## The data
 
@@ -18,7 +28,7 @@ From now on you can use every data source of the project:
 
 The first two files are in `data/001_raw_data/`. The Kaggle files are not in the course repository: download them from the **Data** tab of the [current competitions](../iteration-3/index.qmd#the-kaggle-competitions) and put them in `data/003_kaggle_competition_data/`. You compute the molecular descriptors of the new molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2.
 
-With more data sources, the same steps run again and again: compute the descriptors, handle missing values, scale, train. A `Pipeline` with a `ColumnTransformer`, from the Self-study theme you just finished, keeps these steps together, so that every source and every Kaggle submission goes through exactly the same preparation.
+With more data sources, your pipeline pays off: every source and every Kaggle submission goes through exactly the same preparation, and adding a source changes only the data you pass to it.
 
 ### Reading the lab database
 

@@ -1,6 +1,6 @@
 # Iteration 5 {.unnumbered}
 
-In Iteration 4 you added the lab database and the Kaggle molecules, and you looked for the reasons why your Kaggle score differs from your cross-validation score.
+In Iteration 4 you rebuilt your models as pipelines, added the lab database and the Kaggle molecules, and looked for the reasons why your Kaggle score differs from your cross-validation score. Because your preprocessing is now part of a pipeline, trying another model means changing one step.
 
 In Iteration 5 you work on **better models**. You have just learned decision trees, random forests and gradient boosting in the Self-study, and you can now try them on the project, together with a validation strategy that resembles the Kaggle molecules.
 
