@@ -257,7 +257,7 @@ Many problems ask a different question: which group does an input belong to? Is 
 **Classification**: predicting a class, one of a fixed set of options, such as spam or not spam.
 :::
 
-In the DataLab project you will do both. Predicting a molecule's HOMO and LUMO energies is regression; predicting whether its stability is low, medium or high is classification.
+In the self-study notebooks you will do both. The [Classification](002_classification.ipynb) notebook predicts whether a tumor is malignant or benign, and the [Regression](003_regression.ipynb) notebook predicts a number that measures how far a patient's diabetes has progressed after one year.
 
 The demo below goes back to spam detection from the table at the top. Each point is an email with two inputs: $x_1$ is its length, in hundreds of words, and $x_2$ is the number of links in it. Blue circles are normal emails, red squares are spam. The model is again a straight line, but it has a different job: it does not go through the points, it separates them. For every email above the line the model predicts spam, for every email below it not spam. The shading shows these predictions. The line is the model's **decision boundary**. Change the slope and intercept until every point is on the right side.
 
