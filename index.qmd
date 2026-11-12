@@ -405,13 +405,19 @@ COURSE MATERIALS & SETUP
 ::::
 
 ::: {.ml-sub-eyebrow}
-Textbook
+Further reading
 :::
 
-The course uses selected chapters from the following book alongside the self-study materials.
+You don't need a textbook for this course: the pages and notebooks teach everything you need. If you want a second explanation or more depth, the notebooks end with optional further reading from these two books.
 
 ::: {.ml-textbook}
-<div class="ml-textbook-label">Course Textbook</div>
+<div class="ml-textbook-label">Optional · Free to read online</div>
+<div class="ml-textbook-title"><a href="https://www.statlearning.com/"><em>An Introduction to Statistical Learning with Applications in Python</em></a></div>
+<div class="ml-textbook-meta">Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, Jonathan Taylor &nbsp;·&nbsp; Springer &nbsp;·&nbsp; 2023</div>
+:::
+
+::: {.ml-textbook}
+<div class="ml-textbook-label">Optional</div>
 <div class="ml-textbook-title"><em>Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow</em></div>
 <div class="ml-textbook-meta">Aurélien Géron &nbsp;·&nbsp; O'Reilly Media &nbsp;·&nbsp; 3rd edition &nbsp;·&nbsp; 2022</div>
 :::

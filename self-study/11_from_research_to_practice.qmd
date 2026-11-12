@@ -4,7 +4,7 @@
 
 Machine learning research is most useful when you can translate ideas from the literature into concrete decisions in your own work.
 
-In this activity, you will read an accessible machine learning paper, identify useful principles, and apply at least one of them to your DataLab Iteration 3+ project.
+In this activity, you will read an accessible machine learning paper, identify useful principles, and apply at least one of them to your DataLab project.
 
 After completing the activity, you should be able to:
 
@@ -25,7 +25,7 @@ Rather than trying to remember every detail, identify principles that could infl
 
 ## Apply
 
-Choose **at least one principle from the paper** and apply it to your DataLab Iteration 3+ project.
+Choose **at least one principle from the paper** and apply it to your DataLab project.
 
 Document:
 
