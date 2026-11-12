@@ -6,7 +6,7 @@ All datasets of the DataLab project.
 |---|---|---|---|---|
 | `001_raw_data/` | `HOPV_homolumo.data` | 350 | SMILES, HOMO, LUMO and other experimental and computed data, in the original HOPV text format | Iteration 2 |
 | `001_raw_data/` | `HOPV_stability.csv` | 350 | SMILES, stability (`low`, `medium`, `high`) | Iteration 2 |
-| `001_raw_data/` | `lab_measurements.db` | 232 | SQLite database, table `measurements`: SMILES, HOMO, LUMO, stability | Iteration 3+ |
+| `001_raw_data/` | `lab_measurements.db` | 232 | SQLite database, table `measurements`: SMILES, HOMO, LUMO, stability | Iteration 4 |
 | `002_processed_data/` | `starter_dataset.xlsx` | 80 | SMILES, 217 molecular descriptors, HOMO, LUMO, stability | Iteration 1 |
 
 HOMO and LUMO are in electronvolts (eV). Missing values are part of the data.

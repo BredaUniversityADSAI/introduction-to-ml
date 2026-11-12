@@ -2,7 +2,7 @@
 
 In Iteration 1, you moved quickly through the complete machine-learning workflow and built your first classification, regression, and clustering models.
 
-In Iteration 2, you will go through the workflow again, but this time **in greater depth**.
+In Iteration 2, you go through the first stages of the workflow again, but this time **in greater depth**: you build your own dataset from the raw HOPV files, and you train your first models on it.
 
 The work is still structured: notebooks and resources will guide you through the main steps. However, you will begin making more decisions yourself and applying concepts introduced in the self-study material.
 
@@ -33,36 +33,18 @@ Complete:
 
 * [Data Preparation](03_data_preparation.ipynb)
 
-## Classification
+## Baseline
 
-Build a classification model to predict molecular stability.
-
-Complete:
-
-* [Classification](04_classification.ipynb)
-
-## Regression
-
-Build regression models to predict HOMO and LUMO energy levels.
+Train your Iteration 1 classification, regression and clustering models again, in the same way, on your new dataset. These scores are the baseline that you improve in Iteration 3.
 
 Complete:
 
-* [Regression](05_regression.ipynb)
-
-## Clustering
-
-Use clustering to investigate molecular structure and identify patterns that may also be useful for your supervised models.
-
-Complete:
-
-* [Clustering](06_clustering.ipynb)
+* [Baseline](04_baseline.ipynb)
 
 ## Keep iterating
 
 Although the notebooks provide a structured path, the machine-learning workflow is not strictly linear.
 
-What you discover during modelling may give you a reason to return to the data, change its preparation, investigate a new feature, reconsider your validation strategy, or revisit your understanding of the problem.
+What you discover in the baseline may give you a reason to return to the data, change its preparation, investigate a new feature, or revisit your understanding of the problem.
 
-When you have finished the notebooks, submit your models to the [Kaggle competitions](../iteration-3/index.qmd#the-kaggle-competitions). Expect a lower score than in your cross-validation: finding out why is where Iteration 3+ starts.
-
-In [Iteration 3+](../iteration-3/index.qmd), this process becomes open-ended.
+In [Iteration 3](../iteration-3/index.qmd), you improve the models with cross-validation and hyperparameter tuning, take a closer look at the clusters, and make your first Kaggle submission.

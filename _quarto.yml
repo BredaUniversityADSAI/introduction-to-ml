@@ -72,8 +72,8 @@ website:
 
         - section: "2. The End-to-End ML Workflow"
           contents:
-            - href: self-study/02_end_to_end_machine_learning.qmd
-              text: "End-to-End Machine Learning Project"
+            - href: self-study/015_end_to_end_ml.ipynb
+              text: "End-to-End ML Project"
             - href: self-study/005_data_prep.ipynb
               text: "Data Preparation"
             - href: self-study/006_data_understanding.ipynb
@@ -83,12 +83,12 @@ website:
 
         - section: "3. Supervised & Unsupervised Learning"
           contents:
-            - href: self-study/03_classification.qmd
-              text: "Classification"
-            - href: self-study/04_regression.qmd
-              text: "Regression"
-            - href: self-study/05_unsupervised_learning.qmd
-              text: "Unsupervised Learning"
+            - href: self-study/012_linear_regression.ipynb
+              text: "Linear Regression"
+            - href: self-study/013_logistic_regression.ipynb
+              text: "Logistic Regression"
+            - href: self-study/014_clustering.ipynb
+              text: "Clustering"
 
         - section: "4. Advanced Scikit-Learn"
           contents:
@@ -99,16 +99,10 @@ website:
           contents:
             - href: self-study/009_decision_trees.ipynb
               text: "Decision Trees"
-            - href: self-study/06_decision_trees.qmd
-              text: "Decision Trees — Reading"
             - href: self-study/010_random_forests.ipynb
               text: "Random Forests"
-            - href: self-study/07_ensemble_learning_random_forests.qmd
-              text: "Ensemble Learning & Random Forests"
             - href: self-study/011_gradient_boosting.ipynb
               text: "Gradient Boosting"
-            - href: self-study/08_gradient_boosting_stacking.qmd
-              text: "Gradient Boosting & Stacking"
 
         - section: "6. Applied ML Research"
           contents:
@@ -134,10 +128,15 @@ website:
             - datalab/iteration-2/01_understanding_stability_data.ipynb
             - datalab/iteration-2/02_understanding_homolumo_data.ipynb
             - datalab/iteration-2/03_data_preparation.ipynb
-            - datalab/iteration-2/04_classification.ipynb
-            - datalab/iteration-2/05_regression.ipynb
-            - datalab/iteration-2/06_clustering.ipynb
-        - datalab/iteration-3/index.qmd
+            - datalab/iteration-2/04_baseline.ipynb
+        - section: datalab/iteration-3/index.qmd
+          contents:
+            - datalab/iteration-3/01_classification.ipynb
+            - datalab/iteration-3/02_regression.ipynb
+            - datalab/iteration-3/03_clustering.ipynb
+        - datalab/iteration-4/index.qmd
+        - datalab/iteration-5/index.qmd
+        - datalab/iteration-6/index.qmd
 
     - href: whats-new.qmd
       text: "What's new"

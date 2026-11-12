@@ -1,0 +1,99 @@
+# Iteration 4 {.unnumbered}
+
+You now have working classification, regression, and clustering models, cross-validated and tuned, and a first Kaggle score that is probably lower than your cross-validation score.
+
+From this point onward, the project becomes **open-ended**.
+
+There are no step-by-step notebooks and no fixed sequence to follow. Your goal is to improve your solution through repeated experimentation and evidence-based decisions. In this iteration you find out why your Kaggle score differs from your cross-validation score, and you add two new data sources: the client's lab database and the Kaggle molecules.
+
+## The data
+
+From now on you can use every data source of the project:
+
+| Source | Molecules | File | Contains |
+|---|---|---|---|
+| HOPV | 350 | `HOPV_homolumo.data`, `HOPV_stability.csv` (or your `xy_df_hopv.csv` from Iteration 2) | SMILES, targets |
+| Lab database | 232 | `lab_measurements.db` | SMILES, targets |
+| Kaggle | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` (from Kaggle) | SMILES only: these are the molecules you predict |
+
+The first two files are in `data/001_raw_data/`. The Kaggle files are not in the course repository: download them from the **Data** tab of the [current competitions](../iteration-3/index.qmd#the-kaggle-competitions) and put them in `data/003_kaggle_competition_data/`. You compute the molecular descriptors of the new molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2.
+
+With more data sources, the same steps run again and again: compute the descriptors, handle missing values, scale, train. A `Pipeline` with a `ColumnTransformer`, from the Self-study theme you just finished, keeps these steps together, so that every source and every Kaggle submission goes through exactly the same preparation.
+
+### Reading the lab database
+
+The client keeps a second set of measurements in a small database. You don't need to learn SQL to use it, but a few minutes of background help.
+
+::: {.callout-note collapse="true"}
+## Databases in five minutes
+
+- A **database** stores data in **tables**. A table looks like a DataFrame: rows are records (here: measurements), columns are fields (here: `smiles`, `homo`, `lumo`, `stability`).
+- You ask a database for data with **SQL**, a short query language. Four keywords take you a long way:
+  - `SELECT` the columns you want (`*` means all columns),
+  - `FROM` a table,
+  - `WHERE` a condition holds,
+  - `LIMIT` the number of rows.
+
+  For example, `SELECT smiles, homo FROM measurements WHERE stability = 'high' LIMIT 5`. `COUNT(*)` counts rows.
+- Most databases (PostgreSQL, MySQL, SQL Server) run as a server that you connect to over a network. **SQLite** is a complete database in a single file: there is no server and nothing to install, because Python includes the `sqlite3` module.
+- `pd.read_sql(query, connection)` runs a query and returns the result as a pandas DataFrame. From there, everything works as you're used to.
+
+Want to learn more? [SQLBolt](https://sqlbolt.com/) is a free, interactive introduction to SQL in the browser, and Kaggle's free [Intro to SQL](https://www.kaggle.com/learn/intro-to-sql) course practises it on larger datasets.
+:::
+
+```python
+import sqlite3
+import pandas as pd
+
+# adjust the path to where your notebook is
+con = sqlite3.connect("../../data/001_raw_data/lab_measurements.db")
+
+# Which tables are in the database?
+pd.read_sql("SELECT name FROM sqlite_master WHERE type = 'table'", con)
+
+# Which columns does the table have, and of which type?
+pd.read_sql("PRAGMA table_info(measurements)", con)
+
+# How many rows? And what do the first rows look like?
+pd.read_sql("SELECT COUNT(*) AS n_rows FROM measurements", con)
+pd.read_sql("SELECT * FROM measurements LIMIT 5", con)
+
+# Only some columns and rows
+pd.read_sql("SELECT smiles, homo, lumo FROM measurements WHERE stability = 'high'", con)
+
+# The whole table as a DataFrame
+lab_df = pd.read_sql("SELECT * FROM measurements", con)
+con.close()
+```
+
+## Things to investigate
+
+There is no recipe for this iteration, but these questions are good places to start:
+
+- **Where do the Kaggle molecules come from?** Compare them with the HOPV molecules: their size, their SMILES strings, a few descriptors. Plot all molecules together, for example with PCA, and colour them by source. Scale the descriptors first: unscaled, a few descriptors with huge values decide the whole picture, as you saw when clustering in Iteration 1. Do the sources overlap?
+- **Which of your data sources looks most like the Kaggle molecules?** What does that mean for the data you train on?
+- **Does your validation tell the truth?** A model that does well in cross-validation on HOPV can still do badly on Kaggle. What do the molecules in your validation folds represent, and how could you make your validation more like the molecules you are scored on?
+- **Combining sources needs care.** Check for duplicates between the files, missing values, and whether the values are on the same scale. A large share of the lab and Kaggle molecules have missing descriptor values, and one descriptor is infinite for one molecule: find out which molecules and descriptors are affected and why, and decide how to handle them. HOPV hardly has this problem, so a model trained on HOPV alone never learns to deal with it.
+
+## Iterate with a purpose
+
+A strong machine-learning solution rarely comes from changing only the model. Use your Kaggle results, validation performance, visualizations, and other evidence to identify weaknesses and decide what to investigate next. Avoid changing things randomly.
+
+For each experiment:
+
+1. Identify something you want to understand or improve.
+2. Form a hypothesis.
+3. Make a change.
+4. Evaluate the result.
+5. Decide what to do next.
+
+Keep track of your experiments so that you know which changes improved your solution and which did not. A spreadsheet or a CSV file with one row per experiment is enough, for example:
+
+| Date | Data | Features | Model and parameters | Validation | CV score (mean ± std) | Kaggle public score | Note |
+|---|---|---|---|---|---|---|---|
+| 12 Nov | HOPV, rows without stability removed (312) | 217 RDKit descriptors | random forest, defaults | `StratifiedKFold(5)`, shuffled, seed 42 | macro-F1 0.71 ± 0.04 | | first baseline |
+| 13 Nov | HOPV + lab database | same | same | validate on lab molecules only (they resemble the Kaggle molecules), HOPV always in training | ... | ... | does the lab data help? New protocol, so the baseline is scored again |
+
+Only compare scores that come from the same protocol: the same validation molecules, folds and metric. When you change the data you validate on, the folds or the metric, the old scores are no longer comparable: score your previous best model again under the new protocol. And never tune on the data you use for your final check.
+
+Submit to the [Kaggle competitions](../iteration-3/index.qmd#the-kaggle-competitions) whenever an experiment gives you a model that you expect to do better. In [Iteration 5](../iteration-5/index.qmd), after the Self-study theme on tree-based algorithms, you work on better models.

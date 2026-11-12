@@ -1,105 +1,45 @@
-# Iteration 3+ {.unnumbered}
+# Iteration 3 {.unnumbered}
 
-You now have working classification, regression, and clustering pipelines and a much stronger understanding of the data.
+In Iteration 2, you built your own dataset from the raw HOPV files and trained your Iteration 1 models on it. Those scores are your baseline.
 
-From this point onward, the project becomes **open-ended**.
+In Iteration 3, you improve the baseline **one step at a time**: you replace the single train/test split with cross-validation, tune the hyperparameters, and measure how good your clusters are. At the end, you submit your models to the Kaggle competitions for the first time.
 
-There are no step-by-step notebooks and no fixed sequence to follow. Your goal is to improve your solution through repeated experimentation and evidence-based decisions.
+The work is still structured, but you make more of the decisions yourself.
 
-::: {.callout-note}
-## Iteration 3+ in the course route
-This page covers steps 8, 10 and 12 of the [course route](../../start-here.qmd#the-course-route). In between, you work through themes 5 and 6 of the Self-study and come back here.
+## Classification
 
-::: {.course-route from="8"}
-:::
-:::
+Evaluate the stability model with cross-validation and tune its hyperparameters.
 
-## The challenge
+Complete:
 
-You will use your models to make predictions for previously unseen molecules and submit those predictions to Kaggle.
+* [Classification](01_classification.ipynb)
 
-The competitions give you an external measure of how well your models generalize.
+## Regression
 
-You will work on two machine-learning problems:
+Do the same for the HOMO and LUMO models.
 
-* **Classification:** predict molecular stability
-* **Regression:** predict HOMO and LUMO energy levels
+Complete:
 
-Your current models from Iteration 2 are your starting point.
+* [Regression](02_regression.ipynb)
+
+## Clustering
+
+Choose the number of clusters with the elbow method and the silhouette score, compare K-Means with HDBSCAN, and look for clusters that help your supervised models.
+
+Complete:
+
+* [Clustering](03_clustering.ipynb)
+
+## Your first submission
+
+When you have finished the notebooks, submit your classification and regression models to the [Kaggle competitions](#the-kaggle-competitions) below.
+
+To predict the Kaggle molecules, download the sample submissions from the **Data** tab of the competitions and put them in `data/003_kaggle_competition_data/` (Git ignores that folder). Every edition has new test molecules, so use the files of the edition you submit to. The files contain only SMILES: compute the molecular descriptors of these molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2, predict with your models, and replace the placeholder values in the sample submission with your predictions.
 
 ::: {.callout-tip}
-## Your first submission
-Submit your Iteration 2 models to the [Kaggle competitions](#the-kaggle-competitions) first, before you change anything. Expect your Kaggle score to be much worse than your cross-validation score; for stability possibly no better than the sample submission, which predicts `medium` for every molecule (macro-F1 about 0.22). That is not a bug in your code. Finding out why is the first question of this iteration: start with [Things to investigate](#things-to-investigate).
+## Expect a lower score
+Expect your Kaggle score to be much worse than your cross-validation score; for stability possibly no better than the sample submission, which predicts `medium` for every molecule (macro-F1 about 0.22). That is not a bug in your code. Finding out why is where [Iteration 4](../iteration-4/index.qmd) starts.
 :::
-
-## The data
-
-From now on you can use every data source of the project:
-
-| Source | Molecules | File | Contains |
-|---|---|---|---|
-| HOPV | 350 | `HOPV_homolumo.data`, `HOPV_stability.csv` (or your `xy_df_hopv.csv` from Iteration 2) | SMILES, targets |
-| Lab database | 232 | `lab_measurements.db` | SMILES, targets |
-| Kaggle | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` (from Kaggle) | SMILES only: these are the molecules you predict |
-
-The first two files are in `data/001_raw_data/`. The Kaggle files are not in the course repository: download them from the **Data** tab of the [current competitions](#the-kaggle-competitions) and put them in `data/003_kaggle_competition_data/` (Git ignores that folder). Every edition has new test molecules, so use the files of the edition you submit to. You compute the molecular descriptors of the new molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2.
-
-### Reading the lab database
-
-The client keeps a second set of measurements in a small database. You don't need to learn SQL to use it, but a few minutes of background help.
-
-::: {.callout-note collapse="true"}
-## Databases in five minutes
-
-- A **database** stores data in **tables**. A table looks like a DataFrame: rows are records (here: measurements), columns are fields (here: `smiles`, `homo`, `lumo`, `stability`).
-- You ask a database for data with **SQL**, a short query language. Four keywords take you a long way:
-  - `SELECT` the columns you want (`*` means all columns),
-  - `FROM` a table,
-  - `WHERE` a condition holds,
-  - `LIMIT` the number of rows.
-
-  For example, `SELECT smiles, homo FROM measurements WHERE stability = 'high' LIMIT 5`. `COUNT(*)` counts rows.
-- Most databases (PostgreSQL, MySQL, SQL Server) run as a server that you connect to over a network. **SQLite** is a complete database in a single file: there is no server and nothing to install, because Python includes the `sqlite3` module.
-- `pd.read_sql(query, connection)` runs a query and returns the result as a pandas DataFrame. From there, everything works as you're used to.
-
-Want to learn more? [SQLBolt](https://sqlbolt.com/) is a free, interactive introduction to SQL in the browser, and Kaggle's free [Intro to SQL](https://www.kaggle.com/learn/intro-to-sql) course practises it on larger datasets.
-:::
-
-```python
-import sqlite3
-import pandas as pd
-
-# adjust the path to where your notebook is
-con = sqlite3.connect("../../data/001_raw_data/lab_measurements.db")
-
-# Which tables are in the database?
-pd.read_sql("SELECT name FROM sqlite_master WHERE type = 'table'", con)
-
-# Which columns does the table have, and of which type?
-pd.read_sql("PRAGMA table_info(measurements)", con)
-
-# How many rows? And what do the first rows look like?
-pd.read_sql("SELECT COUNT(*) AS n_rows FROM measurements", con)
-pd.read_sql("SELECT * FROM measurements LIMIT 5", con)
-
-# Only some columns and rows
-pd.read_sql("SELECT smiles, homo, lumo FROM measurements WHERE stability = 'high'", con)
-
-# The whole table as a DataFrame
-lab_df = pd.read_sql("SELECT * FROM measurements", con)
-con.close()
-```
-
-## Things to investigate
-
-There is no recipe for this iteration, but these questions are good places to start:
-
-- **Where do the Kaggle molecules come from?** Compare them with the HOPV molecules: their size, their SMILES strings, a few descriptors. Plot all molecules together, for example with PCA, and colour them by source. Scale the descriptors first: unscaled, a few descriptors with huge values decide the whole picture, as you saw when clustering in Iteration 1. Do the sources overlap?
-- **Which of your data sources looks most like the Kaggle molecules?** What does that mean for the data you train on?
-- **Does your validation tell the truth?** A model that does well in cross-validation on HOPV can still do badly on Kaggle. What do the molecules in your validation folds represent, and how could you make your validation more like the molecules you are scored on?
-- **Clustering is a tool, not just an exercise.** Cluster all molecules together (HOPV, lab database and Kaggle). Which training molecules end up in the same clusters as Kaggle molecules? How could you use that: for validation, for choosing or weighting training data, or as a feature?
-- **Combining sources needs care.** Check for duplicates between the files, missing values, and whether the values are on the same scale. A large share of the lab and Kaggle molecules have missing descriptor values, and one descriptor is infinite for one molecule: find out which molecules and descriptors are affected and why, and decide how to handle them. HOPV hardly has this problem, so a model trained on HOPV alone never learns to deal with it.
-- **Look at your mistakes.** Which molecules does your model get most wrong? Do they have something in common?
 
 ## The Kaggle competitions
 
@@ -110,77 +50,4 @@ There are two competitions, one per problem. A new edition of both opens every q
 
 You need a free Kaggle account. Join a competition and accept its rules, download its sample submission from the **Data** tab, replace the placeholder values with your predictions and upload the file. Everyone competes individually, with up to 3 submissions per day. While a competition runs, the public leaderboard scores your submission on half of the test molecules (100 of the 200); the final ranking uses the other half. Don't over-tune to the public leaderboard: it is a small sample. After the deadline, the edition that just closed stays open for late submissions until the next one closes: they are scored, but not ranked.
 
-## Your workflow
-
-A strong machine-learning solution rarely comes from changing only the model.
-
-Use your Kaggle results, validation performance, visualizations, and other evidence to identify weaknesses and decide what to investigate next.
-
-You may revisit any part of the workflow, including:
-
-* business and domain understanding
-* data understanding
-* data preparation
-* feature engineering
-* feature selection
-* validation strategy
-* model selection
-* hyperparameter tuning
-* classification
-* regression
-* clustering
-
-There is no required order.
-
-For example, poor model performance may lead you back to data preparation. Clustering may reveal groups of molecules that behave differently. A validation score that does not agree with your Kaggle score may indicate that your validation strategy needs to change.
-
-## Iterate with a purpose
-
-Avoid changing things randomly.
-
-For each iteration:
-
-1. Identify something you want to understand or improve.
-2. Form a hypothesis.
-3. Make a change.
-4. Evaluate the result.
-5. Decide what to do next.
-
-Keep track of your experiments so that you know which changes improved your solution and which did not. A spreadsheet or a CSV file with one row per experiment is enough, for example:
-
-| Date | Data | Features | Model and parameters | Validation | CV score (mean ± std) | Kaggle public score | Note |
-|---|---|---|---|---|---|---|---|
-| 12 Nov | HOPV, rows without stability removed (312) | 217 RDKit descriptors | random forest, defaults | `StratifiedKFold(5)`, shuffled, seed 42 | macro-F1 0.71 ± 0.04 | | first baseline |
-| 13 Nov | HOPV + lab database | same | same | validate on lab molecules only (they resemble the Kaggle molecules), HOPV always in training | ... | ... | does the lab data help? New protocol, so the baseline is scored again |
-
-Only compare scores that come from the same protocol: the same validation molecules, folds and metric. When you change the data you validate on, the folds or the metric, the old scores are no longer comparable: score your previous best model again under the new protocol. And never tune on the data you use for your final check.
-
-## Go beyond the baseline
-
-Use what you learn throughout the course to explore stronger approaches.
-
-Possible directions include:
-
-* new machine-learning algorithms
-* feature engineering
-* feature selection
-* different preprocessing strategies
-* alternative validation approaches
-* hyperparameter tuning
-* ensemble methods
-* insights from clustering
-* deeper investigation of model errors
-
-The self-study material provides techniques you can draw from, but you decide which ones are appropriate for the problem.
-
-## Compete, iterate, improve
-
-There is no predefined final iteration.
-
-Continue moving through the CRISP-DM cycle as new questions emerge:
-
-**understand → prepare → model → evaluate → learn → repeat**
-
-The goal is no longer to follow instructions.
-
-The goal is to make increasingly well-informed machine-learning decisions and build the strongest solution you can.
+You keep submitting in Iterations 4 to 6, as your models improve.

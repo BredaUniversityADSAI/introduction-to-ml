@@ -6,8 +6,8 @@ This is the machine learning course that first-year students of [Applied Data Sc
 
 The course has three parts (see the [overview](index.qmd#course-structure)):
 
-- **Self-study**: notebooks and reading guides that teach the concepts;
-- **DataLab**: a client project in three iterations, where you apply them to real molecules;
+- **Self-study**: notebooks and pages that teach the concepts;
+- **DataLab**: a client project in six iterations, where you apply them to real molecules;
 - **Assessment**: two Kaggle competitions (stability and energy levels) that score your predictions on molecules you haven't seen.
 
 ## Choose your path
@@ -26,7 +26,7 @@ Every notebook page has an **Open in Colab** button that runs the notebook in yo
 
 ### You already know machine learning
 
-Go to the project. Read the [Business Understanding](datalab/iteration-1/01_business_understanding.qmd) and [Data Understanding](datalab/iteration-1/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](datalab/iteration-2/02_understanding_homolumo_data.ipynb) and [computing molecular descriptors](datalab/iteration-2/03_data_preparation.ipynb), then start [Iteration 3+](datalab/iteration-3/index.qmd). The Self-study pages are there when you want to look something up.
+Go to the project. Read the [Business Understanding](datalab/iteration-1/01_business_understanding.qmd) and [Data Understanding](datalab/iteration-1/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](datalab/iteration-2/02_understanding_homolumo_data.ipynb) and [computing molecular descriptors](datalab/iteration-2/03_data_preparation.ipynb), make a first submission to the [Kaggle competitions](datalab/iteration-3/index.qmd#the-kaggle-competitions), then start [Iteration 4](datalab/iteration-4/index.qmd), where the project becomes open-ended. The Self-study pages are there when you want to look something up.
 
 ### You are a teacher
 
@@ -44,7 +44,7 @@ The menu lists all of Self-study before the DataLab, and so does the Next link a
 ## What you need
 
 - **Prerequisites.** Basic Python, NumPy, pandas and Matplotlib (see the [overview](index.qmd)). If you need a refresher: the [Python tutorial](https://docs.python.org/3/tutorial/), [NumPy for absolute beginners](https://numpy.org/doc/stable/user/absolute_beginners.html), [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html), the [Matplotlib quick start](https://matplotlib.org/stable/users/explain/quick_start.html), or Kaggle's free [Python](https://www.kaggle.com/learn/python) and [pandas](https://www.kaggle.com/learn/pandas) courses. No chemistry is needed: the project explains what you need to know.
-- **The textbook.** The reading guides follow Aurélien Géron, *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* (3rd edition, O'Reilly). Many libraries offer it through the O'Reilly learning platform. Without the book you can still do the whole course: the reading guides say what each chapter is about, the [book's own notebooks](https://github.com/ageron/handson-ml3) are free, and the course notebooks stand on their own.
+- **No textbook needed.** The Self-study pages and notebooks teach everything the course needs. Many notebooks end with optional further reading, for a second explanation: James et al., [*An Introduction to Statistical Learning with Applications in Python*](https://www.statlearning.com/) (free to read online), and Aurélien Géron, *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* (O'Reilly; many libraries offer it through the O'Reilly learning platform).
 - **A computer** with about 3 GB of free disk space for the [setup](setup.qmd). Any recent Windows, macOS or Linux computer works.
 
 ## Working through the notebooks
@@ -59,4 +59,4 @@ The notebooks mix explanations with exercises, marked **Your Turn**, and empty c
 
 ## The Kaggle competitions
 
-Two competitions, stability and energy levels, with a new edition every quarter. The links, how to take part and how they are scored are in [Iteration 3+](datalab/iteration-3/index.qmd#the-kaggle-competitions). You submit for the first time at the end of Iteration 2; expect that first score to be lower than your cross-validation score.
+Two competitions, stability and energy levels, with a new edition every quarter. The links, how to take part and how they are scored are in [Iteration 3](datalab/iteration-3/index.qmd#the-kaggle-competitions). You submit for the first time at the end of Iteration 3; expect that first score to be lower than your cross-validation score.

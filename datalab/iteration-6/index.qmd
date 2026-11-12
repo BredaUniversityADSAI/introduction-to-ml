@@ -1,0 +1,43 @@
+# Iteration 6 {.unnumbered}
+
+This is the last iteration. You keep improving your models, make your final Kaggle submissions, and write down what you tried and what you learned.
+
+## Apply what you read
+
+In [Research to Practice](../../self-study/11_from_research_to_practice.qmd), the last activity of the Self-study, you chose at least one principle from a machine learning paper. Apply it to your project now: decide what you expect to change, run the experiment under your usual validation protocol, and record the result in your experiment log, also when it does not help.
+
+## Compete, iterate, improve
+
+There is no predefined end point. Continue moving through the CRISP-DM cycle as new questions emerge:
+
+**understand → prepare → model → evaluate → learn → repeat**
+
+You may revisit any part of the workflow, including:
+
+* business and domain understanding
+* data understanding
+* data preparation
+* feature engineering
+* feature selection
+* validation strategy
+* model selection
+* hyperparameter tuning
+* classification
+* regression
+* clustering
+
+There is no required order. For example, poor model performance may lead you back to data preparation. Clustering may reveal groups of molecules that behave differently. A validation score that does not agree with your Kaggle score may indicate that your validation strategy needs to change.
+
+## Your final submissions
+
+Choose the models for your final Kaggle submissions on your validation results, not on the public leaderboard: the public leaderboard scores only 100 of the 200 test molecules, and the final ranking uses the other half (see [The Kaggle competitions](../iteration-3/index.qmd#the-kaggle-competitions)).
+
+## Write a short summary
+
+End the project with a short summary of your work, for yourself or to share, for example in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell):
+
+* your final models, their validation scores and their Kaggle scores;
+* the experiments that made the biggest difference, and the ones that did not help;
+* what you would try next with more time or more data.
+
+The goal is no longer to follow instructions. The goal is to make increasingly well-informed machine-learning decisions and build the strongest solution you can.

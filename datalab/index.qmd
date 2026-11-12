@@ -11,12 +11,15 @@ As you progress through the project, the level of guidance gradually decreases.
 | | Data | Guidance | You end with |
 |---|---|---|---|
 | **Iteration 1** | `starter_dataset.xlsx`: 80 molecules, ready for modelling | Step by step | Your first classification, regression and clustering models |
-| **Iteration 2** | The raw HOPV files: 350 molecules | Structured notebooks; more decisions are yours | Your own dataset and improved models |
-| **Iteration 3+** | HOPV + a lab database + the Kaggle molecules | Pointers only | Kaggle scores, and a model you can explain |
+| **Iteration 2** | The raw HOPV files: 350 molecules | Structured notebooks; more decisions are yours | Your own dataset and a baseline on it |
+| **Iteration 3** | Your HOPV dataset | Structured notebooks | Cross-validated, tuned models and your first Kaggle submission |
+| **Iteration 4** | HOPV + a lab database + the Kaggle molecules | Pointers only | An explanation of your Kaggle score, and models trained on more data |
+| **Iteration 5** | All sources | Pointers only | Better models, and a validation you can trust |
+| **Iteration 6** | All sources | Pointers only | Your final Kaggle submissions and a summary of what you learned |
 
 There are no deadlines and no grades: work at your own pace. The Kaggle leaderboard tells you how well your solution works on molecules it has never seen. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
 
-Self-study and DataLab take turns: theme 1 comes before Iteration 1, themes 2 and 3 alternate with the two halves of Iteration 2, and themes 4 to 6 alternate with Iteration 3+. The [course route](../start-here.qmd#the-course-route) lists the steps in order.
+Self-study and DataLab take turns: each Self-study theme is followed by the DataLab iteration with the same number, so theme 1 comes before Iteration 1, theme 2 before Iteration 2, and so on up to theme 6 and Iteration 6. The [course route](../start-here.qmd#the-course-route) lists the steps in order.
 
 ## Iterations
 
@@ -26,18 +29,26 @@ Go through the complete machine-learning workflow for the first time and build y
 
 This iteration is highly guided. The goal is to experience the complete workflow quickly and establish your first working models rather than optimize performance.
 
-### [Iteration 2 — Go Deeper](iteration-2/index.qmd)
+### [Iteration 2 — Your Own Dataset](iteration-2/index.qmd)
 
-Revisit the machine-learning workflow in greater depth. Develop a stronger understanding of the problem and data, improve your data preparation, and build more considered classification, regression, and clustering models.
+Develop a stronger understanding of the problem and the data, turn the raw HOPV files into your own dataset, and train your Iteration 1 models on it as a baseline.
 
 This iteration is still structured, but you will begin making more decisions yourself and applying concepts introduced in the self-study material.
 
-### [Iteration 3+ — Compete, Iterate, Improve](iteration-3/index.qmd)
+### [Iteration 3 — Better Evaluation, First Submission](iteration-3/index.qmd)
 
-From this point onward, the project becomes open-ended.
+Improve the baseline one step at a time with cross-validation and hyperparameter tuning, measure the quality of your clusters, and submit to the Kaggle competitions for the first time.
 
-Use your existing models as a starting point and compete in the Kaggle competitions. Analyze your results, identify weaknesses, form hypotheses, and decide what to improve next.
+### [Iteration 4 — New Data](iteration-4/index.qmd)
 
-There is no fixed sequence. You may revisit any part of the machine-learning workflow, including data understanding, data preparation, feature engineering, validation, model selection, and hyperparameter tuning.
+From this point onward, the project becomes open-ended. Find out why your Kaggle score differs from your cross-validation score, and add the lab database and the Kaggle molecules to your data.
 
-Continue iterating based on evidence until you are satisfied with your solution.
+### [Iteration 5 — Better Models](iteration-5/index.qmd)
+
+Try tree-based models and boosting, build a validation strategy that resembles the Kaggle molecules, cluster all molecules, and analyze your errors.
+
+### [Iteration 6 — Final Solution](iteration-6/index.qmd)
+
+Apply a principle from a research paper, keep improving, make your final Kaggle submissions, and summarize what you tried and what you learned.
+
+There is no fixed sequence in Iterations 4 to 6. You may revisit any part of the machine-learning workflow, including data understanding, data preparation, feature engineering, validation, model selection, and hyperparameter tuning, and continue iterating based on evidence until you are satisfied with your solution.
