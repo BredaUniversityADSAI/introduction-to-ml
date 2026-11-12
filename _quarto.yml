@@ -53,11 +53,13 @@ website:
     - href: setup.qmd
       text: "Set up your computer"
 
-    # Self-study: order is pedagogical (not by filename).
+    # Self-study: Self-study -> Theme -> Activity. Order is pedagogical (not by
+    # filename). Each section has an overview page, like the DataLab iterations.
     # `text` sets the sidebar label; the page keeps its own heading.
-    - section: "Self-study"
+    - section: self-study/index.qmd
       contents:
         - section: "1. Foundations of Machine Learning"
+          href: self-study/theme-1.qmd
           contents:
             - href: self-study/00_what_is_machine_learning.qmd
               text: "What is Machine Learning?"
@@ -71,6 +73,7 @@ website:
               text: "Unsupervised Learning"
 
         - section: "2. The End-to-End ML Workflow"
+          href: self-study/theme-2.qmd
           contents:
             - href: self-study/015_end_to_end_ml.ipynb
               text: "End-to-End ML Project"
@@ -82,6 +85,7 @@ website:
               text: "Modeling & Evaluation"
 
         - section: "3. Supervised & Unsupervised Learning"
+          href: self-study/theme-3.qmd
           contents:
             - href: self-study/012_linear_regression.ipynb
               text: "Linear Regression"
@@ -91,11 +95,13 @@ website:
               text: "Clustering"
 
         - section: "4. Advanced Scikit-Learn"
+          href: self-study/theme-4.qmd
           contents:
             - href: self-study/008_advanced_scikitlearn.ipynb
               text: "Pipelines & ColumnTransformer"
 
         - section: "5. Tree-Based Algorithms"
+          href: self-study/theme-5.qmd
           contents:
             - href: self-study/009_decision_trees.ipynb
               text: "Decision Trees"
@@ -105,6 +111,7 @@ website:
               text: "Gradient Boosting"
 
         - section: "6. Applied ML Research"
+          href: self-study/theme-6.qmd
           contents:
             - href: self-study/09_communicating_technical_work.qmd
               text: "Communicating Technical Work"

@@ -1,9 +1,12 @@
 -- The course route: Self-study and DataLab interleave, but the sidebar (and so
 -- the Next link at the bottom of each page) lists all of Self-study first.
--- The route is defined once, in filters/course-route.yml. This filter
+-- The route is defined once, in filters/course-route.yml: six steps, each with a
+-- Self-study theme and the DataLab iteration with the same number. This filter
 --   - replaces each `::: {.course-route}` div with the numbered list of steps
 --     (`from="N"` starts the list at step N);
---   - adds a "Next: step N+1" callout at the end of the last page of each step.
+--   - adds a "Next" callout at the end of the last page of each part: from a
+--     theme to the iteration of the same step, and from an iteration to the
+--     next step.
 
 local ROUTE_FILE = "filters/course-route.yml"
 local ROUTE_PAGE = "start-here.qmd#the-course-route"
@@ -32,13 +35,20 @@ local function read_steps()
   local meta = pandoc.read("---\n" .. text .. "\n---\n", "markdown").meta
   local steps = {}
   for i, s in ipairs(meta.steps) do
-    steps[i] = {
-      title = s.title,
-      href = pandoc.utils.stringify(s.href),
-      ends = s.ends and pandoc.utils.stringify(s.ends) or nil,
-      text = s.text,
-      finish = s.finish,
-    }
+    local parts = {}
+    for j, p in ipairs(s.parts) do
+      local title = pandoc.utils.stringify(p.title)
+      parts[j] = {
+        title = p.title,
+        kind = title:match("^(.-),") or title, -- "Self-study" or "DataLab"
+        href = pandoc.utils.stringify(p.href),
+        ends = p.ends and pandoc.utils.stringify(p.ends) or nil,
+        text = p.text,
+        finish = p.finish,
+        step = i,
+      }
+    end
+    steps[i] = parts
   end
   return steps
 end
@@ -61,25 +71,39 @@ local function step_link(step, up)
   return pandoc.Link(relativize(step.title, up), up .. step.href)
 end
 
+local function part_para(part, up)
+  local para = pandoc.Inlines({ step_link(part, up), pandoc.Str("."), pandoc.Space() })
+  para:extend(relativize(part.text, up))
+  return pandoc.Para(para)
+end
+
 local function route_list(steps, from, up)
   local items = {}
   for i = from, #steps do
-    local step = steps[i]
-    local para = pandoc.Inlines({ step_link(step, up), pandoc.Str("."), pandoc.Space() })
-    para:extend(relativize(step.text, up))
-    table.insert(items, { pandoc.Para(para) })
+    local item = {}
+    for _, part in ipairs(steps[i]) do
+      table.insert(item, part_para(part, up))
+    end
+    table.insert(items, item)
   end
   return pandoc.OrderedList(items, pandoc.ListAttributes(from, "Decimal", "Period"))
 end
 
-local function next_callout(steps, i, up)
-  local step, nxt = steps[i], steps[i + 1]
+local function next_callout(part, nxt, nsteps, up)
   local body = pandoc.Blocks({})
-  if step.finish then
-    body:insert(pandoc.Para(relativize(step.finish, up)))
+  if part.finish then
+    body:insert(pandoc.Para(relativize(part.finish, up)))
+  end
+  local done, title
+  if nxt.step == part.step then
+    done = "This is the end of the " .. part.kind .. " part of step " .. part.step .. "."
+    title = "Next: step " .. nxt.step .. " of " .. nsteps .. ", " .. nxt.kind
+  else
+    done = "This is the end of step " .. part.step .. "."
+    title = "Next: step " .. nxt.step .. " of " .. nsteps
   end
   local para = pandoc.Inlines({
-    pandoc.Str("This is the end of step " .. i .. ". Continue with"), pandoc.Space(),
+    pandoc.Str(done), pandoc.Space(), pandoc.Str("Continue with"), pandoc.Space(),
     step_link(nxt, up), pandoc.Str("."), pandoc.Space(),
   })
   para:extend(relativize(nxt.text, up))
@@ -89,11 +113,7 @@ local function next_callout(steps, i, up)
     pandoc.Space(), pandoc.Link(pandoc.Inlines({ pandoc.Str("the course route") }), up .. ROUTE_PAGE),
     pandoc.Str("."),
   }))
-  return quarto.Callout({
-    type = "note",
-    title = "Next: step " .. (i + 1) .. " of " .. #steps,
-    content = body,
-  })
+  return quarto.Callout({ type = "note", title = title, content = body })
 end
 
 function Pandoc(doc)
@@ -116,9 +136,15 @@ function Pandoc(doc)
     end,
   })
 
-  for i = 1, #steps - 1 do
-    if steps[i].ends == path then
-      doc.blocks[#doc.blocks + 1] = next_callout(steps, i, up)
+  local parts = {}
+  for _, step in ipairs(steps) do
+    for _, part in ipairs(step) do
+      table.insert(parts, part)
+    end
+  end
+  for k = 1, #parts - 1 do
+    if parts[k].ends == path then
+      doc.blocks[#doc.blocks + 1] = next_callout(parts[k], parts[k + 1], #steps, up)
     end
   end
   return doc

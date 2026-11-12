@@ -1,0 +1,9 @@
+# Theme 4: Advanced Scikit-Learn {.unnumbered}
+
+A model is rarely used on raw data: the data is first scaled, encoded or completed. In this theme you learn to put these steps and the model together in one object. That keeps your code short, and you can cross-validate and tune the whole object at once, the preprocessing included.
+
+## Activities
+
+1. [Pipelines & ColumnTransformer](008_advanced_scikitlearn.ipynb): pipelines, column transformers that treat each type of column differently, and tuning a whole pipeline.
+
+In [Theme 5](theme-5.qmd), you learn the tree-based models that often work best on tabular data.

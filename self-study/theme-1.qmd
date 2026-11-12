@@ -1,0 +1,15 @@
+# Theme 1: Foundations of Machine Learning {.unnumbered}
+
+In this theme you find out what machine learning is, and you train your first classification, regression and clustering models with scikit-learn. The goal is to get from data to a working model and to test it on data it has not seen. Later themes explain how the models work.
+
+## Activities
+
+Work through the activities in order:
+
+1. [What is Machine Learning?](00_what_is_machine_learning.qmd): what it means for a program to learn from data. You fit models by hand in your browser and see how the computer finds the best parameters.
+2. [Getting Started](001_getting_started.ipynb): the datasets of the Self-study notebooks, and their features `X` and target `y`.
+3. [Classification](002_classification.ipynb): your first classification model, tested on data it has not seen.
+4. [Regression](003_regression.ipynb): your first regression model, compared with a baseline.
+5. [Unsupervised Learning](004_unsupervised_learning.ipynb): your first clustering model.
+
+In [Theme 2](theme-2.qmd), you follow one machine-learning project from start to finish.

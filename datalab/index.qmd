@@ -19,7 +19,7 @@ As you progress through the project, the level of guidance gradually decreases.
 
 There are no deadlines and no grades: work at your own pace. The Kaggle leaderboard tells you how well your solution works on molecules it has never seen. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
 
-Self-study and DataLab take turns: each Self-study theme is followed by the DataLab iteration with the same number, so theme 1 comes before Iteration 1, theme 2 before Iteration 2, and so on up to theme 6 and Iteration 6. The [course route](../start-here.qmd#the-course-route) lists the steps in order.
+Self-study and DataLab take turns: each [Self-study theme](../self-study/index.qmd) is followed by the DataLab iteration with the same number, so Theme 1 comes before Iteration 1, Theme 2 before Iteration 2, and so on up to Theme 6 and Iteration 6. Together they form the six steps of the [course route](../start-here.qmd#the-course-route).
 
 ## Iterations
 

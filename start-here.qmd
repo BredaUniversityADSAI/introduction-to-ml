@@ -34,9 +34,9 @@ You are welcome to use the course, or parts of it, in your own teaching: the con
 
 ## The course route
 
-Self-study and DataLab take turns: you learn a set of concepts, then apply them in the project, then learn the next set. Follow the steps in this order and take as long as each step needs.
+The course has six steps. In each step you first study a Self-study theme, then apply it in the DataLab iteration with the same number: Theme 1 and Iteration 1, Theme 2 and Iteration 2, and so on. Follow the steps in this order and take as long as each step needs.
 
-The menu lists all of Self-study before the DataLab, and so does the Next link at the bottom of each page. At the end of each step, a note on the page points you to the next one.
+The menu lists all of Self-study before the DataLab, and so does the Next link at the bottom of each page. At the end of each theme and each iteration, a note on the page points you to what comes next.
 
 ::: {.course-route}
 :::
