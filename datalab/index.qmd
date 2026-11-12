@@ -2,6 +2,18 @@
 
 The DataLab Project is the applied component of the course. You will use the concepts introduced in the self-study material to solve a real machine-learning problem.
 
+## The project
+
+Your client, the OMEGA Lab, develops organic solar cells. To find out whether a new molecule is a good material for a solar cell, the lab has to make it and measure it, which takes weeks. The lab would like to know which molecules are worth that effort before anyone makes them.
+
+![A molecule, written as a SMILES string, goes into your models, which predict its HOMO and LUMO energy levels and its stability.](../images/datalab/molecule_to_predictions.png){fig-alt="Diagram: a drawing of an organic molecule with its SMILES string, an arrow to a box labeled your models, and an arrow to three predictions: HOMO (energy level in eV), LUMO (energy level in eV) and stability (low, medium or high)."}
+
+Your task is to build models that take a molecule and predict three of its properties: the HOMO and LUMO energy levels (a regression problem) and its stability (a classification problem with the classes `low`, `medium` and `high`). Each molecule is given as a SMILES string, a line of text that describes its structure.
+
+[Iteration 1](iteration-1/index.qmd) starts with a deeper understanding of the problem.
+
+## How the project works
+
 The project follows an **iterative CRISP-DM workflow**. Rather than completing each part of the machine-learning process only once, you will revisit data understanding, data preparation, modeling, and evaluation as your understanding of the problem develops.
 
 As you progress through the project, the level of guidance gradually decreases.

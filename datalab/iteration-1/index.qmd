@@ -1,20 +1,20 @@
 # Iteration 1 {.unnumbered}
 
-In your first iteration, you will go through the complete machine-learning workflow as quickly as possible.
-
-The goal is **not to build the best possible models yet**. Instead, you will experience the complete workflow, build your first working models, and understand how the different parts of the process fit together.
+The aim of this iteration is to build your first models for the project: a classification model, a regression model and a clustering model. They don't have to be good yet. What matters is that you go through the whole workflow once, from the problem to working models.
 
 This iteration is highly guided. In later iterations, you will revisit these steps in greater depth and make increasingly more decisions yourself.
 
-## Your first ML cycle
+## The starter dataset
 
-You will use `starter_dataset.xlsx` to build your first:
+You work with `starter_dataset.xlsx`, a dataset of 80 molecules that is ready to use. Every row is one molecule:
 
-* classification model
-* regression model
-* clustering model
+| Column | Contains |
+|---|---|
+| A (`smiles`) | The SMILES string of the molecule |
+| B to HJ | 217 molecular descriptors computed with RDKit: the features |
+| HK to HM (`homo`, `lumo`, `stability`) | The three targets |
 
-At this stage, keep things simple. Focus on getting from data to working models rather than optimizing performance.
+The dataset is prepared so that you can almost use it as it is: the descriptors are your features `X`, and each target is a `y`. In Self-study Theme 1 you trained models this way on small public datasets. Now you do the same on the project data.
 
 ## Complete the pages and notebooks
 

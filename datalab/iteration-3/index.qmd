@@ -2,7 +2,9 @@
 
 In Iteration 2, you built your own dataset from the raw HOPV files and trained your Iteration 1 models on it. Those scores are your baseline.
 
-In Iteration 3, you improve the baseline **one step at a time**: you replace the single train/test split with cross-validation, tune the hyperparameters, and measure how good your clusters are. At the end, you submit your models to the Kaggle competitions for the first time.
+In Iteration 3, you go deeper into modeling and evaluation, with what you learned in Self-study Theme 3. You improve the baseline **one step at a time**: you replace the single train/test split with cross-validation, tune the hyperparameters, and measure how good your clusters are. At the end, you submit your models to the Kaggle competitions for the first time.
+
+Evaluation gets the most attention in this iteration, because every decision you make from now on is based on a score: which features, which model, which settings. If the score does not show how well the model predicts new molecules, those decisions go wrong without you noticing, until the model is used, or in this project, until you see your Kaggle score. With 347 molecules, the score of a single train/test split depends a lot on which molecules end up in the test set. Cross-validation gives a more reliable estimate and shows how much the score varies.
 
 The work is still structured, but you make more of the decisions yourself.
 

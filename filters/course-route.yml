@@ -26,8 +26,8 @@ steps:
   - parts:
       - title: "Self-study, Theme 2: Data Preparation & Understanding"
         href: self-study/theme-2.qmd
-        ends: self-study/006_data_understanding.ipynb
-        text: "Preparing data (scaling, encoding, missing values) and exploring it (distributions, relationships, PCA)."
+        ends: self-study/12_leakage_and_distribution_shift.qmd
+        text: "Preparing data (scaling, encoding, missing values), exploring it (distributions, relationships, PCA), and checking that it matches the data a model will be used on (leakage, distribution shift)."
       - title: "DataLab, Iteration 2: your own dataset"
         href: datalab/iteration-2/index.qmd
         ends: datalab/iteration-2/04_baseline.ipynb

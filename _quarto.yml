@@ -4,11 +4,21 @@ project:
   resources:
     - fonts/
     - images/icons/
+    - images/favicon/
+    - images/social-card.jpg
 
 website:
   title: "Introduction to Machine Learning"
   page-navigation: true
   site-url: https://ai.buas.nl/open-courses/introduction-to-ml/
+  # Browser-tab icon: the department site's icon (copied from adsai-department-site).
+  favicon: images/favicon/favicon.png
+  # Link previews (WhatsApp, Teams, LinkedIn, ...): Open Graph and Twitter tags. The
+  # image is set for all pages further down (top-level `image:`).
+  description: "A free, open machine-learning course from Breda University of Applied Sciences: learn the concepts, apply them to a real client problem, and compete on Kaggle."
+  open-graph: true
+  twitter-card:
+    card-style: summary_large_image
 
   # Early-release banner on every page (dismissable).
   announcement:
@@ -81,6 +91,8 @@ website:
               text: "Data Preparation"
             - href: self-study/006_data_understanding.ipynb
               text: "Data Understanding"
+            - href: self-study/12_leakage_and_distribution_shift.qmd
+              text: "Leakage & Distribution Shift"
 
         - section: "3. Modeling & Evaluation"
           href: self-study/theme-3.qmd
@@ -132,6 +144,7 @@ website:
             - datalab/iteration-1/05_clustering.ipynb
         - section: datalab/iteration-2/index.qmd
           contents:
+            - datalab/iteration-2/00_understanding_smiles.qmd
             - datalab/iteration-2/01_understanding_stability_data.ipynb
             - datalab/iteration-2/02_understanding_homolumo_data.ipynb
             - datalab/iteration-2/03_data_preparation.ipynb
@@ -149,12 +162,20 @@ website:
       text: "What's new"
 
 
+# Link-preview image of every page. Without this, Quarto takes the first image on a page
+# (the logo on the homepage, an SVG elsewhere), and WhatsApp cannot show SVGs.
+image: https://ai.buas.nl/open-courses/introduction-to-ml/images/social-card.jpg
+image-alt: "Introduction to Machine Learning: learn machine learning by solving a real problem."
+
 format:
   html:
     theme:
       light: [cosmo, theme-fonts.scss]
       dark: [cosmo, theme-fonts.scss, theme-dark.scss]
     css: styles.css
+    include-in-header:
+      text: |
+        <link rel="apple-touch-icon" href="https://ai.buas.nl/open-courses/introduction-to-ml/images/favicon/apple-touch-icon.png">
     filters:
       - filters/colab-button.lua
       - filters/course-route.lua

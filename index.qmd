@@ -1,5 +1,6 @@
 ---
 subtitle: "Applied Data Science & AI · Breda University of Applied Sciences"
+description: "A free, open machine-learning course from Breda University of Applied Sciences: learn the concepts, apply them to a real client problem, and compete on Kaggle."
 page-layout: full
 toc: false
 ---

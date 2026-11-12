@@ -2112,3 +2112,25 @@ body.quarto-dark .quiz {
   word-break: normal;
   white-space: nowrap;
 }
+
+/* ------------------------------------------------------------------
+   Molecule drawings (DataLab, Understanding SMILES; tools/make_smiles_figures.py).
+   Transparent SVGs on a light card, in light and in dark mode.
+   ------------------------------------------------------------------ */
+.mol-row img,
+img.mol-row {
+  background: #ffffff;
+  border: 1px solid #e3e6ea;
+  border-radius: 10px;
+  padding: 0.25rem;
+}
+
+.mol-row figcaption {
+  text-align: center;
+}
+
+body.quarto-dark .mol-row img,
+body.quarto-dark img.mol-row {
+  background: #f3f4f6;
+  border-color: #3b4148;
+}

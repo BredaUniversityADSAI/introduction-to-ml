@@ -11,7 +11,7 @@ Work through the activities of a theme in order. The [course route](../start-her
 | | You learn |
 |------|------------------------------|
 | [Theme 1](theme-1.qmd) | What machine learning is, how to train classification, regression and clustering models with scikit-learn, and the stages of a machine-learning project |
-| [Theme 2](theme-2.qmd) | How to prepare and explore data |
+| [Theme 2](theme-2.qmd) | How to prepare and explore data, and how to avoid leakage and distribution shift |
 | [Theme 3](theme-3.qmd) | How to evaluate, compare and tune models, and how linear regression, logistic regression and clustering work |
 | [Theme 4](theme-4.qmd) | Pipelines and the ColumnTransformer: preprocessing and model in one object |
 | [Theme 5](theme-5.qmd) | Decision trees, random forests and gradient boosting |
@@ -27,7 +27,7 @@ What it means for a program to learn from data, your first classification, regre
 
 ### [Theme 2: Data Preparation & Understanding](theme-2.qmd)
 
-Scaling, transforming, merging and encoding data, handling missing values, and exploring distributions and relationships between variables.
+Scaling, transforming, merging and encoding data, handling missing values, exploring distributions and relationships between variables, and checking for leakage and distribution shift.
 
 ### [Theme 3: Modeling & Evaluation](theme-3.qmd)
 
