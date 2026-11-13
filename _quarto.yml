@@ -27,7 +27,7 @@ website:
   # Early-release banner on every page (dismissable).
   announcement:
     # Links in the banner are not rewritten per page: use an absolute URL.
-    content: "**Early release v0.6.** This course is still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions) on the test set at any time. [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"
+    content: "**Early release v0.7.** This course is still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions) on the test set at any time. [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"
     type: info
     icon: info-circle
     dismissable: true

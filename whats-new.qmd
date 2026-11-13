@@ -6,6 +6,18 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.7.0 · 13 November 2026
+
+The course is easier to follow on your own computer, and a new Course Guide explains how the course works.
+
+- **One folder per theme.** In the course repository, the Self-study is now in one folder per theme (`self-study/theme-1/` to `self-study/theme-6/`). In every theme and iteration folder, the files are numbered in the order you work through them, starting with the overview page `00_overview.qmd`, so the folders show the course in the same order as the menu on this website.
+  - The Iteration 2 files are renumbered: [Understanding SMILES](datalab/iteration-2/01_understanding_smiles.qmd) is now 01, and the notebooks are 02 to 05.
+  - Old page addresses forward to the new ones.
+  - If you already downloaded the course, `git pull` moves and renames the files. Your own copies of notebooks stay where they are: move them to the new folders yourself. If you changed one of the course notebooks, `git pull` stops; see [Getting updates](setup.qmd#getting-updates).
+- **VS Code.** [Set Up Your Computer](setup.qmd) now uses VS Code to open and run the notebooks. When you open the course folder, VS Code offers to install the extensions the course needs, and it hides the files that only build this website. Each page file (`.qmd`) starts with its address on this website.
+- **[Course Guide](course-guide.qmd)** replaces How to use this course. It describes the two parts of the course, Self-study and DataLab, explains why they take turns, with a figure, recommends a setup and lists the course route. The overview page now also describes the course as these two parts; the test set belongs to the DataLab.
+- The [Self-Study](self-study/00_overview.qmd) and [DataLab](datalab/00_overview.qmd) overview pages show where to start: with Theme 1, and with Iteration 1 after Theme 1.
+
 ## v0.6.0 · 13 November 2026
 
 The Kaggle competitions are replaced by a test set in the course repository, which you can score at any time.
