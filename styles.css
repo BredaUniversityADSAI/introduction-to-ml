@@ -2259,3 +2259,44 @@ body.quarto-dark .route-card {
 
 /* The order that is not recommended: same diagram, faded. */
 .route-card.is-muted .rf-node { opacity: 0.6; }
+
+/* One card on its own (Self-Study and DataLab overview pages). */
+.route-figure.is-single {
+  grid-template-columns: minmax(0, 400px);
+}
+
+/* Start marks: hidden on the Course Guide, shown by .start-theme or .start-iteration. */
+.route-card .rf-badge { display: none; }
+.route-card .rf-badge rect { fill: var(--rf-good); }
+.route-card .rf-badge text {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  fill: #ffffff;
+}
+.route-card .rf-badge circle { fill: var(--rf-good); }
+.route-card .rf-badge path {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+body.quarto-dark .route-card .rf-badge text { fill: #0f1720; }
+body.quarto-dark .route-card .rf-badge path { stroke: #0f1720; }
+
+.start-theme .rf-badge-start-ss,
+.start-iteration .rf-badge-start-dl,
+.start-iteration .rf-badge-done-ss { display: inline; }
+
+.start-theme .rf-ss rect.rf-first { fill: var(--rf-ss); }
+.start-iteration .rf-dl rect.rf-first { fill: var(--rf-dl); }
+.start-theme .rf-ss text.rf-first,
+.start-iteration .rf-dl text.rf-first { fill: #ffffff; }
+body.quarto-dark .start-theme .rf-ss text.rf-first,
+body.quarto-dark .start-iteration .rf-dl text.rf-first { fill: #0f1720; }
+
+.start-iteration .rf-link path.rf-first-link {
+  stroke: var(--rf-good);
+  stroke-width: 2.4;
+}

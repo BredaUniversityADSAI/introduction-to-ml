@@ -21,56 +21,11 @@ Study a theme, then apply it in the DataLab iteration with the same number, befo
   <figure class="route-card">
     <p class="route-card-label is-good">Recommended</p>
     <p class="route-card-title">Take turns: theme, iteration, next theme</p>
-    <svg viewBox="0 0 360 448" role="img" aria-labelledby="rf1-title">
-      <title id="rf1-title">Recommended order: Theme 1, Iteration 1, Theme 2, Iteration 2, and so on up to Theme 6 and Iteration 6.</title>
-      <defs>
-        <marker id="rf1-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path class="rf-arrowhead" d="M1 1.5 L8.5 5 L1 8.5"/>
-        </marker>
-      </defs>
-      <text class="rf-col rf-col-ss" x="104" y="22">Self-study</text>
-      <text class="rf-col rf-col-dl" x="276" y="22">DataLab</text>
-      <!-- theme n -> iteration n, iteration n -> theme n+1 -->
-      <g class="rf-link">
-        <path d="M156 64 H222" marker-end="url(#rf1-arrow)"/>
-        <path d="M156 132 H222" marker-end="url(#rf1-arrow)"/>
-        <path d="M156 200 H222" marker-end="url(#rf1-arrow)"/>
-        <path d="M156 268 H222" marker-end="url(#rf1-arrow)"/>
-        <path d="M156 336 H222" marker-end="url(#rf1-arrow)"/>
-        <path d="M156 404 H222" marker-end="url(#rf1-arrow)"/>
-      </g>
-      <g class="rf-link rf-link-back">
-        <path d="M244 82 C 230 100, 140 92, 122 112" marker-end="url(#rf1-arrow)"/>
-        <path d="M244 150 C 230 168, 140 160, 122 180" marker-end="url(#rf1-arrow)"/>
-        <path d="M244 218 C 230 236, 140 228, 122 248" marker-end="url(#rf1-arrow)"/>
-        <path d="M244 286 C 230 304, 140 296, 122 316" marker-end="url(#rf1-arrow)"/>
-        <path d="M244 354 C 230 372, 140 364, 122 384" marker-end="url(#rf1-arrow)"/>
-      </g>
-      <g class="rf-steps">
-        <circle cx="16" cy="64" r="11"/><text x="16" y="64">1</text>
-        <circle cx="16" cy="132" r="11"/><text x="16" y="132">2</text>
-        <circle cx="16" cy="200" r="11"/><text x="16" y="200">3</text>
-        <circle cx="16" cy="268" r="11"/><text x="16" y="268">4</text>
-        <circle cx="16" cy="336" r="11"/><text x="16" y="336">5</text>
-        <circle cx="16" cy="404" r="11"/><text x="16" y="404">6</text>
-      </g>
-      <g class="rf-node rf-ss">
-        <rect x="52" y="46" width="104" height="36" rx="18"/><text x="104" y="64">Theme 1</text>
-        <rect x="52" y="114" width="104" height="36" rx="18"/><text x="104" y="132">Theme 2</text>
-        <rect x="52" y="182" width="104" height="36" rx="18"/><text x="104" y="200">Theme 3</text>
-        <rect x="52" y="250" width="104" height="36" rx="18"/><text x="104" y="268">Theme 4</text>
-        <rect x="52" y="318" width="104" height="36" rx="18"/><text x="104" y="336">Theme 5</text>
-        <rect x="52" y="386" width="104" height="36" rx="18"/><text x="104" y="404">Theme 6</text>
-      </g>
-      <g class="rf-node rf-dl">
-        <rect x="224" y="46" width="104" height="36" rx="18"/><text x="276" y="64">Iteration 1</text>
-        <rect x="224" y="114" width="104" height="36" rx="18"/><text x="276" y="132">Iteration 2</text>
-        <rect x="224" y="182" width="104" height="36" rx="18"/><text x="276" y="200">Iteration 3</text>
-        <rect x="224" y="250" width="104" height="36" rx="18"/><text x="276" y="268">Iteration 4</text>
-        <rect x="224" y="318" width="104" height="36" rx="18"/><text x="276" y="336">Iteration 5</text>
-        <rect x="224" y="386" width="104" height="36" rx="18"/><text x="276" y="404">Iteration 6</text>
-      </g>
-    </svg>
+```
+
+{{< include _includes/route-recommended.qmd >}}
+
+```{=html}
     <figcaption>Six steps. In each step you study a theme and apply it right away in the iteration with the same number.</figcaption>
   </figure>
   <figure class="route-card is-muted">

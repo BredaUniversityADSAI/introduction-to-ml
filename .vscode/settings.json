@@ -15,6 +15,7 @@
     "**/.ipynb_checkpoints": true,
     "**/*.quarto_ipynb": true,
     "_quarto.yml": true,
+    "_includes": true,
     "assets": true,
     "filters": true,
     "fonts": true,
