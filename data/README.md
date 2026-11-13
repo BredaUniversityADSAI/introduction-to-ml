@@ -16,7 +16,7 @@ HOMO and LUMO are in electronvolts (eV). Missing values are part of the data.
 `classification_sample_submission.csv` (`id`, `smiles`, `stability`) and `regression_sample_submission.csv`
 (`id`, `smiles`, `homo`, `lumo`), with placeholder values. Replace the placeholders with your predictions,
 save the file in the same folder under another name and score it with `tools/score.py`
-([how](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/index.html#scoring-your-predictions)). Git ignores everything in that folder except the two sample submissions,
+([how](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions)). Git ignores everything in that folder except the two sample submissions,
 including the scorer's log `score_log.csv`.
 
 **About the molecules and targets:** the molecules come from published research datasets. The HOPV

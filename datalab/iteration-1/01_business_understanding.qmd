@@ -3,6 +3,8 @@ title: "Business Understanding"
 number-sections: false
 ---
 
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-1/01_business_understanding.html -->
+
 ## The Big Picture: Our Energy Future & The Role of Solar
 
 The world is in a race to find sustainable energy sources to combat climate change. Solar energy, which converts sunlight into electricity, is a cornerstone of this transition. You've likely seen traditional solar panels on rooftops; these are amazing technologies, but the quest for even better, cheaper, and more versatile solutions is relentless. This project places you at the forefront of that quest, using data science to unlock the potential of a new generation of solar technology.

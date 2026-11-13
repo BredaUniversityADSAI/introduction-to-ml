@@ -15,7 +15,7 @@ data/003_test_data/*
 !data/003_test_data/classification_sample_submission.csv
 !data/003_test_data/regression_sample_submission.csv
 
-# Models saved by the notebooks; CatBoost training logs (notebook 011)
+# Models saved by the notebooks; CatBoost training logs (Gradient Boosting notebook)
 models/*
 !models/.gitkeep
 catboost_info/

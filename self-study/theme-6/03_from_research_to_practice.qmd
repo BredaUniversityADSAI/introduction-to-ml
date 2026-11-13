@@ -1,0 +1,52 @@
+# From Research to Practice
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-6/03_from_research_to_practice.html -->
+
+**Estimated time: approximately 6 hours**
+
+Machine learning research is most useful when you can translate ideas from the literature into concrete decisions in your own work.
+
+In this activity, you will read an accessible machine learning paper, identify useful principles, and apply at least one of them to a machine learning project of your own.
+
+After completing the activity, you should be able to:
+
+- read a machine learning research paper more effectively;
+- identify ideas that are relevant to an applied problem;
+- translate a research principle into a concrete modeling decision;
+- evaluate whether the change actually improves your approach.
+
+## Read — approximately 1 hour
+
+Read:
+
+[A Few Useful Things to Know About Machine Learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf) (Domingos, *Communications of the ACM*, 2012; [journal version](https://dl.acm.org/doi/10.1145/2347736.2347755))
+
+Take notes as you read.
+
+Rather than trying to remember every detail, identify principles that could influence how you develop or evaluate a machine learning system.
+
+## Apply
+
+Choose **at least one principle from the paper** and apply it to a machine learning project of your own: a project you are working on, or one of the models you built in the Self-study notebooks.
+
+Document:
+
+1. which principle you selected;
+2. why it is relevant to your project;
+3. what you changed;
+4. how you evaluated the effect;
+5. what you learned from the result.
+
+If your project contains several trained models, **ensembling** is one useful idea to explore.
+
+You could combine predictions from multiple models, compare the ensemble against your best individual model, and investigate whether—and why—the result changes.
+
+The goal is not to prove that the paper's recommendation always works.
+
+The goal is to move from:
+
+**“I read an interesting idea.”**
+
+to:
+
+**“I tested the idea in my own context and collected evidence about whether it helped.”**

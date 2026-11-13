@@ -1,0 +1,64 @@
+# Communicating Technical Work
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-6/01_communicating_technical_work.html -->
+
+**Estimated time: 4 hours**
+
+Technical work is only useful if you can communicate it clearly. In this activity, you will study two complementary aspects of technical communication: presenting ideas effectively and writing technical documents that are clear, focused, and valuable to the reader.
+
+After completing this activity, you should be able to:
+
+- apply basic principles of effective communication to technical presentations;
+- apply basic principles of effective writing to technical documents;
+- create practical checklists you can reuse when preparing future presentations and written work.
+
+## How to Speak — 2 hours
+
+Watch **How to Speak** by Patrick Winston (MIT) and take notes.
+
+As you watch, turn the main principles into a practical checklist that you can reuse whenever you prepare a presentation.
+
+For example, at **31:47** the speaker discusses the “too-heavy crime”: slides with too little white space, too few visuals, and too much text.
+
+Turn principles like this into concrete checklist items. Use the checklist both:
+
+1. while designing your presentation, as a reminder of what to include or avoid;
+2. after finishing it, as a final quality check.
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.youtube-nocookie.com/embed/Unzc731iCUY"
+  title="How to Speak"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+
+**Goal:** Build a reusable set of principles for communicating technical ideas clearly and effectively in presentations.
+
+## The Craft of Writing Effectively — 2 hours
+
+Watch **The Craft of Writing Effectively** by Larry McEnerney (University of Chicago) and take notes.
+
+Again, turn the main principles into a practical checklist that you can reuse whenever you write a technical document.
+
+For example, at **13:45** the speaker explains that writing should be clear, organised, and persuasive, but that none of this matters if the content is not valuable to the reader.
+
+A useful checklist item could therefore be:
+
+> Is this valuable to the reader?
+
+Ask yourself this question while planning, while writing, and after finishing the document.
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.youtube-nocookie.com/embed/vtIzMaLkCaM"
+  title="The Craft of Writing Effectively"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+
+**Goal:** Build a reusable set of principles for writing technical documents that are clear, organised, persuasive, and useful to the reader.

@@ -43,7 +43,7 @@ jobs:
         run: uv run python tools/check_data.py
 
       - name: Run the self-study notebooks
-        run: uv run python tools/run_notebooks.py self-study/0*.ipynb
+        run: uv run python tools/run_notebooks.py self-study/*/*.ipynb
 
       - name: Render the site
         run: |

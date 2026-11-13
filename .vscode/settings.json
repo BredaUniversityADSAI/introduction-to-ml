@@ -1,0 +1,27 @@
+// Settings for this folder in VS Code (they apply only here).
+{
+  // Sort files and folders together by name, so the overview page (00_overview.qmd)
+  // comes before the theme folders and every folder lists its files in course order.
+  "explorer.sortOrder": "mixed",
+
+  // Hide the files that only build the course website. To see them again,
+  // delete this block or set an entry to false.
+  "files.exclude": {
+    "_book": true,
+    "_redirect": true,
+    ".quarto": true,
+    ".venv": true,
+    "**/__pycache__": true,
+    "**/.ipynb_checkpoints": true,
+    "**/*.quarto_ipynb": true,
+    "_quarto.yml": true,
+    "assets": true,
+    "filters": true,
+    "fonts": true,
+    "styles.css": true,
+    "theme-*.scss": true
+  },
+
+  // Notebooks run in their own folder, so paths like ../../data/ work.
+  "jupyter.notebookFileRoot": "${fileDirname}"
+}

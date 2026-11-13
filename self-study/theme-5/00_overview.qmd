@@ -1,0 +1,15 @@
+# Theme 5: Tree-Based Algorithms {.unnumbered}
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-5/00_overview.html -->
+
+Decision trees, and models that combine many of them, are among the strongest models for tabular data. In this theme you see how a single tree learns, and how random forests and gradient boosting combine many trees into a better model.
+
+## Activities
+
+Work through the activities in order:
+
+1. [Decision Trees](01_decision_trees.ipynb): a decision tree by hand and with scikit-learn, how a tree learns, overfitting, hyperparameters, and regression trees.
+2. [Random Forests](02_random_forests.ipynb): many trees trained on random parts of the data, their hyperparameters, voting and extra-trees.
+3. [Gradient Boosting](03_gradient_boosting.ipynb): trees that each correct the errors of the previous ones, their hyperparameters, XGBoost and LightGBM, AdaBoost and stacking.
+
+In [Theme 6](../theme-6/00_overview.qmd), the last theme, you learn to communicate your work and to use machine-learning research.

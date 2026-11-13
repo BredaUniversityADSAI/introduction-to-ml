@@ -1,0 +1,216 @@
+# Understanding Machine Learning Research
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-6/02_understanding_ml_research.html -->
+
+**Estimated time: approximately 2 hours**
+
+Machine learning practice is built on research. As a data professional, you will regularly encounter situations where existing tutorials, libraries, or standard implementations are not enough. Being able to find, interpret, and critically assess research helps you discover established approaches, justify technical decisions, and avoid reinventing solutions that already exist.
+
+This reading introduces the basic research literacy needed for applied machine learning.
+
+After completing it, you should be able to:
+
+- distinguish common forms of scientific output such as journal articles, conference papers, preprints, and patents;
+- explain the basic role of the scientific method in machine learning;
+- interpret common research metrics critically;
+- search scientific literature effectively;
+- approach published research with appropriate skepticism.
+
+## Research Outputs
+
+Research produces new methods, algorithms, evidence, and knowledge. One of its main outputs is a written document describing a problem, approach, results, and implications. We commonly call this a **paper**, although papers appear in several forms.
+
+### Journal Articles
+
+Academic journals publish research articles within particular fields.
+
+Submitted papers generally go through **peer review**, in which other experts evaluate the work and authors may revise it before publication.
+
+Some journals focus on machine learning, such as the *Journal of Machine Learning Research*, while others focus on particular application domains or publish research from many disciplines.
+
+Scientific papers can serve different purposes. Some introduce new algorithms, some describe software, some compare existing methods, and others apply machine learning to problems in specific domains.
+
+Authorship indicates intellectual contribution to the work.
+
+The first author commonly made a large contribution to carrying out the research and preparing the manuscript. The corresponding author manages communication around publication, while the final author in many fields is often the senior researcher or project leader. These conventions vary between disciplines.
+
+### Preprints
+
+Formal publication can take considerable time because of peer review and revision.
+
+Researchers therefore often publish **preprints**: manuscripts made publicly available before formal peer review has been completed.
+
+Preprints allow results to be shared quickly and enable researchers to receive feedback before or during formal publication.
+
+A widely used preprint server for machine learning is [arXiv](https://arxiv.org/).
+
+Because preprints have not necessarily been peer reviewed, their conclusions should be interpreted accordingly.
+
+### Conference Proceedings
+
+A conference proceeding is a research paper published through an academic conference.
+
+Conference publication is especially important in machine learning. Major machine learning conferences include NeurIPS, ICML, and ICLR.
+
+Conference papers normally go through a review process and are published as part of the conference proceedings.
+
+### Patents
+
+Research performed in industrial settings can also result in patents.
+
+A patent is a legal mechanism for protecting an invention in exchange for publicly describing it. Patents therefore serve a different purpose from scientific papers.
+
+Patents list **inventors** rather than academic authors. Inventorship is based on contribution to the inventive concept rather than academic conventions such as first or last authorship.
+
+## The Scientific Method
+
+Research is not simply trying ideas and reporting the ones that work. It should be grounded in systematic observation, hypothesis formation, testing, analysis, and revision.
+
+The scientific method is iterative. A claim is proposed, evidence is collected, results are analyzed, and conclusions are revised as new evidence appears.
+
+Many familiar machine learning practices reflect the same principles.
+
+For example:
+
+- separating training and test data;
+- validating models;
+- checking for overfitting;
+- preventing data leakage;
+- comparing claims against empirical evidence.
+
+A model that appears to perform well is not enough. The goal is to establish evidence that the result can actually be trusted.
+
+## Research Metrics
+
+When exploring scientific literature, you will encounter several commonly used metrics.
+
+### Citation Count
+
+A citation occurs when one publication references another.
+
+The citation count of a paper indicates how many other publications have cited it. Citation counts can provide some indication of influence, but they are strongly affected by factors such as the age of a paper, the size of the research field, and current research trends.
+
+### Impact Factor
+
+Impact factor is a journal-level metric based on citations to articles published by the journal over a specified period.
+
+It should not be interpreted as a direct measure of the quality of an individual paper.
+
+### h-index
+
+The h-index attempts to combine a researcher's publication output and citation impact.
+
+A researcher has an h-index of *h* if they have *h* papers that have each received at least *h* citations.
+
+The metric strongly depends on factors such as career length and research field.
+
+### Treat Metrics Carefully
+
+Metrics can be useful for orientation, but they are not substitutes for reading and evaluating the work itself.
+
+Citation count, journal reputation, and author-level metrics do not automatically tell you whether a method is appropriate, a conclusion is correct, or a paper is relevant to your problem.
+
+Focus first on the substance of the work.
+
+## Searching Scientific Literature
+
+[Google Scholar](https://scholar.google.com/) is a useful starting point for finding scientific literature.
+
+The quality of your search depends strongly on how you formulate your query.
+
+For applied machine learning, it is useful to distinguish between two kinds of search.
+
+### Machine Learning Research
+
+Sometimes you want to learn about a general machine learning method rather than a particular application.
+
+For example:
+
+- `hyperparameter tuning`
+- `hyperparameter optimization`
+- `fast hyperparameter tuning`
+- `optuna hyperparameter optimization`
+
+Broad searches help you identify surveys, common terminology, and established approaches. More specific searches help you find methods closely related to the exact problem you are trying to solve.
+
+As an exercise, try to find the following papers using Google Scholar **without searching for their exact titles**:
+
+- *Hyperparameter Optimization in Machine Learning*
+- *Optuna: A Next-generation Hyperparameter Optimization Framework*
+- *BOHB: Robust and Efficient Hyperparameter Optimization at Scale*
+
+The purpose is not simply to locate one supposedly "best" technique. Try to understand what approaches exist, what assumptions they make, and what trade-offs they involve.
+
+### Applied Machine Learning
+
+In other cases, you want to discover how machine learning has been applied to a particular real-world problem.
+
+Start broad and gradually narrow your search.
+
+For example:
+
+`machine learning in medicine`
+
+→ `machine learning in dermatology`
+
+→ `skin cell classification with deep learning`
+
+→ `acantholytic cell classification with deep learning`
+
+→ `acantholytic cell classification with convolutional neural networks`
+
+→ `acantholytic cell classification with ResNet`
+
+Broad searches often reveal reviews and surveys. More specific queries help you find work that closely matches your task, data type, or model.
+
+As an exercise, try to find:
+
+- *A survey on deep learning in medical image analysis*
+- *TzanckNet: a convolutional neural network to identify cells in the cytology of erosive-vesiculobullous diseases*
+
+When reading applied research, pay attention to:
+
+- the models used;
+- how the data was prepared;
+- the evaluation methodology;
+- the metrics used;
+- practical limitations;
+- whether the setting actually matches your own problem.
+
+In practice, you will often alternate between methodological and applied searches.
+
+## Accessing Scientific Literature
+
+Many papers can be accessed freely through open-access journals, conference proceedings, preprint servers, or author-hosted copies.
+
+Google Scholar often displays an HTML or PDF link when a freely accessible version is available.
+
+Some publications are behind paywalls. If you have access through a university, employer, or library, check whether your institution provides access to the publisher.
+
+Preprint repositories such as arXiv can also provide openly accessible versions of research manuscripts.
+
+## Be Skeptical
+
+Publication does not mean that a result is universally correct or useful.
+
+Research findings depend on the datasets, algorithms, assumptions, evaluation methods, and technological context in which the study was performed.
+
+A useful example is **SMOTE**, a synthetic oversampling technique introduced in 2002 and subsequently cited thousands of times.
+
+Later work and practical experience have shown that its usefulness depends heavily on the learning algorithms and experimental setting. For example, [Elor and Averbuch-Elor (2022)](https://arxiv.org/abs/2201.08528) found that balancing the training data helps weak classifiers, but not strong modern ones such as gradient-boosted trees. A technique that performs well with one generation of models may provide little benefit when stronger learning algorithms are used.
+
+The important lesson is broader than SMOTE:
+
+**research conclusions are conditional on the evidence and context in which they were produced.**
+
+Published work can also contain mistakes, weak methodology, or, in rare cases, scientific misconduct. Retractions and post-publication review demonstrate why publication status, citation counts, prestigious affiliations, or famous authors should never replace critical evaluation.
+
+When you find a promising technique:
+
+- understand how it was evaluated;
+- check whether its assumptions match your problem;
+- look for later work;
+- test it in your own pipeline;
+- evaluate it using appropriate methodology.
+
+Research should inform your decisions, not replace your own evidence.

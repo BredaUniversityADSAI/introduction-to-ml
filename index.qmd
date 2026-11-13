@@ -475,7 +475,7 @@ The course repository contains the code and data used throughout the course. [Se
 ::: {.ml-resource-card}
 <div class="ml-resource-top">
 <span class="ml-resource-logo"><img src="images/icons/target.svg" alt="Test set"></span>
-<a class="ml-status ml-status-live" href="datalab/iteration-3/index.html#scoring-your-predictions">How to score →</a>
+<a class="ml-status ml-status-live" href="datalab/iteration-3/00_overview.html#scoring-your-predictions">How to score →</a>
 </div>
 
 ### Test set and scorer

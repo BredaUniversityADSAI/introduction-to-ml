@@ -6,7 +6,7 @@ You learn machine learning by solving a real problem. The client is the OMEGA La
 
 The course has three core components:
 
-- **Self-study**: learn the concepts independently of the project. Jupyter notebooks and reading guides cover the fundamentals: classification, regression, clustering, the end-to-end ML workflow, scikit-learn pipelines, decision trees and ensembles.
+- **Self-study**: learn the concepts independently of the project. Jupyter notebooks and reading pages cover the fundamentals: classification, regression, clustering, the end-to-end ML workflow, scikit-learn pipelines, decision trees and ensembles.
 - **DataLab**: apply what you learned to the real client challenge. You work with real molecular data (the HOPV dataset) and improve your solution through successive CRISP-DM iterations, with less guidance in each one.
 - **Assessment**: demonstrate how well your solution performs. You predict properties of 200 unseen test molecules and score them with the scorer in this repository, then use your score to evaluate and improve your model.
 
@@ -14,13 +14,13 @@ The on-campus course also assesses deliverables such as reports and presentation
 
 📖 **Course website:** <https://ai.buas.nl/open-courses/introduction-to-ml/>
 
-> **Early release (v0.6).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/index.html#scoring-your-predictions) on the test set at any time. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
+> **Early release (v0.6).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions) on the test set at any time. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
 >
 > **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 
 ## Getting started
 
-New to the course? Start with [How to use this course](https://ai.buas.nl/open-courses/introduction-to-ml/start-here.html): paths for different learners, an 8-week plan and where to get help.
+New to the course? Start with [How to use this course](https://ai.buas.nl/open-courses/introduction-to-ml/start-here.html): paths for different learners, the course route and where to get help.
 
 The course is designed to be done on your own computer. The full step-by-step guide, with troubleshooting, is [Set up your computer](https://ai.buas.nl/open-courses/introduction-to-ml/setup.html). In short, with [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed:
 
@@ -31,21 +31,40 @@ uv sync              # installs Python 3.13 and every package the course uses in
 uv run jupyter lab   # or open the folder in VS Code and select the .venv kernel
 ```
 
+In VS Code, install the extensions it recommends when you open the folder (Python, Jupyter and, optionally, Quarto).
+
 `rdkit` is pinned to version 2025.9.3 on purpose: the course data was prepared with it. On macOS, `xgboost` and `lightgbm` may need `brew install libomp`.
 
 Questions? Ask in the [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions).
 
+## The course route
+
+The course has six steps. Each step is a Self-study theme, followed by the DataLab iteration with the same number.
+
+| Step | Self-study | DataLab |
+|---|---|---|
+| 1 | [Theme 1: Foundations of Machine Learning](self-study/theme-1/00_overview.qmd) | [Iteration 1: first ML cycle](datalab/iteration-1/00_overview.qmd) |
+| 2 | [Theme 2: Data Preparation & Understanding](self-study/theme-2/00_overview.qmd) | [Iteration 2: your own dataset](datalab/iteration-2/00_overview.qmd) |
+| 3 | [Theme 3: Modeling & Evaluation](self-study/theme-3/00_overview.qmd) | [Iteration 3: better evaluation, first submission](datalab/iteration-3/00_overview.qmd) |
+| 4 | [Theme 4: Advanced Scikit-Learn](self-study/theme-4/00_overview.qmd) | [Iteration 4: streamlined code, new data](datalab/iteration-4/00_overview.qmd) |
+| 5 | [Theme 5: Tree-Based Algorithms](self-study/theme-5/00_overview.qmd) | [Iteration 5: better models](datalab/iteration-5/00_overview.qmd) |
+| 6 | [Theme 6: Applied ML Research](self-study/theme-6/00_overview.qmd) | [Iteration 6: your final solution](datalab/iteration-6/00_overview.qmd) |
+
+Every theme and iteration has its own folder. In each folder, the files are numbered in the order you work through them, starting with the overview `00_overview.qmd`.
+
+- The `.ipynb` files are Jupyter notebooks: open them in VS Code or Jupyter Lab and run them.
+- The `.qmd` files are pages of the course website. Read them on the website, where the figures, videos and interactive parts work: each file starts with its web address.
+
 ## Repository structure
 
 ```
-self-study/   Self-study notebooks (001_–011_) and reading guides (01_–11_)
-datalab/      DataLab project notebooks, one folder per iteration
+self-study/   Self-study, one folder per theme (theme-1/ to theme-6/)
+datalab/      DataLab project, one folder per iteration (iteration-1/ to iteration-6/)
 data/         Datasets: raw HOPV data, the lab database, the starter dataset, the test molecules (see data/README.md)
+tools/        The scorer for your test-set predictions (score.py) and the course's own checks
 models/       Models you save while working through the notebooks (not tracked by Git)
 images/       Figures used in the notebooks and on the website
 ```
-
-The order of the activities is set on the website, not by the file names. Follow the course from the website sidebar.
 
 ## Building the website
 

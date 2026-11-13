@@ -1341,7 +1341,7 @@ body.quarto-dark .ml-status-live:focus-visible {
 
 
 /* =========================================================
-   Line-fitting demos (self-study/fit-demo.js)
+   Line-fitting demos (assets/fit-demo.js)
    ========================================================= */
 
 .fit-demo {
@@ -1994,7 +1994,7 @@ body.quarto-dark .fit-demo {
 
 
 /* =========================================================
-   Multiple-choice questions (self-study/quiz.js)
+   Multiple-choice questions (assets/quiz.js)
    ========================================================= */
 
 body {

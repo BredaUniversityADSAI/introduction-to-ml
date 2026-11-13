@@ -1,0 +1,9 @@
+{
+  // VS Code offers to install these when you open the course folder.
+  // Python and Jupyter run the notebooks; Quarto previews the .qmd pages.
+  "recommendations": [
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "quarto.quarto"
+  ]
+}

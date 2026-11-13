@@ -3,6 +3,8 @@ title: "Data Understanding"
 number-sections: false
 ---
 
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-1/02_data_understanding.html -->
+
 In the Business Understanding section, we learned that our goal is to predict molecular properties from SMILES strings. The three properties we want to predict are **HOMO**, **LUMO**, and **Stability** — these are the *outputs* of our machine learning models. The inputs are the SMILES strings, which describe molecules in text form.
 
 ## From SMILES to Predictions
@@ -89,7 +91,7 @@ The file `HOPV_homolumo.data` does not contain stability information. This is pr
 
 The HOPV molecules, and from Iteration 4 the lab database, form the development set for your classification and regression models. Once your models are ready, you will predict **200 test molecules** that your models have never seen. The course repository includes a scorer that compares your predictions with the true values of these molecules and gives you your score.
 
-Each problem has its own file in `data/003_test_data/`, a sample submission with the 200 SMILES and placeholder values in the target columns. Your task is to replace these placeholders with your model predictions and score the file ([Iteration 3](../iteration-3/index.qmd#scoring-your-predictions) explains how).
+Each problem has its own file in `data/003_test_data/`, a sample submission with the 200 SMILES and placeholder values in the target columns. Your task is to replace these placeholders with your model predictions and score the file ([Iteration 3](../iteration-3/00_overview.qmd#scoring-your-predictions) explains how).
 
 ::: {.callout-note}
 The models you build in Iteration 1 are not meant for the test set: 80 molecules from one source are a first experiment, not a solution. You score your models on the test molecules for the first time at the end of Iteration 3.

@@ -1,0 +1,18 @@
+# Theme 1: Foundations of Machine Learning {.unnumbered}
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-1/00_overview.html -->
+
+In this theme you find out what machine learning is, and you train your first classification, regression and clustering models with scikit-learn. The goal is to get from data to a working model and to test it on data it has not seen. At the end of the theme you follow one small project from start to finish. Later themes explain how the models work.
+
+## Activities
+
+Work through the activities in order:
+
+1. [What is Machine Learning?](01_what_is_machine_learning.qmd): what it means for a program to learn from data. You fit models by hand in your browser and see how the computer finds the best parameters.
+2. [Getting Started](02_getting_started.ipynb): the datasets of the Self-study notebooks, and their features `X` and target `y`.
+3. [Classification](03_classification.ipynb): your first classification model, tested on data it has not seen.
+4. [Regression](04_regression.ipynb): your first regression model, compared with a baseline.
+5. [Unsupervised Learning](05_unsupervised_learning.ipynb): your first clustering model.
+6. [End-to-End ML Project](06_end_to_end_ml.ipynb): one project from start to finish, with a section for each stage of CRISP-DM.
+
+In [Theme 2](../theme-2/00_overview.qmd), you learn to prepare and explore data.

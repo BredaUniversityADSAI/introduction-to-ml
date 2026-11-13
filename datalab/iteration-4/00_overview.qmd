@@ -1,0 +1,111 @@
+# Iteration 4 {.unnumbered}
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-4/00_overview.html -->
+
+You now have working classification, regression, and clustering models, cross-validated and tuned, and a first test score that is probably lower than your cross-validation score.
+
+From this point onward, the project becomes **open-ended**.
+
+There are no step-by-step notebooks and no fixed sequence to follow. Your goal is to improve your solution through repeated experimentation and evidence-based decisions. In this iteration you first rebuild your models with the tools from the Self-study theme you just finished. Then you add two new data sources, the client's lab database and the test molecules, and find out why your test score differs from your cross-validation score.
+
+## Streamline your code
+
+From now on you will run many experiments, and each one repeats the same steps: compute the descriptors, handle missing values, scale, train, evaluate and predict the test molecules. If these steps are spread over many notebook cells, every experiment takes long and it is easy to make a mistake. So before you add new data, put your Iteration 3 work into a form that is quick to change:
+
+- Rebuild your classification and regression models as a `Pipeline`, with a `ColumnTransformer` or `SimpleImputer` and a scaler before the model. Cross-validate and tune the whole pipeline, the preprocessing included (`GridSearchCV` with parameter names such as `model__max_depth`).
+- Write the steps you repeat in every notebook, such as reading the data and computing the descriptors, as functions. You can keep them in a small Python file, for example `features.py`, and import them in each notebook.
+- Make predicting the test molecules a single call to the fitted pipeline, so that scoring a new model takes a minute.
+
+This may not change your scores much. The goal is faster and safer iteration. Check it anyway: cross-validate the pipeline under the same protocol as in Iteration 3 and record both scores in your experiment log (see [Iterate with a purpose](#iterate-with-a-purpose) below). If you scaled or imputed the whole dataset before cross-validation in Iteration 3, the pipeline now fits these steps inside each fold, on the training part only. The score can then drop a little. The new score is the more honest estimate, because the validation folds no longer influence the preprocessing.
+
+## The data
+
+From now on you can use every data source of the project:
+
+| Source | Molecules | File | Contains |
+|---|---|---|---|
+| HOPV | 350 | `HOPV_homolumo.data`, `HOPV_stability.csv` (or your `xy_df_hopv.csv` from Iteration 2) | SMILES, targets |
+| Lab database | 232 | `lab_measurements.db` | SMILES, targets |
+| Test set | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` | SMILES only: these are the molecules you predict |
+
+The first two files are in `data/001_raw_data/`, the test set in `data/003_test_data/` (you used it in [Iteration 3](../iteration-3/00_overview.qmd#scoring-your-predictions)). You compute the molecular descriptors of the new molecules the same way as in the [Data Preparation](../iteration-2/04_data_preparation.ipynb) notebook of Iteration 2.
+
+With more data sources, your pipeline pays off: every source and every set of test predictions goes through exactly the same preparation, and adding a source changes only the data you pass to it.
+
+### Reading the lab database
+
+The client keeps a second set of measurements in a small database. You don't need to learn SQL to use it, but a few minutes of background help.
+
+::: {.callout-note collapse="true"}
+## Databases in five minutes
+
+- A **database** stores data in **tables**. A table looks like a DataFrame: rows are records (here: measurements), columns are fields (here: `smiles`, `homo`, `lumo`, `stability`).
+- You ask a database for data with **SQL**, a short query language. Four keywords take you a long way:
+  - `SELECT` the columns you want (`*` means all columns),
+  - `FROM` a table,
+  - `WHERE` a condition holds,
+  - `LIMIT` the number of rows.
+
+  For example, `SELECT smiles, homo FROM measurements WHERE stability = 'high' LIMIT 5`. `COUNT(*)` counts rows.
+- Most databases (PostgreSQL, MySQL, SQL Server) run as a server that you connect to over a network. **SQLite** is a complete database in a single file: there is no server and nothing to install, because Python includes the `sqlite3` module.
+- `pd.read_sql(query, connection)` runs a query and returns the result as a pandas DataFrame. From there, everything works as you're used to.
+
+Want to learn more? [SQLBolt](https://sqlbolt.com/) is a free, interactive introduction to SQL in the browser, and Kaggle's free [Intro to SQL](https://www.kaggle.com/learn/intro-to-sql) course practises it on larger datasets.
+:::
+
+```python
+import sqlite3
+import pandas as pd
+
+# adjust the path to where your notebook is
+con = sqlite3.connect("../../data/001_raw_data/lab_measurements.db")
+
+# Which tables are in the database?
+pd.read_sql("SELECT name FROM sqlite_master WHERE type = 'table'", con)
+
+# Which columns does the table have, and of which type?
+pd.read_sql("PRAGMA table_info(measurements)", con)
+
+# How many rows? And what do the first rows look like?
+pd.read_sql("SELECT COUNT(*) AS n_rows FROM measurements", con)
+pd.read_sql("SELECT * FROM measurements LIMIT 5", con)
+
+# Only some columns and rows
+pd.read_sql("SELECT smiles, homo, lumo FROM measurements WHERE stability = 'high'", con)
+
+# The whole table as a DataFrame
+lab_df = pd.read_sql("SELECT * FROM measurements", con)
+con.close()
+```
+
+## Things to investigate
+
+There is no recipe for this iteration, but these questions are good places to start:
+
+- **Where do the test molecules come from?** Compare them with the HOPV molecules: their size, their SMILES strings, a few descriptors. Plot all molecules together, for example with PCA, and colour them by source. Scale the descriptors first: unscaled, a few descriptors with huge values decide the whole picture, as you saw when clustering in Iteration 1. Do the sources overlap?
+- **Which of your data sources looks most like the test molecules?** What does that mean for the data you train on?
+- **Does your validation tell the truth?** A model that does well in cross-validation on HOPV can still do badly on the test molecules. What do the molecules in your validation folds represent, and how could you make your validation more like the molecules you are scored on?
+- **Combining sources needs care.** Check for duplicates between the files, missing values, and whether the values are on the same scale. A large share of the lab and test molecules have missing descriptor values, and one descriptor is infinite for one molecule: find out which molecules and descriptors are affected and why, and decide how to handle them. HOPV hardly has this problem, so a model trained on HOPV alone never learns to deal with it.
+
+## Iterate with a purpose
+
+A strong machine-learning solution rarely comes from changing only the model. Use your public scores, validation performance, visualizations, and other evidence to identify weaknesses and decide what to investigate next. Avoid changing things randomly.
+
+For each experiment:
+
+1. Identify something you want to understand or improve.
+2. Form a hypothesis.
+3. Make a change.
+4. Evaluate the result.
+5. Decide what to do next.
+
+Keep track of your experiments so that you know which changes improved your solution and which did not. A spreadsheet or a CSV file with one row per experiment is enough, for example:
+
+| Date | Data | Features | Model and parameters | Validation | CV score (mean ± std) | Public score | Note |
+|---|---|---|---|---|---|---|---|
+| 12 Nov | HOPV, rows without stability removed (312) | 217 RDKit descriptors | random forest, defaults | `StratifiedKFold(5)`, shuffled, seed 42 | macro-F1 0.71 ± 0.04 | | first baseline |
+| 13 Nov | HOPV + lab database | same | same | validate on lab molecules only (they resemble the test molecules), HOPV always in training | ... | ... | does the lab data help? New protocol, so the baseline is scored again |
+
+Only compare scores that come from the same protocol: the same validation molecules, folds and metric. When you change the data you validate on, the folds or the metric, the old scores are no longer comparable: score your previous best model again under the new protocol. And never tune on the data you use for your final check.
+
+[Score](../iteration-3/00_overview.qmd#scoring-your-predictions) your model on the test molecules whenever an experiment gives you a model that you expect to do better. Look only at the public score for now: the private score is for your final models, in Iteration 6. In [Iteration 5](../iteration-5/00_overview.qmd), after the Self-study theme on tree-based algorithms, you work on better models.

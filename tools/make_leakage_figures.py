@@ -1,4 +1,4 @@
-"""Draw the figures of self-study/016_leakage_and_distribution_shift.qmd.
+"""Draw the figures of self-study/theme-2/03_leakage_and_distribution_shift.qmd.
 
 Photos: images/leakage/photos/*.jpg (Wikimedia Commons; licenses and authors in
 images/leakage/photos/credits.json). Writes the figures to images/leakage/.

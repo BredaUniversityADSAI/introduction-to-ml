@@ -6,6 +6,10 @@ project:
     - images/icons/
     - images/favicon/
     - images/social-card.jpg
+    # Scripts of the interactive pages (fit-demo.js, quiz.js), loaded with <script> tags.
+    - assets/
+  # Redirect pages for the old addresses of pages that moved (tools/old_page_urls.py).
+  post-render: tools/old_page_urls.py
 
 website:
   title: "Introduction to Machine Learning"
@@ -23,7 +27,7 @@ website:
   # Early-release banner on every page (dismissable).
   announcement:
     # Links in the banner are not rewritten per page: use an absolute URL.
-    content: "**Early release v0.6.** This course is still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/index.html#scoring-your-predictions) on the test set at any time. [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"
+    content: "**Early release v0.6.** This course is still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions) on the test set at any time. [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"
     type: info
     icon: info-circle
     dismissable: true
@@ -63,100 +67,101 @@ website:
     - href: setup.qmd
       text: "Set up your computer"
 
-    # Self-study: Self-study -> Theme -> Activity. Order is pedagogical (not by
-    # filename). Each section has an overview page, like the DataLab iterations.
+    # Self-study: Self-study -> Theme -> Activity, one folder per theme (self-study/theme-N/),
+    # files numbered in this order, the overview page first (00_overview.qmd), like the
+    # DataLab iterations. Keep the file numbers in step with this order.
     # `text` sets the sidebar label; the page keeps its own heading.
-    - section: self-study/index.qmd
+    - section: self-study/00_overview.qmd
       contents:
         - section: "1. Foundations of Machine Learning"
-          href: self-study/theme-1.qmd
+          href: self-study/theme-1/00_overview.qmd
           contents:
-            - href: self-study/00_what_is_machine_learning.qmd
+            - href: self-study/theme-1/01_what_is_machine_learning.qmd
               text: "What is Machine Learning?"
-            - href: self-study/001_getting_started.ipynb
+            - href: self-study/theme-1/02_getting_started.ipynb
               text: "Getting Started"
-            - href: self-study/002_classification.ipynb
+            - href: self-study/theme-1/03_classification.ipynb
               text: "Classification"
-            - href: self-study/003_regression.ipynb
+            - href: self-study/theme-1/04_regression.ipynb
               text: "Regression"
-            - href: self-study/004_unsupervised_learning.ipynb
+            - href: self-study/theme-1/05_unsupervised_learning.ipynb
               text: "Unsupervised Learning"
-            - href: self-study/015_end_to_end_ml.ipynb
+            - href: self-study/theme-1/06_end_to_end_ml.ipynb
               text: "End-to-End ML Project"
 
         - section: "2. Data Preparation & Understanding"
-          href: self-study/theme-2.qmd
+          href: self-study/theme-2/00_overview.qmd
           contents:
-            - href: self-study/005_data_prep.ipynb
+            - href: self-study/theme-2/01_data_prep.ipynb
               text: "Data Preparation"
-            - href: self-study/006_data_understanding.ipynb
+            - href: self-study/theme-2/02_data_understanding.ipynb
               text: "Data Understanding"
-            - href: self-study/12_leakage_and_distribution_shift.qmd
+            - href: self-study/theme-2/03_leakage_and_distribution_shift.qmd
               text: "Leakage & Distribution Shift"
 
         - section: "3. Modeling & Evaluation"
-          href: self-study/theme-3.qmd
+          href: self-study/theme-3/00_overview.qmd
           contents:
-            - href: self-study/007_modeling_and_evaluation.ipynb
+            - href: self-study/theme-3/01_modeling_and_evaluation.ipynb
               text: "Modeling & Evaluation"
-            - href: self-study/012_linear_regression.ipynb
+            - href: self-study/theme-3/02_linear_regression.ipynb
               text: "Linear Regression"
-            - href: self-study/013_logistic_regression.ipynb
+            - href: self-study/theme-3/03_logistic_regression.ipynb
               text: "Logistic Regression"
-            - href: self-study/014_clustering.ipynb
+            - href: self-study/theme-3/04_clustering.ipynb
               text: "Clustering"
 
         - section: "4. Advanced Scikit-Learn"
-          href: self-study/theme-4.qmd
+          href: self-study/theme-4/00_overview.qmd
           contents:
-            - href: self-study/008_advanced_scikitlearn.ipynb
+            - href: self-study/theme-4/01_pipelines_and_columntransformer.ipynb
               text: "Pipelines & ColumnTransformer"
 
         - section: "5. Tree-Based Algorithms"
-          href: self-study/theme-5.qmd
+          href: self-study/theme-5/00_overview.qmd
           contents:
-            - href: self-study/009_decision_trees.ipynb
+            - href: self-study/theme-5/01_decision_trees.ipynb
               text: "Decision Trees"
-            - href: self-study/010_random_forests.ipynb
+            - href: self-study/theme-5/02_random_forests.ipynb
               text: "Random Forests"
-            - href: self-study/011_gradient_boosting.ipynb
+            - href: self-study/theme-5/03_gradient_boosting.ipynb
               text: "Gradient Boosting"
 
         - section: "6. Applied ML Research"
-          href: self-study/theme-6.qmd
+          href: self-study/theme-6/00_overview.qmd
           contents:
-            - href: self-study/09_communicating_technical_work.qmd
+            - href: self-study/theme-6/01_communicating_technical_work.qmd
               text: "Communicating Technical Work"
-            - href: self-study/10_understanding_ml_research.qmd
+            - href: self-study/theme-6/02_understanding_ml_research.qmd
               text: "Understanding ML Research"
-            - href: self-study/11_from_research_to_practice.qmd
+            - href: self-study/theme-6/03_from_research_to_practice.qmd
               text: "Research to Practice"
 
     # DataLab: DataLab -> Iteration -> page (like Self-study -> Theme -> Activity).
-    - section: datalab/index.qmd
+    - section: datalab/00_overview.qmd
       contents:
-        - section: datalab/iteration-1/index.qmd
+        - section: datalab/iteration-1/00_overview.qmd
           contents:
             - datalab/iteration-1/01_business_understanding.qmd
             - datalab/iteration-1/02_data_understanding.qmd
             - datalab/iteration-1/03_classification.ipynb
             - datalab/iteration-1/04_regression.ipynb
             - datalab/iteration-1/05_clustering.ipynb
-        - section: datalab/iteration-2/index.qmd
+        - section: datalab/iteration-2/00_overview.qmd
           contents:
-            - datalab/iteration-2/00_understanding_smiles.qmd
-            - datalab/iteration-2/01_understanding_stability_data.ipynb
-            - datalab/iteration-2/02_understanding_homolumo_data.ipynb
-            - datalab/iteration-2/03_data_preparation.ipynb
-            - datalab/iteration-2/04_baseline.ipynb
-        - section: datalab/iteration-3/index.qmd
+            - datalab/iteration-2/01_understanding_smiles.qmd
+            - datalab/iteration-2/02_understanding_stability_data.ipynb
+            - datalab/iteration-2/03_understanding_homolumo_data.ipynb
+            - datalab/iteration-2/04_data_preparation.ipynb
+            - datalab/iteration-2/05_baseline.ipynb
+        - section: datalab/iteration-3/00_overview.qmd
           contents:
             - datalab/iteration-3/01_classification.ipynb
             - datalab/iteration-3/02_regression.ipynb
             - datalab/iteration-3/03_clustering.ipynb
-        - datalab/iteration-4/index.qmd
-        - datalab/iteration-5/index.qmd
-        - datalab/iteration-6/index.qmd
+        - datalab/iteration-4/00_overview.qmd
+        - datalab/iteration-5/00_overview.qmd
+        - datalab/iteration-6/00_overview.qmd
 
     - href: whats-new.qmd
       text: "What's new"

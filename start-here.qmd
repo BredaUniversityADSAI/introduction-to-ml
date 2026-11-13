@@ -14,7 +14,7 @@ The course has three parts (see the [overview](index.qmd#course-structure)):
 
 ### Just reading
 
-Read the pages and notebooks here on the website. Nothing to install. The notebooks show the code and, in the Self-study, its output. Start with [What is Machine Learning?](self-study/00_what_is_machine_learning.qmd), which you can try out in your browser. You will understand the ideas, but you only really learn machine learning by writing the code yourself.
+Read the pages and notebooks here on the website. Nothing to install. The notebooks show the code and, in the Self-study, its output. Start with [What is Machine Learning?](self-study/theme-1/01_what_is_machine_learning.qmd), which you can try out in your browser. You will understand the ideas, but you only really learn machine learning by writing the code yourself.
 
 ### A quick look in Google Colab
 
@@ -26,7 +26,7 @@ Every notebook page has an **Open in Colab** button that runs the notebook in yo
 
 ### You already know machine learning
 
-Go to the project. Read the [Business Understanding](datalab/iteration-1/01_business_understanding.qmd) and [Data Understanding](datalab/iteration-1/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](datalab/iteration-2/02_understanding_homolumo_data.ipynb) and [computing molecular descriptors](datalab/iteration-2/03_data_preparation.ipynb), score a first model on the [test molecules](datalab/iteration-3/index.qmd#scoring-your-predictions), then start [Iteration 4](datalab/iteration-4/index.qmd), where the project becomes open-ended. The Self-study pages are there when you want to look something up.
+Go to the project. Read the [Business Understanding](datalab/iteration-1/01_business_understanding.qmd) and [Data Understanding](datalab/iteration-1/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](datalab/iteration-2/03_understanding_homolumo_data.ipynb) and [computing molecular descriptors](datalab/iteration-2/04_data_preparation.ipynb), score a first model on the [test molecules](datalab/iteration-3/00_overview.qmd#scoring-your-predictions), then start [Iteration 4](datalab/iteration-4/00_overview.qmd), where the project becomes open-ended. The Self-study pages are there when you want to look something up.
 
 ### You are a teacher
 
@@ -59,4 +59,4 @@ The notebooks mix explanations with exercises, marked **Your Turn**, and empty c
 
 ## The test set
 
-The course repository includes 200 test molecules and a scorer, for both problems (stability and energy levels). How to score your predictions, and what the public and private scores mean, is in [Iteration 3](datalab/iteration-3/index.qmd#scoring-your-predictions). You score your models for the first time at the end of Iteration 3; expect that first score to be lower than your cross-validation score.
+The course repository includes 200 test molecules and a scorer, for both problems (stability and energy levels). How to score your predictions, and what the public and private scores mean, is in [Iteration 3](datalab/iteration-3/00_overview.qmd#scoring-your-predictions). You score your models for the first time at the end of Iteration 3; expect that first score to be lower than your cross-validation score.

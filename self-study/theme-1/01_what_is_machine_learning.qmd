@@ -1,0 +1,320 @@
+# What is Machine Learning?
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-1/01_what_is_machine_learning.html -->
+
+Machine learning is about programs that get better at a task by learning from data, instead of following rules that a programmer wrote down. Tom Mitchell gave the classic definition in his 1997 textbook *Machine Learning*:
+
+> "A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E."
+
+So every machine learning problem has three parts: a task T (what the program should do), experience E (the data it learns from) and a performance measure P (how well it does the task). Two examples:
+
+|   | Spam detection | House prices |
+|---|---|---|
+| Task | Decide whether an email is spam or not spam. | Predict the selling price of a house. |
+| Experience | Emails labeled as spam or not spam. | Past house sales: size, location and the price each house sold for. |
+| Performance | Accuracy: the share of new emails classified correctly. | Mean absolute error: how far the predicted prices are from the real ones, on new sales. |
+
+In both examples, the program learns from data where the answers are known, and then makes **predictions**: it gives the answer for new cases, such as an email that has just arrived or a house that is for sale. That is also why the performance is measured on new data: what counts is how well the program does next time, not on the data it has already seen.
+
+::: {.column-margin}
+**Prediction**: the answer a model gives for a new case, such as "spam" for a new email or a price for a house that is for sale.
+:::
+
+Prediction is one of the main aims of machine learning, and it is what this page is about. It is not the only aim. Machine learning can also discover patterns in data without any answers to learn from, for example by finding groups of similar customers, or of similar molecules, without being told what the groups are. You will meet this later in the course as clustering.
+
+On this page you will build up the ideas behind prediction step by step, starting with the simplest model there is: a straight line.
+
+## 1. Fit a line
+
+We start with the house prices from the table. Each dot is one house that was sold: $x$ is its size, in units of 100 m², and $y$ is the price it sold for, in units of €100,000. So the dot at $x = 4.5$, $y = 11.3$ is a house of 450 m² that sold for €1.13 million. The size is something we know, the price is what we want to predict. A straight line is our **model**: given any size $x$, it predicts a price $y$.
+
+::: {.column-margin}
+**Model**: a rule that turns an input $x$ into a prediction $\hat{y}$. Here, a straight line.
+:::
+
+The line is $\hat{y} = \text{slope} \cdot x + 1$. In words: predicted price = slope × size + 1. It always starts at $y = 1$: even the smallest house costs €100,000, for the plot of land. Move the slider to change its slope until the line fits the data as well as you can. Hover over a dot to see its house.
+
+::: {.fit-demo data-stage="1"}
+:::
+
+You just did machine learning. You picked a model (a straight line) and adjusted its **parameter** (the slope) until the model matched the data. A machine learning algorithm does the same thing, without eyeballing. The slope you found also tells you something about houses: a slope of 2 means that every extra 100 m² adds about 2 × €100,000 = €200,000 to the price.
+
+::: {.column-margin}
+**Parameter**: a number inside the model that is adjusted to fit the data, such as the slope of the line.
+:::
+
+## 2. Measure the fit
+
+To let a computer find the best line, "fits well" needs to become a number.
+
+For each point, the vertical gap between the point and the line is the **error** of the prediction. Square each error and take the average to get the **cost**, also called the mean squared error:
+
+::: {.column-margin}
+**Cost**: a single number for how far the model's predictions are from the data. Lower is better. Here it is the mean squared error.
+:::
+
+$$
+\text{cost} = \frac{1}{n} \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2
+$$
+
+where $\hat{y}_i$ is the line's prediction for point $i$. Change the slope again and watch the cost on the right.
+
+::: {.fit-demo data-stage="2"}
+:::
+
+The best fit is simply the slope with the lowest cost. Finding the best line is now a search for the bottom of that curve.
+
+The cost itself is hard to read, because the errors are squared: at the best slope it is about 1.6, in units of (€100,000)². Its square root, about 1.3, is roughly how far off a typical prediction is: about €130,000.
+
+## 3. Two parameters
+
+A line has two parameters: the slope and the intercept (where the line crosses the y-axis). For the houses, the intercept is the base price: what the line predicts for a house of size 0, the price of the plot of land. Now both can change, so the cost depends on both of them.
+
+The map on the right shows the cost for every combination. Each spot on the map is one possible line; lighter means lower cost. Use the sliders, or drag on the map, to find the lowest point.
+
+::: {.fit-demo data-stage="3"}
+:::
+
+**Training** a model means searching for the parameter values with the lowest cost. Real models can have millions of parameters, far too many to draw as a map, but the idea stays the same. Instead of you moving sliders, an algorithm does the search.
+
+::: {.column-margin}
+**Training**: searching for the parameter values with the lowest cost.
+:::
+
+## 4. How does the machine learn?
+
+So far you found the best parameters yourself, by looking at the plots and moving the sliders until the cost was low. A computer cannot look at a plot, and with more than two parameters the cost cannot be drawn anyway.
+
+Instead, the computer calculates. For the current parameter values it can work out two things: the cost, and how the cost changes when a parameter changes a little. That second number is the **gradient**: how steep the cost curve is at the current point, and in which direction it goes down.
+
+::: {.column-margin}
+**Gradient**: how fast the cost changes when a parameter changes a little. It points uphill, so a step against it goes downhill.
+:::
+
+Imagine standing on a hillside in thick fog. You cannot see the valley, but you can feel which way the ground slopes under your feet. So you take a step downhill, feel again, and take another step. That is **gradient descent**:
+
+1. Start with some value for the parameter, for example slope 0.
+2. Calculate the gradient there.
+3. Take a step downhill: new slope = slope − learning rate × gradient.
+4. Repeat until the gradient is close to zero. At the bottom of the curve the ground is flat.
+
+::: {.column-margin}
+**Gradient descent**: finding the lowest cost by repeatedly taking a small step against the gradient.
+:::
+
+The **learning rate** sets the size of the steps. It is not a parameter of the model, and training does not change it: you choose it before training starts.
+
+::: {.column-margin}
+**Learning rate**: how big each gradient descent step is. Chosen before training.
+:::
+
+The demo uses the line from section 2: the intercept is fixed at 1 and gradient descent searches for the slope. Press "Step" to take one step, or "Run" to keep stepping. On the right, the dashed grey curve is the cost you saw in section 2. The algorithm does not know this curve; it only calculates the gradient at the current point, shown as the orange tangent.
+
+::: {.fit-demo data-stage="4"}
+:::
+
+Try each learning rate, and press "Reset" (or change the learning rate) to start again from slope 0.
+
+- With a very small learning rate, the steps are tiny. The algorithm gets there in the end, but it takes many steps.
+- With a learning rate that is about right, it reaches the bottom in a few steps.
+- With a learning rate that is too large, each step jumps past the bottom to the other side, and the path zigzags. A little larger still, and every jump lands higher than the last: the slope runs away and the cost explodes. The algorithm has diverged.
+
+With two parameters, the algorithm calculates the gradient for the slope and for the intercept, and changes both at once. On the cost map of section 3, that is walking downhill across the map. The same rule works for millions of parameters. Many models are trained with gradient descent or a variant of it, from straight lines to large neural networks. For a straight line there is also a formula that gives the best parameters directly, but gradient descent works for almost any model with a cost you can calculate.
+
+## 5. Polynomial regression
+
+Not every relationship is a straight line. For the next demos the example changes to traffic on a busy commuter road. $x$ is the time of day, in hours from noon: $x = -4$ is 8:00 and $x = 3$ is 15:00. $y$ is the delay in minutes caused by traffic jams. The data is made up, to show what more flexible models can do.
+
+The data below was generated from a curve, $y = a x^2$, plus some noise: long delays in the morning and evening rush hours, short ones around noon. Try to fit it with a line, using the slope and the intercept.
+
+::: {.fit-demo data-stage="5.1"}
+:::
+
+However you set the sliders, the cost stays high. The badge appears when you reach the lowest cost a line can get, and even that line misses most of the points. No choice of slope and intercept can fix this, because a straight line cannot follow a curve.
+
+So we give the model a term that can bend, $x^2$:
+
+$$
+\hat{y} = a x^2 + b x + c
+$$
+
+This is **polynomial regression**. The highest power of $x$ is the **degree** of the model, so this is a degree-2 polynomial. A straight line is a degree-1 polynomial: with $a = 0$, the slope is $b$ and the intercept is $c$.
+
+::: {.column-margin}
+**Degree**: the highest power of $x$ in a polynomial. It decides which parameters the model has, and it is chosen before training.
+:::
+
+Below is the same data. This time $b$ and $c$ are fixed at 0, so only $a$ can change. Find the best value for $a$.
+
+::: {.fit-demo data-stage="5.2"}
+:::
+
+One parameter is enough here, because the data was made from $a x^2$ alone. The next data set, from another road where the evening rush is worse than the morning rush, comes from a curve with all three terms, so you need all three sliders.
+
+::: {.fit-demo data-stage="5.3"}
+:::
+
+With three parameters the cost depends on three numbers at once, too many to draw as a map, but the search is the same: change the parameters until the cost is as low as it gets. You may notice the sliders depend on each other: after changing $a$, the best $c$ moves too.
+
+Nothing stops us at $x^2$. A polynomial of degree $n$ uses every power of $x$ up to $x^n$:
+
+$$
+\hat{y} = w_0 + w_1 x + w_2 x^2 + \dots + w_n x^n
+$$
+
+It has $n + 1$ parameters, $w_0$ to $w_n$. A line is degree 1 (two parameters), the curve above is degree 2 (three parameters).
+
+So there are two different things you can change, and it is important not to confuse them:
+
+- The parameters ($w_0, w_1, \dots$, or $a$, $b$, $c$ above) are what training finds: the values with the lowest cost. So far you found them with sliders.
+- The degree decides *which* parameters exist, and so how flexible the curve can be. It is chosen before training, and training does not change it.
+
+In the next demo the slider is the degree, not a parameter. For each degree, the best parameters are found for you, the way an algorithm would. The data was generated from a degree-4 curve, plus noise. Move the slider from degree 1 to 9 and watch the cost of each degree appear on the right.
+
+::: {.fit-demo data-stage="5.4"}
+:::
+
+Up to degree 4, the degree the data was made with, each extra degree lowers the cost a lot. But the cost keeps going down after degree 4, and at degree 9 the curve passes through every point, with a cost of exactly 0.
+
+A higher degree can always fit the training data at least as well, because it has every term of the lower degree plus more. So the lowest cost always belongs to the highest degree. But look at the degree-9 curve between the points. Between 7:12 and 8:36, in the middle of the morning rush, it says the delay drops from 10 minutes to about 2 and then climbs back to 7. Around 16:20 it shoots up to almost 16 minutes, only to fall back to 11 by 16:36. And just after the last point it plunges below zero: from 16:46 on it predicts a negative delay, as if the traffic jam made you arrive early.
+
+The data gives no sign that this is wrong, because the curve passes through every point with a cost of 0. You can see that it is wrong because you know how traffic works. Delays build up and fade away gradually; they do not drop to almost nothing in the middle of the rush hour, and a delay can never be negative. This is **domain knowledge**, knowledge that comes from understanding the problem rather than from the data. It helps you spot a model that has a low cost but makes no sense.
+
+::: {.column-margin}
+**Domain knowledge**: what you know about the problem itself, from outside the data. Here: how traffic behaves.
+:::
+
+So domain knowledge cuts both ways. It catches models that make no sense, like a negative delay, but it can also tempt you to explain noise as if it were signal. Look at the dots at 10:30 and 11:30: they sit a little higher than the ones at 8:36 and 9:18, and it is easy to invent a reason, such as people driving to lunch. But this data was generated from a smooth curve that slowly goes down all morning. The bump is noise, and the higher-degree curves bend to follow it.
+
+To find out which degree predicts well, you need new data that the curves were not fitted to. Section 6 adds such data.
+
+## 6. Generalization
+
+The whole point of machine learning is not to memorize what we've seen, but to generalize to what we haven't. **Generalization** is the ability of a trained model to perform well on new, previously unseen data.
+
+::: {.column-margin}
+**Generalization**: how well a trained model performs on new data it has not seen.
+:::
+
+So far you have minimized the cost on the data you have. A model is only useful, though, if it also predicts new data well.
+
+The demo below is the degree demo from section 5, with the same blue dots. They are the **training data**: for each degree, the curve is fitted to these points. There are also some new observations from the same degree-4 curve, measured on other days: the **test data**. The model never sees them during training, and they are hidden for now.
+
+::: {.column-margin}
+**Training data**: the data the model is fitted to.
+
+**Test data**: data kept aside, used only to check how well the model predicts data it has not seen.
+:::
+
+1. Move the degree slider from 1 to 9, as before, and watch the training cost go down.
+2. Then switch on "Show test data". Now you also see the test points and, on the right, the **test cost** of each degree: the same cost formula, calculated on the test data. Move the slider again.
+
+::: {.fit-demo data-stage="6"}
+:::
+
+The training cost keeps going down as the degree goes up. The test cost goes down until degree 4 and then up again: at degree 9 it is far above the top of the plot.
+
+Why is the test cost lowest at degree 4? Because the data was generated from a degree-4 curve, plus noise.
+
+- Below degree 4, the curve is too simple to capture the signal: the real curve behind the data. It misses the training points and the test points alike. This is called **underfitting**.
+- At degree 4, the model has exactly the terms of the curve that made the data. It follows that curve, not the noise, so it also predicts the new points well.
+- Above degree 4, the extra parameters have nothing real left to fit, so they fit the noise: the random ups and downs of the 10 training points. That lowers the training cost, but the test points have noise of their own, in other places. The curve bends towards training points that happen to lie high or low, and between them it swings far away from the real curve. At degree 9 it passes through every training point and predicts the test points worst of all. This is called **overfitting**: the model fits the noise in the training data, not just the signal.
+
+::: {.column-margin}
+**Underfitting**: the model cannot capture the signal in the data. Making it more flexible lowers both the training and the test cost.
+
+**Overfitting**: the model fits the noise in the training data. Making it more flexible lowers the training cost but raises the test cost.
+:::
+
+Why is the test cost usually higher than the training cost? Training finds the parameters with the lowest cost on the training data. Nothing guarantees that the same parameters also give the lowest cost on the test data, so the test cost is usually higher. Not always: in this demo, degrees 1 to 3 have a lower test cost. With only 8 test points, the test cost also depends on where those points happen to lie.
+
+Where does test data come from? In practice, nobody hands you unseen data with the answers attached. So you make it yourself: before training, you split the data you have into two parts. The model is trained on one part, the **training set**, and the other part, the **test set**, is put aside until the end. A common choice is 80% for training and 20% for testing. In this demo, 10 points are used for training and 8 are kept aside. You will do this split in code in the Classification notebook, with scikit-learn's `train_test_split`.
+
+One warning. Here you looked at the test cost to see which degree works best. In a real project, choosing the degree by the test cost uses the test data to make a decision, and then it is no longer unseen. The usual solution is a third part of the data for such choices, the **validation set**, so the test set is used only once, at the end. You will meet it in the Modeling and Evaluation notebook.
+
+The test cost is the better estimate of how well the model will do on new data. But a single cost cannot tell you whether a model underfits or overfits: whether a cost is high depends on how much noise the data has, and in practice you do not know that. Instead, look at how both costs change as you make the model more flexible, here by raising the degree:
+
+- While the training cost and the test cost both go down, the model is underfitting. There is still signal left to capture.
+- Once the training cost keeps going down but the test cost goes up, the model is overfitting. The extra flexibility goes into fitting noise.
+
+The best degree is at the turning point, where the test cost is lowest: degree 4 in this demo. In a real project you make this comparison on the validation set, not the test set. You will meet underfitting and overfitting throughout the course, for every kind of model.
+
+## 7. Regression vs classification
+
+Everything you have done so far is **regression**: the model predicts a number, a value on a continuous scale.
+
+::: {.column-margin}
+**Regression**: predicting a number, such as a price or an energy.
+:::
+
+Many problems ask a different question: which group does an input belong to? Is an email spam or not? Is a tumor malignant or benign? This is **classification**: the model predicts a **class**, one of a fixed set of options.
+
+::: {.column-margin}
+**Classification**: predicting a class, one of a fixed set of options, such as spam or not spam.
+:::
+
+In the self-study notebooks you will do both. The [Classification](03_classification.ipynb) notebook predicts whether a tumor is malignant or benign, and the [Regression](04_regression.ipynb) notebook predicts a number that measures how far a patient's diabetes has progressed after one year.
+
+The demo below goes back to spam detection from the table at the top. Each point is an email with two inputs: $x_1$ is its length, in hundreds of words, and $x_2$ is the number of links in it. Blue circles are normal emails, red squares are spam. The model is again a straight line, but it has a different job: it does not go through the points, it separates them. For every email above the line the model predicts spam, for every email below it not spam. The shading shows these predictions. The line is the model's **decision boundary**. Change the slope and intercept until every point is on the right side.
+
+::: {.fit-demo data-stage="7"}
+:::
+
+For classification, the simplest measure of the fit is the number of mistakes: the misclassified emails, ringed in orange. The share of correct predictions is the **accuracy**. A count changes in jumps, though, which makes it hard for an algorithm to search. That is why training algorithms use a smoother cost instead, and adjust the parameters until that cost is as low as possible.
+
+The ideas from the earlier sections apply to classification too. In real data the classes often overlap, so no line gets every point right. A straight line is not always enough either: just as a curve can fit data that a line cannot, a classifier can draw a curved boundary. And again, what matters is not the accuracy on the training data but on test data the model has not seen.
+
+## 8. Supervised and unsupervised learning
+
+In every data set on this page, each example came with some inputs and one known answer: the size of a house and the price it sold for, the time of day and the delay, the length and links of an email and whether it was spam. The inputs are called **features**, and the known answer is the **label**, also called the target. The model uses the features to predict the label. In code, the features are usually called `X` and the labels `y`, like $x$ and $y$ on this page.
+
+::: {.column-margin}
+**Feature**: an input the model uses to make a prediction, such as the size of a house or the number of links in an email.
+
+**Label**: the known answer for an example, such as the price a house sold for. Also called the target.
+:::
+
+Learning from examples with labels is called **supervised learning**: the labels supervise the training, because the cost compares the model's predictions with them. Regression and classification are both supervised learning. They differ only in the kind of label: a number or a class.
+
+::: {.column-margin}
+**Supervised learning**: learning from examples with labels, to predict the labels of new examples. Regression and classification are supervised learning.
+:::
+
+At the start of this page you met another aim: finding patterns in data without any answers to learn from. That is **unsupervised learning**: the data has features, but no labels. There are no right answers to compare predictions with, so the model looks for structure in the features themselves, for example groups of examples that lie close together. That is clustering, which you will meet in the Unsupervised Learning notebook.
+
+::: {.column-margin}
+**Unsupervised learning**: finding patterns in data without labels, such as groups of similar examples (clustering).
+:::
+
+## Review
+
+::: {.quiz data-answer="2"}
+What does training a model mean?
+
+- Choosing the degree of the polynomial. [The degree is chosen before training, and training does not change it. Training finds the values of the parameters.]{.feedback}
+- Searching for the parameter values with the lowest cost. [Training searches for the parameter values with the lowest cost, for example with gradient descent (section 4).]{.feedback}
+- Collecting more data. [The model is trained on data, but collecting it is not training. Training searches for the parameter values with the lowest cost.]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+As you raise the degree, the training cost goes down but the test cost goes up. What is happening?
+
+- Underfitting. [With underfitting, the training cost and the test cost both go down as the degree goes up (section 6).]{.feedback}
+- Overfitting. [The extra flexibility goes into fitting the noise in the training data, so the model predicts new data worse (section 6).]{.feedback}
+- The learning rate is too large. [The learning rate sets the step size of gradient descent (section 4). It does not change with the degree.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+A weather service has data on many past days, and each day is labeled "rain" or "no rain". It wants to predict whether it will rain tomorrow. What kind of problem is this?
+
+- Classification. [The days are labeled, and the label is one of a fixed set of classes: rain or no rain (section 7).]{.feedback}
+- Regression. [Regression predicts a number, such as the amount of rain in millimeters. Here the label is one of two classes: rain or no rain.]{.feedback}
+- Unsupervised learning. [Unsupervised learning has no labels. Here every past day is labeled "rain" or "no rain", so this is supervised learning (section 8).]{.feedback}
+:::
+
+## Next
+
+This page introduced the ideas behind machine learning without any code. In the notebooks that follow, you will see how these ideas look in Python, with scikit-learn: data with features and labels, training a model, making predictions and checking them on test data. The first one, [Getting Started](02_getting_started.ipynb), introduces the datasets used in the self-study notebooks.
+
+<script src="../../assets/fit-demo.js"></script>
+<script src="../../assets/quiz.js"></script>

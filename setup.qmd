@@ -82,11 +82,11 @@ Choose one:
   uv run jupyter lab
   ```
 
-- **VS Code** with the Python and Jupyter extensions. Open the course folder, open a notebook, click **Select Kernel** in the top right and choose the `.venv` environment. See [Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+- **VS Code** with the Python and Jupyter extensions. Open the course folder (VS Code offers to install the extensions the course recommends), open a notebook, click **Select Kernel** in the top right and choose the `.venv` environment. See [Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
 
 ## 7. Check the notebooks
 
-Open `self-study/001_getting_started.ipynb` and run all cells. If they run without errors, you are ready to start. In any notebook, this cell shows which Python it uses and the folder it runs in:
+Open `self-study/theme-1/02_getting_started.ipynb` and run all cells. If they run without errors, you are ready to start. In any notebook, this cell shows which Python it uses and the folder it runs in:
 
 ```python
 import sys
@@ -101,12 +101,13 @@ The notebooks read the data with paths relative to their own folder: a DataLab n
 
 | Folder | Contents |
 |---|---|
-| `self-study/` | Self-study notebooks (and the reading pages you see on this website) |
-| `datalab/` | DataLab notebooks, one folder per iteration |
+| `self-study/` | Self-study, one folder per theme: the notebooks and the reading pages you see on this website |
+| `datalab/` | DataLab, one folder per iteration: the notebooks and the pages you see on this website |
 | `data/` | All datasets of the project (see `data/README.md`) |
 | `models/` | Models you save while working through the notebooks |
+| `tools/` | The scorer for your test-set predictions (`score.py`) |
 
-The order of the activities is the order on this website, not the order of the file names. Follow the [course route](start-here.qmd#the-course-route): it takes you through Self-study and DataLab in turn.
+In each theme and iteration folder, the files are numbered in the order of this website, starting with the overview page `00_overview.qmd`. Follow the [course route](start-here.qmd#the-course-route): it takes you through Self-study and DataLab in turn. The `.qmd` files are the pages of this website: read them here, where the figures, videos and interactive parts work. The notebooks (`.ipynb`) are the files you open and run.
 
 ## Getting updates
 
@@ -117,7 +118,7 @@ git pull
 uv sync
 ```
 
-`git pull` refuses to overwrite notebooks you have changed. The simplest way to avoid that: work in a copy of each notebook (for example `003_regression_mine.ipynb`), and keep the originals untouched. The files you create in `data/002_processed_data/` and `models/` are ignored by Git, so they never get in the way of an update.
+`git pull` refuses to overwrite notebooks you have changed. The simplest way to avoid that: work in a copy of each notebook (for example `04_regression_mine.ipynb`), and keep the originals untouched. The files you create in `data/002_processed_data/` and `models/` are ignored by Git, so they never get in the way of an update.
 
 ## If something goes wrong
 

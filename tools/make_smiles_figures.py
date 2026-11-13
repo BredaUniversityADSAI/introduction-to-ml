@@ -1,4 +1,4 @@
-"""Draw the molecule figures of datalab/iteration-2/00_understanding_smiles.qmd.
+"""Draw the molecule figures of datalab/iteration-2/01_understanding_smiles.qmd.
 
 Writes SVGs with a transparent background to images/iteration-2/smiles/. All figures
 use the same canvas size and bond length, so molecules have the same scale on the page.
