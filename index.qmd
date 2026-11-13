@@ -458,7 +458,7 @@ Course resources
 
 ### Course repository
 
-The course repository contains the code and data used throughout the course. [Set up your computer](setup.qmd) explains how to download it and prepare your Python environment with uv.
+The course repository contains the code and data used throughout the course. [Set Up Your Computer](setup.qmd) explains how to download it and prepare your Python environment with uv.
 :::
 
 ::: {.ml-resource-card}

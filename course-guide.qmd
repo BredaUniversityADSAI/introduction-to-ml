@@ -10,11 +10,11 @@ The course has two parts.
 
 The **Self-study** teaches machine learning in six themes. Theme 1 gives you the whole picture first. It starts with an overview of what machine learning is, lets you train your first classification, regression and clustering models, and ends with a small project that goes through every stage, from the question to a saved model. After Theme 1 you have done a complete machine learning project, in a simple form. This follows the approach of David Perkins in *Making Learning Whole* (2009): learn to play a simple version of the whole game first, then work on its parts. Themes 2 to 6 each go deeper into one part: preparing and exploring data, modeling and evaluation, pipelines, tree-based models, and applied machine learning research.
 
-The **DataLab** is a client project: you predict properties of molecules for organic solar cells, for the OMEGA Lab at KAUST. Here you apply what you learned, and this is the core of the course. Machine learning is a practical skill. You learn it by deciding what to do with real data, writing the code, and finding out why a model does worse than you expected. The Self-study gives you the concepts and tools for this work, and the project shows you which of them you need to understand better. The project runs in six iterations, each with less guidance than the one before. From Iteration 3 on, you score your models on 200 test molecules that you haven't seen.
+The **DataLab** is a client project: you predict properties of molecules for organic solar cells, for the OMEGA Lab of Prof. Derya Baran at KAUST. Here you apply what you learned, and this is the core of the course. Machine learning is a practical skill. You learn it by deciding what to do with real data, writing the code, and finding out why a model does worse than you expected. The Self-study gives you the concepts and tools for this work, and the project shows you which of them you need to understand better. The project runs in six iterations, each with less guidance than the one before. From Iteration 3 on, you score your models on 200 test molecules that you haven't seen.
 
 ## Take turns
 
-Study a theme, then apply it in the DataLab iteration with the same number, before you start the next theme. You use each concept while it is fresh, and you start the next theme knowing what the project needs. If you study all six themes before you start the project, Theme 1 is weeks behind you when you reach Iteration 1, and every difficulty of the project comes at once.
+Study a theme, then apply it in the DataLab iteration with the same number, before you start the next theme. A theme introduces the concepts, and the iteration makes you use them on real data. Using a concept is how you come to understand it, so you learn each theme much better when you apply it right away. If you study all six themes first, you apply Theme 1 only after five more themes, which is too late for the project to help you learn it.
 
 ```{=html}
 <div class="route-figure">
@@ -71,7 +71,7 @@ Study a theme, then apply it in the DataLab iteration with the same number, befo
         <rect x="224" y="386" width="104" height="36" rx="18"/><text x="276" y="404">Iteration 6</text>
       </g>
     </svg>
-    <figcaption>Six steps. In each step you study a theme and then apply it in the iteration with the same number.</figcaption>
+    <figcaption>Six steps. In each step you study a theme and apply it right away in the iteration with the same number.</figcaption>
   </figure>
   <figure class="route-card is-muted">
     <p class="route-card-label is-bad">Not recommended</p>
@@ -117,7 +117,7 @@ Study a theme, then apply it in the DataLab iteration with the same number, befo
         <rect x="224" y="386" width="104" height="36" rx="18"/><text x="276" y="404">Iteration 6</text>
       </g>
     </svg>
-    <figcaption>When you start the project, Theme 1 is far behind you, and theory and practice stay apart.</figcaption>
+    <figcaption>You apply the first themes only after all six, too late for the project to help you learn them.</figcaption>
   </figure>
 </div>
 ```
@@ -128,9 +128,9 @@ Most of your work happens in Jupyter notebooks: you read the explanations, run t
 
 - [Git](https://git-scm.com/) downloads the course and, later, its updates. It also keeps a history of your own work, and your DataLab project can become a repository for your portfolio.
 - [uv](https://docs.astral.sh/uv/) installs Python and the exact package versions the course uses, in a folder inside the course, so that your notebooks give the same results as ours.
-- [VS Code](https://code.visualstudio.com/), or Jupyter Lab, opens and runs the notebooks. In VS Code you see the course as folders, one per theme and one per iteration, with the files numbered in the order you work through them. The `.qmd` files are the pages of this website: read those here.
+- [VS Code](https://code.visualstudio.com/) opens and runs the notebooks. In VS Code you see the course as folders, one per theme and one per iteration, with the files numbered in the order you work through them. The `.qmd` files are the pages of this website: read those here.
 
-[Set up your computer](setup.qmd) explains every step. It takes about 15 minutes.
+[Set Up Your Computer](setup.qmd) explains every step. It takes about 15 minutes.
 
 ## The course route
 

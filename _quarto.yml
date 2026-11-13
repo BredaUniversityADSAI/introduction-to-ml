@@ -65,7 +65,7 @@ website:
     - href: course-guide.qmd
       text: "Course Guide"
     - href: setup.qmd
-      text: "Set up your computer"
+      text: "Set Up Your Computer"
 
     # Self-study: Self-study -> Theme -> Activity, one folder per theme (self-study/theme-N/),
     # files numbered in this order, the overview page first (00_overview.qmd), like the

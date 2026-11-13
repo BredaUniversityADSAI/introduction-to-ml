@@ -1,13 +1,14 @@
 ---
-title: "Set up your computer"
+title: "Set Up Your Computer"
 ---
 
 The course is made to be done on your own computer. The notebooks build on each other: one notebook saves a file or a model, and a later notebook uses it. A local setup keeps all of that in one place. It takes about 15 minutes.
 
-You install two tools:
+You install three tools:
 
 - **Git**, to download the course and get updates;
-- **uv**, which installs the right Python version (3.13) and every package the course uses. You don't need to install Python yourself.
+- **uv**, which installs the right Python version (3.13) and every package the course uses. You don't need to install Python yourself;
+- **VS Code**, the editor in which you open and run the notebooks.
 
 Everything together needs about 3 GB of disk space: the course environment (about 0.7 GB on macOS, about 1.5 GB on Linux, where XGBoost also installs GPU libraries) and uv's download cache, which you can empty afterwards with `uv cache clean`.
 
@@ -72,17 +73,15 @@ If you see `All set`, you are ready. On macOS, if this fails with a message abou
 brew install libomp
 ```
 
-## 6. Open the notebooks
+## 6. Open the course in VS Code
 
-Choose one:
+Download VS Code from [code.visualstudio.com](https://code.visualstudio.com/) and install it. Then:
 
-- **Jupyter Lab** in your browser. From the course folder:
+1. Open the course folder ("File" > "Open Folder…", then choose `introduction-to-ml`).
+2. VS Code offers to install the extensions the course recommends: Python and Jupyter, which run the notebooks, and Quarto (optional). Install them.
+3. Open a notebook, click "Select Kernel" in the top right and choose the `.venv` environment.
 
-  ```bash
-  uv run jupyter lab
-  ```
-
-- **VS Code** with the Python and Jupyter extensions. Open the course folder (VS Code offers to install the extensions the course recommends), open a notebook, click **Select Kernel** in the top right and choose the `.venv` environment. See [Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+In the Explorer on the left you see the course as folders, one per Self-study theme and one per DataLab iteration, with the files numbered in the order you work through them. See [Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) for more about working with notebooks.
 
 ## 7. Check the notebooks
 
@@ -124,7 +123,7 @@ uv sync
 
 - **`uv` or `git`: command not found.** Close and reopen the terminal after installing. On Windows, use PowerShell.
 - **A package is missing or behaves strangely.** Delete the `.venv` folder and run `uv sync` again.
-- **`ModuleNotFoundError` in a notebook, although the check above printed `All set`.** The notebook runs in another Python. Start Jupyter with `uv run jupyter lab` from the course folder, or select the `.venv` kernel in VS Code.
+- **`ModuleNotFoundError` in a notebook, although the check above printed `All set`.** The notebook runs in another Python. Click the kernel name in the top right of the notebook and choose the `.venv` environment.
 - **`FileNotFoundError` for a data file.** Print `Path.cwd()` (see step 7) and check the path relative to that folder. If the missing file is `HOPV_homolumo_processed.csv` or `xy_df_hopv.csv`, an earlier notebook hasn't saved it yet: each Iteration 2 and 3 notebook says at the top which files it needs and which notebook creates them.
 - **You want an extra package.** Run `uv add <package-name>` in the course folder and restart the notebook kernel. Don't use `pip install` inside a notebook: the package is lost at the next `uv sync`. Note that `uv add` changes `pyproject.toml` and `uv.lock`, which can make a later `git pull` complain about these files.
 - **Do not upgrade `rdkit`.** It is pinned to version 2025.9.3 on purpose: other versions compute some molecular descriptors differently from the course data.

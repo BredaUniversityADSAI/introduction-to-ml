@@ -21,16 +21,15 @@ The on-campus course also assesses deliverables such as reports and presentation
 
 New to the course? Start with the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html): how the course works, the recommended order and setup, and where to get help.
 
-The course is designed to be done on your own computer. The full step-by-step guide, with troubleshooting, is [Set up your computer](https://ai.buas.nl/open-courses/introduction-to-ml/setup.html). In short, with [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed:
+The course is designed to be done on your own computer. The full step-by-step guide, with troubleshooting, is [Set Up Your Computer](https://ai.buas.nl/open-courses/introduction-to-ml/setup.html). In short, with [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed:
 
 ```bash
 git clone https://github.com/BredaUniversityADSAI/introduction-to-ml.git
 cd introduction-to-ml
 uv sync              # installs Python 3.13 and every package the course uses into .venv/
-uv run jupyter lab   # or open the folder in VS Code and select the .venv kernel
 ```
 
-In VS Code, install the extensions it recommends when you open the folder (Python, Jupyter and, optionally, Quarto).
+Then open the folder in [VS Code](https://code.visualstudio.com/), install the extensions it recommends (Python, Jupyter and, optionally, Quarto), open a notebook and select the `.venv` kernel.
 
 `rdkit` is pinned to version 2025.9.3 on purpose: the course data was prepared with it. On macOS, `xgboost` and `lightgbm` may need `brew install libomp`.
 
@@ -51,7 +50,7 @@ The course has six steps. Each step is a Self-study theme, followed by the DataL
 
 Every theme and iteration has its own folder. In each folder, the files are numbered in the order you work through them, starting with the overview `00_overview.qmd`.
 
-- The `.ipynb` files are Jupyter notebooks: open them in VS Code or Jupyter Lab and run them.
+- The `.ipynb` files are Jupyter notebooks: open them in VS Code and run them.
 - The `.qmd` files are pages of the course website. Read them on the website, where the figures, videos and interactive parts work: each file starts with its web address.
 
 ## Repository structure

@@ -101,7 +101,7 @@ Fixes and improvements after the first reviews of the course from a learner's po
 ## v0.2.0 · 1 November 2026
 
 - New: [How to use this course](course-guide.qmd), with paths for different learners, an 8-week plan, what you need and where to get help.
-- New: [Set up your computer](setup.qmd), the step-by-step setup guide (also used to be in the repository's README only).
+- New: [Set Up Your Computer](setup.qmd), the step-by-step setup guide (also used to be in the repository's README only).
 - The course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions) are open: ask questions, help others, share what you built.
 
 ## v0.1.1 · 1 November 2026

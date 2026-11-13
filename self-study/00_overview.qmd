@@ -1,4 +1,4 @@
-# Self-study {.unnumbered}
+# Self-Study {.unnumbered}
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/00_overview.html -->
 
