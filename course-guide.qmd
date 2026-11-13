@@ -1,0 +1,178 @@
+---
+title: "Course Guide"
+---
+
+This is the machine learning course that first-year students of [Applied Data Science & AI](https://ai.buas.nl/) at Breda University of Applied Sciences take, adapted for independent learning. It is free, with no registration, no deadlines and no certificate.
+
+## Self-study and DataLab
+
+The course has two parts.
+
+The **Self-study** teaches machine learning in six themes. Theme 1 gives you the whole picture first. It starts with an overview of what machine learning is, lets you train your first classification, regression and clustering models, and ends with a small project that goes through every stage, from the question to a saved model. After Theme 1 you have done a complete machine learning project, in a simple form. This follows the approach of David Perkins in *Making Learning Whole* (2009): learn to play a simple version of the whole game first, then work on its parts. Themes 2 to 6 each go deeper into one part: preparing and exploring data, modeling and evaluation, pipelines, tree-based models, and applied machine learning research.
+
+The **DataLab** is a client project: you predict properties of molecules for organic solar cells, for the OMEGA Lab at KAUST. Here you apply what you learned, and this is the core of the course. Machine learning is a practical skill. You learn it by deciding what to do with real data, writing the code, and finding out why a model does worse than you expected. The Self-study gives you the concepts and tools for this work, and the project shows you which of them you need to understand better. The project runs in six iterations, each with less guidance than the one before. From Iteration 3 on, you score your models on 200 test molecules that you haven't seen.
+
+## Take turns
+
+Study a theme, then apply it in the DataLab iteration with the same number, before you start the next theme. You use each concept while it is fresh, and you start the next theme knowing what the project needs. If you study all six themes before you start the project, Theme 1 is weeks behind you when you reach Iteration 1, and every difficulty of the project comes at once.
+
+```{=html}
+<div class="route-figure">
+  <figure class="route-card">
+    <p class="route-card-label is-good">Recommended</p>
+    <p class="route-card-title">Take turns: theme, iteration, next theme</p>
+    <svg viewBox="0 0 360 448" role="img" aria-labelledby="rf1-title">
+      <title id="rf1-title">Recommended order: Theme 1, Iteration 1, Theme 2, Iteration 2, and so on up to Theme 6 and Iteration 6.</title>
+      <defs>
+        <marker id="rf1-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="rf-arrowhead" d="M1 1.5 L8.5 5 L1 8.5"/>
+        </marker>
+      </defs>
+      <text class="rf-col rf-col-ss" x="104" y="22">Self-study</text>
+      <text class="rf-col rf-col-dl" x="276" y="22">DataLab</text>
+      <!-- theme n -> iteration n, iteration n -> theme n+1 -->
+      <g class="rf-link">
+        <path d="M156 64 H222" marker-end="url(#rf1-arrow)"/>
+        <path d="M156 132 H222" marker-end="url(#rf1-arrow)"/>
+        <path d="M156 200 H222" marker-end="url(#rf1-arrow)"/>
+        <path d="M156 268 H222" marker-end="url(#rf1-arrow)"/>
+        <path d="M156 336 H222" marker-end="url(#rf1-arrow)"/>
+        <path d="M156 404 H222" marker-end="url(#rf1-arrow)"/>
+      </g>
+      <g class="rf-link rf-link-back">
+        <path d="M244 82 C 230 100, 140 92, 122 112" marker-end="url(#rf1-arrow)"/>
+        <path d="M244 150 C 230 168, 140 160, 122 180" marker-end="url(#rf1-arrow)"/>
+        <path d="M244 218 C 230 236, 140 228, 122 248" marker-end="url(#rf1-arrow)"/>
+        <path d="M244 286 C 230 304, 140 296, 122 316" marker-end="url(#rf1-arrow)"/>
+        <path d="M244 354 C 230 372, 140 364, 122 384" marker-end="url(#rf1-arrow)"/>
+      </g>
+      <g class="rf-steps">
+        <circle cx="16" cy="64" r="11"/><text x="16" y="64">1</text>
+        <circle cx="16" cy="132" r="11"/><text x="16" y="132">2</text>
+        <circle cx="16" cy="200" r="11"/><text x="16" y="200">3</text>
+        <circle cx="16" cy="268" r="11"/><text x="16" y="268">4</text>
+        <circle cx="16" cy="336" r="11"/><text x="16" y="336">5</text>
+        <circle cx="16" cy="404" r="11"/><text x="16" y="404">6</text>
+      </g>
+      <g class="rf-node rf-ss">
+        <rect x="52" y="46" width="104" height="36" rx="18"/><text x="104" y="64">Theme 1</text>
+        <rect x="52" y="114" width="104" height="36" rx="18"/><text x="104" y="132">Theme 2</text>
+        <rect x="52" y="182" width="104" height="36" rx="18"/><text x="104" y="200">Theme 3</text>
+        <rect x="52" y="250" width="104" height="36" rx="18"/><text x="104" y="268">Theme 4</text>
+        <rect x="52" y="318" width="104" height="36" rx="18"/><text x="104" y="336">Theme 5</text>
+        <rect x="52" y="386" width="104" height="36" rx="18"/><text x="104" y="404">Theme 6</text>
+      </g>
+      <g class="rf-node rf-dl">
+        <rect x="224" y="46" width="104" height="36" rx="18"/><text x="276" y="64">Iteration 1</text>
+        <rect x="224" y="114" width="104" height="36" rx="18"/><text x="276" y="132">Iteration 2</text>
+        <rect x="224" y="182" width="104" height="36" rx="18"/><text x="276" y="200">Iteration 3</text>
+        <rect x="224" y="250" width="104" height="36" rx="18"/><text x="276" y="268">Iteration 4</text>
+        <rect x="224" y="318" width="104" height="36" rx="18"/><text x="276" y="336">Iteration 5</text>
+        <rect x="224" y="386" width="104" height="36" rx="18"/><text x="276" y="404">Iteration 6</text>
+      </g>
+    </svg>
+    <figcaption>Six steps. In each step you study a theme and then apply it in the iteration with the same number.</figcaption>
+  </figure>
+  <figure class="route-card is-muted">
+    <p class="route-card-label is-bad">Not recommended</p>
+    <p class="route-card-title">All Self-study first, then the DataLab</p>
+    <svg viewBox="0 0 360 448" role="img" aria-labelledby="rf2-title">
+      <title id="rf2-title">Not recommended: Themes 1 to 6 first, then Iterations 1 to 6.</title>
+      <defs>
+        <marker id="rf2-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="rf-arrowhead" d="M1 1.5 L8.5 5 L1 8.5"/>
+        </marker>
+      </defs>
+      <text class="rf-col rf-col-ss" x="104" y="22">Self-study</text>
+      <text class="rf-col rf-col-dl" x="276" y="22">DataLab</text>
+      <g class="rf-link">
+        <path d="M104 83 V112" marker-end="url(#rf2-arrow)"/>
+        <path d="M104 151 V180" marker-end="url(#rf2-arrow)"/>
+        <path d="M104 219 V248" marker-end="url(#rf2-arrow)"/>
+        <path d="M104 287 V316" marker-end="url(#rf2-arrow)"/>
+        <path d="M104 355 V384" marker-end="url(#rf2-arrow)"/>
+        <path d="M276 83 V112" marker-end="url(#rf2-arrow)"/>
+        <path d="M276 151 V180" marker-end="url(#rf2-arrow)"/>
+        <path d="M276 219 V248" marker-end="url(#rf2-arrow)"/>
+        <path d="M276 287 V316" marker-end="url(#rf2-arrow)"/>
+        <path d="M276 355 V384" marker-end="url(#rf2-arrow)"/>
+      </g>
+      <g class="rf-link rf-link-jump">
+        <path d="M157 404 C 200 404, 180 64, 222 64" marker-end="url(#rf2-arrow)"/>
+      </g>
+      <g class="rf-node rf-ss">
+        <rect x="52" y="46" width="104" height="36" rx="18"/><text x="104" y="64">Theme 1</text>
+        <rect x="52" y="114" width="104" height="36" rx="18"/><text x="104" y="132">Theme 2</text>
+        <rect x="52" y="182" width="104" height="36" rx="18"/><text x="104" y="200">Theme 3</text>
+        <rect x="52" y="250" width="104" height="36" rx="18"/><text x="104" y="268">Theme 4</text>
+        <rect x="52" y="318" width="104" height="36" rx="18"/><text x="104" y="336">Theme 5</text>
+        <rect x="52" y="386" width="104" height="36" rx="18"/><text x="104" y="404">Theme 6</text>
+      </g>
+      <g class="rf-node rf-dl">
+        <rect x="224" y="46" width="104" height="36" rx="18"/><text x="276" y="64">Iteration 1</text>
+        <rect x="224" y="114" width="104" height="36" rx="18"/><text x="276" y="132">Iteration 2</text>
+        <rect x="224" y="182" width="104" height="36" rx="18"/><text x="276" y="200">Iteration 3</text>
+        <rect x="224" y="250" width="104" height="36" rx="18"/><text x="276" y="268">Iteration 4</text>
+        <rect x="224" y="318" width="104" height="36" rx="18"/><text x="276" y="336">Iteration 5</text>
+        <rect x="224" y="386" width="104" height="36" rx="18"/><text x="276" y="404">Iteration 6</text>
+      </g>
+    </svg>
+    <figcaption>When you start the project, Theme 1 is far behind you, and theory and practice stay apart.</figcaption>
+  </figure>
+</div>
+```
+
+## Work on your own computer
+
+Most of your work happens in Jupyter notebooks: you read the explanations, run the code, change it and write your own. The DataLab notebooks also save files that later notebooks read. That is why we recommend a copy of the whole course on your own computer, set up with three tools:
+
+- [Git](https://git-scm.com/) downloads the course and, later, its updates. It also keeps a history of your own work, and your DataLab project can become a repository for your portfolio.
+- [uv](https://docs.astral.sh/uv/) installs Python and the exact package versions the course uses, in a folder inside the course, so that your notebooks give the same results as ours.
+- [VS Code](https://code.visualstudio.com/), or Jupyter Lab, opens and runs the notebooks. In VS Code you see the course as folders, one per theme and one per iteration, with the files numbered in the order you work through them. The `.qmd` files are the pages of this website: read those here.
+
+[Set up your computer](setup.qmd) explains every step. It takes about 15 minutes.
+
+## The course route
+
+The six steps of the course, with what each part covers. The menu lists all of Self-study before the DataLab, and so does the Next link at the bottom of each page. At the end of each theme and each iteration, a note on the page points you to what comes next.
+
+::: {.course-route}
+:::
+
+## Other ways to use the course
+
+### Reading only
+
+Read the pages and notebooks here on the website. Nothing to install. The notebooks show the code and, in the Self-study, its output. Start with [What is Machine Learning?](self-study/theme-1/01_what_is_machine_learning.qmd), which you can try out in your browser. You will understand the ideas, but you only really learn machine learning by writing the code yourself.
+
+### A quick look in Google Colab
+
+Every notebook page has an "Open in Colab" button that runs the notebook in your browser. This is good for trying a few notebooks. For the whole course, Colab is not practical: it forgets the files you create, and the DataLab notebooks build on each other's files.
+
+### You already know machine learning
+
+Go to the project. Read the [Business Understanding](datalab/iteration-1/01_business_understanding.qmd) and [Data Understanding](datalab/iteration-1/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](datalab/iteration-2/03_understanding_homolumo_data.ipynb) and [computing molecular descriptors](datalab/iteration-2/04_data_preparation.ipynb), score a first model on the [test molecules](datalab/iteration-3/00_overview.qmd#scoring-your-predictions), then start [Iteration 4](datalab/iteration-4/00_overview.qmd), where the project becomes open-ended. The Self-study pages are there when you want to look something up.
+
+### You are a teacher
+
+You are welcome to use the course, or parts of it, in your own teaching: the content is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and the code under MIT (see the [license](https://github.com/BredaUniversityADSAI/introduction-to-ml/blob/main/LICENSE.md)). All notebooks, pages and data are in the [course repository](https://github.com/BredaUniversityADSAI/introduction-to-ml). We'd love to hear how you use it: post in [Show and tell](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell).
+
+## What you need
+
+- Basic Python, NumPy, pandas and Matplotlib (see the [overview](index.qmd)). If you need a refresher: the [Python tutorial](https://docs.python.org/3/tutorial/), [NumPy for absolute beginners](https://numpy.org/doc/stable/user/absolute_beginners.html), [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html), the [Matplotlib quick start](https://matplotlib.org/stable/users/explain/quick_start.html), or Kaggle's free [Python](https://www.kaggle.com/learn/python) and [pandas](https://www.kaggle.com/learn/pandas) courses. No chemistry is needed: the project explains what you need to know.
+- A computer with about 3 GB of free disk space for the [setup](setup.qmd). Any recent Windows, macOS or Linux computer works.
+- No textbook. The Self-study pages and notebooks teach everything the course needs. Many notebooks end with optional further reading, for a second explanation: James et al., [*An Introduction to Statistical Learning with Applications in Python*](https://www.statlearning.com/) (free to read online), and Aurélien Géron, *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* (O'Reilly; many libraries offer it through the O'Reilly learning platform).
+
+## Working through the notebooks
+
+The notebooks mix explanations with exercises, marked "Your Turn", and empty cells marked `# YOUR CODE HERE`. Many exercises show the expected output, so you can check your result. Some Self-study notebooks show a worked solution right after an exercise (marked `SOLUTION` or "my solution"), so that you can compare it with your own: try first, then look. All other exercises, and the DataLab project, have no published solutions: working out the code yourself is where the learning happens. Read the documentation of the functions you use, and if you ask an AI assistant, ask it to explain rather than to write the code for you.
+
+## When you are stuck
+
+- Questions: ask in the course [Discussions (Q&A)](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/q-a), and help others when you can. Say which notebook and exercise, what you tried and the full error message. Please share hints and ideas, not complete solutions, so that others can still learn from the exercises.
+- Mistakes in the course: use "Report an issue" under the table of contents of any page.
+- There is no staff support or grading. The course team looks at the Discussions when it can and fixes reported mistakes, but cannot answer every question.
+
+## The test set
+
+The course repository includes 200 test molecules and a scorer, for both problems (stability and energy levels). How to score your predictions, and what the public and private scores mean, is in [Iteration 3](datalab/iteration-3/00_overview.qmd#scoring-your-predictions). You score your models for the first time at the end of Iteration 3; expect that first score to be lower than your cross-validation score.

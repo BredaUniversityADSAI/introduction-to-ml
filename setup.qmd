@@ -107,7 +107,7 @@ The notebooks read the data with paths relative to their own folder: a DataLab n
 | `models/` | Models you save while working through the notebooks |
 | `tools/` | The scorer for your test-set predictions (`score.py`) |
 
-In each theme and iteration folder, the files are numbered in the order of this website, starting with the overview page `00_overview.qmd`. Follow the [course route](start-here.qmd#the-course-route): it takes you through Self-study and DataLab in turn. The `.qmd` files are the pages of this website: read them here, where the figures, videos and interactive parts work. The notebooks (`.ipynb`) are the files you open and run.
+In each theme and iteration folder, the files are numbered in the order of this website, starting with the overview page `00_overview.qmd`. Follow the [course route](course-guide.qmd#the-course-route): it takes you through Self-study and DataLab in turn. The `.qmd` files are the pages of this website: read them here, where the figures, videos and interactive parts work. The notebooks (`.ipynb`) are the files you open and run.
 
 ## Getting updates
 

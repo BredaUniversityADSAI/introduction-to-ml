@@ -35,7 +35,7 @@ There is no fixed sequence in Iterations 4 to 6. You may revisit any part of the
 
 There are no deadlines and no grades: work at your own pace. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
 
-Self-study and DataLab take turns: each [Self-study theme](../self-study/00_overview.qmd) is followed by the DataLab iteration with the same number, so Theme 1 comes before Iteration 1, Theme 2 before Iteration 2, and so on up to Theme 6 and Iteration 6. Together they form the six steps of the [course route](../start-here.qmd#the-course-route).
+Self-study and DataLab take turns: each [Self-study theme](../self-study/00_overview.qmd) is followed by the DataLab iteration with the same number, so Theme 1 comes before Iteration 1, Theme 2 before Iteration 2, and so on up to Theme 6 and Iteration 6. Together they form the six steps of the [course route](../course-guide.qmd#the-course-route).
 
 ## Scoring on the test set
 

@@ -1,6 +1,6 @@
 # The course route: the order in which Self-study and DataLab interleave.
 # Read by filters/course-route.lua, which
-#   - renders the numbered list on start-here.qmd ("The course route"), wherever
+#   - renders the numbered list on course-guide.qmd ("The course route"), wherever
 #     a `::: {.course-route}` div is (attribute `from="N"` starts the list at step N);
 #   - adds a "Next" callout at the end of the page given as `ends`: from a theme to
 #     the iteration of the same step, and from an iteration to the next step.

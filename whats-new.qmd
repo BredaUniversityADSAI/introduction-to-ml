@@ -46,7 +46,7 @@ Each Self-study theme now prepares you for the DataLab iteration with the same n
 
 A new structure in six steps, and no textbook needed.
 
-- **Six steps.** The [course route](start-here.qmd#the-course-route) has six steps. Each step is a Self-study theme followed by the DataLab iteration with the same number: Theme 1 and Iteration 1, Theme 2 and Iteration 2, and so on. At the end of each theme and each iteration, a note points you to what comes next.
+- **Six steps.** The [course route](course-guide.qmd#the-course-route) has six steps. Each step is a Self-study theme followed by the DataLab iteration with the same number: Theme 1 and Iteration 1, Theme 2 and Iteration 2, and so on. At the end of each theme and each iteration, a note points you to what comes next.
 - **No textbook needed.** The reading guides have been removed: the Self-study notebooks now teach everything the course needs. Many notebooks end with optional further reading, including a free online textbook.
   - New in Theme 2: [End-to-End ML Project](self-study/theme-1/06_end_to_end_ml.ipynb), one small project with the Palmer penguins from start to finish, with a section for each stage of CRISP-DM.
   - New in Theme 3: [Linear Regression](self-study/theme-3/02_linear_regression.ipynb), [Logistic Regression](self-study/theme-3/03_logistic_regression.ipynb) and [Clustering](self-study/theme-3/04_clustering.ipynb). Each notebook trains the model with scikit-learn first, then builds its algorithm by hand.
@@ -100,7 +100,7 @@ Fixes and improvements after the first reviews of the course from a learner's po
 
 ## v0.2.0 · 1 November 2026
 
-- New: [How to use this course](start-here.qmd), with paths for different learners, an 8-week plan, what you need and where to get help.
+- New: [How to use this course](course-guide.qmd), with paths for different learners, an 8-week plan, what you need and where to get help.
 - New: [Set up your computer](setup.qmd), the step-by-step setup guide (also used to be in the repository's README only).
 - The course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions) are open: ask questions, help others, share what you built.
 

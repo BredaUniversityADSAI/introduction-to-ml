@@ -41,7 +41,7 @@ The OMEGA Lab is searching for molecules for next-generation solar cells. Testin
 :::
 
 ::: {.ml-actions}
-[Start the course](start-here.qmd){.ml-btn .ml-btn-primary}
+[Start the course](course-guide.qmd){.ml-btn .ml-btn-primary}
 [Meet the client](#the-client){.ml-btn .ml-btn-secondary}
 :::
 
@@ -242,12 +242,11 @@ More modern frameworks such as CRISP-ML(Q) extend these ideas for production mac
 The Structure
 :::
 
-## Learn. Apply. Demonstrate.
+## Learn the concepts and apply them.
 
-In our program, every course has three core components: **Self-study**, **DataLab**, and **Assessment**.
-Self-study teaches the core concepts independently of the course project. DataLab is where you apply those concepts to a real client challenge. Just like in a real project, this work produces deliverables such as code, reports, and presentations. These deliverables then form the basis for assessment.
+The course has two parts. In the **Self-study** you learn the concepts of machine learning, independently of the project. In the **DataLab** you apply them to a real client challenge, and that is where most of the learning happens. The two take turns: each Self-study theme is followed by the DataLab iteration with the same number (see the [Course Guide](course-guide.qmd)).
 
-For this public course, we kept all three components, but adapted them for independent learning without supervision or formal grading. Some activities that are part of the on-campus course are therefore simplified or omitted. For example, our students normally prepare and deliver a presentation as part of the assessment, while the public course focuses on a test set of unseen molecules as the main way to evaluate your solution.
+On campus, the DataLab work produces deliverables such as code, reports and presentations, and these are assessed. This public version is adapted for independent learning without supervision or formal grading. It keeps the full project, and instead of the assessment it gives you a test set of 200 unseen molecules and a scorer, so that you can measure how well your solution performs.
 
 There is no registration, no deadline and no certificate: start whenever you like and learn at your own pace. The course is free to use, also for other teachers in their own courses ([license](https://github.com/BredaUniversityADSAI/introduction-to-ml/blob/main/LICENSE.md)).
 
@@ -260,11 +259,11 @@ There is no registration, no deadline and no certificate: start whenever you lik
 ::: {.ml-track}
 ### 📘 Self-study
 
-Learn the concepts independently of the project.
+Learn the concepts, independently of the project.
 
-- Learn how classification works
-- Build and evaluate a model on a simple dataset
-- Practice the workflow before using it in the project
+- Start with the whole picture: a small project from start to finish in Theme 1
+- Go deeper in five more themes, from data preparation to applied ML research
+- Practice in notebooks with exercises on small, clean datasets
 :::
 
 ::: {.ml-track}
@@ -272,19 +271,9 @@ Learn the concepts independently of the project.
 
 Apply what you learned to the real client challenge.
 
-- Work with the molecular dataset
-- Build a model to predict molecular stability
-- Improve your solution through successive CRISP-DM iterations
-:::
-
-::: {.ml-track}
-### 🏁 Assessment
-
-Demonstrate how well your solution performs.
-
-- Predict on unseen molecules
-- Score your predictions with the course's scorer
-- Use your score to evaluate and improve your model
+- Work with real molecular data
+- Improve your solution in six iterations, with less guidance in each one
+- Score your predictions on 200 unseen test molecules
 :::
 
 :::::

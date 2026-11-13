@@ -62,8 +62,8 @@ website:
 
     contents:
     - index.qmd
-    - href: start-here.qmd
-      text: "How to use this course"
+    - href: course-guide.qmd
+      text: "Course Guide"
     - href: setup.qmd
       text: "Set up your computer"
 

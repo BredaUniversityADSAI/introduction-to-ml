@@ -770,10 +770,10 @@ html {
   margin-bottom: 0;
 }
 
-/* Structure: Learn -> Apply -> Demonstrate, as three connected stages. */
+/* Structure: Self-study -> DataLab, as two connected parts. */
 .ml-tracks {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.4rem;
 }
 
@@ -794,11 +794,6 @@ html {
 .ml-track:nth-child(2) {
   --accent: var(--buas-orange);
   --accent-soft: #fef1e7;
-}
-
-.ml-track:nth-child(3) {
-  --accent: #138a7a;
-  --accent-soft: #e6f5f2;
 }
 
 /* Chevron in the gap pointing to the next stage. */
@@ -1274,11 +1269,6 @@ body.quarto-dark .ml-track {
 
 body.quarto-dark .ml-track:nth-child(2) {
   --accent-soft: #3a2412;
-}
-
-body.quarto-dark .ml-track:nth-child(3) {
-  --accent: #2bb39f;
-  --accent-soft: #12342f;
 }
 
 body.quarto-dark .ml-track:not(:last-child)::after {
@@ -2127,3 +2117,145 @@ body.quarto-dark img.mol-row {
   background: #f3f4f6;
   border-color: #3b4148;
 }
+
+
+/* =========================================================
+   Course Guide: recommended order figure (course-guide.qmd)
+   ========================================================= */
+
+.route-figure {
+  --rf-card: #ffffff;
+  --rf-border: #e6e9ef;
+  --rf-ink: #1f2937;
+  --rf-muted: #667085;
+  --rf-ss: #00558c;
+  --rf-ss-soft: #eaf3f9;
+  --rf-dl: #f47a20;
+  --rf-dl-soft: #fff4ec;
+  --rf-link: #98a2b3;
+  --rf-good: #138a5e;
+  --rf-good-soft: #e7f6ef;
+  --rf-bad: #b42318;
+  --rf-bad-soft: #fdecea;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+body.quarto-dark .route-figure {
+  --rf-card: #141d26;
+  --rf-border: #2a3744;
+  --rf-ink: #e3e9ef;
+  --rf-muted: #9aa8b6;
+  --rf-ss: #5aaee6;
+  --rf-ss-soft: #13283a;
+  --rf-dl: #f7913f;
+  --rf-dl-soft: #2e2116;
+  --rf-link: #64748b;
+  --rf-good: #4cc79a;
+  --rf-good-soft: #12342a;
+  --rf-bad: #f97066;
+  --rf-bad-soft: #3a1a17;
+}
+
+.route-card {
+  margin: 0;
+  padding: 1rem 1rem 0.85rem;
+  background: var(--rf-card);
+  border: 1px solid var(--rf-border);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(16, 47, 70, 0.05);
+}
+
+body.quarto-dark .route-card {
+  box-shadow: none;
+}
+
+.route-card-label {
+  display: inline-block;
+  margin: 0 0 0.35rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.route-card-label.is-good {
+  color: var(--rf-good);
+  background: var(--rf-good-soft);
+}
+
+.route-card-label.is-bad {
+  color: var(--rf-bad);
+  background: var(--rf-bad-soft);
+}
+
+.route-card-title {
+  margin: 0 0 0.75rem;
+  color: var(--rf-ink);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.route-card svg {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.route-card figcaption {
+  margin-top: 0.6rem;
+  color: var(--rf-muted);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.route-card text {
+  font-family: inherit;
+  dominant-baseline: central;
+  text-anchor: middle;
+}
+
+.route-card .rf-col {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.route-card .rf-col-ss { fill: var(--rf-ss); }
+.route-card .rf-col-dl { fill: var(--rf-dl); }
+
+.route-card .rf-node rect { stroke-width: 1.5; }
+.route-card .rf-node text { font-size: 14px; font-weight: 600; fill: var(--rf-ink); }
+.route-card .rf-ss rect { fill: var(--rf-ss-soft); stroke: var(--rf-ss); }
+.route-card .rf-dl rect { fill: var(--rf-dl-soft); stroke: var(--rf-dl); }
+
+.route-card .rf-link path {
+  fill: none;
+  stroke: var(--rf-link);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.route-card .rf-link-jump path { stroke: var(--rf-bad); stroke-dasharray: 5 5; }
+.route-card .rf-arrowhead {
+  fill: none;
+  stroke: var(--rf-link);
+  stroke: context-stroke;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.route-card .rf-steps circle { fill: var(--rf-card); stroke: var(--rf-border); stroke-width: 1.5; }
+.route-card .rf-steps text { font-size: 12px; font-weight: 700; fill: var(--rf-muted); }
+
+/* The order that is not recommended: same diagram, faded. */
+.route-card.is-muted .rf-node { opacity: 0.6; }

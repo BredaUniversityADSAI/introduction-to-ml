@@ -1,7 +1,8 @@
 """Redirect pages for the old addresses of pages that moved (run by Quarto after rendering).
 
 On 13 Nov 2026 the Self-study pages moved into one folder per theme, numbered in course order,
-the overview pages became 00_overview.qmd and the Iteration 2 files were renumbered. Old links
+the overview pages became 00_overview.qmd, the Iteration 2 files were renumbered and
+"How to use this course" (start-here.qmd) became the Course Guide (course-guide.qmd). Old links
 (bookmarks, other sites, Colab tabs) keep working: for every old address below, this script
 writes a small page into the rendered site that forwards to the new address, keeping #anchors.
 Notebooks get no `aliases:` front matter for this, so that the files learners open stay clean.
@@ -36,6 +37,7 @@ OLD_TO_NEW = {
     f"{S}/09_communicating_technical_work.html": f"{S}/theme-6/01_communicating_technical_work.html",
     f"{S}/10_understanding_ml_research.html": f"{S}/theme-6/02_understanding_ml_research.html",
     f"{S}/11_from_research_to_practice.html": f"{S}/theme-6/03_from_research_to_practice.html",
+    "start-here.html": "course-guide.html",  # "How to use this course", renamed 13 Nov 2026
     "datalab/index.html": "datalab/00_overview.html",
     "datalab/iteration-2/00_understanding_smiles.html": "datalab/iteration-2/01_understanding_smiles.html",
     "datalab/iteration-2/01_understanding_stability_data.html": "datalab/iteration-2/02_understanding_stability_data.html",

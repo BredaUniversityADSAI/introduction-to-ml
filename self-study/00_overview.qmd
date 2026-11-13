@@ -4,7 +4,7 @@
 
 Self-study teaches the concepts of machine learning in six themes. Each theme is a short series of activities: notebooks that you run and complete, and pages that you read or try out in your browser. The notebooks use small public datasets, such as the Palmer penguins and California housing prices, so that you can focus on one concept at a time.
 
-Work through the activities of a theme in order. The [course route](../start-here.qmd#the-course-route) shows when to study each theme.
+Work through the activities of a theme in order. The [course route](../course-guide.qmd#the-course-route) shows when to study each theme.
 
 ## At a glance
 

@@ -9,7 +9,7 @@
 --     next step.
 
 local ROUTE_FILE = "filters/course-route.yml"
-local ROUTE_PAGE = "start-here.qmd#the-course-route"
+local ROUTE_PAGE = "course-guide.qmd#the-course-route"
 
 local function project_path()
   local input = quarto.doc.input_file

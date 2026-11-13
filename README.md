@@ -4,11 +4,10 @@ A public, first-year machine learning course from the [Applied Data Science & AI
 
 You learn machine learning by solving a real problem. The client is the OMEGA Lab at KAUST, which is searching for molecules for next-generation organic solar cells. You build models that predict molecular properties from structure, so the lab can screen thousands of candidates computationally and only test the most promising ones.
 
-The course has three core components:
+The course has two parts:
 
-- **Self-study**: learn the concepts independently of the project. Jupyter notebooks and reading pages cover the fundamentals: classification, regression, clustering, the end-to-end ML workflow, scikit-learn pipelines, decision trees and ensembles.
-- **DataLab**: apply what you learned to the real client challenge. You work with real molecular data (the HOPV dataset) and improve your solution through successive CRISP-DM iterations, with less guidance in each one.
-- **Assessment**: demonstrate how well your solution performs. You predict properties of 200 unseen test molecules and score them with the scorer in this repository, then use your score to evaluate and improve your model.
+- **Self-study**: learn the concepts, independently of the project. Jupyter notebooks and reading pages in six themes: Theme 1 takes you through a small project from start to finish, and the other themes go deeper into data preparation, modeling and evaluation, scikit-learn pipelines, tree-based models and applied ML research.
+- **DataLab**: apply what you learned to the real client challenge. You work with real molecular data (the HOPV dataset) and improve your solution through six CRISP-DM iterations, with less guidance in each one. You predict properties of 200 unseen test molecules and score them with the scorer in this repository.
 
 The on-campus course also assesses deliverables such as reports and presentations. This public version is adapted for independent learning without supervision or formal grading, so the test set is the main way to evaluate your solution.
 
@@ -20,7 +19,7 @@ The on-campus course also assesses deliverables such as reports and presentation
 
 ## Getting started
 
-New to the course? Start with [How to use this course](https://ai.buas.nl/open-courses/introduction-to-ml/start-here.html): paths for different learners, the course route and where to get help.
+New to the course? Start with the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html): how the course works, the recommended order and setup, and where to get help.
 
 The course is designed to be done on your own computer. The full step-by-step guide, with troubleshooting, is [Set up your computer](https://ai.buas.nl/open-courses/introduction-to-ml/setup.html). In short, with [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed:
 
