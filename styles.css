@@ -979,7 +979,7 @@ html {
   line-height: 1.55;
 }
 
-/* Course resources (repository, Kaggle) with a status badge. */
+/* Course resources (repository, test set) with a status badge. */
 .ml-resource-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

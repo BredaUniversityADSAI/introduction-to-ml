@@ -1,6 +1,6 @@
 ---
 subtitle: "Applied Data Science & AI · Breda University of Applied Sciences"
-description: "A free, open machine-learning course from Breda University of Applied Sciences: learn the concepts, apply them to a real client problem, and compete on Kaggle."
+description: "A free, open machine-learning course from Breda University of Applied Sciences: learn the concepts, apply them to a real client problem, and test your solution on unseen molecules."
 page-layout: full
 toc: false
 ---
@@ -247,7 +247,7 @@ The Structure
 In our program, every course has three core components: **Self-study**, **DataLab**, and **Assessment**.
 Self-study teaches the core concepts independently of the course project. DataLab is where you apply those concepts to a real client challenge. Just like in a real project, this work produces deliverables such as code, reports, and presentations. These deliverables then form the basis for assessment.
 
-For this public course, we kept all three components, but adapted them for independent learning without supervision or formal grading. Some activities that are part of the on-campus course are therefore simplified or omitted. For example, our students normally prepare and deliver a presentation as part of the assessment, while the public course focuses on the Kaggle competition as the main way to evaluate your solution and compare your performance.
+For this public course, we kept all three components, but adapted them for independent learning without supervision or formal grading. Some activities that are part of the on-campus course are therefore simplified or omitted. For example, our students normally prepare and deliver a presentation as part of the assessment, while the public course focuses on a test set of unseen molecules as the main way to evaluate your solution.
 
 There is no registration, no deadline and no certificate: start whenever you like and learn at your own pace. The course is free to use, also for other teachers in their own courses ([license](https://github.com/BredaUniversityADSAI/introduction-to-ml/blob/main/LICENSE.md)).
 
@@ -283,8 +283,8 @@ Apply what you learned to the real client challenge.
 Demonstrate how well your solution performs.
 
 - Predict on unseen molecules
-- Submit your solutions to the Kaggle competitions
-- Use your Kaggle score to evaluate and improve your model
+- Score your predictions with the course's scorer
+- Use your score to evaluate and improve your model
 :::
 
 :::::
@@ -474,13 +474,13 @@ The course repository contains the code and data used throughout the course. [Se
 
 ::: {.ml-resource-card}
 <div class="ml-resource-top">
-<span class="ml-resource-logo ml-resource-logo-wide"><img src="images/icons/kaggle.svg" alt="Kaggle"></span>
-<a class="ml-status ml-status-live" href="datalab/iteration-3/index.html#the-kaggle-competitions">Open now →</a>
+<span class="ml-resource-logo"><img src="images/icons/target.svg" alt="Test set"></span>
+<a class="ml-status ml-status-live" href="datalab/iteration-3/index.html#scoring-your-predictions">How to score →</a>
 </div>
 
-### Kaggle competitions
+### Test set and scorer
 
-The course includes two Kaggle competitions, stability and energy levels, with a new edition every quarter. You generate predictions for unseen molecules and submit them for evaluation; your leaderboard score gives you an indication of how well your solution performs.
+The course repository includes 200 test molecules and a scorer. You predict their stability, HOMO and LUMO; the scorer gives you a public score while you work and, when you choose to look, a private score: an honest estimate of how well your solution works on molecules it has never seen.
 :::
 
 :::::

@@ -41,8 +41,8 @@ steps:
       - title: "DataLab, Iteration 3: better evaluation, first submission"
         href: datalab/iteration-3/index.qmd
         ends: datalab/iteration-3/03_clustering.ipynb
-        text: "Cross-validation and hyperparameter tuning for your models, a closer look at your clusters, and your first submission to the Kaggle competitions."
-        finish: "Before you continue, submit your Iteration 3 models to the Kaggle competitions: see [Your first submission](datalab/iteration-3/index.qmd#your-first-submission)."
+        text: "Cross-validation and hyperparameter tuning for your models, a closer look at your clusters, and your first score on the test molecules."
+        finish: "Before you continue, score your Iteration 3 models on the test molecules: see [Your first submission](datalab/iteration-3/index.qmd#your-first-submission)."
 
   - parts:
       - title: "Self-study, Theme 4: Advanced Scikit-Learn"
@@ -52,7 +52,7 @@ steps:
       - title: "DataLab, Iteration 4: streamlined code, new data"
         href: datalab/iteration-4/index.qmd
         ends: datalab/iteration-4/index.qmd
-        text: "Rebuild your models as pipelines, add the lab database and the Kaggle molecules to your data, and find out why your Kaggle score differs from your cross-validation score."
+        text: "Rebuild your models as pipelines, add the lab database and the test molecules to your data, and find out why your test score differs from your cross-validation score."
 
   - parts:
       - title: "Self-study, Theme 5: Tree-Based Algorithms"
@@ -62,7 +62,7 @@ steps:
       - title: "DataLab, Iteration 5: better models"
         href: datalab/iteration-5/index.qmd
         ends: datalab/iteration-5/index.qmd
-        text: "Tree-based models and boosting on the project, a validation strategy that resembles the Kaggle molecules, clustering all molecules, and an analysis of your errors."
+        text: "Tree-based models and boosting on the project, a validation strategy that resembles the test molecules, clustering all molecules, and an analysis of your errors."
 
   - parts:
       - title: "Self-study, Theme 6: Applied ML Research"
@@ -71,4 +71,4 @@ steps:
         text: "Communicating technical work, reading ML research, and testing its ideas in your own project."
       - title: "DataLab, Iteration 6: your final solution"
         href: datalab/iteration-6/index.qmd
-        text: "Ideas from research papers, your final Kaggle submissions, and a write-up of your solution as a portfolio project."
+        text: "Ideas from research papers, your final models scored on the test set, and a write-up of your solution as a portfolio project."

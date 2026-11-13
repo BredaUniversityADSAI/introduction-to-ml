@@ -24,12 +24,12 @@ As you progress through the project, the level of guidance gradually decreases.
 |---|---|---|---|
 | **Iteration 1** | `starter_dataset.xlsx`: 80 molecules, ready for modelling | Step by step | Your first classification, regression and clustering models |
 | **Iteration 2** | The raw HOPV files: 350 molecules | Structured notebooks; more decisions are yours | Your own dataset and a baseline on it |
-| **Iteration 3** | Your HOPV dataset | Structured notebooks | Cross-validated, tuned models and your first Kaggle submission |
-| **Iteration 4** | HOPV + a lab database + the Kaggle molecules | Pointers only | Your models as pipelines, trained on more data, and an explanation of your Kaggle score |
+| **Iteration 3** | Your HOPV dataset | Structured notebooks | Cross-validated, tuned models and your first test score |
+| **Iteration 4** | HOPV + a lab database + the test molecules | Pointers only | Your models as pipelines, trained on more data, and an explanation of your test score |
 | **Iteration 5** | All sources | Pointers only | Better models, and a validation you can trust |
-| **Iteration 6** | All sources | Pointers only | Your final Kaggle submissions and a write-up of your solution as a portfolio project |
+| **Iteration 6** | All sources | Pointers only | Your final models, scored on the test set, and a write-up of your solution as a portfolio project |
 
-There are no deadlines and no grades: work at your own pace. The Kaggle leaderboard tells you how well your solution works on molecules it has never seen. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
+There are no deadlines and no grades: work at your own pace. The test set in the course repository tells you how well your solution works on molecules it has never seen. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
 
 Self-study and DataLab take turns: each [Self-study theme](../self-study/index.qmd) is followed by the DataLab iteration with the same number, so Theme 1 comes before Iteration 1, Theme 2 before Iteration 2, and so on up to Theme 6 and Iteration 6. Together they form the six steps of the [course route](../start-here.qmd#the-course-route).
 
@@ -49,18 +49,18 @@ This iteration is still structured, but you will begin making more decisions you
 
 ### [Iteration 3 — Better Evaluation, First Submission](iteration-3/index.qmd)
 
-Improve the baseline one step at a time with cross-validation and hyperparameter tuning, measure the quality of your clusters, and submit to the Kaggle competitions for the first time.
+Improve the baseline one step at a time with cross-validation and hyperparameter tuning, measure the quality of your clusters, and score your models on the test molecules for the first time.
 
 ### [Iteration 4 — Streamlined Code, New Data](iteration-4/index.qmd)
 
-From this point onward, the project becomes open-ended. Rebuild your models as pipelines so that each experiment is quick to run, add the lab database and the Kaggle molecules to your data, and find out why your Kaggle score differs from your cross-validation score.
+From this point onward, the project becomes open-ended. Rebuild your models as pipelines so that each experiment is quick to run, add the lab database and the test molecules to your data, and find out why your test score differs from your cross-validation score.
 
 ### [Iteration 5 — Better Models](iteration-5/index.qmd)
 
-Try tree-based models and boosting, build a validation strategy that resembles the Kaggle molecules, cluster all molecules, and analyze your errors.
+Try tree-based models and boosting, build a validation strategy that resembles the test molecules, cluster all molecules, and analyze your errors.
 
 ### [Iteration 6 — Final Solution](iteration-6/index.qmd)
 
-Read research on the problem and apply its ideas, keep improving, make your final Kaggle submissions, and write up your solution as a portfolio project.
+Read research on the problem and apply its ideas, keep improving, score your final models on the test molecules, and write up your solution as a portfolio project.
 
 There is no fixed sequence in Iterations 4 to 6. You may revisit any part of the machine-learning workflow, including data understanding, data preparation, feature engineering, validation, model selection, and hyperparameter tuning, and continue iterating based on evidence until you are satisfied with your solution.

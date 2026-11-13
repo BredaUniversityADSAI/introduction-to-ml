@@ -2,9 +2,9 @@
 
 In Iteration 2, you built your own dataset from the raw HOPV files and trained your Iteration 1 models on it. Those scores are your baseline.
 
-In Iteration 3, you go deeper into modeling and evaluation, with what you learned in Self-study Theme 3. You improve the baseline **one step at a time**: you replace the single train/test split with cross-validation, tune the hyperparameters, and measure how good your clusters are. At the end, you submit your models to the Kaggle competitions for the first time.
+In Iteration 3, you go deeper into modeling and evaluation, with what you learned in Self-study Theme 3. You improve the baseline **one step at a time**: you replace the single train/test split with cross-validation, tune the hyperparameters, and measure how good your clusters are. At the end, you score your models on the test molecules for the first time.
 
-Evaluation gets the most attention in this iteration, because every decision you make from now on is based on a score: which features, which model, which settings. If the score does not show how well the model predicts new molecules, those decisions go wrong without you noticing, until the model is used, or in this project, until you see your Kaggle score. With 347 molecules, the score of a single train/test split depends a lot on which molecules end up in the test set. Cross-validation gives a more reliable estimate and shows how much the score varies.
+Evaluation gets the most attention in this iteration, because every decision you make from now on is based on a score: which features, which model, which settings. If the score does not show how well the model predicts new molecules, those decisions go wrong without you noticing, until the model is used, or in this project, until you see your test score. With 347 molecules, the score of a single train/test split depends a lot on which molecules end up in the test set. Cross-validation gives a more reliable estimate and shows how much the score varies.
 
 The work is still structured, but you make more of the decisions yourself.
 
@@ -34,22 +34,49 @@ Complete:
 
 ## Your first submission
 
-When you have finished the notebooks, submit your classification and regression models to the [Kaggle competitions](#the-kaggle-competitions) below.
+When you have finished the notebooks, score your classification and regression models on the [test molecules](#scoring-your-predictions).
 
-To predict the Kaggle molecules, download the sample submissions from the **Data** tab of the competitions and put them in `data/003_kaggle_competition_data/` (Git ignores that folder). Every edition has new test molecules, so use the files of the edition you submit to. The files contain only SMILES: compute the molecular descriptors of these molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2, predict with your models, and replace the placeholder values in the sample submission with your predictions.
+The 200 test molecules are in `data/003_test_data/`, in two sample submissions: `classification_sample_submission.csv` (columns `id`, `smiles` and `stability`) and `regression_sample_submission.csv` (`id`, `smiles`, `homo` and `lumo`). They contain only SMILES and placeholder values. Compute the molecular descriptors of these molecules the same way as in the [Data Preparation](../iteration-2/03_data_preparation.ipynb) notebook of Iteration 2, predict with your models, replace the placeholder values with your predictions and save the file under a new name. Keep the `id` column: the scorer matches your predictions to the molecules with it.
 
 ::: {.callout-tip}
 ## Expect a lower score
-Expect your Kaggle score to be much worse than your cross-validation score; for stability possibly no better than the sample submission, which predicts `medium` for every molecule (macro-F1 about 0.22). That is not a bug in your code. Finding out why is where [Iteration 4](../iteration-4/index.qmd) starts.
+Expect your test score to be much worse than your cross-validation score; for stability possibly no better than the sample submission, which predicts `medium` for every molecule (macro-F1 about 0.22). That is not a bug in your code. Finding out why is where [Iteration 4](../iteration-4/index.qmd) starts.
 :::
 
-## The Kaggle competitions
+## Scoring your predictions {#scoring-your-predictions}
 
-There are two competitions, one per problem. A new edition of both opens every quarter, with new test molecules; the training data stays the same. The current edition is **2026 Q4**, open until 31 December 2026, 23:00 UTC (midnight in the Netherlands):
+[]{#the-kaggle-competitions}
 
-- **[OPV Molecule Stability 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-stability-2026-q4)** (classification): scored with the macro-averaged F1 score, so the classes `low`, `medium` and `high` count equally.
-- **[OPV Molecule Energy Levels 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-energy-levels-2026-q4)** (regression): scored with the mean absolute error (MAE) over all `homo` and `lumo` predictions together, in eV. This is the average of the HOMO MAE and the LUMO MAE.
+Each problem has its own metric:
 
-You need a free Kaggle account. Join a competition and accept its rules, download its sample submission from the **Data** tab, replace the placeholder values with your predictions and upload the file. Everyone competes individually, with up to 3 submissions per day. While a competition runs, the public leaderboard scores your submission on half of the test molecules (100 of the 200); the final ranking uses the other half. Don't over-tune to the public leaderboard: it is a small sample. After the deadline, the edition that just closed stays open for late submissions until the next one closes: they are scored, but not ranked.
+- **Stability** (classification): the macro-averaged F1 score, so the classes `low`, `medium` and `high` count equally. Higher is better.
+- **HOMO and LUMO** (regression): the mean absolute error (MAE) over all `homo` and `lumo` predictions together, in eV. This is the average of the HOMO MAE and the LUMO MAE. Lower is better.
 
-You keep submitting in Iterations 4 to 6, as your models improve.
+Score a file with the scorer in the course repository. From the course folder:
+
+```bash
+uv run python tools/score.py data/003_test_data/my_stability_submission.csv
+```
+
+or from a notebook in a `datalab/iteration-N/` folder:
+
+```python
+%run ../../tools/score.py ../../data/003_test_data/my_stability_submission.csv
+```
+
+The scorer recognizes the problem from the columns. It checks the file first: if rows are missing, a column name is wrong or a class name is misspelled, it tells you what to fix. It needs no account and no internet connection.
+
+The score it prints is the **public score**: the score on half of the test molecules (100 of the 200). The other half gives the **private score**, which the scorer shows only when you add `--private` to the command. Use the public score as feedback while you work, but don't tune your model to it: 100 molecules is a small sample, and a model you keep changing until its public score goes up is fitted to those 100 molecules. Look at the private score once, for the model you chose on your validation results. That score is your honest estimate of how well your model predicts molecules it has never seen. The scorer records when you first looked and reminds you of it every later time.
+
+Every score is also added to `data/003_test_data/score_log.csv` (Git ignores it), so you keep a record of what you scored and when.
+
+To give you an idea of what is possible, these are the scores of a few reference solutions (public / private):
+
+| Solution | Stability, macro-F1 | HOMO and LUMO, MAE (eV) |
+|---|---|---|
+| Sample submission (`medium`, HOMO −5 eV, LUMO −3 eV for every molecule) | 0.222 / 0.222 | 0.388 / 0.385 |
+| Random forest trained on the HOPV data (an Iteration 3 model) | 0.203 / 0.352 | 0.197 / 0.195 |
+| A reference solution at the end of Iteration 4 (random forest) | 0.842 / 0.837 | 0.106 / 0.107 |
+| A stronger reference solution (gradient boosting) | 0.849 / 0.847 | 0.093 / 0.087 |
+
+You keep scoring your models in Iterations 4 to 6, as they improve. If you want to compare your solution with other learners, share your private score and a link to your repository in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell).

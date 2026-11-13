@@ -1,6 +1,6 @@
 # Iteration 6 {.unnumbered}
 
-This is the last iteration. You read research on the problem and use its ideas, keep improving your models, make your final Kaggle submissions, and write up your solution as a portfolio project.
+This is the last iteration. You read research on the problem and use its ideas, keep improving your models, score your final models on the test molecules, and write up your solution as a portfolio project.
 
 ## Apply what you read
 
@@ -26,13 +26,13 @@ Bertrandie, J., Noyan, M. A., Huerta Hernandez, L., et al. (2025). [From Experim
 
 Measured energy levels are expensive to get, so there are few of them. The authors train a chained model: a large database of intermediate properties helps the model learn, and transfer learning carries this over to the small set of measured values. They also test the model on newly measured molecules that were not used in any way during development.
 
-Ideas for your project: could the prediction of one model be a useful feature for another, for example predicted HOMO and LUMO values for stability? And how does their external test set compare with the role of the Kaggle molecules in your project?
+Ideas for your project: could the prediction of one model be a useful feature for another, for example predicted HOMO and LUMO values for stability? And how does their external test set compare with the role of the test molecules in your project?
 
 ### Validation on new kinds of molecules
 
 Wu, Z., Ramsundar, B., Feinberg, E. N., et al. (2018). [MoleculeNet: a benchmark for molecular machine learning](https://doi.org/10.1039/C7SC02664A). *Chemical Science*, 9(2), 513–530. Open access.
 
-MoleculeNet compares many models on many molecular datasets. Look at how the authors split the data. Besides a random split, they use a scaffold split, which puts molecules with the same core structure in the same part of the split, so the test molecules are structurally different from the training molecules. RDKit computes the scaffold of a molecule (`rdkit.Chem.Scaffolds.MurckoScaffold`), and with `GroupKFold` you can build such a validation yourself. Does it agree better with your Kaggle score than your current validation?
+MoleculeNet compares many models on many molecular datasets. Look at how the authors split the data. Besides a random split, they use a scaffold split, which puts molecules with the same core structure in the same part of the split, so the test molecules are structurally different from the training molecules. RDKit computes the scaffold of a molecule (`rdkit.Chem.Scaffolds.MurckoScaffold`), and with `GroupKFold` you can build such a validation yourself. Does it agree better with your test score than your current validation?
 
 ### Descriptors for organic solar cells
 
@@ -60,11 +60,11 @@ You may revisit any part of the workflow, including:
 * regression
 * clustering
 
-There is no required order. For example, poor model performance may lead you back to data preparation. Clustering may reveal groups of molecules that behave differently. A validation score that does not agree with your Kaggle score may indicate that your validation strategy needs to change.
+There is no required order. For example, poor model performance may lead you back to data preparation. Clustering may reveal groups of molecules that behave differently. A validation score that does not agree with your test score may indicate that your validation strategy needs to change.
 
-## Your final submissions
+## Your final models
 
-Choose the models for your final Kaggle submissions on your validation results, not on the public leaderboard: the public leaderboard scores only 100 of the 200 test molecules, and the final ranking uses the other half (see [The Kaggle competitions](../iteration-3/index.qmd#the-kaggle-competitions)).
+Choose your final models on your validation results, not on the public score: the public score uses only 100 of the 200 test molecules (see [Scoring your predictions](../iteration-3/index.qmd#scoring-your-predictions)). When you have chosen, score them with `--private`. The private score of a model that you chose without looking at it is the honest result to report.
 
 ## Share your solution
 
@@ -73,12 +73,12 @@ End the project by writing up your solution as a portfolio project: a public Git
 A good repository has:
 
 * a README that explains the problem, the data, your approach and your results:
-  * your final models, their validation scores and their Kaggle scores;
+  * your final models, their validation scores, and their public and private scores;
   * the experiments that made the biggest difference, and the ones that did not help;
   * what you would try next with more time or more data;
 * notebooks or scripts that run from top to bottom on a fresh setup, and a list of the packages and versions they need (for example a `pyproject.toml` and `uv.lock`, as in the course repository);
-* instructions for getting the data. Don't copy the Kaggle files into your repository: tell the reader to download them from the **Data** tab of the competition, as you did. For the other data files, link to the course repository.
+* instructions for getting the data: link to the course repository for the data files and the test molecules, instead of copying them into your repository.
 
-Make the repository public after the Kaggle edition you took part in has closed, so that the other participants of that edition compete with their own work. Then share the link, for example in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell).
+When it is ready, make the repository public and share the link with your private scores, for example in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell).
 
 The goal is no longer to follow instructions. The goal is to make increasingly well-informed machine-learning decisions and build the strongest solution you can.

@@ -33,11 +33,11 @@ created with ChatGPT (OpenAI) for this course and are licensed under CC BY 4.0 l
   Lopez et al., *Scientific Data* 3, 160086 (2016), <https://doi.org/10.1038/sdata.2016.86>,
   CC BY 4.0. **Changed:** the experimental HOMO, LUMO and electrochemical-gap values are replaced
   by synthetic values.
-- The molecules in `lab_measurements.db` and in the Kaggle files come from the Harvard Clean
+- The molecules in `lab_measurements.db` and in `data/003_test_data/` come from the Harvard Clean
   Energy Project, Hachmann et al., *J. Phys. Chem. Lett.* 2, 2241 (2011),
   <https://doi.org/10.1021/jz200866s>, via the subset published by Duvenaud et al. (2015) at
   <https://github.com/HIPS/neural-fingerprint> (MIT License).
-- All target values (HOMO, LUMO, stability) in `data/` are synthetic and were generated for this
+- All target values (HOMO, LUMO, stability) in `data/` and `tools/score_labels.json.gz` are synthetic and were generated for this
   course. Together with `starter_dataset.xlsx` and `lab_measurements.db` they are licensed under
   CC BY 4.0.
 

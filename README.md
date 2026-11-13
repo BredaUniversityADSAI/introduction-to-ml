@@ -8,13 +8,13 @@ The course has three core components:
 
 - **Self-study**: learn the concepts independently of the project. Jupyter notebooks and reading guides cover the fundamentals: classification, regression, clustering, the end-to-end ML workflow, scikit-learn pipelines, decision trees and ensembles.
 - **DataLab**: apply what you learned to the real client challenge. You work with real molecular data (the HOPV dataset) and improve your solution through successive CRISP-DM iterations, with less guidance in each one.
-- **Assessment**: demonstrate how well your solution performs. You predict properties of unseen molecules and submit them to two Kaggle competitions, then use your score to evaluate and improve your model.
+- **Assessment**: demonstrate how well your solution performs. You predict properties of 200 unseen test molecules and score them with the scorer in this repository, then use your score to evaluate and improve your model.
 
-The on-campus course also assesses deliverables such as reports and presentations. This public version is adapted for independent learning without supervision or formal grading, so the Kaggle competitions are the main way to evaluate your solution.
+The on-campus course also assesses deliverables such as reports and presentations. This public version is adapted for independent learning without supervision or formal grading, so the test set is the main way to evaluate your solution.
 
 📖 **Course website:** <https://ai.buas.nl/open-courses/introduction-to-ml/>
 
-> **Early release (v0.4).** The course is complete enough to learn from but still being finished: pages may change. The [Kaggle competitions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/index.html#the-kaggle-competitions) are open. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
+> **Early release (v0.4).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/index.html#scoring-your-predictions) on the test set at any time. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
 >
 > **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 
@@ -40,7 +40,7 @@ Questions? Ask in the [Discussions](https://github.com/BredaUniversityADSAI/intr
 ```
 self-study/   Self-study notebooks (001_–011_) and reading guides (01_–11_)
 datalab/      DataLab project notebooks, one folder per iteration
-data/         Datasets: raw HOPV data, the lab database, the starter dataset, Kaggle files (see data/README.md)
+data/         Datasets: raw HOPV data, the lab database, the starter dataset, the test molecules (see data/README.md)
 models/       Models you save while working through the notebooks (not tracked by Git)
 images/       Figures used in the notebooks and on the website
 ```

@@ -84,7 +84,7 @@ A reliable predictive model lets the OMEGA Lab screen many candidate molecules o
 
 ## What success looks like
 
-Your models are scored the same way as in the project's two Kaggle competitions:
+Your models are scored on the project's test molecules with these metrics:
 
 - **Stability** (the classes `low`, `medium` and `high`): the macro-averaged F1 score, so that every class counts equally, however rare it is. You will learn it in Iteration 2.
 - **HOMO and LUMO** (in eV): the mean absolute error (MAE), the average distance between a prediction and the true value. Lower is better.
@@ -93,6 +93,6 @@ A model is only useful if it clearly beats a simple baseline, such as always pre
 
 ## About the data in this course
 
-The molecules in this project are real: they come from published research datasets. The values you predict are not the published measurements. For this course, the HOMO, LUMO and stability values of all datasets were **synthetically generated** based on real molecular properties: they follow realistic chemical relationships and give everyone a fair, consistent competition. The client's "lab measurements" you receive later are part of this course scenario.
+The molecules in this project are real: they come from published research datasets. The values you predict are not the published measurements. For this course, the HOMO, LUMO and stability values of all datasets were **synthetically generated** based on real molecular properties: they follow realistic chemical relationships and are the same for everyone. The client's "lab measurements" you receive later are part of this course scenario.
 
 So the problem is real, and so are the methods you learn. But a model built here has been tested on the course's values, not on new laboratory measurements: a good score in this course does not show how well it would predict real measurements.

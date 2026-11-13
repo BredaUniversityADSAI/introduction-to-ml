@@ -43,4 +43,4 @@ Although the notebooks provide a structured path, the machine-learning workflow 
 
 What you discover in the baseline may give you a reason to return to the data, change its preparation, investigate a new feature, or revisit your understanding of the problem.
 
-In [Iteration 3](../iteration-3/index.qmd), you improve the models with cross-validation and hyperparameter tuning, take a closer look at the clusters, and make your first Kaggle submission.
+In [Iteration 3](../iteration-3/index.qmd), you improve the models with cross-validation and hyperparameter tuning, take a closer look at the clusters, and score your models on the test molecules for the first time.

@@ -8,7 +8,7 @@ The course has three parts (see the [overview](index.qmd#course-structure)):
 
 - **Self-study**: notebooks and pages that teach the concepts;
 - **DataLab**: a client project in six iterations, where you apply them to real molecules;
-- **Assessment**: two Kaggle competitions (stability and energy levels) that score your predictions on molecules you haven't seen.
+- **Assessment**: a test set of 200 molecules and a scorer, which score your predictions on molecules you haven't seen.
 
 ## Choose your path
 
@@ -22,11 +22,11 @@ Every notebook page has an **Open in Colab** button that runs the notebook in yo
 
 ### The full course (recommended)
 
-[Set up your computer](setup.qmd) once (about 15 minutes), then follow the [course route](#the-course-route) below: Self-study and DataLab in turn, every exercise in the notebooks, and at the end your own models on the Kaggle leaderboards.
+[Set up your computer](setup.qmd) once (about 15 minutes), then follow the [course route](#the-course-route) below: Self-study and DataLab in turn, every exercise in the notebooks, and at the end your own models scored on the test set.
 
 ### You already know machine learning
 
-Go to the project. Read the [Business Understanding](datalab/iteration-1/01_business_understanding.qmd) and [Data Understanding](datalab/iteration-1/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](datalab/iteration-2/02_understanding_homolumo_data.ipynb) and [computing molecular descriptors](datalab/iteration-2/03_data_preparation.ipynb), make a first submission to the [Kaggle competitions](datalab/iteration-3/index.qmd#the-kaggle-competitions), then start [Iteration 4](datalab/iteration-4/index.qmd), where the project becomes open-ended. The Self-study pages are there when you want to look something up.
+Go to the project. Read the [Business Understanding](datalab/iteration-1/01_business_understanding.qmd) and [Data Understanding](datalab/iteration-1/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](datalab/iteration-2/02_understanding_homolumo_data.ipynb) and [computing molecular descriptors](datalab/iteration-2/03_data_preparation.ipynb), score a first model on the [test molecules](datalab/iteration-3/index.qmd#scoring-your-predictions), then start [Iteration 4](datalab/iteration-4/index.qmd), where the project becomes open-ended. The Self-study pages are there when you want to look something up.
 
 ### You are a teacher
 
@@ -57,6 +57,6 @@ The notebooks mix explanations with exercises, marked **Your Turn**, and empty c
 - **Mistakes in the course:** use **Report an issue** under the table of contents of any page.
 - There is no staff support or grading. The course team looks at the Discussions when it can and fixes reported mistakes, but cannot answer every question.
 
-## The Kaggle competitions
+## The test set
 
-Two competitions, stability and energy levels, with a new edition every quarter. The links, how to take part and how they are scored are in [Iteration 3](datalab/iteration-3/index.qmd#the-kaggle-competitions). You submit for the first time at the end of Iteration 3; expect that first score to be lower than your cross-validation score.
+The course repository includes 200 test molecules and a scorer, for both problems (stability and energy levels). How to score your predictions, and what the public and private scores mean, is in [Iteration 3](datalab/iteration-3/index.qmd#scoring-your-predictions). You score your models for the first time at the end of Iteration 3; expect that first score to be lower than your cross-validation score.
