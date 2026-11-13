@@ -79,13 +79,14 @@ Study a theme, then apply it in the DataLab iteration with the same number, befo
 
 ## Work on your own computer
 
-Most of your work happens in Jupyter notebooks: you read the explanations, run the code, change it and write your own. The DataLab notebooks also save files that later notebooks read. That is why we recommend a copy of the whole course on your own computer, set up with three tools:
+Most of your work happens in Jupyter notebooks: you read the explanations, run the code, change it and write your own. The DataLab notebooks also save files that later notebooks read. That is why we recommend that you work in your own copy of the course, on your own computer, with GitHub and three tools:
 
-- [Git](https://git-scm.com/) downloads the course and, later, its updates. It also keeps a history of your own work, and your DataLab project can become a repository for your portfolio.
+- [GitHub](https://github.com/) holds the course. With a free account, you make your own private copy of the course there, which keeps a backup of your work.
+- [Git](https://git-scm.com/) downloads your copy to your computer and keeps a history of your work. When you save your work, Git sends it to your copy on GitHub.
 - [uv](https://docs.astral.sh/uv/) installs Python and the exact package versions the course uses, in a folder inside the course, so that your notebooks give the same results as ours.
 - [VS Code](https://code.visualstudio.com/) opens and runs the notebooks. In VS Code you see the course as folders, one per theme and one per iteration, with the files numbered in the order you work through them. The `.qmd` files are the pages of this website: read those here.
 
-[Set Up Your Computer](setup.qmd) explains every step. It takes about 15 minutes.
+[Set Up Your Computer](setup.qmd) explains every step, with links to two short courses if you are new to Git and GitHub. It takes about 30 minutes.
 
 ## The course route
 
@@ -116,6 +117,7 @@ You are welcome to use the course, or parts of it, in your own teaching: the con
 
 - Basic Python, NumPy, pandas and Matplotlib (see the [overview](index.qmd)). If you need a refresher: the [Python tutorial](https://docs.python.org/3/tutorial/), [NumPy for absolute beginners](https://numpy.org/doc/stable/user/absolute_beginners.html), [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html), the [Matplotlib quick start](https://matplotlib.org/stable/users/explain/quick_start.html), or Kaggle's free [Python](https://www.kaggle.com/learn/python) and [pandas](https://www.kaggle.com/learn/pandas) courses. No chemistry is needed: the project explains what you need to know.
 - A computer with about 3 GB of free disk space for the [setup](setup.qmd). Any recent Windows, macOS or Linux computer works.
+- A free [GitHub](https://github.com/) account, for your own copy of the course.
 - No textbook. The Self-study pages and notebooks teach everything the course needs. Many notebooks end with optional further reading, for a second explanation: James et al., [*An Introduction to Statistical Learning with Applications in Python*](https://www.statlearning.com/) (free to read online), and Aurélien Géron, *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* (O'Reilly; many libraries offer it through the O'Reilly learning platform).
 
 ## Working through the notebooks
@@ -124,7 +126,7 @@ The notebooks mix explanations with exercises, marked "Your Turn", and empty cel
 
 ## When you are stuck
 
-- Questions: ask in the course [Discussions (Q&A)](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/q-a), and help others when you can. Say which notebook and exercise, what you tried and the full error message. Please share hints and ideas, not complete solutions, so that others can still learn from the exercises.
+- Questions: ask in the course [Discussions (Q&A)](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/q-a), and help others when you can. Say which notebook and exercise, what you tried and the full error message. Your copy of the course is private, so paste the code that matters into your post instead of a link to your repository. Please share hints and ideas, not complete solutions, so that others can still learn from the exercises.
 - Mistakes in the course: use "Report an issue" under the table of contents of any page.
 - There is no staff support or grading. The course team looks at the Discussions when it can and fixes reported mistakes, but cannot answer every question.
 

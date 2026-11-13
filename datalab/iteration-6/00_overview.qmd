@@ -70,7 +70,7 @@ Choose your final models on your validation results, not on the public score: th
 
 ## Share your solution
 
-End the project by writing up your solution as a portfolio project: a public GitHub repository that someone else, for example a future employer, can read in a few minutes and run. [Communicating Technical Work](../../self-study/theme-6/01_communicating_technical_work.qmd) has advice on writing for a reader.
+End the project by writing up your solution as a portfolio project: a public GitHub repository that someone else, for example a future employer, can read in a few minutes and run. Make it a new repository, separate from your copy of the course: your copy stays private, with your work on all the exercises, and the portfolio repository holds only what you want to show. [Communicating Technical Work](../../self-study/theme-6/01_communicating_technical_work.qmd) has advice on writing for a reader.
 
 A good repository has:
 

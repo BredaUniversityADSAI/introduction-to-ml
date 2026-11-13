@@ -21,15 +21,19 @@ The on-campus course also assesses deliverables such as reports and presentation
 
 New to the course? Start with the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html): how the course works, the recommended order and setup, and where to get help.
 
-The course is designed to be done on your own computer. The full step-by-step guide, with troubleshooting, is [Set Up Your Computer](https://ai.buas.nl/open-courses/introduction-to-ml/setup.html). In short, with [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed:
+The course is designed to be done on your own computer, in your own copy of this repository. The full step-by-step guide, with troubleshooting, is [Set Up Your Computer](https://ai.buas.nl/open-courses/introduction-to-ml/setup.html). In short:
 
-```bash
-git clone https://github.com/BredaUniversityADSAI/introduction-to-ml.git
-cd introduction-to-ml
-uv sync              # installs Python 3.13 and every package the course uses into .venv/
-```
+1. Click "Use this template" > "Create a new repository" and make a private copy of the course in your GitHub account.
+2. Clone your copy, for example in [VS Code](https://code.visualstudio.com/) with "Git: Clone" > "Clone from GitHub".
+3. In the course folder, install Python and the packages with [uv](https://docs.astral.sh/uv/getting-started/installation/):
 
-Then open the folder in [VS Code](https://code.visualstudio.com/), install the extensions it recommends (Python, Jupyter and, optionally, Quarto), open a notebook and select the `.venv` kernel.
+   ```bash
+   uv sync   # installs Python 3.13 and every package the course uses into .venv/
+   ```
+
+4. In VS Code, install the extensions it recommends (Python, Jupyter and, optionally, Quarto), open a notebook and select the `.venv` kernel.
+
+Save your work by committing and pushing to your copy. Your copy keeps the course version you started with: finish the course with it.
 
 `rdkit` is pinned to version 2025.9.3 on purpose: the course data was prepared with it. On macOS, `xgboost` and `lightgbm` may need `brew install libomp`.
 

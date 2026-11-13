@@ -2263,6 +2263,7 @@ body.quarto-dark .route-card {
 /* One card on its own (Self-Study and DataLab overview pages). */
 .route-figure.is-single {
   grid-template-columns: minmax(0, 400px);
+  justify-content: center;
 }
 
 /* Start marks: hidden on the Course Guide, shown by .start-theme or .start-iteration. */
@@ -2300,3 +2301,15 @@ body.quarto-dark .start-iteration .rf-dl text.rf-first { fill: #0f1720; }
   stroke: var(--rf-good);
   stroke-width: 2.4;
 }
+
+/* Setup figure (setup.qmd): course repository -> your repository <-> your computer. */
+.route-card .sf-box rect { stroke-width: 1.5; }
+.route-card .sf-course rect { fill: var(--rf-ss-soft); stroke: var(--rf-ss); }
+.route-card .sf-mine rect { fill: var(--rf-dl-soft); stroke: var(--rf-dl); }
+.route-card .sf-local rect { fill: var(--rf-card); stroke: var(--rf-muted); }
+.route-card .sf-title { font-size: 15px; font-weight: 700; fill: var(--rf-ink); }
+.route-card .sf-sub { font-size: 12.5px; fill: var(--rf-muted); }
+.route-card .sf-label { font-size: 13px; font-weight: 600; fill: var(--rf-ink); }
+.route-card .sf-note { font-size: 12px; fill: var(--rf-muted); }
+.route-card text.sf-left { text-anchor: start; }
+.route-card text.sf-right { text-anchor: end; }

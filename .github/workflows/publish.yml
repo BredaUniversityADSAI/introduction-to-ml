@@ -20,6 +20,8 @@ concurrency:
 
 jobs:
   build:
+    # Only in the course repository, not in learners' copies of it (Set Up Your Computer).
+    if: github.repository == 'BredaUniversityADSAI/introduction-to-ml'
     runs-on: ubuntu-latest
 
     environment:

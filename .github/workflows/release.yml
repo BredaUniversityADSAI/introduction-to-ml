@@ -14,6 +14,8 @@ permissions:
 
 jobs:
   release:
+    # Only in the course repository, not in learners' copies of it (Set Up Your Computer).
+    if: github.repository == 'BredaUniversityADSAI/introduction-to-ml'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -53,3 +55,9 @@ jobs:
           gh release create "$TAG" site.tar.gz $prerelease \
             --title "Introduction to Machine Learning $TAG" \
             --notes "Site build for https://ai.buas.nl/open-courses/introduction-to-ml/ (asset: site.tar.gz). Release notes: https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html"
+
+      # Learners copy the course with "Use this template", which copies the default branch.
+      # The default branch is stable, which always holds the latest release (main is the
+      # working draft).
+      - name: Move the stable branch to this release
+        run: git push --force origin "HEAD:refs/heads/stable"
