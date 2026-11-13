@@ -6,6 +6,18 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.6.0 · 13 November 2026
+
+The Kaggle competitions are replaced by a test set in the course repository, which you can score at any time.
+
+- **Test set and scorer.** The 200 test molecules are in [`data/003_test_data/`](https://github.com/BredaUniversityADSAI/introduction-to-ml/tree/main/data/003_test_data), and `tools/score.py` scores your predictions on your own computer, with no account and no internet connection.
+  - Every run shows the public score, on 100 of the molecules. The private score, on the other 100, appears only when you ask for it with `--private`: look at it once, for your final model.
+  - Every score is added to a log on your computer, which also records when you first looked at the private score.
+  - The [DataLab project page](datalab/index.qmd#scoring-on-the-test-set) explains how scoring works, with example output. [Iteration 3](datalab/iteration-3/index.qmd#scoring-your-predictions), where you first use it, lists the scores of a few reference solutions.
+- **No editions and no deadlines.** The quarterly Kaggle editions are gone; the test molecules are those of the 2026 Q4 edition. If you downloaded the Kaggle files into `data/003_kaggle_competition_data/`, you can delete that folder. The sample submissions now have an `id` column: keep it in your submission files.
+- **Iteration 6:** make your portfolio repository public whenever it is ready, and report your public and private scores in it.
+- The [DataLab](datalab/index.qmd) and [Self-study](self-study/index.qmd) overview pages now have only an "At a glance" table.
+
 ## v0.5.1 · 12 November 2026
 
 Each Self-study theme now prepares you for the DataLab iteration with the same number, and two new pages.

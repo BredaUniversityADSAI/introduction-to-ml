@@ -14,7 +14,7 @@ The on-campus course also assesses deliverables such as reports and presentation
 
 📖 **Course website:** <https://ai.buas.nl/open-courses/introduction-to-ml/>
 
-> **Early release (v0.4).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/index.html#scoring-your-predictions) on the test set at any time. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
+> **Early release (v0.6).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/index.html#scoring-your-predictions) on the test set at any time. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
 >
 > **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 
