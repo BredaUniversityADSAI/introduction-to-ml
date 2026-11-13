@@ -20,47 +20,105 @@ As you progress through the project, the level of guidance gradually decreases.
 
 ## At a glance
 
-| | Data | Guidance | You end with |
+| Iteration | Data | Guidance | You end with |
 |---|---|---|---|
-| **Iteration 1** | `starter_dataset.xlsx`: 80 molecules, ready for modelling | Step by step | Your first classification, regression and clustering models |
-| **Iteration 2** | The raw HOPV files: 350 molecules | Structured notebooks; more decisions are yours | Your own dataset and a baseline on it |
-| **Iteration 3** | Your HOPV dataset | Structured notebooks | Cross-validated, tuned models and your first test score |
-| **Iteration 4** | HOPV + a lab database + the test molecules | Pointers only | Your models as pipelines, trained on more data, and an explanation of your test score |
-| **Iteration 5** | All sources | Pointers only | Better models, and a validation you can trust |
-| **Iteration 6** | All sources | Pointers only | Your final models, scored on the test set, and a write-up of your solution as a portfolio project |
+| [1](iteration-1/index.qmd) | `starter_dataset.xlsx`: 80 molecules, ready for modelling | Step by step | Your first classification, regression and clustering models |
+| [2](iteration-2/index.qmd) | The raw HOPV files: 350 molecules | Structured notebooks; more decisions are yours | Your own dataset and a baseline on it |
+| [3](iteration-3/index.qmd) | Your HOPV dataset | Structured notebooks | Cross-validated, tuned models and your first test score |
+| [4](iteration-4/index.qmd) | HOPV + a lab database + the test molecules | Pointers only | Your models as pipelines, trained on more data, and an explanation of your test score |
+| [5](iteration-5/index.qmd) | All sources | Pointers only | Better models, and a validation you can trust |
+| [6](iteration-6/index.qmd) | All sources | Pointers only | Your final models, scored on the test set, and a write-up of your solution as a portfolio project |
 
-There are no deadlines and no grades: work at your own pace. The test set in the course repository tells you how well your solution works on molecules it has never seen. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
+There is no fixed sequence in Iterations 4 to 6. You may revisit any part of the machine-learning workflow, including data understanding, data preparation, feature engineering, validation, model selection, and hyperparameter tuning, and continue iterating based on evidence until you are satisfied with your solution.
+
+There are no deadlines and no grades: work at your own pace. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
 
 Self-study and DataLab take turns: each [Self-study theme](../self-study/index.qmd) is followed by the DataLab iteration with the same number, so Theme 1 comes before Iteration 1, Theme 2 before Iteration 2, and so on up to Theme 6 and Iteration 6. Together they form the six steps of the [course route](../start-here.qmd#the-course-route).
 
-## Iterations
+## Scoring on the test set
 
-### [Iteration 1 — First ML Cycle](iteration-1/index.qmd)
+The course repository contains 200 **test molecules** that are not in any of your training files. You predict their HOMO, LUMO and stability, and a scorer in the repository compares your predictions with the true values. This tells you how well your solution works on molecules it has never seen, which is what the client wants to know.
 
-Go through the complete machine-learning workflow for the first time and build your first classification, regression, and clustering models.
+You use the test set for the first time at the end of [Iteration 3](iteration-3/index.qmd#scoring-your-predictions), when you have cross-validated, tuned models. After that, you score your models whenever an experiment in Iterations 4 to 6 gives you a better one. The models of Iterations 1 and 2 are first experiments; don't score them.
 
-This iteration is highly guided. The goal is to experience the complete workflow quickly and establish your first working models rather than optimize performance.
+### The submission files
 
-### [Iteration 2 — Your Own Dataset](iteration-2/index.qmd)
+The test molecules are in `data/003_test_data/`, in one sample submission per problem:
 
-Develop a stronger understanding of the problem and the data, turn the raw HOPV files into your own dataset, and train your Iteration 1 models on it as a baseline.
+| File | Columns | Placeholder values |
+|---|---|---|
+| `classification_sample_submission.csv` | `id`, `smiles`, `stability` | `medium` for every molecule |
+| `regression_sample_submission.csv` | `id`, `smiles`, `homo`, `lumo` | −5 and −3 eV for every molecule |
 
-This iteration is still structured, but you will begin making more decisions yourself and applying concepts introduced in the self-study material.
+Compute the molecular descriptors of the SMILES the same way as for your training data, predict with your model, replace the placeholder values with your predictions and save the file under a new name in the same folder. Keep the `id` column: the scorer uses it to match each prediction to its molecule. Git ignores the files you save in this folder.
 
-### [Iteration 3 — Better Evaluation, First Submission](iteration-3/index.qmd)
+### Running the scorer
 
-Improve the baseline one step at a time with cross-validation and hyperparameter tuning, measure the quality of your clusters, and score your models on the test molecules for the first time.
+Run the scorer from the course folder, with the file you want to score:
 
-### [Iteration 4 — Streamlined Code, New Data](iteration-4/index.qmd)
+```bash
+uv run python tools/score.py data/003_test_data/my_energy_submission.csv
+```
 
-From this point onward, the project becomes open-ended. Rebuild your models as pipelines so that each experiment is quick to run, add the lab database and the test molecules to your data, and find out why your test score differs from your cross-validation score.
+```
+Energy levels: MAE over homo and lumo, in eV, lower is better
+  public score  (100 molecules): 0.180  (homo 0.164, lumo 0.196)   [public score #1]
+  private score (100 molecules): hidden. Add --private once you have chosen your final model.
+```
 
-### [Iteration 5 — Better Models](iteration-5/index.qmd)
+This example file predicts the average HOMO and LUMO of the HOPV molecules for every test molecule; a useful model does better. From a notebook in a `datalab/iteration-N/` folder, the same command is:
 
-Try tree-based models and boosting, build a validation strategy that resembles the test molecules, cluster all molecules, and analyze your errors.
+```python
+%run ../../tools/score.py ../../data/003_test_data/my_energy_submission.csv
+```
 
-### [Iteration 6 — Final Solution](iteration-6/index.qmd)
+The scorer recognizes the problem from the column names, and it checks the file before it scores it. If something is wrong, such as a missing row, a misspelled column name or a class name in capitals, it scores nothing and tells you what to fix:
 
-Read research on the problem and apply its ideas, keep improving, score your final models on the test molecules, and write up your solution as a portfolio project.
+```
+Not scored: 50 of the 200 test molecules have no prediction: M151, M152, M153 (and 47
+  more). Predict every molecule of the sample submission.
+```
 
-There is no fixed sequence in Iterations 4 to 6. You may revisit any part of the machine-learning workflow, including data understanding, data preparation, feature engineering, validation, model selection, and hyperparameter tuning, and continue iterating based on evidence until you are satisfied with your solution.
+The scorer needs no account and no internet connection.
+
+### The public and the private score
+
+The test molecules are split into two halves of 100. Every run shows the **public score**, on the first half. Use it as feedback while you work: does this model do better on new molecules than the previous one? But each time you change your model because of the public score, the model is fitted a little more to those 100 molecules, and the public score becomes a little too optimistic.
+
+The other half gives the **private score**, which the scorer only shows when you ask for it with `--private`. Ask for it once, for the model you chose on your validation results, typically your final model in Iteration 6:
+
+```bash
+uv run python tools/score.py data/003_test_data/my_energy_submission.csv --private
+```
+
+```
+Energy levels: MAE over homo and lumo, in eV, lower is better
+  public score  (100 molecules): 0.180  (homo 0.164, lumo 0.196)   [public score #2]
+  private score (100 molecules): 0.185  (homo 0.164, lumo 0.206)
+
+  This was your first look at the private energy levels score, and it is recorded in
+  data/003_test_data/score_log.csv. It is an honest estimate only for a model you chose
+  without it.
+```
+
+Because no decision was based on these 100 molecules, the private score is an honest estimate of how well your model predicts molecules it has never seen. If you look again later, the scorer still shows the score, but it starts with a reminder:
+
+```
+  Warning: you first looked at the private energy levels score on 2026-11-13; this is
+  look #2. If you changed your model after seeing it, this score is no longer an honest
+  estimate for unseen molecules.
+```
+
+### The score log
+
+Every run adds a row to `data/003_test_data/score_log.csv`: the time, the problem, the file, the public score and, if you asked for it, the private score.
+
+```
+time,task,file,public,private
+2026-11-13T09:53:04,energy levels,data/003_test_data/my_energy_submission.csv,0.18,
+2026-11-13T09:53:05,energy levels,data/003_test_data/my_energy_submission.csv,0.18,0.185
+```
+
+The scorer uses the log to number your public scores and to remember when you first looked at the private score. For you, it is a record of every model you scored, which helps when you keep an experiment log from [Iteration 4](iteration-4/index.qmd) onward. Git ignores the log, so it stays on your computer.
+
+The scorer runs on your computer and the true values are in the repository, so nothing stops you from looking at the private score more often or deleting the log. The advice to look at the private score once is there so that it stays an honest estimate for you. [Iteration 3](iteration-3/index.qmd#scoring-your-predictions) lists the scores of a few reference solutions, so you can see how good your score is.

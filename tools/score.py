@@ -26,6 +26,7 @@ import datetime
 import gzip
 import json
 import sys
+import textwrap
 from pathlib import Path
 
 import numpy as np
@@ -192,6 +193,11 @@ def compute_scores(task, pred, labels=None):
     return scores
 
 
+def say(text):
+    """Prints a long message wrapped and indented, so it reads well in a terminal."""
+    print(textwrap.fill(text, width=88, initial_indent="  ", subsequent_indent="  "))
+
+
 def read_log():
     if not LOG.is_file():
         return pd.DataFrame(columns=["time", "task", "file", "public", "private"])
@@ -215,7 +221,7 @@ def main(argv=None):
         df = df.drop(columns=[c for c in df.columns if str(c).startswith("Unnamed:")])
         task, pred, notes = prepare(df)
     except SubmissionError as e:
-        print(f"Not scored: {e}")
+        print(textwrap.fill(f"Not scored: {e}", width=88, subsequent_indent="  "))
         return 1
 
     scores = compute_scores(task, pred)
@@ -226,21 +232,24 @@ def main(argv=None):
 
     print(f"{task.capitalize()}: {spec['metric']}, {spec['better']}")
     for note in notes:
-        print(f"  note: {note}")
+        say(f"note: {note}")
     detail = f"  (homo {scores['public homo']:.3f}, lumo {scores['public lumo']:.3f})" if task != "stability" else ""
     print(f"  public score  (100 molecules): {scores['public']:.3f}{detail}   [public score #{len(earlier) + 1}]")
 
     if args.private:
         if len(looks):
             first = looks["time"].iloc[0][:10]
-            print(f"\n  Warning: you first looked at the private {task} score on {first}; this is look "
-                  f"#{len(looks) + 1}. If you changed your model after seeing it, this score is no longer "
-                  "an honest estimate for unseen molecules.\n")
+            print()
+            say(f"Warning: you first looked at the private {task} score on {first}; this is look "
+                f"#{len(looks) + 1}. If you changed your model after seeing it, this score is no longer "
+                "an honest estimate for unseen molecules.")
+            print()
         detail = f"  (homo {scores['private homo']:.3f}, lumo {scores['private lumo']:.3f})" if task != "stability" else ""
         print(f"  private score (100 molecules): {scores['private']:.3f}{detail}")
         if not len(looks):
-            print(f"\n  This was your first look at the private {task} score, and it is recorded in "
-                  f"{LOG.relative_to(ROOT)}. It is an honest estimate only for a model you chose without it.")
+            print()
+            say(f"This was your first look at the private {task} score, and it is recorded in "
+                f"{LOG.relative_to(ROOT)}. It is an honest estimate only for a model you chose without it.")
     else:
         print("  private score (100 molecules): hidden. Add --private once you have chosen your final model.")
 
