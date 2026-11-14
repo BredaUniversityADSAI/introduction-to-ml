@@ -83,7 +83,7 @@ Most of your work happens in Jupyter notebooks: you read the explanations, run t
 
 - [GitHub](https://github.com/) holds the course. With a free account, you make your own private copy of the course there, which keeps a backup of your work.
 - [Git](https://git-scm.com/) downloads your copy to your computer and keeps a history of your work. When you save your work, Git sends it to your copy on GitHub.
-- [uv](https://docs.astral.sh/uv/) installs Python and the exact package versions the course uses, in a folder inside the course, so that your notebooks give the same results as ours.
+- [uv](https://docs.astral.sh/uv/) installs Python and the exact package versions the course uses (the packages go into a folder inside the course), so that your notebooks give the same results as ours.
 - [VS Code](https://code.visualstudio.com/) opens and runs the notebooks. In VS Code you see the course as folders, one per theme and one per iteration, with the files numbered in the order you work through them. The `.qmd` files are the pages of this website: read those here.
 
 [Set Up Your Computer](setup.qmd) explains every step, with links to two short courses if you are new to Git and GitHub. It takes about 30 minutes.

@@ -1,10 +1,19 @@
 ---
-title: "What's new"
+title: "What's New"
 ---
 
 This course is an **early release**. Like an early-release book, it is complete enough to learn from, but it is still being finished: pages may change, and some parts are not available yet. Version numbers below 1.0 mark the early release. Version 1.0 follows when the course has been checked from start to finish.
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
+
+## v0.7.6 · 14 November 2026
+
+- [Set Up Your Computer](setup.qmd) is easier to follow:
+  - The instructions for Git, uv and VS Code are in tabs for Windows, macOS and Linux. For each tool, you first check whether it is already installed. Git is installed from the terminal.
+  - A link opens GitHub's form for your copy of the course, already filled in.
+  - You tell Git your name and email address when you first save your work, not while you install Git.
+  - The page says when the setup is complete and what the rest of the page is for.
+- The menu says "What's New".
 
 ## v0.7.5 · 14 November 2026
 
@@ -64,7 +73,7 @@ Corrections from a review of the course by two learners, a teacher and a chemist
 A new setup: you work in your own private copy of the course on GitHub.
 
 - **Your own copy of the course.** [Set Up Your Computer](setup.qmd) now starts with a free GitHub account. You make your own private copy of the course with "Use this template", download it in VS Code and save your work to it after each session, so you have a backup and a history of your work. A figure shows how it works, and two short courses from GitHub help if you are new to Git and GitHub.
-- **Finish the version you started with.** Your copy keeps the course version you started with, and later changes don't reach it. [What's new](whats-new.qmd) tells you what changed in later versions.
+- **Finish the version you started with.** Your copy keeps the course version you started with, and later changes don't reach it. [What's New](whats-new.qmd) tells you what changed in later versions.
 - The [Course Guide](course-guide.qmd) describes the new setup, and [Iteration 6](datalab/iteration-6/00_overview.qmd#share-your-solution) explains that your portfolio is a new public repository, separate from your private copy of the course.
 
 ## v0.7.0 · 13 November 2026

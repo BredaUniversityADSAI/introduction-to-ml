@@ -2313,3 +2313,74 @@ body.quarto-dark .start-iteration .rf-dl text.rf-first { fill: #0f1720; }
 .route-card .sf-note { font-size: 12px; fill: var(--rf-muted); }
 .route-card text.sf-left { text-anchor: start; }
 .route-card text.sf-right { text-anchor: end; }
+
+/* =========================================================
+   Tabs (::: {.panel-tabset}) as a card, e.g. the OS tabs on setup.qmd.
+   Tabs with the same group="os" switch together (Quarto).
+   ========================================================= */
+
+.panel-tabset {
+  --tab-card: #ffffff;
+  --tab-bar: #f6f8fb;
+  --tab-border: #e6e9ef;
+  --tab-muted: #667085;
+  --tab-accent: #00558c;
+
+  margin: 1rem 0 1.5rem;
+  background: var(--tab-card);
+  border: 1px solid var(--tab-border);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(16, 47, 70, 0.05);
+  overflow: hidden;
+}
+
+body.quarto-dark .panel-tabset {
+  --tab-card: #141d26;
+  --tab-bar: #17212b;
+  --tab-border: #2a3744;
+  --tab-muted: #9aa8b6;
+  --tab-accent: #5aaee6;
+  box-shadow: none;
+}
+
+.panel-tabset .nav-tabs {
+  gap: 0.25rem;
+  padding: 0.35rem 0.75rem 0;
+  background: var(--tab-bar);
+  border-bottom: 1px solid var(--tab-border);
+}
+
+.panel-tabset .nav-tabs .nav-item {
+  margin: 0;
+}
+
+.panel-tabset .nav-tabs .nav-link {
+  margin-bottom: -1px;
+  padding: 0.55rem 0.9rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--tab-muted);
+  font-weight: 600;
+}
+
+.panel-tabset .nav-tabs .nav-link:hover {
+  color: var(--tab-accent);
+}
+
+.panel-tabset .nav-tabs .nav-link.active {
+  background: transparent;
+  color: var(--tab-accent);
+  border-bottom-color: var(--tab-accent);
+}
+
+.panel-tabset .nav-tabs .nav-link .bi {
+  margin-right: 0.35rem;
+}
+
+.panel-tabset .tab-content {
+  margin: 0;
+  padding: 1rem 1.15rem 0.35rem;
+  border: 0;
+}

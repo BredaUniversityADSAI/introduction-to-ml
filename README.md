@@ -13,7 +13,7 @@ The on-campus course also assesses deliverables such as reports and presentation
 
 📖 **Course website:** <https://ai.buas.nl/open-courses/introduction-to-ml/>
 
-> **Early release (v0.7).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions) on the test set at any time. See [What's new](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
+> **Early release (v0.7).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions) on the test set at any time. See [What's New](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
 >
 > **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 
@@ -31,7 +31,7 @@ The course is designed to be done on your own computer, in your own copy of this
    uv sync   # installs Python 3.13 and every package the course uses into .venv/
    ```
 
-4. In VS Code, install the extensions it recommends (Python, Jupyter and, optionally, Quarto), open a notebook and select the `.venv` kernel.
+4. In VS Code, install the extensions it recommends (Python, Jupyter and, optionally, Quarto), open a notebook and select the kernel `introduction-to-ml` (the course's `.venv`).
 
 Save your work by committing and pushing to your copy. Your copy keeps the course version you started with: finish the course with it.
 
