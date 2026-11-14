@@ -40,6 +40,11 @@ When you have finished the notebooks, score your classification and regression m
 
 The 200 test molecules are in `data/003_test_data/`, in two sample submissions: `classification_sample_submission.csv` (columns `id`, `smiles` and `stability`) and `regression_sample_submission.csv` (`id`, `smiles`, `homo` and `lumo`). They contain only SMILES and placeholder values. Compute the molecular descriptors of these molecules the same way as in the [Data Preparation](../iteration-2/04_data_preparation.ipynb) notebook of Iteration 2, predict with your models, replace the placeholder values with your predictions and save the file under a new name. Keep the `id` column: the scorer matches your predictions to the molecules with it.
 
+::: {.callout-warning}
+## Infinite and missing descriptor values
+For a few test molecules, some descriptors are infinite or missing. The HOPV molecules hardly have this problem, so your models have not seen it before, and `predict` stops with `ValueError: Input X contains infinity or a value too large for dtype('float32')`. Replace the infinite values with `NaN` first, `X_test = X_test.replace([np.inf, -np.inf], np.nan)`, and handle the missing values as in section 4 of [Data Preparation](../../self-study/theme-2/01_data_prep.ipynb) in Self-study Theme 2: tree-based models in scikit-learn, such as a random forest, accept `NaN`; for other models, fill them in with a `SimpleImputer` fitted on your training data. In [Iteration 4](../iteration-4/00_overview.qmd) you find out which molecules and descriptors are affected, and why.
+:::
+
 ::: {.callout-tip}
 ## Expect a lower score
 Expect your test score to be much worse than your cross-validation score; for stability possibly no better than the sample submission, which predicts `medium` for every molecule (macro-F1 about 0.22). That is not a bug in your code. Finding out why is where [Iteration 4](../iteration-4/00_overview.qmd) starts.
