@@ -19,12 +19,12 @@ save the file in the same folder under another name and score it with `tools/sco
 ([how](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions)). Git ignores everything in that folder except the two sample submissions,
 including the scorer's log `score_log.csv`.
 
-**About the molecules and targets:** the molecules come from published research datasets. The HOPV
-molecules, from the Harvard Organic Photovoltaic Dataset
-([Lopez et al., 2016](https://doi.org/10.1038/sdata.2016.86)), were made and tested in real solar
-cells. The lab database and test molecules are candidate molecules designed for organic solar cells in
-the Harvard Clean Energy Project ([Hachmann et al., 2011](https://doi.org/10.1021/jz200866s)), a large
-computational screening. The
+**About the molecules and targets:** the molecules come from two published research datasets: the
+Harvard Organic Photovoltaic Dataset ([Lopez et al., 2016](https://doi.org/10.1038/sdata.2016.86)),
+molecules that were made and tested in real solar cells, and the Harvard Clean Energy Project
+([Hachmann et al., 2011](https://doi.org/10.1021/jz200866s)), candidate molecules designed for organic
+solar cells in a large computational screening. The HOPV files hold the HOPV molecules; finding out
+where the other molecules come from is part of the project (Iteration 5 gives the answer). The
 target values (HOMO, LUMO and stability) of all datasets are **synthetically generated** based on
 real molecular properties. They follow realistic chemical relationships, but they do not match
 published values for these molecules. In `HOPV_homolumo.data`, the optical gap, PCE, Voc and Jsc of each
@@ -33,5 +33,5 @@ consistent; the descriptions of the experiments, the fill factor and the compute
 conformer blocks are as published.
 
 Files you create while working through the notebooks (for example `HOPV_homolumo_processed.csv`
-and `xy_df_hopv.csv`) go in `002_processed_data/`. Git ignores them there, so updating the course
-with `git pull` never touches them.
+and `xy_df_hopv.csv`) go in `002_processed_data/`. Git ignores them there, so they are not saved
+in the history of your copy of the course: the notebooks that create them can always make them again.

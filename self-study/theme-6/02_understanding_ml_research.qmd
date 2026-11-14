@@ -195,9 +195,9 @@ Publication does not mean that a result is universally correct or useful.
 
 Research findings depend on the datasets, algorithms, assumptions, evaluation methods, and technological context in which the study was performed.
 
-A useful example is **SMOTE**, a synthetic oversampling technique introduced in 2002 and subsequently cited thousands of times.
+A useful example is **SMOTE**, a technique introduced in 2002 and subsequently cited thousands of times. It balances an imbalanced training set by oversampling: it adds synthetic samples of the rare class, placed between existing samples of that class.
 
-Later work and practical experience have shown that its usefulness depends heavily on the learning algorithms and experimental setting. For example, [Elor and Averbuch-Elor (2022)](https://arxiv.org/abs/2201.08528) found that balancing the training data helps weak classifiers, but not strong modern ones such as gradient-boosted trees. A technique that performs well with one generation of models may provide little benefit when stronger learning algorithms are used.
+Later work and practical experience have shown that its usefulness depends heavily on the learning algorithms and experimental setting. For example, [Elor and Averbuch-Elor (2022)](https://arxiv.org/abs/2201.08528) found that balancing the training data helps weak classifiers, but not strong modern ones such as gradient-boosted trees, as long as the decision threshold of the classifier is tuned (see the threshold section of [Logistic Regression](../theme-3/03_logistic_regression.ipynb)). A technique that performs well with one generation of models may provide little benefit when stronger learning algorithms are used.
 
 The important lesson is broader than SMOTE:
 

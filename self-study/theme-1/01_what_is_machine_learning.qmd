@@ -214,7 +214,7 @@ The demo below is the degree demo from section 5, with the same blue dots. They 
 
 The training cost keeps going down as the degree goes up. The test cost goes down until degree 4 and then up again: at degree 9 it is far above the top of the plot.
 
-Why is the test cost lowest at degree 4? Because the data was generated from a degree-4 curve, plus noise.
+Why is the test cost lowest at degree 4? Because the data was generated from a degree-4 curve, plus noise. That is not guaranteed: with only a few noisy training points, the parameters of the true curve are hard to estimate, and a simpler curve can then predict new points better. Here there are enough points for degree 4.
 
 - Below degree 4, the curve is too simple to capture the signal: the real curve behind the data. It misses the training points and the test points alike. This is called **underfitting**.
 - At degree 4, the model has exactly the terms of the curve that made the data. It follows that curve, not the noise, so it also predicts the new points well.
@@ -226,7 +226,7 @@ Why is the test cost lowest at degree 4? Because the data was generated from a d
 **Overfitting**: the model fits the noise in the training data. Making it more flexible lowers the training cost but raises the test cost.
 :::
 
-Why is the test cost usually higher than the training cost? Training finds the parameters with the lowest cost on the training data. Nothing guarantees that the same parameters also give the lowest cost on the test data, so the test cost is usually higher. Not always: in this demo, degrees 1 to 3 have a lower test cost. With only 8 test points, the test cost also depends on where those points happen to lie.
+Why is the test cost usually higher than the training cost? Training finds the parameters with the lowest cost on the training data. Nothing guarantees that the same parameters also give the lowest cost on the test data, so the test cost is usually higher. Not always: in this demo, degrees 1 to 4 have a lower test cost. With only 8 test points, the test cost also depends on where those points happen to lie.
 
 Where does test data come from? In practice, nobody hands you unseen data with the answers attached. So you make it yourself: before training, you split the data you have into two parts. The model is trained on one part, the **training set**, and the other part, the **test set**, is put aside until the end. A common choice is 80% for training and 20% for testing. In this demo, 10 points are used for training and 8 are kept aside. You will do this split in code in the Classification notebook, with scikit-learn's `train_test_split`.
 

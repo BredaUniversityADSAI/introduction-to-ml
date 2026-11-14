@@ -20,6 +20,7 @@ usage:
 """
 import argparse
 import json
+import os
 import re
 import sys
 import uuid
@@ -30,12 +31,23 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 START = "<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->"
 END = "<!-- /course-route-note -->"
-GUIDE = "https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html#the-course-route"
+SITE = "https://ai.buas.nl/open-courses/introduction-to-ml/"
+GUIDE = SITE + "course-guide.html#the-course-route"
 
 
 def relative(markdown, up):
     """Links in the route file are relative to the project root; make them relative to the page."""
     return re.sub(r"\]\((?![a-z][a-z0-9+.-]*:|#)", "](" + up, markdown)
+
+
+def web_links(markdown, page):
+    """In a notebook, a link to a .qmd page opens its source in VS Code: link to the website instead."""
+    folder = Path(page).parent
+    def repl(m):
+        target, anchor = m.group(1), m.group(2) or ""
+        path = os.path.normpath(folder / target).replace(os.sep, "/")
+        return f"]({SITE}{path[:-4]}.html{anchor})"
+    return re.sub(r"\]\((?![a-z][a-z0-9+.-]*:)([^)#\s]+\.qmd)(#[^)\s]*)?\)", repl, markdown)
 
 
 def note(part, nxt, nsteps, up):
@@ -89,6 +101,8 @@ for part, nxt in zip(parts, parts[1:]):
     path = ROOT / part["ends"]
     up = "../" * part["ends"].count("/")
     text = note(part, nxt, len(steps), up)
+    if path.suffix == ".ipynb":
+        text = web_links(text, part["ends"])
     old, new = (update_notebook if path.suffix == ".ipynb" else update_qmd)(path, text)
     if old != new:
         stale.append(part["ends"])

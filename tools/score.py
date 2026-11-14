@@ -78,8 +78,9 @@ def detect_task(df):
     lower = {c.strip().lower(): c for c in df.columns}
     for task, spec in TASKS.items():
         if all(c in lower for c in spec["columns"]):
-            wrong = ", ".join(repr(lower[c]) for c in spec["columns"])
-            right = ", ".join(repr(c) for c in spec["columns"])
+            pairs = [(lower[c], c) for c in spec["columns"] if lower[c] != c]
+            wrong = ", ".join(repr(w) for w, _ in pairs)
+            right = ", ".join(repr(r) for _, r in pairs)
             raise SubmissionError(f"Column names are case-sensitive: rename {wrong} to {right}.")
     raise SubmissionError(f"No target columns found (the file has {_examples(df.columns, 6)}). A stability "
                           "submission needs a column 'stability'; an energy-levels submission needs "
@@ -109,9 +110,11 @@ def match_rows(df, molecules):
 
             canon = {canonical(s): i for s, i in lookup.items()}
             ids = ids.fillna(df["smiles"].astype(str).map(lambda s: canon.get(canonical(s))))
-            notes.append("matched rows on the canonical SMILES (add the id column to avoid this)")
+            notes.append("the file has no id column, so the rows were matched on the canonical SMILES. "
+                         "Keep the id column of the sample submission in your files.")
         else:
-            notes.append("matched rows on the SMILES (no id column)")
+            notes.append("the file has no id column, so the rows were matched on the SMILES. "
+                         "Keep the id column of the sample submission in your files.")
         if ids.isna().any():
             missing = df.loc[ids.isna(), "smiles"]
             raise SubmissionError(f"{len(missing)} SMILES are not test molecules: {_examples(missing, 2)}. "

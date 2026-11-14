@@ -86,4 +86,12 @@ To give you an idea of what is possible, these are the scores of a few reference
 | A reference solution at the end of Iteration 4 (random forest) | 0.842 / 0.837 | 0.106 / 0.107 |
 | A stronger reference solution (gradient boosting) | 0.849 / 0.847 | 0.093 / 0.087 |
 
-You keep scoring your models in Iterations 4 to 6, as they improve. If you want to compare your solution with other learners, share your private score and a link to your repository in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell).
+How the reference solutions were built, all with fixed settings and without tuning, on the RDKit descriptors of [Data Preparation](../iteration-2/04_data_preparation.ipynb):
+
+- Random forest on HOPV: 300 trees, balanced class weights, trained on the HOPV molecules.
+- End of Iteration 4: the same random forest, trained on the HOPV molecules and the lab database.
+- Gradient boosting: LightGBM on the descriptors plus Morgan fingerprints (counts of small substructures of the molecule), trained on the HOPV molecules and the lab database.
+
+The same model gives very different test scores depending on the data it was trained on. Finding out why is the subject of Iteration 4.
+
+You keep scoring your models in Iterations 4 to 6, as they improve. If you want to compare your solution with other learners, share your private score and describe your approach in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell). Your copy of the course is private, so paste the code that matters instead of a link; after Iteration 6 you can link your portfolio repository.

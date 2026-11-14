@@ -62,3 +62,27 @@ Ask yourself this question while planning, while writing, and after finishing th
 </iframe>
 
 **Goal:** Build a reusable set of principles for writing technical documents that are clear, organised, persuasive, and useful to the reader.
+
+## Keep your checklists
+
+Keep both checklists where you will find them again, for example as a Markdown file `my_checklists.md` in `self-study/theme-6/` of your copy of the course, and commit it. You will use them for the write-up of your own projects.
+
+When you have made your own, compare them with these examples. Yours will differ, and that is fine: the point is that each item is something you can check.
+
+::: {.callout-note collapse="true"}
+## Example checklists
+
+Presentation:
+
+- Does the first minute say what the audience will get out of the talk?
+- Does every slide have one message, with enough white space and few words?
+- Is there a figure where a figure explains more than text?
+- Does the end repeat the main contribution, instead of a "Thank you" or "Questions?" slide?
+
+Writing:
+
+- Is this valuable to the reader?
+- Does the first paragraph state the problem and why it matters to this reader?
+- Does every paragraph start with its point?
+- Can a reader who reads only the headings and the first sentences follow the argument?
+:::

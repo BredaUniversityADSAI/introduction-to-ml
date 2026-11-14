@@ -65,7 +65,7 @@ In this course, you will work with datasets from multiple sources:
 | Lab database | 232 | `lab_measurements.db` | SMILES, Targets |
 | Test set | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` | SMILES |
 
-The starter dataset is a subset of the HOPV dataset. You use the starter dataset in Iteration 1, HOPV from Iteration 2, and the lab database and the test molecules from Iteration 4.
+The starter dataset is a subset of the HOPV dataset. You use the starter dataset in Iteration 1, HOPV from Iteration 2, the test molecules from the end of Iteration 3, and the lab database from Iteration 4.
 
 ::: {.callout-important}
 For this course, the target values (HOMO, LUMO, and stability) for all datasets, including the test set, have been **synthetically generated** based on the real molecular properties. While they follow realistic chemical distributions, they will not match publicly available data for these specific molecules. Your goal is to model the relationships within the datasets we provide to you.

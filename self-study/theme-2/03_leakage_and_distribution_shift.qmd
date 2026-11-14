@@ -115,6 +115,8 @@ splitter = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
 train_idx, test_idx = next(splitter.split(X, y, groups=patient_id))
 ```
 
+Inside cross-validation the same idea is `GroupKFold`: you pass `groups=patient_id` to `cross_validate`, and each fold keeps all X-rays of a patient together. Theme 3 shows it in [Cross-validation by group](../theme-3/01_modeling_and_evaluation.ipynb#cross-validation-by-group).
+
 A shared background works the same way. PlantVillage is a public dataset of photos of plant leaves in 38 classes (a plant species and a disease, or healthy), and published deep-learning models reach more than 99% accuracy on it. In the dataset, the leaves of each class were often photographed against similar backgrounds. Noyan (2022) kept only 8 pixels from the background of each photo, at its corners and edges, and trained a random forest on them:
 
 ![Left: example photos of four PlantVillage classes, one class per column. Right: the same photos reduced to 8 background pixels (and a white center). From Noyan (2022), CC BY 4.0; photos from PlantVillage (Hughes and Salathé, 2015), CC BY-SA 3.0.](../../images/leakage/plantvillage_8px.jpg){fig-alt="Two grids of four columns and four rows. Left: leaf photos of blueberry (healthy), grape (black rot), potato (early blight) and strawberry (healthy) on gray and pinkish backgrounds. Right: each photo reduced to a 3 by 3 grid of gray and brownish squares with a white center square."}
@@ -146,33 +148,41 @@ Match the distributions. Collect development data from the conditions in which t
 ::: {.quiz data-answer="3"}
 A model that detects cats was trained and tested on photos that were all taken in snow. It reaches 95% accuracy on the test set. What does this score tell you?
 
-- The model will be right about 95% of the time on any photo. [The test photos were all taken in snow, so the score only covers photos like those (section 1).]{.feedback}
-- The model has overfitted. [Overfitting shows as a much lower test score than training score. Here the test score is high; the question is what it covers (section 1).]{.feedback}
+- The model will be right about 95% of the time on any cat photo, wherever it was taken. [The test photos were all taken in snow, so the score only covers photos like those (section 1).]{.feedback}
+- The model has overfitted, because 95% is too high for this task. [Overfitting shows as a much lower test score than training score. Here the test score is high; the question is what it covers (section 1).]{.feedback}
 - The model is right about 95% of the time on photos like the test photos: animals in snow. [The test set comes from the same distribution as the training set, so the score is an estimate for that distribution only (section 1).]{.feedback}
 :::
 
 ::: {.quiz data-answer="2"}
 A dataset has 10 X-rays of each of 500 patients. You split the 5,000 X-rays at random into a training and a test set. What is the problem?
 
-- The test set is too small. [With 1,000 or so test X-rays, the size is fine. The problem is which X-rays end up in it (section 4).]{.feedback}
-- X-rays of the same patient end up in both sets, so the test score is too optimistic. [The model can recognize patients it has seen during training. Split by patient instead, for example with `GroupShuffleSplit` (section 4).]{.feedback}
-- The classes are not balanced. [That may be true, but it is not caused by the random split. The problem is that the X-rays of one patient depend on each other (section 4).]{.feedback}
+- The test set is too small to give a reliable score for 500 patients. [With 1,000 or so test X-rays, the size is fine. The problem is which X-rays end up in it (section 4).]{.feedback}
+- X-rays of one patient end up in both sets, so the score is too optimistic. [The model can recognize patients it has seen during training. Split by patient instead, for example with `GroupShuffleSplit` (section 4).]{.feedback}
+- The classes are not balanced, because a random split ignores the labels. [That may be true, but it is not caused by the random split. The problem is that the X-rays of one patient depend on each other (section 4).]{.feedback}
 :::
 
 ::: {.quiz data-answer="1"}
 A model trained on data from hospital A does well on a test set from hospital A, but much worse on data from hospital B. What is the most likely explanation?
 
-- The data from hospital B comes from another distribution than the development data. [Hospitals differ in equipment, settings and patients, and the model may depend on what is specific to hospital A (sections 2 and 3).]{.feedback}
-- The test set of hospital A was too large. [A larger test set gives a more precise estimate, not a worse one. The difference comes from the data of hospital B (section 2).]{.feedback}
-- The model is underfitting. [An underfitting model does badly on hospital A too. Here it only does badly on hospital B (section 2).]{.feedback}
+- The data from hospital B comes from another distribution. [Hospitals differ in equipment, settings and patients, and the model may depend on what is specific to hospital A (sections 2 and 3).]{.feedback}
+- The test set of hospital A was too large, which made its score too optimistic. [A larger test set gives a more precise estimate, not a worse one. The difference comes from the data of hospital B (section 2).]{.feedback}
+- The model is underfitting, so it cannot handle the more varied data of hospital B. [An underfitting model does badly on hospital A too. Here it only does badly on hospital B (section 2).]{.feedback}
 :::
 
 ::: {.quiz data-answer="2"}
 How can you find out whether a model depends on something specific to your development data?
 
-- Train it longer. [More training does not show what the model depends on; it may even make it rely on the shortcut more (section 5).]{.feedback}
-- Test it on data that was collected separately, for example from another source. [This is external validation. A drop in score shows that the model depends on something specific to the development data (section 5).]{.feedback}
-- Use a random split with a different seed. [A different seed gives another random split of the same data, with the same problem (section 4).]{.feedback}
+- Train it longer and check whether the test score keeps going up. [More training does not show what the model depends on; it may even make it rely on the shortcut more (section 5).]{.feedback}
+- Test it on data that was collected separately, from another source. [This is external validation. A drop in score shows that the model depends on something specific to the development data (section 5).]{.feedback}
+- Split the data again at random, with a different seed, and compare. [A different seed gives another random split of the same data, with the same problem (section 4).]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+You have 2,000 measurements from 40 machines, about 50 per machine, and the model will be used on new machines. Which validation gives an honest estimate?
+
+- A random 80/20 split of the measurements, repeated with five seeds. [Every split puts measurements of the same machine on both sides, so the score shows how well the model knows these machines (section 4).]{.feedback}
+- Cross-validation with folds by machine, for example with `GroupKFold`. [Each fold validates on machines the model has not seen, as in use (section 4).]{.feedback}
+- Stratified cross-validation, so that every fold has the same mix of classes. [Stratification keeps the class mix equal, but measurements of the same machine still end up on both sides (section 4).]{.feedback}
 :::
 
 ## Further reading

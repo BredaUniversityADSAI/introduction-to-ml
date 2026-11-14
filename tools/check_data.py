@@ -111,6 +111,15 @@ for name, df in bad.items():
     except score.SubmissionError:
         check(True, f"score.py rejects a submission with {name}")
 
+# Messages that help: name only the wrongly written columns, and say when the id column is missing.
+try:
+    score.prepare(reg.rename(columns={"homo": "HOMO"}))
+    check(False, "score.py names only the wrongly written column")
+except score.SubmissionError as e:
+    check("'HOMO'" in str(e) and "'lumo'" not in str(e), f"score.py names only the wrongly written column ({e})")
+_, _, notes = score.prepare(reg.drop(columns="id"))
+check(any("no id column" in n for n in notes), "score.py says that a submission without an id column was matched on the SMILES")
+
 # No solution or ground-truth files anywhere in the repository; the scorer's labels are the only label file.
 leaks = [str(p) for p in Path(".").rglob("*") if p.is_file() and ".venv" not in p.parts and ".git" not in p.parts
          and any(k in p.name.lower() for k in ("solution.csv", "ground_truth", "test_submission", "labels"))
