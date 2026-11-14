@@ -34,7 +34,7 @@ Document:
 1. which principle you selected;
 2. why it is relevant to your project;
 3. what you changed;
-4. how you evaluated the effect;
+4. how you evaluated the effect: compare the model with and without the change under the same validation, on the same cross-validation folds, and keep the test set for the final check;
 5. what you learned from the result.
 
 If your project contains several trained models, **ensembling** is one useful idea to explore.

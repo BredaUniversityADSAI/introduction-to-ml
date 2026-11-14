@@ -29,7 +29,7 @@ Hydrogen atoms are usually left out. Every atom gets as many hydrogens as it nee
 ![`CCO`, with all hydrogens drawn](../../images/iteration-2/smiles/ethanol_h.svg){fig-alt="Ethanol with all six hydrogen atoms drawn."}
 :::
 
-Some atoms need square brackets: elements outside the common set B, C, N, O, P, S, F, Cl, Br and I, such as silicon (`[Si]`), and atoms with a charge or an explicit hydrogen, such as `[O-]` or `[nH]`. You will see `[Si]` in some of the project molecules.
+Some atoms need square brackets: elements outside the common set B, C, N, O, P, S, F, Cl, Br and I, such as silicon (`[Si]`, or `[SiH2]` for a silicon atom with two hydrogens), and atoms with a charge or an explicit hydrogen, such as `[O-]` or `[nH]`. An aromatic atom in brackets is lowercase too: `[se]` is a selenium atom in an aromatic ring, as in selenophene, the selenium version of thiophene below. You will see `[Si]`, `[SiH2]` and `[se]` in the project molecules.
 
 ## Bonds
 
@@ -71,6 +71,8 @@ Lowercase letters mark atoms in an aromatic ring: a flat ring in which the elect
 
 Aromatic rings are everywhere in this project. Organic solar-cell molecules are often long chains of rings like the ones below, for example rings with a sulfur atom (`s`).
 
+The letters are not always taken literally. RDKit decides itself which rings are aromatic, so it changes some strings when it reads them: in some of the project molecules, a ring written in lowercase is not aromatic for RDKit, or the other way around. Compute features from the molecule that RDKit makes (`Chem.MolFromSmiles`), not from the letters of the string.
+
 ::: {.mol-row layout-ncol="3"}
 ![Benzene: `c1ccccc1`](../../images/iteration-2/smiles/benzene.svg){fig-alt="Benzene, a six-membered aromatic ring."}
 
@@ -92,6 +94,8 @@ Some molecules have the same atoms and bonds but a different arrangement in spac
 :::
 
 `FC=CF`, without the slashes, can be either of the two.
+
+The SMILES strings in this project contain none of these symbols. Two molecules that differ only in such an arrangement would therefore have the same string, and the same descriptors.
 
 ## One molecule, many strings
 

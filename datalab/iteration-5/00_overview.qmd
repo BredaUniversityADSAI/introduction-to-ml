@@ -6,13 +6,25 @@ In Iteration 4 you rebuilt your models as pipelines, added the lab database and 
 
 In Iteration 5 you work on **better models**. You have just learned decision trees, random forests and gradient boosting in the Self-study, and you can now try them on the project, together with a validation strategy that resembles the test molecules.
 
+::: {.callout-note collapse="true"}
+## Background: where the molecules come from (read after your Iteration 4 investigation)
+The HOPV molecules were made and tested in real solar cells ([Lopez et al., 2016](https://doi.org/10.1038/sdata.2016.86)). The lab database and the test molecules come from another source: the Harvard Clean Energy Project ([Hachmann et al., 2011](https://doi.org/10.1021/jz200866s)), a computational screening of candidate molecules built by combining a few dozen building blocks. The sources differ in ways you may have found:
+
+- The candidate molecules have no side chains of saturated carbon (median `FractionCSP3` 0.00, against 0.11 for HOPV) and are smaller (a median of 28 heavy atoms, against 41).
+- Many contain selenium or silicon. Selenium is in 83 of the 232 lab molecules and 57 of the 200 test molecules, but in only 1 of the 347 HOPV molecules. The descriptors that are missing for many lab and test molecules are the ones RDKit cannot compute for selenium.
+- No test molecule is similar to a HOPV molecule. The median Tanimoto similarity (on Morgan fingerprints) of a test molecule to its most similar HOPV molecule is 0.21; to its most similar lab molecule it is 0.41.
+
+There is a second reason why random cross-validation on HOPV is optimistic: 60% of the HOPV molecules have a close analogue (Tanimoto similarity of at least 0.7) elsewhere in HOPV, so a random fold usually contains a near copy of a validation molecule.
+:::
+
 As in Iteration 4, there is no fixed sequence. Keep using your experiment log, and only compare scores that come from the same protocol (see [Iterate with a purpose](../iteration-4/00_overview.qmd#iterate-with-a-purpose)).
 
 ## Things to investigate
 
 - **Validate on molecules like the test molecules.** If your Iteration 4 investigation showed that some training molecules resemble the test molecules more than others, build your validation around them, and use the same validation for every model you compare. [Cross-validation by group](../../self-study/theme-3/01_modeling_and_evaluation.ipynb#cross-validation-by-group) (Self-study Theme 3) shows how to pass your own folds to `cross_validate` and `GridSearchCV`.
-- **Tree-based models and boosting.** Compare a random forest and a gradient boosting model, for example `HistGradientBoostingClassifier`, XGBoost or LightGBM, under the same validation. Tune their most important hyperparameters, and use early stopping for boosting. Some of these models accept missing values directly: does that help with the lab and test molecules?
+- **Tree-based models and boosting.** Compare a random forest and a gradient boosting model, for example `HistGradientBoostingClassifier`, XGBoost or LightGBM, under the same validation. Tune their most important hyperparameters, and use early stopping for boosting. Inside cross-validation, the easiest way is the built-in early stopping of `HistGradientBoostingClassifier(early_stopping=True)`: it sets aside part of each training fold, so the validation fold stays untouched. Some of these models accept missing values directly: does that help with the lab and test molecules?
 - **Clustering is a tool, not just an exercise.** Cluster all molecules together (HOPV, lab database and test set). Which training molecules end up in the same clusters as test molecules? How could you use that: for validation, for choosing or weighting training data, or as a feature?
+- **Is a difference real?** With validation folds of a few dozen molecules, the scores of the folds differ a lot: a standard deviation of 0.04 to 0.09 in macro-F1 is normal here. A difference between two models that is smaller than that is not evidence. `RepeatedStratifiedKFold` repeats the cross-validation with other folds and gives a more stable mean.
 - **Look at your mistakes.** Which molecules does your model get most wrong? Do they have something in common: a source, a cluster, a range of a descriptor, missing values?
 
 ::: {.callout-note collapse="true"}
@@ -39,7 +51,7 @@ predictions = encoder.inverse_transform(model.predict(X_test))  # back to class 
 Use what you learn throughout the course to explore stronger approaches. Possible directions include:
 
 * new machine-learning algorithms
-* feature engineering
+* feature engineering, for example Morgan fingerprints (`rdkit.Chem.rdFingerprintGenerator`) or counts of selected elements such as silicon and selenium
 * feature selection
 * different preprocessing strategies
 * alternative validation approaches

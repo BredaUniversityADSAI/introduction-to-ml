@@ -20,7 +20,7 @@ Bertrandie, J., Han, J., De Castro, C. S. P., et al. (2022). [The Energy Level C
 
 The authors determine the energy levels of 33 organic semiconductors with four methods (cyclic voltammetry, density functional theory, and two kinds of photoelectron spectroscopy). The methods give clearly different values, and only some of them agree with how the solar cells perform.
 
-This paper won't change your models, but it shows how much a target depends on how it is measured. In this course the measurement method is fixed, so you take the targets as given. A real project is more open: you can ask the client how each value was measured, check whether two data sources measured the same thing in the same way, and suggest another measurement method when the current one does not answer the client's question.
+This paper won't change your models, but it shows how much a target depends on how it is measured. In this course the targets are synthetic, so you take them as given. A real project is more open: you can ask the client how each value was measured, check whether two data sources measured the same thing in the same way, and suggest another measurement method when the current one does not answer the client's question.
 
 ### Machine learning for energy levels
 
@@ -28,7 +28,7 @@ Bertrandie, J., Noyan, M. A., Huerta Hernandez, L., et al. (2025). [From Experim
 
 Measured energy levels are expensive to get, so there are few of them. The authors train a chained model: a large database of intermediate properties helps the model learn, and transfer learning carries this over to the small set of measured values. They also test the model on newly measured molecules that were not used in any way during development.
 
-Ideas for your project: could the prediction of one model be a useful feature for another, for example predicted HOMO and LUMO values for stability? And how does their external test set compare with the role of the test molecules in your project?
+Ideas for your project: could the prediction of one model be a useful feature for another, for example predicted HOMO and LUMO values for stability? If you try it, use out-of-fold predictions (`cross_val_predict`): a model's predictions for its own training molecules are too good, and the second model would learn to trust them too much. `StackingRegressor` in Theme 5 does the same for this reason. And how does their external test set compare with the role of the test molecules in your project?
 
 ### Validation on new kinds of molecules
 
@@ -42,7 +42,7 @@ Sahu, H., Rao, W., Troisi, A., & Ma, H. (2018). [Toward Predicting Efficiency of
 
 The authors predict the efficiency of 280 organic solar cells from 13 physical properties of the molecules, and compare random forests, gradient boosting and neural networks. Their target is different from yours, but the question carries over: does a small set of well-chosen descriptors with a physical meaning work as well as hundreds of generic ones? Compare with the RDKit descriptors you use, and with the features your models find most important.
 
-## Compete, iterate, improve
+## Iterate and improve
 
 There is no predefined end point. Continue moving through the CRISP-DM cycle as new questions emerge:
 
@@ -74,12 +74,14 @@ End the project by writing up your solution as a portfolio project: a public Git
 
 A good repository has:
 
-* a README that explains the problem, the data, your approach and your results:
+* a README that explains the problem, the data, your approach and your results, for example with the sections Problem, Data, Approach, Validation, Results and Next steps:
   * your final models, their validation scores, and their public and private scores;
   * the experiments that made the biggest difference, and the ones that did not help;
   * what you would try next with more time or more data;
 * notebooks or scripts that run from top to bottom on a fresh setup, and a list of the packages and versions they need (for example a `pyproject.toml` and `uv.lock`, as in the course repository);
-* instructions for getting the data: link to the course repository for the data files and the test molecules, instead of copying them into your repository.
+* instructions for getting the data: link to the course repository for the data files and the test molecules, instead of copying them into your repository. A short script can download them, for example from `https://raw.githubusercontent.com/BredaUniversityADSAI/introduction-to-ml/stable/data/001_raw_data/HOPV_stability.csv`.
+
+In your copy of the course, Git ignores `models/`, `data/002_processed_data/` and `data/003_test_data/` (except the sample submissions): your saved models, processed files and submissions are not in its history. Copy what you want to show into the portfolio repository, or make your notebooks recreate it.
 
 When it is ready, make the repository public and share the link with your private scores, for example in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell).
 

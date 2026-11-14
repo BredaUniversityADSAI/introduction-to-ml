@@ -36,10 +36,10 @@ The name 'Silicon Valley' itself comes from the silicon used in computer chips. 
 
 However, silicon has its drawbacks. The panels are rigid, heavy, and the manufacturing process is energy-intensive. This is where Organic Photovoltaics (OPVs) come in:
 
-- **What does "Organic" mean here?** In chemistry, "organic" refers to molecules primarily built from carbon atoms, often linked with hydrogen, oxygen, and nitrogen. These are the building blocks of plastics, polymers, and life itself.
+- **What does "Organic" mean here?** In chemistry, "organic" refers to molecules primarily built from carbon atoms, often linked with hydrogen, oxygen, nitrogen and sulfur; the molecules in this project also contain atoms such as fluorine, silicon and selenium. These are the building blocks of plastics, polymers, and life itself.
 - **OPVs** use these specialized organic molecules to absorb light and generate electricity.
 - **The Promise of OPVs:** They can be lightweight, flexible, semi-transparent, and potentially manufactured at a low cost using printing-like techniques. Imagine solar-collecting windows or jackets.
-- **The Challenge:** Currently, OPVs are less efficient and less durable than silicon. Typical silicon panels reach efficiencies of 20–23%. The best OPV cells in research labs now come close to 20%, but larger OPV modules and commercial products remain well below that, and they degrade more quickly when exposed to the elements. Our project aims to help close this gap.
+- **The Challenge:** Currently, OPVs are less efficient and less durable than silicon. Typical silicon panels reach efficiencies of 20–23%. The best OPV cells in research labs now reach around 20%, but larger OPV modules and commercial products remain well below that, and they degrade more quickly when exposed to the elements. Our project aims to help close this gap.
 
 <figure style="text-align: center;">
   <img src="../../images/iteration-1/figure_3.jpg" alt="Examples of organic photovoltaic molecules" style="width: 60%;">
@@ -48,10 +48,10 @@ However, silicon has its drawbacks. The panels are rigid, heavy, and the manufac
 
 ## The "Business" Need: Finding Better Molecules, Faster
 
-The core of an OPV is the organic molecule that captures light. Its effectiveness depends on specific electronic properties and its durability. The key properties we are interested in for this project are HOMO, LUMO, and stability. **HOMO and LUMO tell us how easily the molecule can move electrons; stability tells us how long it survives.**
+The core of an OPV is the organic molecule that captures light. Its effectiveness depends on specific electronic properties and its durability. The key properties we are interested in for this project are HOMO, LUMO, and stability. **The HOMO tells us how easily the molecule gives up an electron, the LUMO how easily it accepts one; stability tells us how long it survives.**
 
-- **HOMO (Highest Occupied Molecular Orbital) & LUMO (Lowest Unoccupied Molecular Orbital):** You can think of these as the energy levels of the molecule's electrons. The difference between the HOMO and LUMO levels is effectively the molecule's bandgap. The absolute energy levels of HOMO and LUMO are critical for how efficiently the generated electrons can be extracted from the solar cell. Both are energies in electronvolts (eV) and are negative numbers. The LUMO lies above the HOMO, so LUMO values are higher (closer to zero) than HOMO values.
-- **Stability:** Stability is related to the duration for which the molecule, and consequently the solar cell, remains intact before it breaks down and stops working effectively. A fantastic molecule that dies after a few days is useless for a real-world product that needs to last for years.
+- **HOMO (Highest Occupied Molecular Orbital) & LUMO (Lowest Unoccupied Molecular Orbital):** You can think of these as the energy levels of the molecule's electrons. The difference between the HOMO and LUMO levels is effectively the molecule's bandgap. The absolute energy levels of HOMO and LUMO are critical for how efficiently the generated electrons can be extracted from the solar cell. Both are energies in electronvolts (eV) and are negative numbers. The LUMO lies above the HOMO, so LUMO values are higher (closer to zero) than HOMO values. In a solar cell, the molecule (the donor) is combined with an acceptor material, and the difference between the HOMO of the donor and the LUMO of the acceptor sets the highest voltage the cell can deliver (the open-circuit voltage).
+- **Stability:** Stability is related to the duration for which the molecule, and consequently the solar cell, remains intact before it breaks down and stops working effectively. A fantastic molecule that dies after a few days is useless for a real-world product that needs to last for years. Stability depends largely on the whole device (the other materials, the processing, the encapsulation and the test conditions), not on the molecule alone. In this course the labels treat it as a property of the molecule: `low`, `medium` and `high` group the molecules by how long a device made with them keeps most of its efficiency in a fixed test.
 
 The right combination of HOMO, LUMO, and high stability is the "holy grail" for a new OPV material. Finding it means creating a more efficient and commercially viable product.
 
@@ -88,7 +88,7 @@ A reliable predictive model lets the OMEGA Lab screen many candidate molecules o
 
 Your models are scored on the project's test molecules with these metrics:
 
-- **Stability** (the classes `low`, `medium` and `high`): the macro-averaged F1 score, so that every class counts equally, however rare it is. You will learn it in Iteration 2.
+- **Stability** (the classes `low`, `medium` and `high`): the macro-averaged F1 score, so that every class counts equally, however rare it is. You learn it in Self-study Theme 3.
 - **HOMO and LUMO** (in eV): the mean absolute error (MAE), the average distance between a prediction and the true value. Lower is better.
 
 A model is only useful if it clearly beats a simple baseline, such as always predicting the most frequent class or the average value.
@@ -97,4 +97,4 @@ A model is only useful if it clearly beats a simple baseline, such as always pre
 
 The molecules in this project are real: they come from published research datasets. The values you predict are not the published measurements. For this course, the HOMO, LUMO and stability values of all datasets were **synthetically generated** based on real molecular properties: they follow realistic chemical relationships and are the same for everyone. The client's "lab measurements" you receive later are part of this course scenario.
 
-So the problem is real, and so are the methods you learn. But a model built here has been tested on the course's values, not on new laboratory measurements: a good score in this course does not show how well it would predict real measurements.
+So the problem is real, and so are the methods you learn. But a model built here has been tested on the course's values, not on new laboratory measurements: a good score in this course does not show how well it would predict real measurements. Real measurements of HOMO and LUMO also depend on the method: different methods can give values that differ by several tenths of an eV ([Bertrandie et al., 2022](https://doi.org/10.1002/adma.202202575)), more than the error of the best models in this course.
