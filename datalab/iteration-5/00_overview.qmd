@@ -10,7 +10,7 @@ As in Iteration 4, there is no fixed sequence. Keep using your experiment log, a
 
 ## Things to investigate
 
-- **Validate on molecules like the test molecules.** If your Iteration 4 investigation showed that some training molecules resemble the test molecules more than others, build your validation around them, and use the same validation for every model you compare.
+- **Validate on molecules like the test molecules.** If your Iteration 4 investigation showed that some training molecules resemble the test molecules more than others, build your validation around them, and use the same validation for every model you compare. [Cross-validation by group](../../self-study/theme-3/01_modeling_and_evaluation.ipynb#cross-validation-by-group) (Self-study Theme 3) shows how to pass your own folds to `cross_validate` and `GridSearchCV`.
 - **Tree-based models and boosting.** Compare a random forest and a gradient boosting model, for example `HistGradientBoostingClassifier`, XGBoost or LightGBM, under the same validation. Tune their most important hyperparameters, and use early stopping for boosting. Some of these models accept missing values directly: does that help with the lab and test molecules?
 - **Clustering is a tool, not just an exercise.** Cluster all molecules together (HOPV, lab database and test set). Which training molecules end up in the same clusters as test molecules? How could you use that: for validation, for choosing or weighting training data, or as a feature?
 - **Look at your mistakes.** Which molecules does your model get most wrong? Do they have something in common: a source, a cluster, a range of a descriptor, missing values?

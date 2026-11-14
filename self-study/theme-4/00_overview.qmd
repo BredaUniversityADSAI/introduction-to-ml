@@ -2,10 +2,10 @@
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-4/00_overview.html -->
 
-A model is rarely used on raw data: the data is first scaled, encoded or completed. In this theme you learn to put these steps and the model together in one object. That keeps your code short, and you can cross-validate and tune the whole object at once, the preprocessing included.
+A model is rarely used on raw data: the data is first scaled, encoded or completed. In this theme you learn to put these steps and the model together in one object. That keeps your code short, and you can cross-validate and tune the whole object at once, the preprocessing included. It also keeps your cross-validation honest: the preprocessing is fitted again in every fold, on the training part only.
 
 ## Activities
 
-1. [Pipelines & ColumnTransformer](01_pipelines_and_columntransformer.ipynb): pipelines, column transformers that treat each type of column differently, and tuning a whole pipeline.
+1. [Pipelines & ColumnTransformer](01_pipelines_and_columntransformer.ipynb): pipelines, why cross-validation needs them, column transformers that treat each type of column differently, and tuning a whole pipeline.
 
 In [Theme 5](../theme-5/00_overview.qmd), you learn the tree-based models that often work best on tabular data.
