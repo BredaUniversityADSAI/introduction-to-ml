@@ -8,7 +8,7 @@ So far you tested each model once, on one test set, and used the models as black
 
 Work through the activities in order:
 
-1. [Modeling & Evaluation](01_modeling_and_evaluation.ipynb): cross-validation, validation and test sets, feature and model selection, hyperparameter tuning, overfitting, and metrics for classification and regression.
+1. [Modeling & Evaluation](01_modeling_and_evaluation.ipynb): cross-validation (also by group), validation and test sets, feature and model selection, hyperparameter tuning, overfitting, and metrics for classification and regression.
 2. [Linear Regression](02_linear_regression.ipynb): fitting a line, gradient descent, more than one feature, R², polynomial features and regularization.
 3. [Logistic Regression](03_logistic_regression.ipynb): from a line to a probability, the log loss, the decision threshold, precision-recall and ROC curves, and more than two classes.
 4. [Clustering](04_clustering.ipynb): distances and scaling, K-Means, choosing the number of clusters with the elbow and the silhouette score, and density-based clustering.
