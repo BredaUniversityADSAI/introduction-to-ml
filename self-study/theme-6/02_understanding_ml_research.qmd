@@ -139,6 +139,11 @@ As an exercise, try to find the following papers using Google Scholar **without 
 - *Optuna: A Next-generation Hyperparameter Optimization Framework*
 - *BOHB: Robust and Efficient Hyperparameter Optimization at Scale*
 
+::: {.callout-tip collapse="true"}
+## Hints, if you get stuck
+Describe what the paper does instead of guessing its title. Queries that work: `hyperparameter optimization review` or `survey` for the first; `hyperparameter optimization framework define-by-run` for Optuna (the paper introduces a "define-by-run" interface); `Bayesian optimization Hyperband` for BOHB, whose name combines the two.
+:::
+
 The purpose is not simply to locate one supposedly "best" technique. Try to understand what approaches exist, what assumptions they make, and what trade-offs they involve.
 
 ### Applied Machine Learning
