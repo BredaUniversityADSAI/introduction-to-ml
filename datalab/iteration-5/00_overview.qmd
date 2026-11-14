@@ -15,6 +15,25 @@ As in Iteration 4, there is no fixed sequence. Keep using your experiment log, a
 - **Clustering is a tool, not just an exercise.** Cluster all molecules together (HOPV, lab database and test set). Which training molecules end up in the same clusters as test molecules? How could you use that: for validation, for choosing or weighting training data, or as a feature?
 - **Look at your mistakes.** Which molecules does your model get most wrong? Do they have something in common: a source, a cluster, a range of a descriptor, missing values?
 
+::: {.callout-note collapse="true"}
+## XGBoost and LightGBM for classification
+Self-study Theme 5 uses only `XGBRegressor`. The classifiers of XGBoost and LightGBM work like the scikit-learn ones, with two differences.
+
+`XGBClassifier` accepts only class numbers (0, 1, 2), not class names: with `low`, `medium` and `high` it stops with `ValueError: Invalid classes inferred from unique values of y`. Encode the labels with `LabelEncoder`, and turn the predictions back into class names before you save a submission, because the scorer expects the names:
+
+```python
+from sklearn.preprocessing import LabelEncoder
+from xgboost import XGBClassifier
+
+encoder = LabelEncoder()
+y_train_encoded = encoder.fit_transform(y_train)  # high, low, medium -> 0, 1, 2
+model = XGBClassifier().fit(X_train, y_train_encoded)
+predictions = encoder.inverse_transform(model.predict(X_test))  # back to class names
+```
+
+`LGBMClassifier` accepts class names, but prints a warning for every tree it cannot split further, often hundreds of lines in a cross-validation loop. `LGBMClassifier(verbose=-1)` turns them off.
+:::
+
 ## Go beyond the baseline
 
 Use what you learn throughout the course to explore stronger approaches. Possible directions include:
