@@ -58,7 +58,6 @@ A new setup: you work in your own private copy of the course on GitHub.
 
 - **Your own copy of the course.** [Set Up Your Computer](setup.qmd) now starts with a free GitHub account. You make your own private copy of the course with "Use this template", download it in VS Code and save your work to it after each session, so you have a backup and a history of your work. A figure shows how it works, and two short courses from GitHub help if you are new to Git and GitHub.
 - **Finish the version you started with.** Your copy keeps the course version you started with, and later changes don't reach it. [What's new](whats-new.qmd) tells you what changed in later versions.
-- **Already downloaded the course?** If you cloned the course repository, three commands [turn your folder into your own private repository](setup.qmd#already-downloaded-the-course-with-git-clone), without losing your work.
 - The [Course Guide](course-guide.qmd) describes the new setup, and [Iteration 6](datalab/iteration-6/00_overview.qmd#share-your-solution) explains that your portfolio is a new public repository, separate from your private copy of the course.
 
 ## v0.7.0 · 13 November 2026
