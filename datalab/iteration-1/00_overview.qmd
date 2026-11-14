@@ -28,6 +28,6 @@ Work through the following pages **in order**:
 4. [Regression](04_regression.ipynb)
 5. [Clustering](05_clustering.ipynb)
 
-Once you have completed all three notebooks, you have finished your first machine-learning cycle.
+The Regression and Clustering notebooks build on the Classification notebook and are shorter. Once you have completed all three notebooks, you have finished your first machine-learning cycle.
 
 In [Iteration 2](../iteration-2/00_overview.qmd), after Self-study Theme 2, you revisit the workflow in greater depth.
