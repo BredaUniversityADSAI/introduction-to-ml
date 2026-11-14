@@ -6,6 +6,24 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.7.2 · 14 November 2026
+
+Corrections from a review of the course by two learners, a teacher and a chemist.
+
+- **The test set is used once.** In [Modeling & Evaluation](self-study/theme-3/01_modeling_and_evaluation.ipynb) (section 7) and [Gradient Boosting](self-study/theme-5/03_gradient_boosting.ipynb), hyperparameters are now chosen on a validation set or with cross-validation, and the test set is used once, at the end.
+- **New: [Cross-validation by group](self-study/theme-3/01_modeling_and_evaluation.ipynb#cross-validation-by-group)**, in Modeling & Evaluation. How to keep groups of samples together in the folds with `GroupKFold`, and how to choose the validation samples yourself, with the penguins of three islands.
+- **New: [Pipelines and Cross-Validation](self-study/theme-4/01_pipelines_and_columntransformer.ipynb#pipelines-and-cross-validation)**, section 2 of Pipelines & ColumnTransformer. It shows what goes wrong when a preprocessing step sees the validation folds, and how a pipeline prevents it. The exercise of [Logistic Regression](self-study/theme-3/03_logistic_regression.ipynb) now fits the scaler in each fold.
+- **Corrections in the Self-study.**
+  - Section 7 of Modeling & Evaluation: a tree with a much lower training error than validation error overfits, it does not underfit.
+  - [Data Preparation](self-study/theme-2/01_data_prep.ipynb) gives the actual reasons for a log transformation, and what it does not do.
+- **The HOPV file.** In `HOPV_homolumo.data`, the optical gap, PCE, Voc and Jsc now match the synthetic HOMO and LUMO of each molecule, so the correlations between the columns follow the published data. [Understanding HOMO/LUMO Data](datalab/iteration-2/03_understanding_homolumo_data.ipynb) says which values are synthetic and describes the computed values in the file.
+- **DataLab.**
+  - [Iteration 3](datalab/iteration-3/00_overview.qmd#your-first-submission) warns you about infinite and missing descriptor values of the test molecules before your first submission, and Iteration 4 now gives the correct count.
+  - [Iteration 5](datalab/iteration-5/00_overview.qmd) shows how to use the XGBoost and LightGBM classifiers with the class names of the project.
+  - [Iteration 6](datalab/iteration-6/00_overview.qmd#validation-on-new-kinds-of-molecules) explains why a scaffold split does not separate these molecules and suggests other groups.
+  - The last exercise of [Clustering](datalab/iteration-1/05_clustering.ipynb) in Iteration 1 counts atoms with a descriptor instead of searching the SMILES strings.
+- **What comes next, also in VS Code.** The last file of each part of the course route now ends with a note on what comes next, so you can follow the route in VS Code without the website.
+
 ## v0.7.1 · 13 November 2026
 
 A new setup: you work in your own private copy of the course on GitHub.
