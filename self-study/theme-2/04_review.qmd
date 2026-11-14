@@ -1,0 +1,57 @@
+# Theme 2 Review
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-2/04_review.html -->
+
+You have prepared and explored data, and checked whether it matches the data a model will be used on. This page sums up the theme and checks the main ideas.
+
+## Summary
+
+- [Data Preparation](01_data_prep.ipynb): scaling, transformations such as the log for skewed features, missing and infinite values, merging tables, and encoding categories. Every step that learns something from the data, such as the mean of a scaler, is fitted on the training data only.
+- [Data Understanding](02_data_understanding.ipynb): the distribution of each feature, relationships between features and with the target (correlation is not causation), and PCA to look at all features at once, after scaling.
+- [Leakage & Distribution Shift](03_leakage_and_distribution_shift.qmd): a test score only holds for data like the test data. Data from different sources differs, information can leak from the test data into training, and samples that belong together, such as several X-rays of one patient, are split by group.
+
+## Quiz
+
+These questions are easy if you have worked through the activities. Choose an answer to see whether it is right and why.
+
+::: {.quiz data-answer="3"}
+You scale your features with `StandardScaler`. On which data do you fit the scaler?
+
+- On all the data, so that training and test data are scaled the same way. [Then the test data influences the scaling of the training data: that is leakage.]{.feedback}
+- On the test data only, because the model is used on new data. [The scaler is part of the model, so it learns from the training data.]{.feedback}
+- On the training data, and then you use it to transform the test data. [Right. The test data is transformed with what was learned from the training data.]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+A feature has values from 1 to 1,000,000, and most values are small. What can a log transformation help with?
+
+- It lets a model predict values outside the range it was trained on. [No transformation does that: a value outside the training range stays outside it.]{.feedback}
+- It reduces the skew, so a few huge values no longer dominate. [Right. That helps models based on distances and linear models; trees do not need it.]{.feedback}
+- It fills in the missing values of the feature. [A log transformation keeps missing values missing. Imputation fills them in.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+Two features have a correlation of 0.9. What does that tell you?
+
+- They carry largely the same information. [Right. Whether to drop one of them is a question for validation, not a rule.]{.feedback}
+- One of the two features causes the other. [Correlation does not imply causation: both may depend on something else.]{.feedback}
+- One of them must be removed before training. [Correlated features rarely hurt predictions. They do make linear coefficients unstable.]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+Each patient in your dataset has several X-rays. How do you split the data into a training and a test set?
+
+- At random, because a random split is always fair to every patient and every class. [Then X-rays of the same patient end up on both sides, and the test score is too optimistic.]{.feedback}
+- By patient: all X-rays of a patient on the same side. [Right, for example with `GroupShuffleSplit`.]{.feedback}
+- By the date of the X-rays, the oldest ones for training. [A split by date does not keep the X-rays of a patient together. Split by patient.]{.feedback}
+:::
+
+<script src="../../assets/quiz.js"></script>
+
+<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
+
+## What comes next
+
+This is the end of Self-study Theme 2. If you follow the course route, you have finished the first part of step 2 of 6. The [course route](../../README.md#the-course-route) in the README lists the second part of the step (on the website: the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html#the-course-route)).
+
+<!-- /course-route-note -->

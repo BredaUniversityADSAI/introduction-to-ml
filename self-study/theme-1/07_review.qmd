@@ -1,0 +1,67 @@
+# Theme 1 Review
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-1/07_review.html -->
+
+You have followed a small project from data to a tested model. This page sums up the theme and checks the main ideas.
+
+## Summary
+
+- [What is Machine Learning?](01_what_is_machine_learning.qmd): a model learns its parameters from data by making a cost as small as possible. Settings such as the degree of a polynomial, the hyperparameters, are chosen before training. A model that is too simple underfits; a model that follows the noise in its training data overfits, which only data the model has not seen shows.
+- [Getting Started](02_getting_started.ipynb): a dataset as features `X` and a target `y`, and how to run the course notebooks.
+- [Classification](03_classification.ipynb) and [Regression](04_regression.ipynb): create a model, `fit` it on training data and `predict` new data; evaluate on a test set with accuracy or the mean absolute error, and compare with a simple baseline. `random_state` makes a result repeatable.
+- [Unsupervised Learning](05_unsupervised_learning.ipynb): clustering finds groups in data without labels; HDBSCAN can also mark points as noise.
+- [End-to-End ML Project](06_end_to_end_ml.ipynb): the stages of a project, from the question to a tested model. The test set is put aside at the start and used once, at the end.
+
+## Quiz
+
+These questions are easy if you have worked through the activities. Choose an answer to see whether it is right and why.
+
+::: {.quiz data-answer="2"}
+Why do you evaluate a model on a test set instead of on the data it was trained on?
+
+- Because a test set is usually larger, so its score is more precise and stable. [A test set is usually smaller than the training set. The reason is that the model has not seen it.]{.feedback}
+- Because a model can fit its training data better than new data. [Right. Only data the model has not seen shows how well it generalizes.]{.feedback}
+- Because scikit-learn cannot compute a score on the data a model was trained on. [It can, and comparing the training and test scores is useful. But the training score says little about new data.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+A regression model has a mean absolute error (MAE) of 50 on the test set. What do you need to judge whether that is good?
+
+- The MAE of a simple baseline, such as always predicting the mean. [Right. A model is only useful if it clearly beats such a baseline.]{.feedback}
+- The number of trees in the model, to see whether it is large enough. [The size of the model does not tell you whether an MAE of 50 is good. A baseline does.]{.feedback}
+- The accuracy of the model on the same test set. [Accuracy is a classification metric. For regression, compare the MAE with that of a baseline.]{.feedback}
+:::
+
+::: {.quiz data-answer="3"}
+What does `random_state` do in `train_test_split`?
+
+- It sets the share of the data that goes into the test set. [That is `test_size`.]{.feedback}
+- It makes the model more accurate by choosing a split that suits the model well. [It does not look for a good split. It only fixes the random choice.]{.feedback}
+- It fixes the random shuffling: the same split every time. [Right. That makes your results repeatable.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+What is the main difference between clustering and classification?
+
+- Clustering finds groups without labels; classification learns from labels. [Right. Clustering is unsupervised: there is no target to learn from.]{.feedback}
+- Clustering only works with two features, while classification works with any number of features. [Both work with any number of features. In the notebook two features were used to plot the clusters.]{.feedback}
+- Clustering predicts numbers; classification predicts categories. [Predicting numbers is regression. Clustering assigns samples to groups that it finds itself.]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+In the End-to-End ML Project, when is the test set used?
+
+- After every change, to check whether the model has improved. [Then the changes would be chosen on the test set, and its score would be too optimistic.]{.feedback}
+- Once, at the end, after the model has been chosen. [Right. Until then it stays unseen.]{.feedback}
+- Only to choose the hyperparameters of the model. [Hyperparameters are chosen without the test set, for example with cross-validation (Theme 3).]{.feedback}
+:::
+
+<script src="../../assets/quiz.js"></script>
+
+<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
+
+## What comes next
+
+This is the end of Self-study Theme 1. If you follow the course route, you have finished the first part of step 1 of 6. The [course route](../../README.md#the-course-route) in the README lists the second part of the step (on the website: the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html#the-course-route)).
+
+<!-- /course-route-note -->

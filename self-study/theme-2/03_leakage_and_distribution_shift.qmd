@@ -220,11 +220,3 @@ The mole photo is ISIC_0011814 from the [ISIC Archive](https://www.isic-archive.
 :::
 
 <script src="../../assets/quiz.js"></script>
-
-<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
-
-## What comes next
-
-This is the end of Self-study Theme 2. If you follow the course route, you have finished the first part of step 2 of 6. The [course route](../../README.md#the-course-route) in the README lists the second part of the step (on the website: the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html#the-course-route)).
-
-<!-- /course-route-note -->

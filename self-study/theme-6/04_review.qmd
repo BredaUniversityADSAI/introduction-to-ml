@@ -1,0 +1,57 @@
+# Theme 6 Review
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-6/04_review.html -->
+
+You have practiced communicating technical work, reading research and testing an idea from a paper. This page sums up the theme and checks the main ideas.
+
+## Summary
+
+- [Communicating Technical Work](01_communicating_technical_work.qmd): principles for presentations and for writing, turned into your own checklists. A document is useful when it is valuable to its reader.
+- [Understanding ML Research](02_understanding_ml_research.qmd): types of research output, authorship and peer review, the scientific method, searching the literature, and why published results depend on the setting in which they were obtained.
+- [Research to Practice](03_from_research_to_practice.qmd): choose a principle from a paper, apply it to a project, and evaluate the change under your usual validation.
+
+## Quiz
+
+These questions are easy if you have worked through the activities. Choose an answer to see whether it is right and why.
+
+::: {.quiz data-answer="2"}
+According to the lecture on writing, what matters most in a technical document?
+
+- That it is complete and covers every detail. [A complete document can still be useless to its reader.]{.feedback}
+- That it is valuable to the reader. [Right. Clear, organized and persuasive writing only helps if the content is valuable to the reader.]{.feedback}
+- That it uses the technical terms of the field. [Terms help when the reader knows them, but they are not what makes a document useful.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+You look for papers about a general method, such as hyperparameter optimization. How do you start?
+
+- Broad searches first, then more specific ones. [Right. The broad searches give you the words for the specific ones.]{.feedback}
+- By searching for the exact title of the best paper on the topic. [You usually do not know that title yet; finding it is the goal of the search.]{.feedback}
+- By reading only the most cited paper. [Citations show attention, not that a paper fits your problem.]{.feedback}
+:::
+
+::: {.quiz data-answer="3"}
+A highly cited paper reports that a technique improves results. What do you do before you rely on it?
+
+- Nothing: many citations show that the technique works. [Results depend on the data, the models and the evaluation in the paper, as the SMOTE example shows.]{.feedback}
+- Use it only if the paper is recent, because newer methods replace older ones. [Newer is not always better; what matters is whether it works in your setting.]{.feedback}
+- Check its setting, and test it on your own problem. [Right. Collect your own evidence under your own validation.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+You test an idea from a paper in your project. How do you evaluate it?
+
+- Compare with and without the change on the same validation folds. [Right. Then a difference comes from the change, not from other folds.]{.feedback}
+- Look at the test score after the change, because it is the most honest score. [Choosing on the test score makes it too optimistic.]{.feedback}
+- Check whether the authors used the same dataset as you. [That is useful background, but it does not evaluate the change in your project.]{.feedback}
+:::
+
+<script src="../../assets/quiz.js"></script>
+
+<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
+
+## What comes next
+
+This is the end of Self-study Theme 6. If you follow the course route, you have finished the first part of step 6 of 6. The [course route](../../README.md#the-course-route) in the README lists the second part of the step (on the website: the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html#the-course-route)).
+
+<!-- /course-route-note -->

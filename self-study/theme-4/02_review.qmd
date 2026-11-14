@@ -1,0 +1,59 @@
+# Theme 4 Review
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-4/02_review.html -->
+
+You have learned to combine preprocessing and a model into one object. This page sums up the theme and checks the main ideas.
+
+## Summary
+
+- [Pipelines & ColumnTransformer](01_pipelines_and_columntransformer.ipynb):
+  - A `Pipeline` chains transformers and a model: one `fit`, one `predict`, and you save one object.
+  - In cross-validation, a pipeline fits every step in each fold on the training part only, so no information from the validation folds leaks into the preprocessing.
+  - A `ColumnTransformer` gives different columns different preprocessing; `make_column_selector`, `OneHotEncoder(handle_unknown="ignore")` and `get_feature_names_out` help with real data.
+  - Parameters of a step are set as `step__parameter`, which lets you tune the preprocessing and the model together. Differences smaller than the spread over the folds are noise.
+
+## Quiz
+
+These questions are easy if you have worked through the activities. Choose an answer to see whether it is right and why.
+
+::: {.quiz data-answer="2"}
+Why does a pipeline make cross-validation correct?
+
+- It makes the training faster, so you can use more folds in the same time. [Speed is not the point. The point is what each step learns from.]{.feedback}
+- It refits the preprocessing in each fold, on the training part. [Right. The validation folds then play no part in the preprocessing.]{.feedback}
+- It chooses the best model for you by trying them all. [A pipeline does not choose a model; you still compare models yourself.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+A pipeline has an `SVR` step called `model`. How do you set its `C` to 10?
+
+- `pipeline.set_params(model__C=10)` [Right: the step name, two underscores, then the parameter name.]{.feedback}
+- `pipeline.set_params(C=10)` [The pipeline would not know which step `C` belongs to.]{.feedback}
+- `pipeline.steps[1].C = 10`, the second step of the pipeline [`steps[1]` is the pair (name, step), not the SVR itself. Use the step name and two underscores.]{.feedback}
+:::
+
+::: {.quiz data-answer="3"}
+Your data has numeric columns and one column with text categories. Which tool gives each type of column its own preprocessing?
+
+- A `StandardScaler`, which scales every column. [A scaler cannot handle text, and it treats all columns the same way.]{.feedback}
+- A second model for the text column. [You need one model; the preprocessing differs per column.]{.feedback}
+- A `ColumnTransformer`. [Right, for example with a scaler for the numeric columns and a `OneHotEncoder` for the categories.]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+Ten tuning trials differ by less than the spread of the scores over the folds. What do you conclude?
+
+- The best trial has found the best setting, so use exactly those values. [The differences are too small to show that.]{.feedback}
+- The differences are noise: these settings hardly matter. [Right. Tuning is only worth its time when the gain is larger than the noise.]{.feedback}
+- The tuning did not work and must be repeated with many more trials. [It worked: it showed that these settings make little difference.]{.feedback}
+:::
+
+<script src="../../assets/quiz.js"></script>
+
+<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
+
+## What comes next
+
+This is the end of Self-study Theme 4. If you follow the course route, you have finished the first part of step 4 of 6. The [course route](../../README.md#the-course-route) in the README lists the second part of the step (on the website: the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html#the-course-route)).
+
+<!-- /course-route-note -->

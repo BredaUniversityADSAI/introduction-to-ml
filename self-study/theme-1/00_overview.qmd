@@ -4,6 +4,15 @@
 
 In this theme you find out what machine learning is, and you train your first classification, regression and clustering models with scikit-learn. The goal is to get from data to a working model and to test it on data it has not seen. At the end of the theme you follow one small project from start to finish. Later themes explain how the models work.
 
+## What you will be able to do
+
+After this theme you can:
+
+- explain what a model, its parameters, a cost and a hyperparameter are;
+- train classification, regression and clustering models with scikit-learn and use them to predict;
+- evaluate a model on data it has not seen, and compare it with a simple baseline;
+- follow the stages of a project, from the question to a tested model.
+
 ## Activities
 
 Work through the activities in order:
@@ -14,5 +23,6 @@ Work through the activities in order:
 4. [Regression](04_regression.ipynb): your first regression model, compared with a baseline.
 5. [Unsupervised Learning](05_unsupervised_learning.ipynb): your first clustering model.
 6. [End-to-End ML Project](06_end_to_end_ml.ipynb): one project from start to finish, with a section for each stage of CRISP-DM.
+7. [Review](07_review.qmd): a summary of the theme and a short quiz.
 
 In the next Self-study theme, [Theme 2](../theme-2/00_overview.qmd), you learn to prepare and explore data.

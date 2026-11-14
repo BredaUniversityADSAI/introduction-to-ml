@@ -4,6 +4,14 @@
 
 A model is only useful when others understand what you did, and research often has a better approach than the one you would come up with yourself. In this theme you learn to present and write about technical work, to find and read machine-learning research, and to test an idea from a paper yourself.
 
+## What you will be able to do
+
+After this theme you can:
+
+- prepare presentations and documents with your own checklists;
+- find, read and judge machine-learning papers;
+- test an idea from a paper in your own project and report the evidence.
+
 ## Activities
 
 Work through the activities in order:
@@ -11,5 +19,6 @@ Work through the activities in order:
 1. [Communicating Technical Work](01_communicating_technical_work.qmd), about 4 hours: a lecture on presenting and one on writing, and your own checklists for both.
 2. [Understanding ML Research](02_understanding_ml_research.qmd), about 2 hours: types of research output, the scientific method, research metrics, and how to find and access papers.
 3. [Research to Practice](03_from_research_to_practice.qmd), about 6 hours: read a machine-learning paper and test one of its principles in a project of your own.
+4. [Review](04_review.qmd), about 15 minutes: a summary of the theme and a short quiz.
 
 This is the last theme of the Self-study.

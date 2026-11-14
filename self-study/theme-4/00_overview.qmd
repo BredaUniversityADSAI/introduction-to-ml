@@ -4,8 +4,17 @@
 
 A model is rarely used on raw data: the data is first scaled, encoded or completed. In this theme you learn to put these steps and the model together in one object. That keeps your code short, and you can cross-validate and tune the whole object at once, the preprocessing included. It also keeps your cross-validation honest: the preprocessing is fitted again in every fold, on the training part only.
 
+## What you will be able to do
+
+After this theme you can:
+
+- combine preprocessing and a model in a `Pipeline`, with a `ColumnTransformer` for different types of columns;
+- explain why preprocessing must be fitted inside each fold, and cross-validate and tune a whole pipeline;
+- save a fitted pipeline and use it to predict new data.
+
 ## Activities
 
 1. [Pipelines & ColumnTransformer](01_pipelines_and_columntransformer.ipynb): pipelines, why cross-validation needs them, column transformers that treat each type of column differently, and tuning a whole pipeline.
+2. [Review](02_review.qmd): a summary of the theme and a short quiz.
 
 In the next Self-study theme, [Theme 5](../theme-5/00_overview.qmd), you learn the tree-based models that often work best on tabular data.

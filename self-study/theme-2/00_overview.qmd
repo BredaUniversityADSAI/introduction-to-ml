@@ -6,6 +6,14 @@ In Theme 1 you trained models on datasets that were ready to use, and in the End
 
 Data Preparation comes before Data Understanding in this theme, the other way around from CRISP-DM. To understand a dataset, you often have to prepare it first, for example scale features before you compare them. The [End-to-End ML Project](../theme-1/06_end_to_end_ml.ipynb) explains this order in more detail.
 
+## What you will be able to do
+
+After this theme you can:
+
+- scale, transform, impute, merge and encode data without leaking information from the test data;
+- explore the distributions, the relationships and the overall structure (PCA) of a dataset;
+- recognize leakage and distribution shift, and split data by group when samples belong together.
+
 ## Activities
 
 Work through the activities in order:
@@ -13,5 +21,6 @@ Work through the activities in order:
 1. [Data Preparation](01_data_prep.ipynb): scaling, transforming, merging and encoding data, and handling missing values.
 2. [Data Understanding](02_data_understanding.ipynb): distributions, relationships between variables, and principal component analysis (PCA).
 3. [Leakage & Distribution Shift](03_leakage_and_distribution_shift.qmd): what a dataset represents, data unlike the training data, data from different sources, leakage, and how to make your development data match the data a model will be used on.
+4. [Review](04_review.qmd): a summary of the theme and a short quiz.
 
 In the next Self-study theme, [Theme 3](../theme-3/00_overview.qmd), you learn to evaluate and compare models, and you look inside three of them.
