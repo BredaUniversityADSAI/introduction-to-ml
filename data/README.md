@@ -27,7 +27,10 @@ the Harvard Clean Energy Project ([Hachmann et al., 2011](https://doi.org/10.102
 computational screening. The
 target values (HOMO, LUMO and stability) of all datasets are **synthetically generated** based on
 real molecular properties. They follow realistic chemical relationships, but they do not match
-published values for these molecules.
+published values for these molecules. In `HOPV_homolumo.data`, the optical gap, PCE, Voc and Jsc of each
+experiment are the published values adjusted to the synthetic HOMO and LUMO, so that the columns stay
+consistent; the descriptions of the experiments, the fill factor and the computed (DFT) values in the
+conformer blocks are as published.
 
 Files you create while working through the notebooks (for example `HOPV_homolumo_processed.csv`
 and `xy_df_hopv.csv`) go in `002_processed_data/`. Git ignores them there, so updating the course
