@@ -10,7 +10,7 @@ You have learned to combine preprocessing and a model into one object. This page
   - A `Pipeline` chains transformers and a model: one `fit`, one `predict`, and you save one object.
   - In cross-validation, a pipeline fits every step in each fold on the training part only, so no information from the validation folds leaks into the preprocessing.
   - A `ColumnTransformer` gives different columns different preprocessing; `make_column_selector`, `OneHotEncoder(handle_unknown="ignore")` and `get_feature_names_out` help with real data.
-  - Parameters of a step are set as `step__parameter`, which lets you tune the preprocessing and the model together. Differences smaller than the spread over the folds are noise.
+  - Parameters of a step are set as `step__parameter`, which lets you tune the preprocessing and the model together.
 
 ## Quiz
 
@@ -38,14 +38,6 @@ Your data has numeric columns and one column with text categories. Which tool gi
 - A `StandardScaler`, which scales every column. [A scaler cannot handle text, and it treats all columns the same way.]{.feedback}
 - A second model for the text column. [You need one model; the preprocessing differs per column.]{.feedback}
 - A `ColumnTransformer`. [Right, for example with a scaler for the numeric columns and a `OneHotEncoder` for the categories.]{.feedback}
-:::
-
-::: {.quiz data-answer="2"}
-Ten tuning trials differ by less than the spread of the scores over the folds. What do you conclude?
-
-- The best trial has found the best setting, so use exactly those values. [The differences are too small to show that.]{.feedback}
-- The differences are noise: these settings hardly matter. [Right. Tuning is only worth its time when the gain is larger than the noise.]{.feedback}
-- The tuning did not work and must be repeated with many more trials. [It worked: it showed that these settings make little difference.]{.feedback}
 :::
 
 <script src="../../assets/quiz.js"></script>
