@@ -30,4 +30,4 @@ Work through the following pages **in order**:
 
 Once you have completed all three notebooks, you have finished your first machine-learning cycle.
 
-In [Iteration 2](../iteration-2/00_overview.qmd), you will revisit the workflow in greater depth.
+In [Iteration 2](../iteration-2/00_overview.qmd), after Self-study Theme 2, you revisit the workflow in greater depth.

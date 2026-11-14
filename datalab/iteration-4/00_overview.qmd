@@ -109,3 +109,11 @@ Keep track of your experiments so that you know which changes improved your solu
 Only compare scores that come from the same protocol: the same validation molecules, folds and metric. When you change the data you validate on, the folds or the metric, the old scores are no longer comparable: score your previous best model again under the new protocol. And never tune on the data you use for your final check.
 
 [Score](../iteration-3/00_overview.qmd#scoring-your-predictions) your model on the test molecules whenever an experiment gives you a model that you expect to do better. Look only at the public score for now: the private score is for your final models, in Iteration 6. In [Iteration 5](../iteration-5/00_overview.qmd), after the Self-study theme on tree-based algorithms, you work on better models.
+
+<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
+
+## What comes next
+
+This is the end of step 4 of 6 of the course route. Continue with step 5: [Self-study, Theme 5: Tree-Based Algorithms](../../self-study/theme-5/00_overview.qmd), in the folder `self-study/theme-5/`. Decision trees, random forests and gradient boosting.
+
+<!-- /course-route-note -->

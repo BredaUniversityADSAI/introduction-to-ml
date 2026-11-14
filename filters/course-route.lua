@@ -6,7 +6,9 @@
 --     (`from="N"` starts the list at step N);
 --   - adds a "Next" callout at the end of the last page of each part: from a
 --     theme to the iteration of the same step, and from an iteration to the
---     next step.
+--     next step;
+--   - removes the "What comes next" note that tools/course_route_notes.py writes
+--     into those files for readers in VS Code (the callout replaces it).
 
 local ROUTE_FILE = "filters/course-route.yml"
 local ROUTE_PAGE = "course-guide.qmd#the-course-route"
@@ -127,6 +129,22 @@ function Pandoc(doc)
   local _, depth = path:gsub("/", "")
   local up = string.rep("../", depth)
   local steps = read_steps()
+
+  -- The files themselves end with a "What comes next" note for readers in VS Code, written by
+  -- tools/course_route_notes.py between two HTML comments. On the website the callout below
+  -- replaces it, so drop everything between the comments.
+  local kept, skipping = pandoc.Blocks({}), false
+  for _, b in ipairs(doc.blocks) do
+    local raw = b.t == "RawBlock" and b.format:match("html") and b.text or ""
+    if raw:match("^%s*<!%-%- course%-route%-note") then
+      skipping = true
+    elseif raw:match("^%s*<!%-%- /course%-route%-note") then
+      skipping = false
+    elseif not skipping then
+      kept:insert(b)
+    end
+  end
+  doc.blocks = kept
 
   doc.blocks = doc.blocks:walk({
     Div = function(div)

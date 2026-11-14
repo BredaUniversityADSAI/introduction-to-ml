@@ -51,3 +51,11 @@ Use what you learn throughout the course to explore stronger approaches. Possibl
 The Self-study material provides techniques you can draw from, but you decide which ones are appropriate for the problem.
 
 [Score](../iteration-3/00_overview.qmd#scoring-your-predictions) your model on the test molecules when an experiment gives you a better one. In [Iteration 6](../iteration-6/00_overview.qmd), after the last Self-study theme, you work towards your final solution.
+
+<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
+
+## What comes next
+
+This is the end of step 5 of 6 of the course route. Continue with step 6: [Self-study, Theme 6: Applied ML Research](../../self-study/theme-6/00_overview.qmd), in the folder `self-study/theme-6/`. Communicating technical work, reading ML research, and testing its ideas in your own project.
+
+<!-- /course-route-note -->

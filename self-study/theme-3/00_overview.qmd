@@ -13,4 +13,4 @@ Work through the activities in order:
 3. [Logistic Regression](03_logistic_regression.ipynb): from a line to a probability, the log loss, the decision threshold, precision-recall and ROC curves, and more than two classes.
 4. [Clustering](04_clustering.ipynb): distances and scaling, K-Means, choosing the number of clusters with the elbow and the silhouette score, and density-based clustering.
 
-In [Theme 4](../theme-4/00_overview.qmd), you combine preprocessing and a model in one object.
+In the next Self-study theme, [Theme 4](../theme-4/00_overview.qmd), you combine preprocessing and a model in one object.

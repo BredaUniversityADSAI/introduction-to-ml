@@ -2,7 +2,8 @@ name: Check the course
 
 # Catches the common regressions before a release: the data and the sample submissions,
 # the self-study notebooks (run from a fresh kernel, exercise cells left empty), and the
-# rendered site (broken links, missing images, Colab buttons pointing to missing notebooks).
+# rendered site (broken links, missing images, Colab buttons pointing to missing notebooks), and
+# that the "What comes next" notes in the files match filters/course-route.yml.
 # The DataLab notebooks are almost all exercises, so they are not executed.
 
 on:
@@ -43,6 +44,9 @@ jobs:
 
       - name: Check the data and the sample submissions
         run: uv run python tools/check_data.py
+
+      - name: Check the course-route notes (What comes next) in the files
+        run: uv run python tools/course_route_notes.py --check
 
       - name: Run the self-study notebooks
         run: uv run python tools/run_notebooks.py self-study/*/*.ipynb

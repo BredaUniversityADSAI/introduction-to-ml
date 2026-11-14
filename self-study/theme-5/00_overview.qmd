@@ -12,4 +12,4 @@ Work through the activities in order:
 2. [Random Forests](02_random_forests.ipynb): many trees trained on random parts of the data, their hyperparameters, voting and extra-trees.
 3. [Gradient Boosting](03_gradient_boosting.ipynb): trees that each correct the errors of the previous ones, their hyperparameters, XGBoost and LightGBM, AdaBoost and stacking.
 
-In [Theme 6](../theme-6/00_overview.qmd), the last theme, you learn to communicate your work and to use machine-learning research.
+In the next Self-study theme, [Theme 6](../theme-6/00_overview.qmd), the last theme, you learn to communicate your work and to use machine-learning research.
