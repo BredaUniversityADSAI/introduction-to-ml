@@ -6,6 +6,26 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.7.3 · 14 November 2026
+
+More corrections from the same review, answers to check your work, and a review page at the end of every theme.
+
+- **A review page for every theme.** Each theme now ends with a review page: a summary of the theme, a short quiz and what comes next. Each theme overview lists what you will be able to do after the theme. See for example the [Theme 1 Review](self-study/theme-1/07_review.qmd).
+- **Check your work.** Most exercises and questions in the Self-study now have a short answer you can open, or an indication of the scores that are possible, so you can tell whether you are on the right track.
+- **New in the Self-study.**
+  - [Pipelines & ColumnTransformer](self-study/theme-4/01_pipelines_and_columntransformer.ipynb): "More tools for real data": selecting columns by type, infinite values, one-hot encoding of unknown categories, and saving a pipeline.
+  - [Random Forests](self-study/theme-5/02_random_forests.ipynb): what feature importances can and cannot tell you, and the permutation importance.
+  - [Decision Trees](self-study/theme-5/01_decision_trees.ipynb) compares training and cross-validated accuracy for the hyperparameters that limit a tree.
+  - The [Leakage & Distribution Shift](self-study/theme-2/03_leakage_and_distribution_shift.qmd) quiz has a new question.
+- **Corrections in the Self-study.** Clearer explanations and fewer overstatements in all themes, for example on correlated features, the learning rate of gradient boosting, the `C` of a support vector machine and the precision of a test score.
+- **DataLab.**
+  - Iteration 1: the regression notebook keeps the other targets out of the features, and the clustering notebook shows how to scale.
+  - Iteration 2: notes on duplicates, the computed (DFT) values in the HOPV file, the InChIKey column, and selenium and silicon atoms in SMILES.
+  - [Iteration 3](datalab/iteration-3/00_overview.qmd#scoring-your-predictions) explains how the reference solutions were built.
+  - Iteration 4 has hints on missing and extreme descriptor values and on where to keep your notebooks and functions. [Iteration 5](datalab/iteration-5/00_overview.qmd) starts with background on where the molecules come from (read it after Iteration 4), and has more on comparing models fairly. [Iteration 6](datalab/iteration-6/00_overview.qmd#share-your-solution) has more advice for your portfolio repository.
+- **Working in VS Code.** Links in the notebooks to pages of this website now open the website instead of the page's source file.
+- **Scorer.** Clearer messages when a column name is misspelled or the `id` column is missing.
+
 ## v0.7.2 · 14 November 2026
 
 Corrections from a review of the course by two learners, a teacher and a chemist.
