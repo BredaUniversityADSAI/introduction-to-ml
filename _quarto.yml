@@ -88,6 +88,8 @@ website:
               text: "Unsupervised Learning"
             - href: self-study/theme-1/06_end_to_end_ml.ipynb
               text: "End-to-End ML Project"
+            - href: self-study/theme-1/07_review.qmd
+              text: "Review"
 
         - section: "2. Data Preparation & Understanding"
           href: self-study/theme-2/00_overview.qmd
@@ -98,6 +100,8 @@ website:
               text: "Data Understanding"
             - href: self-study/theme-2/03_leakage_and_distribution_shift.qmd
               text: "Leakage & Distribution Shift"
+            - href: self-study/theme-2/04_review.qmd
+              text: "Review"
 
         - section: "3. Modeling & Evaluation"
           href: self-study/theme-3/00_overview.qmd
@@ -110,12 +114,16 @@ website:
               text: "Logistic Regression"
             - href: self-study/theme-3/04_clustering.ipynb
               text: "Clustering"
+            - href: self-study/theme-3/05_review.qmd
+              text: "Review"
 
         - section: "4. Advanced Scikit-Learn"
           href: self-study/theme-4/00_overview.qmd
           contents:
             - href: self-study/theme-4/01_pipelines_and_columntransformer.ipynb
               text: "Pipelines & ColumnTransformer"
+            - href: self-study/theme-4/02_review.qmd
+              text: "Review"
 
         - section: "5. Tree-Based Algorithms"
           href: self-study/theme-5/00_overview.qmd
@@ -126,6 +134,8 @@ website:
               text: "Random Forests"
             - href: self-study/theme-5/03_gradient_boosting.ipynb
               text: "Gradient Boosting"
+            - href: self-study/theme-5/04_review.qmd
+              text: "Review"
 
         - section: "6. Applied ML Research"
           href: self-study/theme-6/00_overview.qmd
@@ -136,6 +146,8 @@ website:
               text: "Understanding ML Research"
             - href: self-study/theme-6/03_from_research_to_practice.qmd
               text: "Research to Practice"
+            - href: self-study/theme-6/04_review.qmd
+              text: "Review"
 
     # DataLab: DataLab -> Iteration -> page (like Self-study -> Theme -> Activity).
     - section: datalab/00_overview.qmd

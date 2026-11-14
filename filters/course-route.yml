@@ -22,7 +22,7 @@ steps:
   - parts:
       - title: "Self-study, Theme 1: Foundations of Machine Learning"
         href: self-study/theme-1/00_overview.qmd
-        ends: self-study/theme-1/06_end_to_end_ml.ipynb
+        ends: self-study/theme-1/07_review.qmd
         text: "What machine learning is, your first classification, regression and clustering models with scikit-learn, and one small project from start to finish."
       - title: "DataLab, Iteration 1: first ML cycle"
         href: datalab/iteration-1/00_overview.qmd
@@ -32,7 +32,7 @@ steps:
   - parts:
       - title: "Self-study, Theme 2: Data Preparation & Understanding"
         href: self-study/theme-2/00_overview.qmd
-        ends: self-study/theme-2/03_leakage_and_distribution_shift.qmd
+        ends: self-study/theme-2/04_review.qmd
         text: "Preparing data (scaling, encoding, missing values), exploring it (distributions, relationships, PCA), and checking that it matches the data a model will be used on (leakage, distribution shift)."
       - title: "DataLab, Iteration 2: your own dataset"
         href: datalab/iteration-2/00_overview.qmd
@@ -42,7 +42,7 @@ steps:
   - parts:
       - title: "Self-study, Theme 3: Modeling & Evaluation"
         href: self-study/theme-3/00_overview.qmd
-        ends: self-study/theme-3/04_clustering.ipynb
+        ends: self-study/theme-3/05_review.qmd
         text: "Cross-validation, hyperparameter tuning and evaluation metrics, then linear regression, logistic regression and clustering: how the models work and how to choose their settings."
       - title: "DataLab, Iteration 3: better evaluation, first submission"
         href: datalab/iteration-3/00_overview.qmd
@@ -53,7 +53,7 @@ steps:
   - parts:
       - title: "Self-study, Theme 4: Advanced Scikit-Learn"
         href: self-study/theme-4/00_overview.qmd
-        ends: self-study/theme-4/01_pipelines_and_columntransformer.ipynb
+        ends: self-study/theme-4/02_review.qmd
         text: "Pipelines and the ColumnTransformer: preprocessing and model in one object."
       - title: "DataLab, Iteration 4: streamlined code, new data"
         href: datalab/iteration-4/00_overview.qmd
@@ -63,7 +63,7 @@ steps:
   - parts:
       - title: "Self-study, Theme 5: Tree-Based Algorithms"
         href: self-study/theme-5/00_overview.qmd
-        ends: self-study/theme-5/03_gradient_boosting.ipynb
+        ends: self-study/theme-5/04_review.qmd
         text: "Decision trees, random forests and gradient boosting."
       - title: "DataLab, Iteration 5: better models"
         href: datalab/iteration-5/00_overview.qmd
@@ -73,7 +73,7 @@ steps:
   - parts:
       - title: "Self-study, Theme 6: Applied ML Research"
         href: self-study/theme-6/00_overview.qmd
-        ends: self-study/theme-6/03_from_research_to_practice.qmd
+        ends: self-study/theme-6/04_review.qmd
         text: "Communicating technical work, reading ML research, and testing its ideas in your own project."
       - title: "DataLab, Iteration 6: your final solution"
         href: datalab/iteration-6/00_overview.qmd

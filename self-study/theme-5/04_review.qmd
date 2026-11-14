@@ -1,0 +1,57 @@
+# Theme 5 Review
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-5/04_review.html -->
+
+You have seen how decision trees learn, and how random forests and gradient boosting combine many trees. This page sums up the theme and checks the main ideas.
+
+## Summary
+
+- [Decision Trees](01_decision_trees.ipynb): a tree splits the data on one feature and one threshold at a time, choosing the split that reduces the impurity most (Gini). Without limits it grows until every leaf is pure and overfits; `max_depth`, `min_samples_split` and `min_samples_leaf` limit its growth. Trees also work for regression.
+- [Random Forests](02_random_forests.ipynb): many trees, each trained on a random sample of the data with random features at each split; averaging them reduces the variance. Feature importances show what the model uses, not what causes the outcome; the permutation importance is a more reliable check.
+- [Gradient Boosting](03_gradient_boosting.ipynb): trees trained one after the other, each on the remaining errors of the ones before. The learning rate and the number of trees are tuned together, with early stopping on a validation set. XGBoost, LightGBM and CatBoost are fast implementations; AdaBoost and stacking are other ways to combine models.
+
+## Quiz
+
+These questions are easy if you have worked through the activities. Choose an answer to see whether it is right and why.
+
+::: {.quiz data-answer="1"}
+A decision tree without limits reaches 100% training accuracy on noisy data. Why?
+
+- It splits until every leaf is pure, noise included. [Right. That is why it does worse on new data.]{.feedback}
+- Noisy data is easy to learn for a decision tree, because trees ignore small errors. [The tree learns the training data perfectly, but not the pattern behind it.]{.feedback}
+- The Gini impurity ignores the noisy samples when it chooses the splits. [The Gini impurity counts every sample; the tree splits until even the noisy ones are separated.]{.feedback}
+:::
+
+::: {.quiz data-answer="3"}
+Why does a random forest usually predict better than one deep tree?
+
+- Its trees are shallower, so they cannot overfit. [The trees of a random forest are usually deep.]{.feedback}
+- Every tree in the forest sees all the training data and all the features, so it learns more. [The opposite: each tree sees a random sample and random features, so the trees differ.]{.feedback}
+- It averages many different trees, so their errors partly cancel. [Right. Averaging reduces the variance.]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+In gradient boosting, what does each new tree learn?
+
+- The original targets, independently of the trees before it. [That describes the trees of a random forest.]{.feedback}
+- The remaining errors of the trees before it. [Right. Each tree corrects a part of what the ensemble still gets wrong.]{.feedback}
+- Which features are the most important. [Feature importances come out of the trained model; they are not what a tree is trained on.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+You lower the learning rate of gradient boosting from 0.3 to 0.03. What else should you change?
+
+- Use more trees, or early stopping. [Right. The two settings are tuned together.]{.feedback}
+- Nothing: the learning rate does not interact with other settings. [With smaller steps, the same number of trees gets less far, so the model may underfit.]{.feedback}
+- Use deeper trees, so that each tree can make up for the smaller steps. [Deeper trees change something else. With a smaller learning rate you mainly need more trees.]{.feedback}
+:::
+
+<script src="../../assets/quiz.js"></script>
+
+<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
+
+## What comes next
+
+This is the end of Self-study Theme 5. If you follow the course route, you have finished the first part of step 5 of 6. The [course route](../../README.md#the-course-route) in the README lists the second part of the step (on the website: the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html#the-course-route)).
+
+<!-- /course-route-note -->

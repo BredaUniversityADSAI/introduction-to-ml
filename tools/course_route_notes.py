@@ -109,6 +109,26 @@ for part, nxt in zip(parts, parts[1:]):
         if not args.check:
             path.write_text(new, encoding="utf-8")
 
+# A note in a file that is no longer the last page of a part (the route or a theme changed) is removed.
+ends = {part["ends"] for part in parts[:-1]}
+for path in sorted(ROOT.glob("self-study/**/*")) + sorted(ROOT.glob("datalab/**/*")):
+    rel = path.relative_to(ROOT).as_posix()
+    if path.suffix not in (".ipynb", ".qmd") or rel in ends:
+        continue
+    raw = path.read_text(encoding="utf-8")
+    if START not in raw:
+        continue
+    if path.suffix == ".ipynb":
+        nb = json.loads(raw)
+        nb["cells"] = [c for c in nb["cells"]
+                       if not (c["cell_type"] == "markdown" and "".join(c["source"]).startswith(START))]
+        new = json.dumps(nb, indent=1, ensure_ascii=False) + "\n"
+    else:
+        new = re.sub(r"\n*" + re.escape(START) + r".*?" + re.escape(END) + r"\n?", "\n", raw, flags=re.S)
+    stale.append(rel + " (old note removed)")
+    if not args.check:
+        path.write_text(new, encoding="utf-8")
+
 if args.check:
     for s in stale:
         print("note missing or out of date:", s, "(run python tools/course_route_notes.py)")

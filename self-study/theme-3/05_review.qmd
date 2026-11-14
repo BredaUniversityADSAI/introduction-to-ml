@@ -1,0 +1,66 @@
+# Theme 3 Review
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/self-study/theme-3/05_review.html -->
+
+You have learned to evaluate and compare models, and you have looked inside three of them. This page sums up the theme and checks the main ideas.
+
+## Summary
+
+- [Modeling & Evaluation](01_modeling_and_evaluation.ipynb): cross-validation for a reliable estimate (stratified for classification, by group when samples belong together); a validation set or cross-validation for every choice, and the test set once at the end; feature selection, model selection and hyperparameter tuning; underfitting and overfitting from the training and validation errors; metrics such as precision, recall, (macro-)F1, MAE, RMSE and R².
+- [Linear Regression](02_linear_regression.ipynb): a cost, gradient descent, several features, polynomial features, and regularization with Ridge and Lasso.
+- [Logistic Regression](03_logistic_regression.ipynb): from a line to a probability, the decision threshold, precision-recall and ROC curves, and regularization with `C`.
+- [Clustering](04_clustering.ipynb): distances and scaling, K-Means, the elbow method and the silhouette score, and density-based clustering.
+
+## Quiz
+
+These questions are easy if you have worked through the activities. Choose an answer to see whether it is right and why.
+
+::: {.quiz data-answer="2"}
+A model has a training error close to 0 and a much higher validation error. What is the most likely diagnosis?
+
+- Underfitting: the model is too simple for the data. [Underfitting shows as a high training error. Here the training error is close to 0.]{.feedback}
+- Overfitting: the model follows the noise in its training data. [Right. A large gap between training and validation error is the sign.]{.feedback}
+- A bug in the metric, because the training and the validation error should be about equal. [The two errors are rarely equal: the training error is usually lower.]{.feedback}
+:::
+
+::: {.quiz data-answer="3"}
+You compare ten values of a hyperparameter. On which data do you compare them?
+
+- On the test set, because it gives the most honest estimate of the performance on new data. [Once you choose on the test set, its score is no longer honest.]{.feedback}
+- On the training data, because the model was fitted on it. [The training error keeps going down for more flexible settings, so it would always pick the most flexible one.]{.feedback}
+- On a validation set, or with cross-validation. [Right. The test set stays unseen until the final check.]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+95% of the samples are negative, and a model predicts "negative" for every sample. Which metric shows the problem?
+
+- Accuracy, which is 95%, because it counts every correct prediction. [95% looks good, and that is the problem: accuracy hides it.]{.feedback}
+- The F1 score of the positive class, or the macro-F1. [Right. The F1 of the positive class is 0, so the macro-F1 is low too.]{.feedback}
+- The mean absolute error of the predictions, computed on the test set. [The MAE is a regression metric.]{.feedback}
+:::
+
+::: {.quiz data-answer="1"}
+In `LogisticRegression`, what does a larger value of `C` do?
+
+- It weakens the regularization. [Right. `C` works in the inverse direction of the regularization strength.]{.feedback}
+- It strengthens the regularization, so the model becomes simpler and smoother. [The other way around: a smaller `C` means stronger regularization.]{.feedback}
+- It moves the decision threshold away from 0.5. [The threshold is a separate choice, made after training.]{.feedback}
+:::
+
+::: {.quiz data-answer="2"}
+Why do you scale the features before K-Means?
+
+- Because K-Means only accepts values between 0 and 1, like a probability. [K-Means accepts any numbers. The problem is what the distances mean.]{.feedback}
+- Because K-Means uses distances, which large numbers dominate. [Right. Scaling gives every feature a comparable influence.]{.feedback}
+- Because scaling sets the number of clusters that K-Means looks for. [You choose the number of clusters yourself, for example with the elbow method or the silhouette score.]{.feedback}
+:::
+
+<script src="../../assets/quiz.js"></script>
+
+<!-- course-route-note: written by tools/course_route_notes.py from filters/course-route.yml; on the website the Next callout replaces it -->
+
+## What comes next
+
+This is the end of Self-study Theme 3. If you follow the course route, you have finished the first part of step 3 of 6. The [course route](../../README.md#the-course-route) in the README lists the second part of the step (on the website: the [Course Guide](https://ai.buas.nl/open-courses/introduction-to-ml/course-guide.html#the-course-route)).
+
+<!-- /course-route-note -->
