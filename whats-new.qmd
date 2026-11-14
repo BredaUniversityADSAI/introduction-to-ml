@@ -6,6 +6,13 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.7.5 · 14 November 2026
+
+- [Iteration 1](datalab/iteration-1/00_overview.qmd): the Regression and Clustering notebooks build on the Classification notebook. They no longer repeat its data exploration and explanations, so they are shorter.
+- [Theme 4 Review](self-study/theme-4/02_review.qmd) and [Iteration 5](datalab/iteration-5/00_overview.qmd) no longer state that a difference between two models smaller than the spread of the fold scores is noise.
+- [Set Up Your Computer](setup.qmd) no longer has the section for learners who downloaded the course before v0.7.1.
+- New learner quotes on the home page.
+
 ## v0.7.4 · 14 November 2026
 
 Corrections from a second review of the course by two learners, a teacher and a chemist.
