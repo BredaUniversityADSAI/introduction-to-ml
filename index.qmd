@@ -362,17 +362,17 @@ Selected answers from first-year students to the course evaluation survey.
 :::
 
 ::: {.ml-quote}
-<div class="ml-quote-tag">On the Kaggle competition</div>
+<div class="ml-quote-tag">On experimenting</div>
 
-> Kaggle competition allows us to experiment ourselves with the best approach.
+> A lot of room to experiment with different parts of machine learning.
 
 <div class="ml-quote-by">Year 1 student</div>
 :::
 
 ::: {.ml-quote}
-<div class="ml-quote-tag">On understanding the code</div>
+<div class="ml-quote-tag">On looking under the hood</div>
 
-> Kaggle competition was very entertaining and eye opening, I had to truly understand code to get it right, and just asking Claude wouldn't've cut it.
+> How much I was able to improve my skills with a new environment, programming language and libraries, and how I was also able to look under the hood of some of the important functions of these libraries.
 
 <div class="ml-quote-by">Year 1 student</div>
 :::
