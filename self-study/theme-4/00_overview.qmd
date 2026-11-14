@@ -8,4 +8,4 @@ A model is rarely used on raw data: the data is first scaled, encoded or complet
 
 1. [Pipelines & ColumnTransformer](01_pipelines_and_columntransformer.ipynb): pipelines, why cross-validation needs them, column transformers that treat each type of column differently, and tuning a whole pipeline.
 
-In [Theme 5](../theme-5/00_overview.qmd), you learn the tree-based models that often work best on tabular data.
+In the next Self-study theme, [Theme 5](../theme-5/00_overview.qmd), you learn the tree-based models that often work best on tabular data.

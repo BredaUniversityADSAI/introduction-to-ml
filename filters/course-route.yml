@@ -11,6 +11,12 @@
 # `ends`: the last page of the part, in sidebar order (the last part needs none).
 # `finish`: optional, shown in that callout before the pointer to the next part.
 # Keep `href` and `ends` in step with the sidebar in _quarto.yml.
+#
+# Readers in VS Code do not see the callout, so the `ends` files also end with a
+# "What comes next" note, written from this file by tools/course_route_notes.py
+# (the filter removes it on the website). After changing this file, run
+#   uv run python tools/course_route_notes.py
+# (CI runs it with --check).
 
 steps:
   - parts:

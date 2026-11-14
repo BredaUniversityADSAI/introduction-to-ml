@@ -14,4 +14,4 @@ Work through the activities in order:
 2. [Data Understanding](02_data_understanding.ipynb): distributions, relationships between variables, and principal component analysis (PCA).
 3. [Leakage & Distribution Shift](03_leakage_and_distribution_shift.qmd): what a dataset represents, data unlike the training data, data from different sources, leakage, and how to make your development data match the data a model will be used on.
 
-In [Theme 3](../theme-3/00_overview.qmd), you learn to evaluate and compare models, and you look inside three of them.
+In the next Self-study theme, [Theme 3](../theme-3/00_overview.qmd), you learn to evaluate and compare models, and you look inside three of them.

@@ -15,4 +15,4 @@ Work through the activities in order:
 5. [Unsupervised Learning](05_unsupervised_learning.ipynb): your first clustering model.
 6. [End-to-End ML Project](06_end_to_end_ml.ipynb): one project from start to finish, with a section for each stage of CRISP-DM.
 
-In [Theme 2](../theme-2/00_overview.qmd), you learn to prepare and explore data.
+In the next Self-study theme, [Theme 2](../theme-2/00_overview.qmd), you learn to prepare and explore data.
