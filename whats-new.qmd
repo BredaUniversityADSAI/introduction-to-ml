@@ -6,6 +6,14 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.7.4 · 14 November 2026
+
+Corrections from a second review of the course by two learners, a teacher and a chemist.
+
+- [End-to-End ML Project](self-study/theme-1/06_end_to_end_ml.ipynb#evaluation): the evaluation now says what the test score does not show. The test penguins come from the same islands as the training penguins, so the score does not tell how the model does on a new island.
+- [Understanding HOMO/LUMO Data](datalab/iteration-2/03_understanding_homolumo_data.ipynb) in Iteration 2: the computed (DFT) values in the HOPV file are not leakage. You leave them out because the file has them only for the HOPV molecules.
+- [Clustering](datalab/iteration-3/03_clustering.ipynb) in Iteration 3 no longer says that Iteration 4 shows how to make the clustering a step of your model.
+
 ## v0.7.3 · 14 November 2026
 
 More corrections from the same review, answers to check your work, and a review page at the end of every theme.
