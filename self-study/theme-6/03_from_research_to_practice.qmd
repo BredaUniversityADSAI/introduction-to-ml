@@ -37,6 +37,15 @@ Document:
 4. how you evaluated the effect: compare the model with and without the change under the same validation, on the same cross-validation folds, and keep the test set for the final check;
 5. what you learned from the result.
 
+::: {.callout-note collapse="true"}
+## An example of such a write-up (with made-up numbers)
+1. Principle: "More data beats a cleverer algorithm."
+2. Relevance: my classifier was trained on 300 samples from one source, and I had a second source with 200 more samples that I had not used.
+3. Change: I added the second source to the training data and kept the model and its settings the same.
+4. Evaluation: 5-fold cross-validation on the same folds of the data I want to predict, before and after: macro-F1 0.71 ± 0.04 before, 0.78 ± 0.05 after.
+5. What I learned: the gain is larger than the spread over the folds, so it is probably real. A more complex model on the old data had given only 0.72.
+:::
+
 If your project contains several trained models, **ensembling** is one useful idea to explore.
 
 You could combine predictions from multiple models, compare the ensemble against your best individual model, and investigate whether—and why—the result changes.
