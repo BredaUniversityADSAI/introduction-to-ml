@@ -1,6 +1,6 @@
 [project]
 name = "introduction-to-ml"
-version = "0.7.3"
+version = "0.7.4"
 description = "Introduction to Machine Learning: an open course from Applied Data Science & AI, Breda University of Applied Sciences."
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
