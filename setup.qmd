@@ -198,22 +198,6 @@ Your copy keeps the course version you started with; its number is the `version`
 
 This website always shows the latest version. If a page and your notebook differ, [What's new](whats-new.qmd) says what changed. If a later version fixes something you need, such as a mistake in a notebook, open the file in the [course repository](https://github.com/BredaUniversityADSAI/introduction-to-ml) and copy the part you need into your own notebook.
 
-## Already downloaded the course with git clone?
-
-Before version 0.7.1, this page told you to clone the course repository itself. Your work is then only on your computer, and you can't save it to GitHub. To turn your folder into your own private repository, without losing your work:
-
-1. On GitHub, create a new, empty, private repository ("+" > "New repository"), for example `introduction-to-ml`. Don't add a README.
-2. Save your work in the course folder as a commit (steps 1 to 3 of [Save your work](#save-your-work)).
-3. In a VS Code terminal in the course folder, connect the folder to your new repository and send your work to it:
-
-   ```bash
-   git remote rename origin course
-   git remote add origin https://github.com/<your-username>/introduction-to-ml.git
-   git push -u origin main
-   ```
-
-From then on, save your work as described in [Save your work](#save-your-work).
-
 ## Without a GitHub account
 
 You can also download the course without a GitHub account. Follow steps 2 to 4, then download the course in a terminal, in the folder where you keep your projects, and continue with step 7:
