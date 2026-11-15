@@ -6,6 +6,28 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.7.7 · 15 November 2026
+
+The course is now organized in six modules, so that the menu, the Next link and the folders all follow the order in which you work.
+
+- Each module has a Self-study and a DataLab iteration with the same number: you learn the concepts, apply them to the project, and then start the next module. The menu and the Next link at the bottom of each page now follow this order; before, they listed all of the Self-study first. What used to be called a theme is now a module. The six modules are listed in the [Course Guide](course-guide.qmd#the-modules).
+- In the course repository, everything is in the folder `modules/`, one folder per module with its overview, its Self-study (`1_self_study/`) and its DataLab iteration (`2_datalab/`). The notebooks are one folder deeper, so they read the data from `../../../data/`.
+
+  | Module | Before v0.7.7 | From v0.7.7 |
+  |---|---|---|
+  | 1 | `self-study/theme-1/`, `datalab/iteration-1/` | `modules/1_foundations/` |
+  | 2 | `self-study/theme-2/`, `datalab/iteration-2/` | `modules/2_data_preparation/` |
+  | 3 | `self-study/theme-3/`, `datalab/iteration-3/` | `modules/3_modeling_and_evaluation/` |
+  | 4 | `self-study/theme-4/`, `datalab/iteration-4/` | `modules/4_advanced_scikit_learn/` |
+  | 5 | `self-study/theme-5/`, `datalab/iteration-5/` | `modules/5_tree_based_algorithms/` |
+  | 6 | `self-study/theme-6/`, `datalab/iteration-6/` | `modules/6_applied_ml_research/` |
+
+  If you started with an earlier version, keep working in your own copy as it is: your work stays where it is, and the notebooks are the same. Use the table to find a page on this website. Old links to pages forward to their new address.
+- The [Course Guide](course-guide.qmd) is rewritten around the modules, with a photo of an organic solar cell. The route figures and the notes at the end of each theme and iteration that pointed to the next part are gone: the menu now shows the order.
+- The DataLab overview page is gone. The introduction to the project, how it works and the table of all six iterations are now in the [Iteration 1](modules/1_foundations/2_datalab/00_overview.qmd) overview, and the full guide to the scorer is in [Iteration 3](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd#scoring-your-predictions). Every iteration overview starts with what you have at the end of the iteration. The figure of the project (from a molecule to the predictions) is redrawn.
+- [Iteration 4](modules/4_advanced_scikit_learn/2_datalab/00_overview.qmd): keep `features.py`, your file with shared functions, in `modules/`, so that the notebooks of all later iterations can import it.
+- Browser tabs show the title of the page instead of "overview" or "review".
+
 ## v0.7.6 · 14 November 2026
 
 - [Set Up Your Computer](setup.qmd) is easier to follow:
