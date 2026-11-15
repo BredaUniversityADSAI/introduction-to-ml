@@ -17,8 +17,8 @@ Found a mistake or something unclear? Use "Report an issue" on any page, or [ope
 
 ## v0.7.5 · 14 November 2026
 
-- [Iteration 1](datalab/iteration-1/00_overview.qmd): the Regression and Clustering notebooks build on the Classification notebook. They no longer repeat its data exploration and explanations, so they are shorter.
-- [Theme 4 Review](self-study/theme-4/02_review.qmd) and [Iteration 5](datalab/iteration-5/00_overview.qmd) no longer state that a difference between two models smaller than the spread of the fold scores is noise.
+- [Iteration 1](modules/1_foundations/2_datalab/00_overview.qmd): the Regression and Clustering notebooks build on the Classification notebook. They no longer repeat its data exploration and explanations, so they are shorter.
+- [Theme 4 Review](modules/4_advanced_scikit_learn/1_self_study/02_review.qmd) and [Iteration 5](modules/5_tree_based_algorithms/2_datalab/00_overview.qmd) no longer state that a difference between two models smaller than the spread of the fold scores is noise.
 - [Set Up Your Computer](setup.qmd) no longer has the section for learners who downloaded the course before v0.7.1.
 - New learner quotes on the home page.
 
@@ -26,27 +26,27 @@ Found a mistake or something unclear? Use "Report an issue" on any page, or [ope
 
 Corrections from a second review of the course by two learners, a teacher and a chemist.
 
-- [End-to-End ML Project](self-study/theme-1/06_end_to_end_ml.ipynb#evaluation): the evaluation now says what the test score does not show. The test penguins come from the same islands as the training penguins, so the score does not tell how the model does on a new island.
-- [Understanding HOMO/LUMO Data](datalab/iteration-2/03_understanding_homolumo_data.ipynb) in Iteration 2: the computed (DFT) values in the HOPV file are not leakage. You leave them out because the file has them only for the HOPV molecules.
-- [Clustering](datalab/iteration-3/03_clustering.ipynb) in Iteration 3 no longer says that Iteration 4 shows how to make the clustering a step of your model.
+- [End-to-End ML Project](modules/1_foundations/1_self_study/06_end_to_end_ml.ipynb#evaluation): the evaluation now says what the test score does not show. The test penguins come from the same islands as the training penguins, so the score does not tell how the model does on a new island.
+- [Understanding HOMO/LUMO Data](modules/2_data_preparation/2_datalab/03_understanding_homolumo_data.ipynb) in Iteration 2: the computed (DFT) values in the HOPV file are not leakage. You leave them out because the file has them only for the HOPV molecules.
+- [Clustering](modules/3_modeling_and_evaluation/2_datalab/03_clustering.ipynb) in Iteration 3 no longer says that Iteration 4 shows how to make the clustering a step of your model.
 
 ## v0.7.3 · 14 November 2026
 
 More corrections from the same review, answers to check your work, and a review page at the end of every theme.
 
-- **A review page for every theme.** Each theme now ends with a review page: a summary of the theme, a short quiz and what comes next. Each theme overview lists what you will be able to do after the theme. See for example the [Theme 1 Review](self-study/theme-1/07_review.qmd).
+- **A review page for every theme.** Each theme now ends with a review page: a summary of the theme, a short quiz and what comes next. Each theme overview lists what you will be able to do after the theme. See for example the [Theme 1 Review](modules/1_foundations/1_self_study/07_review.qmd).
 - **Check your work.** Most exercises and questions in the Self-study now have a short answer you can open, or an indication of the scores that are possible, so you can tell whether you are on the right track.
 - **New in the Self-study.**
-  - [Pipelines & ColumnTransformer](self-study/theme-4/01_pipelines_and_columntransformer.ipynb): "More tools for real data": selecting columns by type, infinite values, one-hot encoding of unknown categories, and saving a pipeline.
-  - [Random Forests](self-study/theme-5/02_random_forests.ipynb): what feature importances can and cannot tell you, and the permutation importance.
-  - [Decision Trees](self-study/theme-5/01_decision_trees.ipynb) compares training and cross-validated accuracy for the hyperparameters that limit a tree.
-  - The [Leakage & Distribution Shift](self-study/theme-2/03_leakage_and_distribution_shift.qmd) quiz has a new question.
+  - [Pipelines & ColumnTransformer](modules/4_advanced_scikit_learn/1_self_study/01_pipelines_and_columntransformer.ipynb): "More tools for real data": selecting columns by type, infinite values, one-hot encoding of unknown categories, and saving a pipeline.
+  - [Random Forests](modules/5_tree_based_algorithms/1_self_study/02_random_forests.ipynb): what feature importances can and cannot tell you, and the permutation importance.
+  - [Decision Trees](modules/5_tree_based_algorithms/1_self_study/01_decision_trees.ipynb) compares training and cross-validated accuracy for the hyperparameters that limit a tree.
+  - The [Leakage & Distribution Shift](modules/2_data_preparation/1_self_study/03_leakage_and_distribution_shift.qmd) quiz has a new question.
 - **Corrections in the Self-study.** Clearer explanations and fewer overstatements in all themes, for example on correlated features, the learning rate of gradient boosting, the `C` of a support vector machine and the precision of a test score.
 - **DataLab.**
   - Iteration 1: the regression notebook keeps the other targets out of the features, and the clustering notebook shows how to scale.
   - Iteration 2: notes on duplicates, the computed (DFT) values in the HOPV file, the InChIKey column, and selenium and silicon atoms in SMILES.
-  - [Iteration 3](datalab/iteration-3/00_overview.qmd#scoring-your-predictions) explains how the reference solutions were built.
-  - Iteration 4 has hints on missing and extreme descriptor values and on where to keep your notebooks and functions. [Iteration 5](datalab/iteration-5/00_overview.qmd) starts with background on where the molecules come from (read it after Iteration 4), and has more on comparing models fairly. [Iteration 6](datalab/iteration-6/00_overview.qmd#share-your-solution) has more advice for your portfolio repository.
+  - [Iteration 3](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd#scoring-your-predictions) explains how the reference solutions were built.
+  - Iteration 4 has hints on missing and extreme descriptor values and on where to keep your notebooks and functions. [Iteration 5](modules/5_tree_based_algorithms/2_datalab/00_overview.qmd) starts with background on where the molecules come from (read it after Iteration 4), and has more on comparing models fairly. [Iteration 6](modules/6_applied_ml_research/2_datalab/00_overview.qmd#share-your-solution) has more advice for your portfolio repository.
 - **Working in VS Code.** Links in the notebooks to pages of this website now open the website instead of the page's source file.
 - **Scorer.** Clearer messages when a column name is misspelled or the `id` column is missing.
 
@@ -54,18 +54,18 @@ More corrections from the same review, answers to check your work, and a review 
 
 Corrections from a review of the course by two learners, a teacher and a chemist.
 
-- **The test set is used once.** In [Modeling & Evaluation](self-study/theme-3/01_modeling_and_evaluation.ipynb) (section 7) and [Gradient Boosting](self-study/theme-5/03_gradient_boosting.ipynb), hyperparameters are now chosen on a validation set or with cross-validation, and the test set is used once, at the end.
-- **New: [Cross-validation by group](self-study/theme-3/01_modeling_and_evaluation.ipynb#cross-validation-by-group)**, in Modeling & Evaluation. How to keep groups of samples together in the folds with `GroupKFold`, and how to choose the validation samples yourself, with the penguins of three islands.
-- **New: [Pipelines and Cross-Validation](self-study/theme-4/01_pipelines_and_columntransformer.ipynb#pipelines-and-cross-validation)**, section 2 of Pipelines & ColumnTransformer. It shows what goes wrong when a preprocessing step sees the validation folds, and how a pipeline prevents it. The exercise of [Logistic Regression](self-study/theme-3/03_logistic_regression.ipynb) now fits the scaler in each fold.
+- **The test set is used once.** In [Modeling & Evaluation](modules/3_modeling_and_evaluation/1_self_study/01_modeling_and_evaluation.ipynb) (section 7) and [Gradient Boosting](modules/5_tree_based_algorithms/1_self_study/03_gradient_boosting.ipynb), hyperparameters are now chosen on a validation set or with cross-validation, and the test set is used once, at the end.
+- **New: [Cross-validation by group](modules/3_modeling_and_evaluation/1_self_study/01_modeling_and_evaluation.ipynb#cross-validation-by-group)**, in Modeling & Evaluation. How to keep groups of samples together in the folds with `GroupKFold`, and how to choose the validation samples yourself, with the penguins of three islands.
+- **New: [Pipelines and Cross-Validation](modules/4_advanced_scikit_learn/1_self_study/01_pipelines_and_columntransformer.ipynb#pipelines-and-cross-validation)**, section 2 of Pipelines & ColumnTransformer. It shows what goes wrong when a preprocessing step sees the validation folds, and how a pipeline prevents it. The exercise of [Logistic Regression](modules/3_modeling_and_evaluation/1_self_study/03_logistic_regression.ipynb) now fits the scaler in each fold.
 - **Corrections in the Self-study.**
   - Section 7 of Modeling & Evaluation: a tree with a much lower training error than validation error overfits, it does not underfit.
-  - [Data Preparation](self-study/theme-2/01_data_prep.ipynb) gives the actual reasons for a log transformation, and what it does not do.
-- **The HOPV file.** In `HOPV_homolumo.data`, the optical gap, PCE, Voc and Jsc now match the synthetic HOMO and LUMO of each molecule, so the correlations between the columns follow the published data. [Understanding HOMO/LUMO Data](datalab/iteration-2/03_understanding_homolumo_data.ipynb) says which values are synthetic and describes the computed values in the file.
+  - [Data Preparation](modules/2_data_preparation/1_self_study/01_data_prep.ipynb) gives the actual reasons for a log transformation, and what it does not do.
+- **The HOPV file.** In `HOPV_homolumo.data`, the optical gap, PCE, Voc and Jsc now match the synthetic HOMO and LUMO of each molecule, so the correlations between the columns follow the published data. [Understanding HOMO/LUMO Data](modules/2_data_preparation/2_datalab/03_understanding_homolumo_data.ipynb) says which values are synthetic and describes the computed values in the file.
 - **DataLab.**
-  - [Iteration 3](datalab/iteration-3/00_overview.qmd#your-first-submission) warns you about infinite and missing descriptor values of the test molecules before your first submission, and Iteration 4 now gives the correct count.
-  - [Iteration 5](datalab/iteration-5/00_overview.qmd) shows how to use the XGBoost and LightGBM classifiers with the class names of the project.
-  - [Iteration 6](datalab/iteration-6/00_overview.qmd#validation-on-new-kinds-of-molecules) explains why a scaffold split does not separate these molecules and suggests other groups.
-  - The last exercise of [Clustering](datalab/iteration-1/05_clustering.ipynb) in Iteration 1 counts atoms with a descriptor instead of searching the SMILES strings.
+  - [Iteration 3](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd#your-first-submission) warns you about infinite and missing descriptor values of the test molecules before your first submission, and Iteration 4 now gives the correct count.
+  - [Iteration 5](modules/5_tree_based_algorithms/2_datalab/00_overview.qmd) shows how to use the XGBoost and LightGBM classifiers with the class names of the project.
+  - [Iteration 6](modules/6_applied_ml_research/2_datalab/00_overview.qmd#validation-on-new-kinds-of-molecules) explains why a scaffold split does not separate these molecules and suggests other groups.
+  - The last exercise of [Clustering](modules/1_foundations/2_datalab/05_clustering.ipynb) in Iteration 1 counts atoms with a descriptor instead of searching the SMILES strings.
 - **What comes next, also in VS Code.** The last file of each part of the course route now ends with a note on what comes next, so you can follow the route in VS Code without the website.
 
 ## v0.7.1 · 13 November 2026
@@ -74,19 +74,19 @@ A new setup: you work in your own private copy of the course on GitHub.
 
 - **Your own copy of the course.** [Set Up Your Computer](setup.qmd) now starts with a free GitHub account. You make your own private copy of the course with "Use this template", download it in VS Code and save your work to it after each session, so you have a backup and a history of your work. A figure shows how it works, and two short courses from GitHub help if you are new to Git and GitHub.
 - **Finish the version you started with.** Your copy keeps the course version you started with, and later changes don't reach it. [What's New](whats-new.qmd) tells you what changed in later versions.
-- The [Course Guide](course-guide.qmd) describes the new setup, and [Iteration 6](datalab/iteration-6/00_overview.qmd#share-your-solution) explains that your portfolio is a new public repository, separate from your private copy of the course.
+- The [Course Guide](course-guide.qmd) describes the new setup, and [Iteration 6](modules/6_applied_ml_research/2_datalab/00_overview.qmd#share-your-solution) explains that your portfolio is a new public repository, separate from your private copy of the course.
 
 ## v0.7.0 · 13 November 2026
 
 The course is easier to follow on your own computer, and a new Course Guide explains how the course works.
 
 - **One folder per theme.** In the course repository, the Self-study is now in one folder per theme (`self-study/theme-1/` to `self-study/theme-6/`). In every theme and iteration folder, the files are numbered in the order you work through them, starting with the overview page `00_overview.qmd`, so the folders show the course in the same order as the menu on this website.
-  - The Iteration 2 files are renumbered: [Understanding SMILES](datalab/iteration-2/01_understanding_smiles.qmd) is now 01, and the notebooks are 02 to 05.
+  - The Iteration 2 files are renumbered: [Understanding SMILES](modules/2_data_preparation/2_datalab/01_understanding_smiles.qmd) is now 01, and the notebooks are 02 to 05.
   - Old page addresses forward to the new ones.
   - If you already downloaded the course, `git pull` moves and renames the files. Your own copies of notebooks stay where they are: move them to the new folders yourself. If you changed one of the course notebooks, `git pull` stops; see [Updates](setup.qmd#updates).
 - **VS Code.** [Set Up Your Computer](setup.qmd) now uses VS Code to open and run the notebooks. When you open the course folder, VS Code offers to install the extensions the course needs, and it hides the files that only build this website. Each page file (`.qmd`) starts with its address on this website.
 - **[Course Guide](course-guide.qmd)** replaces How to use this course. It describes the two parts of the course, Self-study and DataLab, explains why they take turns, with a figure, recommends a setup and lists the course route. The overview page now also describes the course as these two parts; the test set belongs to the DataLab.
-- The [Self-Study](self-study/00_overview.qmd) and [DataLab](datalab/00_overview.qmd) overview pages show where to start: with Theme 1, and with Iteration 1 after Theme 1.
+- The [Self-Study](course-guide.qmd) and [DataLab](modules/1_foundations/2_datalab/00_overview.qmd) overview pages show where to start: with Theme 1, and with Iteration 1 after Theme 1.
 
 ## v0.6.0 · 13 November 2026
 
@@ -95,20 +95,20 @@ The Kaggle competitions are replaced by a test set in the course repository, whi
 - **Test set and scorer.** The 200 test molecules are in [`data/003_test_data/`](https://github.com/BredaUniversityADSAI/introduction-to-ml/tree/main/data/003_test_data), and `tools/score.py` scores your predictions on your own computer, with no account and no internet connection.
   - Every run shows the public score, on 100 of the molecules. The private score, on the other 100, appears only when you ask for it with `--private`: look at it once, for your final model.
   - Every score is added to a log on your computer, which also records when you first looked at the private score.
-  - The [DataLab project page](datalab/00_overview.qmd#scoring-on-the-test-set) explains how scoring works, with example output. [Iteration 3](datalab/iteration-3/00_overview.qmd#scoring-your-predictions), where you first use it, lists the scores of a few reference solutions.
+  - The DataLab project page explained how scoring works (since 15 Nov 2026 this is in Iteration 3), with example output. [Iteration 3](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd#scoring-your-predictions), where you first use it, lists the scores of a few reference solutions.
 - **No editions and no deadlines.** The quarterly Kaggle editions are gone; the test molecules are those of the 2026 Q4 edition. If you downloaded the Kaggle files into `data/003_kaggle_competition_data/`, you can delete that folder. The sample submissions now have an `id` column: keep it in your submission files.
 - **Iteration 6:** make your portfolio repository public whenever it is ready, and report your public and private scores in it.
-- The [DataLab](datalab/00_overview.qmd) and [Self-study](self-study/00_overview.qmd) overview pages now have only an "At a glance" table.
+- The [DataLab](modules/1_foundations/2_datalab/00_overview.qmd) and [Self-study](course-guide.qmd) overview pages now have only an "At a glance" table.
 
 ## v0.5.1 · 12 November 2026
 
 Each Self-study theme now prepares you for the DataLab iteration with the same number, and two new pages.
 
 - **Themes regrouped.**
-  - [Theme 1](self-study/theme-1/00_overview.qmd) now ends with the [End-to-End ML Project](self-study/theme-1/06_end_to_end_ml.ipynb).
-  - [Theme 2](self-study/theme-2/00_overview.qmd) is now Data Preparation & Understanding.
-  - [Theme 3](self-study/theme-3/00_overview.qmd) is now Modeling & Evaluation: it starts with the [Modeling & Evaluation](self-study/theme-3/01_modeling_and_evaluation.ipynb) notebook, followed by linear regression, logistic regression and clustering.
-- **New in Theme 2: [Leakage & Distribution Shift](self-study/theme-2/03_leakage_and_distribution_shift.qmd).** With examples from real projects:
+  - [Theme 1](modules/1_foundations/00_overview.qmd) now ends with the [End-to-End ML Project](modules/1_foundations/1_self_study/06_end_to_end_ml.ipynb).
+  - [Theme 2](modules/2_data_preparation/00_overview.qmd) is now Data Preparation & Understanding.
+  - [Theme 3](modules/3_modeling_and_evaluation/00_overview.qmd) is now Modeling & Evaluation: it starts with the [Modeling & Evaluation](modules/3_modeling_and_evaluation/1_self_study/01_modeling_and_evaluation.ipynb) notebook, followed by linear regression, logistic regression and clustering.
+- **New in Theme 2: [Leakage & Distribution Shift](modules/2_data_preparation/1_self_study/03_leakage_and_distribution_shift.qmd).** With examples from real projects:
   - what a dataset represents;
   - data unlike the training data;
   - data from different sources;
@@ -116,12 +116,12 @@ Each Self-study theme now prepares you for the DataLab iteration with the same n
   - how to make your development data match the data a model will be used on.
 
   It ends with review questions.
-- **New in Iteration 2: [Understanding SMILES](datalab/iteration-2/01_understanding_smiles.qmd).** How to read a SMILES string, and what canonical SMILES are.
+- **New in Iteration 2: [Understanding SMILES](modules/2_data_preparation/2_datalab/01_understanding_smiles.qmd).** How to read a SMILES string, and what canonical SMILES are.
 - **DataLab.**
-  - The [project page](datalab/00_overview.qmd) now starts with a short introduction to the problem.
+  - The [project page](modules/1_foundations/2_datalab/00_overview.qmd) now starts with a short introduction to the problem.
   - Iterations 1 to 3 begin with what each iteration is for.
-  - [Iteration 4](datalab/iteration-4/00_overview.qmd) starts by rebuilding your models as pipelines.
-  - [Iteration 6](datalab/iteration-6/00_overview.qmd) suggests research papers to go further, and ends with writing up your solution as a portfolio project.
+  - [Iteration 4](modules/4_advanced_scikit_learn/2_datalab/00_overview.qmd) starts by rebuilding your models as pipelines.
+  - [Iteration 6](modules/6_applied_ml_research/2_datalab/00_overview.qmd) suggests research papers to go further, and ends with writing up your solution as a portfolio project.
 - The site has its own browser-tab icon and a preview image when you share a link.
 
 ## v0.5.0 · 12 November 2026
@@ -130,29 +130,29 @@ A new structure in six steps, and no textbook needed.
 
 - **Six steps.** The [course route](course-guide.qmd#the-course-route) has six steps. Each step is a Self-study theme followed by the DataLab iteration with the same number: Theme 1 and Iteration 1, Theme 2 and Iteration 2, and so on. At the end of each theme and each iteration, a note points you to what comes next.
 - **No textbook needed.** The reading guides have been removed: the Self-study notebooks now teach everything the course needs. Many notebooks end with optional further reading, including a free online textbook.
-  - New in Theme 2: [End-to-End ML Project](self-study/theme-1/06_end_to_end_ml.ipynb), one small project with the Palmer penguins from start to finish, with a section for each stage of CRISP-DM.
-  - New in Theme 3: [Linear Regression](self-study/theme-3/02_linear_regression.ipynb), [Logistic Regression](self-study/theme-3/03_logistic_regression.ipynb) and [Clustering](self-study/theme-3/04_clustering.ipynb). Each notebook trains the model with scikit-learn first, then builds its algorithm by hand.
-  - New sections: grid and random search in [Modeling & Evaluation](self-study/theme-3/01_modeling_and_evaluation.ipynb), regression trees in [Decision Trees](self-study/theme-5/01_decision_trees.ipynb), voting and extra-trees in [Random Forests](self-study/theme-5/02_random_forests.ipynb), and AdaBoost and stacking in [Gradient Boosting](self-study/theme-5/03_gradient_boosting.ipynb).
-- **Overview pages for the Self-study.** [Self-study](self-study/00_overview.qmd) and each of its six themes have an overview page that lists the activities in order, like the DataLab iterations.
+  - New in Theme 2: [End-to-End ML Project](modules/1_foundations/1_self_study/06_end_to_end_ml.ipynb), one small project with the Palmer penguins from start to finish, with a section for each stage of CRISP-DM.
+  - New in Theme 3: [Linear Regression](modules/3_modeling_and_evaluation/1_self_study/02_linear_regression.ipynb), [Logistic Regression](modules/3_modeling_and_evaluation/1_self_study/03_logistic_regression.ipynb) and [Clustering](modules/3_modeling_and_evaluation/1_self_study/04_clustering.ipynb). Each notebook trains the model with scikit-learn first, then builds its algorithm by hand.
+  - New sections: grid and random search in [Modeling & Evaluation](modules/3_modeling_and_evaluation/1_self_study/01_modeling_and_evaluation.ipynb), regression trees in [Decision Trees](modules/5_tree_based_algorithms/1_self_study/01_decision_trees.ipynb), voting and extra-trees in [Random Forests](modules/5_tree_based_algorithms/1_self_study/02_random_forests.ipynb), and AdaBoost and stacking in [Gradient Boosting](modules/5_tree_based_algorithms/1_self_study/03_gradient_boosting.ipynb).
+- **Overview pages for the Self-study.** [Self-study](course-guide.qmd) and each of its six themes have an overview page that lists the activities in order, like the DataLab iterations.
 - **The DataLab in six iterations**, one after each theme.
-  - Iteration 2 ends with a new [Baseline](datalab/iteration-2/05_baseline.ipynb) notebook: your Iteration 1 models trained on your own dataset.
-  - [Iteration 3](datalab/iteration-3/00_overview.qmd) improves them with cross-validation and hyperparameter tuning, has a new clustering notebook, and ends with your first Kaggle submission. The classification and regression notebooks of the old Iteration 2 are now Iteration 3 notebooks 01 and 02; their old addresses forward to the new ones.
-  - The old Iteration 3+ page is now three pages: [Iteration 4](datalab/iteration-4/00_overview.qmd) (new data), [Iteration 5](datalab/iteration-5/00_overview.qmd) (better models) and [Iteration 6](datalab/iteration-6/00_overview.qmd) (your final solution).
-- [Getting Started](self-study/theme-1/02_getting_started.ipynb) introduces the penguins dataset, with photos of the three species and of the measurements.
+  - Iteration 2 ends with a new [Baseline](modules/2_data_preparation/2_datalab/05_baseline.ipynb) notebook: your Iteration 1 models trained on your own dataset.
+  - [Iteration 3](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd) improves them with cross-validation and hyperparameter tuning, has a new clustering notebook, and ends with your first Kaggle submission. The classification and regression notebooks of the old Iteration 2 are now Iteration 3 notebooks 01 and 02; their old addresses forward to the new ones.
+  - The old Iteration 3+ page is now three pages: [Iteration 4](modules/4_advanced_scikit_learn/2_datalab/00_overview.qmd) (new data), [Iteration 5](modules/5_tree_based_algorithms/2_datalab/00_overview.qmd) (better models) and [Iteration 6](modules/6_applied_ml_research/2_datalab/00_overview.qmd) (your final solution).
+- [Getting Started](modules/1_foundations/1_self_study/02_getting_started.ipynb) introduces the penguins dataset, with photos of the three species and of the measurements.
 
 ## v0.4.1 · 4 November 2026
 
 A new first page, and one textbook reading less.
 
-- [What is Machine Learning?](self-study/theme-1/01_what_is_machine_learning.qmd) is now an interactive introduction in eight short sections: fitting a line, measuring the fit with a cost, two parameters, gradient descent, polynomial regression, generalization (training and test data, underfitting and overfitting), regression vs classification, and supervised vs unsupervised learning. It ends with three review questions.
-- The Machine Learning Landscape reading guide (Chapter 1 of the textbook) has been removed: the new page covers what the course needs from that chapter. [Classification](self-study/theme-1/03_classification.ipynb), [Unsupervised Learning](self-study/theme-1/05_unsupervised_learning.ipynb) and [Modeling & Evaluation](self-study/theme-3/01_modeling_and_evaluation.ipynb) now refer to the new page instead.
-- [Getting Started](self-study/theme-1/02_getting_started.ipynb) follows on from the new page and points to the setup guide and How to use this course.
+- [What is Machine Learning?](modules/1_foundations/1_self_study/01_what_is_machine_learning.qmd) is now an interactive introduction in eight short sections: fitting a line, measuring the fit with a cost, two parameters, gradient descent, polynomial regression, generalization (training and test data, underfitting and overfitting), regression vs classification, and supervised vs unsupervised learning. It ends with three review questions.
+- The Machine Learning Landscape reading guide (Chapter 1 of the textbook) has been removed: the new page covers what the course needs from that chapter. [Classification](modules/1_foundations/1_self_study/03_classification.ipynb), [Unsupervised Learning](modules/1_foundations/1_self_study/05_unsupervised_learning.ipynb) and [Modeling & Evaluation](modules/3_modeling_and_evaluation/1_self_study/01_modeling_and_evaluation.ipynb) now refer to the new page instead.
+- [Getting Started](modules/1_foundations/1_self_study/02_getting_started.ipynb) follows on from the new page and points to the setup guide and How to use this course.
 
 ## v0.4.0 · 3 November 2026
 
 The Kaggle competitions are open.
 
-- **[OPV Molecule Stability 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-stability-2026-q4)** and **[OPV Molecule Energy Levels 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-energy-levels-2026-q4)**, until 31 December 2026. A new edition with new test molecules opens every quarter; the training data stays the same. How to take part: [Iteration 3+](datalab/iteration-3/00_overview.qmd#the-kaggle-competitions).
+- **[OPV Molecule Stability 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-stability-2026-q4)** and **[OPV Molecule Energy Levels 2026 Q4](https://www.kaggle.com/competitions/opv-molecule-energy-levels-2026-q4)**, until 31 December 2026. A new edition with new test molecules opens every quarter; the training data stays the same. How to take part: [Iteration 3+](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd#the-kaggle-competitions).
 - The test molecules are no longer in the course repository: download the sample submissions from the competition's Data tab (every edition has its own) into `data/003_kaggle_competition_data/`, which Git now ignores. A `git pull` removes the old files there.
 - The public leaderboard scores half of the test molecules (100 of the 200), not 20%: a more reliable public score.
 - When to submit and what to expect: Iterations 1, 2 and 3+ now say when your models are ready for Kaggle, and why the first score is usually lower than your cross-validation score.
@@ -162,9 +162,9 @@ The Kaggle competitions are open.
 
 Three corrections after a second review.
 
-- [Random Forests](self-study/theme-5/02_random_forests.ipynb): scikit-learn's `RandomForestClassifier` averages the trees' class probabilities instead of counting their votes; the notebook now explains the difference with the hand-made forest.
-- [Modeling & Evaluation](self-study/theme-3/01_modeling_and_evaluation.ipynb): more trees do not make a random forest overfit (they make it slower and the gains level off); the depth of the trees is what matters.
-- [Iteration 3+](datalab/iteration-3/00_overview.qmd): the experiment-log example now validates on lab molecules, which resemble the Kaggle molecules.
+- [Random Forests](modules/5_tree_based_algorithms/1_self_study/02_random_forests.ipynb): scikit-learn's `RandomForestClassifier` averages the trees' class probabilities instead of counting their votes; the notebook now explains the difference with the hand-made forest.
+- [Modeling & Evaluation](modules/3_modeling_and_evaluation/1_self_study/01_modeling_and_evaluation.ipynb): more trees do not make a random forest overfit (they make it slower and the gains level off); the depth of the trees is what matters.
+- [Iteration 3+](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd): the experiment-log example now validates on lab molecules, which resemble the Kaggle molecules.
 
 ## v0.3.0 · 1 November 2026
 

@@ -11,7 +11,7 @@ body:
     attributes:
       label: Where in the course?
       description: The page or notebook, and the exercise if there is one.
-      placeholder: "DataLab, Iteration 2, 03_data_preparation, Your Turn after 'Merge the two datasets'"
+      placeholder: "Module 2, DataLab, 04_data_preparation, Your Turn after 'Merge the two datasets'"
     validations:
       required: true
   - type: textarea

@@ -2120,7 +2120,7 @@ body.quarto-dark img.mol-row {
 
 
 /* =========================================================
-   Course Guide: recommended order figure (course-guide.qmd)
+   Figure cards (the setup figure in setup.qmd)
    ========================================================= */
 
 .route-figure {
@@ -2135,8 +2135,6 @@ body.quarto-dark img.mol-row {
   --rf-link: #98a2b3;
   --rf-good: #138a5e;
   --rf-good-soft: #e7f6ef;
-  --rf-bad: #b42318;
-  --rf-bad-soft: #fdecea;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -2156,8 +2154,6 @@ body.quarto-dark .route-figure {
   --rf-link: #64748b;
   --rf-good: #4cc79a;
   --rf-good-soft: #12342a;
-  --rf-bad: #f97066;
-  --rf-bad-soft: #3a1a17;
 }
 
 .route-card {
@@ -2189,11 +2185,6 @@ body.quarto-dark .route-card {
   background: var(--rf-good-soft);
 }
 
-.route-card-label.is-bad {
-  color: var(--rf-bad);
-  background: var(--rf-bad-soft);
-}
-
 .route-card-title {
   margin: 0 0 0.75rem;
   color: var(--rf-ink);
@@ -2222,21 +2213,6 @@ body.quarto-dark .route-card {
   text-anchor: middle;
 }
 
-.route-card .rf-col {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.route-card .rf-col-ss { fill: var(--rf-ss); }
-.route-card .rf-col-dl { fill: var(--rf-dl); }
-
-.route-card .rf-node rect { stroke-width: 1.5; }
-.route-card .rf-node text { font-size: 14px; font-weight: 600; fill: var(--rf-ink); }
-.route-card .rf-ss rect { fill: var(--rf-ss-soft); stroke: var(--rf-ss); }
-.route-card .rf-dl rect { fill: var(--rf-dl-soft); stroke: var(--rf-dl); }
-
 .route-card .rf-link path {
   fill: none;
   stroke: var(--rf-link);
@@ -2244,7 +2220,6 @@ body.quarto-dark .route-card {
   stroke-linecap: round;
 }
 
-.route-card .rf-link-jump path { stroke: var(--rf-bad); stroke-dasharray: 5 5; }
 .route-card .rf-arrowhead {
   fill: none;
   stroke: var(--rf-link);
@@ -2254,52 +2229,10 @@ body.quarto-dark .route-card {
   stroke-linejoin: round;
 }
 
-.route-card .rf-steps circle { fill: var(--rf-card); stroke: var(--rf-border); stroke-width: 1.5; }
-.route-card .rf-steps text { font-size: 12px; font-weight: 700; fill: var(--rf-muted); }
-
-/* The order that is not recommended: same diagram, faded. */
-.route-card.is-muted .rf-node { opacity: 0.6; }
-
-/* One card on its own (Self-Study and DataLab overview pages). */
+/* One card on its own (the setup figure). */
 .route-figure.is-single {
   grid-template-columns: minmax(0, 400px);
   justify-content: center;
-}
-
-/* Start marks: hidden on the Course Guide, shown by .start-theme or .start-iteration. */
-.route-card .rf-badge { display: none; }
-.route-card .rf-badge rect { fill: var(--rf-good); }
-.route-card .rf-badge text {
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  fill: #ffffff;
-}
-.route-card .rf-badge circle { fill: var(--rf-good); }
-.route-card .rf-badge path {
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-body.quarto-dark .route-card .rf-badge text { fill: #0f1720; }
-body.quarto-dark .route-card .rf-badge path { stroke: #0f1720; }
-
-.start-theme .rf-badge-start-ss,
-.start-iteration .rf-badge-start-dl,
-.start-iteration .rf-badge-done-ss { display: inline; }
-
-.start-theme .rf-ss rect.rf-first { fill: var(--rf-ss); }
-.start-iteration .rf-dl rect.rf-first { fill: var(--rf-dl); }
-.start-theme .rf-ss text.rf-first,
-.start-iteration .rf-dl text.rf-first { fill: #ffffff; }
-body.quarto-dark .start-theme .rf-ss text.rf-first,
-body.quarto-dark .start-iteration .rf-dl text.rf-first { fill: #0f1720; }
-
-.start-iteration .rf-link path.rf-first-link {
-  stroke: var(--rf-good);
-  stroke-width: 2.4;
 }
 
 /* Setup figure (setup.qmd): course repository -> your repository <-> your computer. */

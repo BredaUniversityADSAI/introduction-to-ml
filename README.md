@@ -4,16 +4,16 @@ A public, first-year machine learning course from the [Applied Data Science & AI
 
 You learn machine learning by solving a real problem. The client is the OMEGA Lab at KAUST, which is searching for molecules for next-generation organic solar cells. You build models that predict molecular properties from structure, so the lab can screen thousands of candidates computationally and only test the most promising ones.
 
-The course has two parts:
+The course has six modules, and each module has two parts:
 
-- **Self-study**: learn the concepts, independently of the project. Jupyter notebooks and reading pages in six themes: Theme 1 takes you through a small project from start to finish, and the other themes go deeper into data preparation, modeling and evaluation, scikit-learn pipelines, tree-based models and applied ML research.
-- **DataLab**: apply what you learned to the real client challenge. You work with real molecular data (the HOPV dataset) and improve your solution through six CRISP-DM iterations, with less guidance in each one. You predict properties of 200 unseen test molecules and score them with the scorer in this repository.
+- **Self-study**: learn the concepts, independently of the project. Jupyter notebooks and reading pages: Module 1 takes you through a small project from start to finish, and the other modules go deeper into data preparation, modeling and evaluation, scikit-learn pipelines, tree-based models and applied ML research.
+- **DataLab**: apply what you learned to the real client challenge. You work with real molecular data (the HOPV dataset) and improve your solution in one CRISP-DM iteration per module, with less guidance in each one. You predict properties of 200 unseen test molecules and score them with the scorer in this repository.
 
 The on-campus course also assesses deliverables such as reports and presentations. This public version is adapted for independent learning without supervision or formal grading, so the test set is the main way to evaluate your solution.
 
 📖 **Course website:** <https://ai.buas.nl/open-courses/introduction-to-ml/>
 
-> **Early release (v0.7).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions) on the test set at any time. See [What's New](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
+> **Early release (v0.7).** The course is complete enough to learn from but still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/modules/3_modeling_and_evaluation/2_datalab/00_overview.html#scoring-your-predictions) on the test set at any time. See [What's New](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html).
 >
 > **BUas students:** follow your course in the BUas learning environment. The data, deadlines and Kaggle competitions there differ from this public version.
 
@@ -39,20 +39,20 @@ Save your work by committing and pushing to your copy. Your copy keeps the cours
 
 Questions? Ask in the [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions).
 
-## The course route
+## The modules
 
-The course has six steps. Each step is a Self-study theme, followed by the DataLab iteration with the same number.
+Work through the six modules in order. In each module you first work through the Self-study, then apply it in the DataLab iteration with the same number.
 
-| Step | Self-study | DataLab |
+| Module | Self-study | DataLab |
 |---|---|---|
-| 1 | [Theme 1: Foundations of Machine Learning](self-study/theme-1/00_overview.qmd) | [Iteration 1: first ML cycle](datalab/iteration-1/00_overview.qmd) |
-| 2 | [Theme 2: Data Preparation & Understanding](self-study/theme-2/00_overview.qmd) | [Iteration 2: your own dataset](datalab/iteration-2/00_overview.qmd) |
-| 3 | [Theme 3: Modeling & Evaluation](self-study/theme-3/00_overview.qmd) | [Iteration 3: better evaluation, first submission](datalab/iteration-3/00_overview.qmd) |
-| 4 | [Theme 4: Advanced Scikit-Learn](self-study/theme-4/00_overview.qmd) | [Iteration 4: streamlined code, new data](datalab/iteration-4/00_overview.qmd) |
-| 5 | [Theme 5: Tree-Based Algorithms](self-study/theme-5/00_overview.qmd) | [Iteration 5: better models](datalab/iteration-5/00_overview.qmd) |
-| 6 | [Theme 6: Applied ML Research](self-study/theme-6/00_overview.qmd) | [Iteration 6: your final solution](datalab/iteration-6/00_overview.qmd) |
+| [1. Foundations of Machine Learning](modules/1_foundations/00_overview.qmd) | [`1_self_study/`](modules/1_foundations/1_self_study/) | [Iteration 1: first ML cycle](modules/1_foundations/2_datalab/00_overview.qmd) |
+| [2. Data Preparation & Understanding](modules/2_data_preparation/00_overview.qmd) | [`1_self_study/`](modules/2_data_preparation/1_self_study/) | [Iteration 2: your own dataset](modules/2_data_preparation/2_datalab/00_overview.qmd) |
+| [3. Modeling & Evaluation](modules/3_modeling_and_evaluation/00_overview.qmd) | [`1_self_study/`](modules/3_modeling_and_evaluation/1_self_study/) | [Iteration 3: better evaluation, first submission](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd) |
+| [4. Advanced Scikit-Learn](modules/4_advanced_scikit_learn/00_overview.qmd) | [`1_self_study/`](modules/4_advanced_scikit_learn/1_self_study/) | [Iteration 4: streamlined code, new data](modules/4_advanced_scikit_learn/2_datalab/00_overview.qmd) |
+| [5. Tree-Based Algorithms](modules/5_tree_based_algorithms/00_overview.qmd) | [`1_self_study/`](modules/5_tree_based_algorithms/1_self_study/) | [Iteration 5: better models](modules/5_tree_based_algorithms/2_datalab/00_overview.qmd) |
+| [6. Applied ML Research](modules/6_applied_ml_research/00_overview.qmd) | [`1_self_study/`](modules/6_applied_ml_research/1_self_study/) | [Iteration 6: your final solution](modules/6_applied_ml_research/2_datalab/00_overview.qmd) |
 
-Every theme and iteration has its own folder. In each folder, the files are numbered in the order you work through them, starting with the overview `00_overview.qmd`.
+Every module has its own folder, with the module overview `00_overview.qmd`, the Self-study in `1_self_study/` and the DataLab in `2_datalab/`. The files are numbered in the order you work through them, so in VS Code you go through the folders from top to bottom.
 
 - The `.ipynb` files are Jupyter notebooks: open them in VS Code and run them.
 - The `.qmd` files are pages of the course website. Read them on the website, where the figures, videos and interactive parts work: each file starts with its web address.
@@ -60,8 +60,8 @@ Every theme and iteration has its own folder. In each folder, the files are numb
 ## Repository structure
 
 ```
-self-study/   Self-study, one folder per theme (theme-1/ to theme-6/)
-datalab/      DataLab project, one folder per iteration (iteration-1/ to iteration-6/)
+modules/      The course, one folder per module (1_foundations/ to 6_applied_ml_research/), each with
+              its overview, the Self-study (1_self_study/) and the DataLab iteration (2_datalab/)
 data/         Datasets: raw HOPV data, the lab database, the starter dataset, the test molecules (see data/README.md)
 tools/        The scorer for your test-set predictions (score.py) and the course's own checks
 models/       Models you save while working through the notebooks (not tracked by Git)

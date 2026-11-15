@@ -1,0 +1,98 @@
+---
+title: "Data Understanding"
+number-sections: false
+---
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/1_foundations/2_datalab/02_data_understanding.html -->
+
+In the Business Understanding section, we learned that our goal is to predict molecular properties from SMILES strings. The three properties we want to predict are **HOMO**, **LUMO**, and **Stability** — these are the *outputs* of our machine learning models. The inputs are the SMILES strings, which describe molecules in text form.
+
+## From SMILES to Predictions
+
+However, SMILES strings cannot be used directly as input to a machine learning model. They need to be transformed into numerical features first. To do this, we use [RDKit](https://www.rdkit.org), a Python library that converts SMILES strings into molecular descriptors.
+
+The process starts with a simple idea:
+
+```{mermaid}
+flowchart LR
+    A["SMILES String"] --> B["Machine Learning Model"]
+    B --> C["HOMO<br>LUMO<br>Stability"]
+    style A fill:#f47a20,color:#fff,stroke:none
+    style B fill:#00558c,color:#fff,stroke:none
+    style C fill:#6c757d,color:#fff,stroke:none
+```
+
+But to make this work, SMILES strings need an intermediate step — conversion to numerical descriptors using RDKit:
+
+```{mermaid}
+flowchart LR
+    A["SMILES String"] --> B["RDKit"]
+    B --> C["Molecular<br>Descriptors"]
+    C --> D["Machine Learning<br>Model"]
+    D --> E["HOMO<br>LUMO<br>Stability"]
+    style A fill:#f47a20,color:#fff,stroke:none
+    style B fill:#adb5bd,color:#000,stroke:none
+    style C fill:#f47a20,color:#fff,stroke:none
+    style D fill:#00558c,color:#fff,stroke:none
+    style E fill:#6c757d,color:#fff,stroke:none
+```
+
+## Descriptors vs. Properties
+
+It is important to understand the difference between **descriptors (input)** and **properties (output)**:
+
+- A **molecular descriptor** is an *input*: a numerical or symbolic feature that encodes information about a molecule's structure.
+- A **molecular property** is an *output*: a measurable characteristic that describes how the molecule behaves.
+
+Think of it like cars. Engine size, weight, and tire width are descriptors. Top speed and fuel efficiency are properties. In machine learning terms, descriptors are the features we feed into the model, while properties are the labels we try to predict.
+
+In an ideal world, a dataset for this task would look like this:
+
+| SMILES | Descriptor 1 | Descriptor 2 | … | HOMO | LUMO | Stability |
+|--------|-------------|-------------|---|------|------|-----------|
+| …      | …           | …           | … | …    | …    | …         |
+
+This would be perfect, but data science rarely starts this way. Instead, we often need to work with multiple raw datasets from different sources and shape them into the format we need by cleaning, transforming, and combining them.
+
+## Datasets
+
+In this course, you will work with datasets from multiple sources:
+
+| Name | Molecules | Files | Contains |
+|------|-----------|-------|----------|
+| Starter | 80 | `starter_dataset.xlsx` | SMILES, Molecular Descriptors, Targets |
+| HOPV | 350 | `HOPV_homolumo.data`, `HOPV_stability.csv` | SMILES, Targets |
+| Lab database | 232 | `lab_measurements.db` | SMILES, Targets |
+| Test set | 200 | `classification_sample_submission.csv`, `regression_sample_submission.csv` | SMILES |
+
+The starter dataset is a subset of the HOPV dataset. You use the starter dataset in Iteration 1, HOPV from Iteration 2, the test molecules from the end of Iteration 3, and the lab database from Iteration 4.
+
+::: {.callout-important}
+For this course, the target values (HOMO, LUMO, and stability) for all datasets, including the test set, have been **synthetically generated** based on the real molecular properties. While they follow realistic chemical distributions, they will not match publicly available data for these specific molecules. Your goal is to model the relationships within the datasets we provide to you.
+:::
+
+## The Starter Dataset
+
+This dataset is modelling-ready and is prepared to help you begin quickly. It contains **80 molecules** randomly selected from the 350 molecules in the HOPV dataset.
+
+- **Column A:** The SMILES string for each molecule.
+- **Columns B–HJ:** Molecular descriptors computed using RDKit.
+- **Columns HK–HM:** The target variables — HOMO, LUMO, and Stability.
+
+This dataset will only be used in Iteration 1. From Iteration 2 onward, you are expected to process the raw data yourself and bring it into the required format.
+
+## The Harvard Organic Photovoltaics (HOPV) Dataset
+
+This dataset was created by researchers at Harvard University's Department of Chemistry and Chemical Biology. It contains SMILES strings as well as HOMO and LUMO values for **350 molecules**.
+
+The file `HOPV_homolumo.data` does not contain stability information. This is provided as a separate file, `HOPV_stability.csv`.
+
+## The Test Set
+
+The HOPV molecules, and from Iteration 4 the lab database, form the development set for your classification and regression models. Once your models are ready, you will predict **200 test molecules** that your models have never seen. The course repository includes a scorer that compares your predictions with the true values of these molecules and gives you your score.
+
+Each problem has its own file in `data/003_test_data/`, a sample submission with the 200 SMILES and placeholder values in the target columns. Your task is to replace these placeholders with your model predictions and score the file ([Iteration 3](../../3_modeling_and_evaluation/2_datalab/00_overview.qmd#scoring-your-predictions) explains how).
+
+::: {.callout-note}
+The models you build in Iteration 1 are not meant for the test set: 80 molecules from one source are a first experiment, not a solution. You score your models on the test molecules for the first time at the end of Iteration 3.
+:::

@@ -244,7 +244,7 @@ The Structure
 
 ## Learn the concepts and apply them.
 
-The course has two parts. In the **Self-study** you learn the concepts of machine learning, independently of the project. In the **DataLab** you apply them to a real client challenge, and that is where most of the learning happens. The two take turns: each Self-study theme is followed by the DataLab iteration with the same number (see the [Course Guide](course-guide.qmd)).
+The course has six modules, and each module has two parts. In the **Self-study** you learn the concepts of machine learning, independently of the project. In the **DataLab** you apply them to a real client challenge, and that is where most of the learning happens. Each module starts with its Self-study and ends with a DataLab iteration (see the [Course Guide](course-guide.qmd)).
 
 On campus, the DataLab work produces deliverables such as code, reports and presentations, and these are assessed. This public version is adapted for independent learning without supervision or formal grading. It keeps the full project, and instead of the assessment it gives you a test set of 200 unseen molecules and a scorer, so that you can measure how well your solution performs.
 
@@ -261,8 +261,8 @@ There is no registration, no deadline and no certificate: start whenever you lik
 
 Learn the concepts, independently of the project.
 
-- Start with the whole picture: a small project from start to finish in Theme 1
-- Go deeper in five more themes, from data preparation to applied ML research
+- Start with the whole picture: a small project from start to finish in Module 1
+- Go deeper in five more modules, from data preparation to applied ML research
 - Practice in notebooks with exercises on small, clean datasets
 :::
 
@@ -272,7 +272,7 @@ Learn the concepts, independently of the project.
 Apply what you learned to the real client challenge.
 
 - Work with real molecular data
-- Improve your solution in six iterations, with less guidance in each one
+- Improve your solution in six iterations, one per module, with less guidance in each one
 - Score your predictions on 200 unseen test molecules
 :::
 
@@ -464,7 +464,7 @@ The course repository contains the code and data used throughout the course. [Se
 ::: {.ml-resource-card}
 <div class="ml-resource-top">
 <span class="ml-resource-logo"><img src="images/icons/target.svg" alt="Test set"></span>
-<a class="ml-status ml-status-live" href="datalab/iteration-3/00_overview.html#scoring-your-predictions">How to score →</a>
+<a class="ml-status ml-status-live" href="modules/3_modeling_and_evaluation/2_datalab/00_overview.html#scoring-your-predictions">How to score →</a>
 </div>
 
 ### Test set and scorer
