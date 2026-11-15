@@ -45,7 +45,7 @@ Document:
 2. Relevance: my classifier was trained on 300 samples from one source, and I had a second source with 200 more samples that I had not used.
 3. Change: I added the second source to the training data and kept the model and its settings the same.
 4. Evaluation: 5-fold cross-validation on the same folds of the data I want to predict, before and after: macro-F1 0.71 ± 0.04 before, 0.78 ± 0.05 after.
-5. What I learned: the gain is larger than the spread over the folds, so it is probably real. A more complex model on the old data had given only 0.72.
+5. What I learned: a more complex model on the old data had given only 0.72.
 :::
 
 If your project contains several trained models, **ensembling** is one useful idea to explore.
