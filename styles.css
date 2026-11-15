@@ -2317,3 +2317,65 @@ body.quarto-dark .panel-tabset {
   padding: 1rem 1.15rem 0.35rem;
   border: 0;
 }
+
+/* =========================================================
+   Project figure: molecule -> ML model(s) -> predictions
+   (_includes/project-figure.qmd, written by tools/make_project_figure.py;
+   Course Guide and Iteration 1 overview)
+   ========================================================= */
+
+.project-figure {
+  --pf-ink: #1f2937;
+  --pf-muted: #667085;
+  --pf-border: #e6e9ef;
+  --pf-link: #98a2b3;
+  --pf-model: #00558c;
+  --pf-model-ink: #ffffff;
+  --pf-pred: #fff4ec;
+  --pf-pred-border: #f47a20;
+  margin: 1.5rem 0 2rem;
+}
+
+body.quarto-dark .project-figure {
+  --pf-ink: #e3e9ef;
+  --pf-muted: #9aa8b6;
+  --pf-border: #2a3744;
+  --pf-link: #64748b;
+  --pf-model: #2f7fbf;
+  --pf-model-ink: #ffffff;
+  --pf-pred: #2e2116;
+  --pf-pred-border: #f7913f;
+}
+
+.project-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-figure text {
+  font-family: inherit;
+  text-anchor: middle;
+}
+
+.project-figure .pf-head { font-size: 15px; font-weight: 600; fill: var(--pf-muted); letter-spacing: 0.02em; }
+/* The molecule card stays white in dark mode, so that RDKit's dark bonds stay readable. */
+.project-figure .pf-card { fill: #ffffff; stroke: var(--pf-border); stroke-width: 1.5; }
+.project-figure .pf-smiles {
+  font-family: SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 9px;
+  fill: #475467;
+}
+.project-figure .pf-model { fill: var(--pf-model); }
+.project-figure .pf-model-text { font-size: 18px; font-weight: 700; fill: var(--pf-model-ink); dominant-baseline: central; }
+.project-figure .pf-pred { fill: var(--pf-pred); stroke: var(--pf-pred-border); stroke-width: 1.5; }
+.project-figure .pf-pred-name { font-size: 17px; font-weight: 700; fill: var(--pf-ink); }
+.project-figure .pf-pred-sub { font-size: 13px; fill: var(--pf-muted); }
+.project-figure .pf-arrow { fill: none; stroke: var(--pf-link); stroke-width: 2; }
+.project-figure .pf-arrowhead { fill: none; stroke: var(--pf-link); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.project-figure figcaption {
+  margin-top: 0.75rem;
+  color: var(--pf-muted);
+  font-size: 0.9em;
+}

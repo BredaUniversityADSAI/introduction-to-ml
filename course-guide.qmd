@@ -20,7 +20,7 @@ This follows the approach of David Perkins in *Making Learning Whole* (2009): le
 
 The DataLab is a client project: you predict properties of molecules for organic solar cells, for the OMEGA Lab of Prof. Derya Baran at KAUST.
 
-![A molecule, written as a SMILES string, goes into your models, which predict its HOMO and LUMO energy levels and its stability.](images/datalab/molecule_to_predictions.png){fig-alt="Diagram: a drawing of an organic molecule with its SMILES string, an arrow to a box labeled your models, and an arrow to three predictions: HOMO (energy level in eV), LUMO (energy level in eV) and stability (low, medium or high)."}
+{{< include _includes/project-figure.qmd >}}
 
 **This is the core of the course.** Machine learning is a practical skill. You learn it by deciding what to do with real data, writing the code, and finding out why a model does worse than you expected. The Self-study gives you the concepts and tools for this work, and the project shows you which of them you need to understand better.
 

@@ -10,7 +10,7 @@ After the Self-study of Module 1, you start the DataLab: a project in which you 
 
 Your client, the OMEGA Lab, develops organic solar cells. To find out whether a new molecule is a good material for a solar cell, the lab has to make it and measure it, which takes weeks. The lab would like to know which molecules are worth that effort before anyone makes them.
 
-![A molecule, written as a SMILES string, goes into your models, which predict its HOMO and LUMO energy levels and its stability.](../../../images/datalab/molecule_to_predictions.png){fig-alt="Diagram: a drawing of an organic molecule with its SMILES string, an arrow to a box labeled your models, and an arrow to three predictions: HOMO (energy level in eV), LUMO (energy level in eV) and stability (low, medium or high)."}
+{{< include ../../../_includes/project-figure.qmd >}}
 
 Your task is to build models that take a molecule and predict three of its properties: the HOMO and LUMO energy levels (a regression problem) and its stability (a classification problem with the classes `low`, `medium` and `high`). Each molecule is given as a SMILES string, a line of text that describes its structure.
 
