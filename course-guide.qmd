@@ -2,7 +2,7 @@
 title: "Course Guide"
 ---
 
-This is the machine learning course that first-year students of [Applied Data Science & AI](https://ai.buas.nl/) at Breda University of Applied Sciences take, adapted for independent learning. It is free, with no registration, no deadlines and no certificate.
+This is the machine learning course that first-year students of [Applied Data Science & AI](https://ai.buas.nl/) at Breda University of Applied Sciences take, adapted for independent learning. It is free, with no registration, no deadlines and no certificate. The course is a GitHub repository that you copy to your own computer: you write and run the code in its Jupyter notebooks there, and you read the pages here on this website.
 
 ![An organic solar cell. In this course, you build machine learning models that predict properties of the molecules these cells are made of. Photo: ["OPV slot-die"](https://commons.wikimedia.org/wiki/File:OPV_slot-die.jpg) by FreudianCritz, Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), cropped.](images/course-guide/organic_solar_cell.jpg){width="70%" fig-align="center" fig-alt="Photo: gloved hands bending a thin, flexible organic solar module, a shiny film with many narrow parallel stripes."}
 
