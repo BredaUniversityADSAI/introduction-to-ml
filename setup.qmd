@@ -230,7 +230,7 @@ In VS Code:
 
 With the sign-in, VS Code can download your private repository and, later, send your work to it. You sign in only once.
 
-In the Explorer on the left you see the course as folders, one per Self-study theme and one per DataLab iteration, with the files numbered in the order you work through them.
+In the Explorer on the left you see the course in the folder `modules/`, one folder per module, each with its Self-study and its DataLab iteration, and the files numbered in the order you work through them.
 
 ## 7. Install Python and the packages
 
@@ -254,7 +254,7 @@ brew install libomp
 
 ## 8. Check the notebooks
 
-1. In the Explorer, open `self-study/theme-1/02_getting_started.ipynb`.
+1. In the Explorer, open `modules/1_foundations/1_self_study/02_getting_started.ipynb`.
 2. Click "Select Kernel" in the top right and choose "Python Environments". Then choose `introduction-to-ml (3.13…)`: the course environment, with `.venv` in its path. In other notebooks, VS Code usually selects it for you; if not, choose it in the same way.
 3. Click "Run All" at the top of the notebook.
 
@@ -269,12 +269,12 @@ print(sys.executable)  # should be inside the course's .venv folder
 print(Path.cwd())      # the folder the notebook runs in
 ```
 
-In VS Code, each notebook runs in its own folder (the course sets this in `.vscode/settings.json`). The notebooks read the data with paths relative to that folder: a DataLab notebook in `datalab/iteration-2/` reads `../../data/...`. Files you create (such as the processed CSV files) go in `data/002_processed_data/`, models in `models/`.
+In VS Code, each notebook runs in its own folder (the course sets this in `.vscode/settings.json`). The notebooks read the data with paths relative to that folder: a DataLab notebook in `modules/2_data_preparation/2_datalab/` reads `../../../data/...`. Files you create (such as the processed CSV files) go in `data/002_processed_data/`, models in `models/`.
 
 ::: {.callout-tip}
 ## Your setup is complete
 
-You are ready to start the course: follow the [course route](course-guide.qmd#the-course-route), which starts with Theme 1 of Self-study. You only do steps 1 to 8 once.
+You are ready to start the course with [Module 1](modules/1_foundations/00_overview.qmd), and then follow the Next link at the bottom of each page. You only do steps 1 to 8 once.
 
 The rest of this page is for while you work: how to save your work after each session, what is where in the course folder, how updates work and what to do if something goes wrong.
 :::
@@ -302,7 +302,7 @@ git config --global user.email "you@example.com"
 ### After each session
 
 1. Open "Source Control" in the bar on the left of VS Code. It lists the files you changed.
-2. Type a short message that says what you did, for example `Theme 1: classification exercises`.
+2. Type a short message that says what you did, for example `Module 1: classification exercises`.
 3. Click "Commit". If VS Code asks whether to stage all your changes, choose "Yes".
 4. Click "Sync Changes" to send your commits to GitHub.
 
@@ -312,13 +312,12 @@ Git ignores the files the notebooks create in `data/002_processed_data/`, `data/
 
 | Folder | Contents |
 |---|---|
-| `self-study/` | Self-study, one folder per theme: the notebooks and the reading pages you see on this website |
-| `datalab/` | DataLab, one folder per iteration: the notebooks and the pages you see on this website |
+| `modules/` | The course, one folder per module: the notebooks and the pages you see on this website |
 | `data/` | All datasets of the project (see `data/README.md`) |
 | `models/` | Models you save while working through the notebooks |
 | `tools/` | The scorer for your test-set predictions (`score.py`) |
 
-In each theme and iteration folder, the files are numbered in the order of this website, starting with the overview page `00_overview.qmd`. Follow the [course route](course-guide.qmd#the-course-route): it takes you through Self-study and DataLab in turn. The `.qmd` files are the pages of this website: read them here, where the figures, videos and interactive parts work. The notebooks (`.ipynb`) are the files you open and run.
+Each module folder has the module overview `00_overview.qmd`, the Self-study in `1_self_study/` and the DataLab in `2_datalab/`. The files are numbered in the order of this website, so you work through the folders from top to bottom, as with the Next link on the website. The `.qmd` files are the pages of this website: read them here, where the figures, videos and interactive parts work. The notebooks (`.ipynb`) are the files you open and run.
 
 ## Updates {#updates}
 

@@ -4,8 +4,8 @@ The exercise cells are left as they are (`# YOUR CODE HERE`): the self-study not
 written so that the provided code runs without the learner's answers.
 
 usage:
-  python tools/run_notebooks.py self-study/*/*.ipynb                  # check only, files unchanged
-  python tools/run_notebooks.py --write self-study/theme-2/01_*.ipynb # also store the outputs in the file
+  python tools/run_notebooks.py modules/*/1_self_study/*.ipynb      # check only, files unchanged
+  python tools/run_notebooks.py --write modules/2_*/1_self_study/01_*.ipynb # also store the outputs in the file
 """
 import argparse
 import json

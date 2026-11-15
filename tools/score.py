@@ -4,8 +4,8 @@ usage (from the repository root):
     python tools/score.py SUBMISSION.csv              public score (100 of the 200 molecules)
     python tools/score.py SUBMISSION.csv --private    also the private score (the other 100)
 
-From a notebook in datalab/iteration-N/:
-    %run ../../tools/score.py SUBMISSION.csv
+From a notebook in a modules/N_name/2_datalab/ folder:
+    %run ../../../tools/score.py SUBMISSION.csv
 
 Start from one of the sample submissions in data/003_test_data/ and replace the placeholder values:
 - classification_sample_submission.csv: id, smiles, stability (low, medium or high);

@@ -27,7 +27,7 @@ website:
   # Early-release banner on every page (dismissable).
   announcement:
     # Links in the banner are not rewritten per page: use an absolute URL.
-    content: "**Early release v0.7.** This course is still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/datalab/iteration-3/00_overview.html#scoring-your-predictions) on the test set at any time. [What's New](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"
+    content: "**Early release v0.7.** This course is still being finished: pages may change. You can [score your predictions](https://ai.buas.nl/open-courses/introduction-to-ml/modules/3_modeling_and_evaluation/2_datalab/00_overview.html#scoring-your-predictions) on the test set at any time. [What's New](https://ai.buas.nl/open-courses/introduction-to-ml/whats-new.html)"
     type: info
     icon: info-circle
     dismissable: true
@@ -44,9 +44,10 @@ website:
   repo-url: https://github.com/BredaUniversityADSAI/introduction-to-ml
   repo-actions: [issue]
 
-  # The sidebar defines both the visual hierarchy and the previous/next order.
-  # Self-study is nested Self-study -> Theme -> Activity, which a book's
-  # `chapters`/`part` cannot express (it allows only one level of parts).
+  # The sidebar defines both the visual hierarchy and the previous/next order. It follows the
+  # course order: six modules, each a Self-study followed by the DataLab iteration with the same
+  # number (Module -> Self-study / DataLab -> page). A book's `chapters`/`part` cannot express
+  # this (it allows only one level of parts).
   sidebar:
     style: floating
     collapse-level: 1
@@ -67,113 +68,125 @@ website:
     - href: setup.qmd
       text: "Set Up Your Computer"
 
-    # Self-study: Self-study -> Theme -> Activity, one folder per theme (self-study/theme-N/),
-    # files numbered in this order, the overview page first (00_overview.qmd), like the
-    # DataLab iterations. Keep the file numbers in step with this order.
-    # `text` sets the sidebar label; the page keeps its own heading.
-    - section: self-study/00_overview.qmd
+    # One folder per module (modules/N_name/): the module overview (00_overview.qmd, the
+    # section's page), 1_self_study/ and 2_datalab/, files numbered in this order. Keep the
+    # file numbers in step with this order. `text` sets the sidebar label; the page keeps its
+    # own heading. Iterations 4 to 6 are a single page, so they are a link, not a section.
+    - section: "1. Foundations of Machine Learning"
+      href: modules/1_foundations/00_overview.qmd
       contents:
-        - section: "1. Foundations of Machine Learning"
-          href: self-study/theme-1/00_overview.qmd
+        - section: "Self-study"
           contents:
-            - href: self-study/theme-1/01_what_is_machine_learning.qmd
+            - href: modules/1_foundations/1_self_study/01_what_is_machine_learning.qmd
               text: "What is Machine Learning?"
-            - href: self-study/theme-1/02_getting_started.ipynb
+            - href: modules/1_foundations/1_self_study/02_getting_started.ipynb
               text: "Getting Started"
-            - href: self-study/theme-1/03_classification.ipynb
+            - href: modules/1_foundations/1_self_study/03_classification.ipynb
               text: "Classification"
-            - href: self-study/theme-1/04_regression.ipynb
+            - href: modules/1_foundations/1_self_study/04_regression.ipynb
               text: "Regression"
-            - href: self-study/theme-1/05_unsupervised_learning.ipynb
+            - href: modules/1_foundations/1_self_study/05_unsupervised_learning.ipynb
               text: "Unsupervised Learning"
-            - href: self-study/theme-1/06_end_to_end_ml.ipynb
+            - href: modules/1_foundations/1_self_study/06_end_to_end_ml.ipynb
               text: "End-to-End ML Project"
-            - href: self-study/theme-1/07_review.qmd
+            - href: modules/1_foundations/1_self_study/07_review.qmd
               text: "Review"
-
-        - section: "2. Data Preparation & Understanding"
-          href: self-study/theme-2/00_overview.qmd
+        - section: "DataLab: Iteration 1"
+          href: modules/1_foundations/2_datalab/00_overview.qmd
           contents:
-            - href: self-study/theme-2/01_data_prep.ipynb
-              text: "Data Preparation"
-            - href: self-study/theme-2/02_data_understanding.ipynb
-              text: "Data Understanding"
-            - href: self-study/theme-2/03_leakage_and_distribution_shift.qmd
-              text: "Leakage & Distribution Shift"
-            - href: self-study/theme-2/04_review.qmd
-              text: "Review"
+            - modules/1_foundations/2_datalab/01_business_understanding.qmd
+            - modules/1_foundations/2_datalab/02_data_understanding.qmd
+            - modules/1_foundations/2_datalab/03_classification.ipynb
+            - modules/1_foundations/2_datalab/04_regression.ipynb
+            - modules/1_foundations/2_datalab/05_clustering.ipynb
 
-        - section: "3. Modeling & Evaluation"
-          href: self-study/theme-3/00_overview.qmd
-          contents:
-            - href: self-study/theme-3/01_modeling_and_evaluation.ipynb
-              text: "Modeling & Evaluation"
-            - href: self-study/theme-3/02_linear_regression.ipynb
-              text: "Linear Regression"
-            - href: self-study/theme-3/03_logistic_regression.ipynb
-              text: "Logistic Regression"
-            - href: self-study/theme-3/04_clustering.ipynb
-              text: "Clustering"
-            - href: self-study/theme-3/05_review.qmd
-              text: "Review"
-
-        - section: "4. Advanced Scikit-Learn"
-          href: self-study/theme-4/00_overview.qmd
-          contents:
-            - href: self-study/theme-4/01_pipelines_and_columntransformer.ipynb
-              text: "Pipelines & ColumnTransformer"
-            - href: self-study/theme-4/02_review.qmd
-              text: "Review"
-
-        - section: "5. Tree-Based Algorithms"
-          href: self-study/theme-5/00_overview.qmd
-          contents:
-            - href: self-study/theme-5/01_decision_trees.ipynb
-              text: "Decision Trees"
-            - href: self-study/theme-5/02_random_forests.ipynb
-              text: "Random Forests"
-            - href: self-study/theme-5/03_gradient_boosting.ipynb
-              text: "Gradient Boosting"
-            - href: self-study/theme-5/04_review.qmd
-              text: "Review"
-
-        - section: "6. Applied ML Research"
-          href: self-study/theme-6/00_overview.qmd
-          contents:
-            - href: self-study/theme-6/01_communicating_technical_work.qmd
-              text: "Communicating Technical Work"
-            - href: self-study/theme-6/02_understanding_ml_research.qmd
-              text: "Understanding ML Research"
-            - href: self-study/theme-6/03_from_research_to_practice.qmd
-              text: "Research to Practice"
-            - href: self-study/theme-6/04_review.qmd
-              text: "Review"
-
-    # DataLab: DataLab -> Iteration -> page (like Self-study -> Theme -> Activity).
-    - section: datalab/00_overview.qmd
+    - section: "2. Data Preparation & Understanding"
+      href: modules/2_data_preparation/00_overview.qmd
       contents:
-        - section: datalab/iteration-1/00_overview.qmd
+        - section: "Self-study"
           contents:
-            - datalab/iteration-1/01_business_understanding.qmd
-            - datalab/iteration-1/02_data_understanding.qmd
-            - datalab/iteration-1/03_classification.ipynb
-            - datalab/iteration-1/04_regression.ipynb
-            - datalab/iteration-1/05_clustering.ipynb
-        - section: datalab/iteration-2/00_overview.qmd
+            - href: modules/2_data_preparation/1_self_study/01_data_prep.ipynb
+              text: "Data Preparation"
+            - href: modules/2_data_preparation/1_self_study/02_data_understanding.ipynb
+              text: "Data Understanding"
+            - href: modules/2_data_preparation/1_self_study/03_leakage_and_distribution_shift.qmd
+              text: "Leakage & Distribution Shift"
+            - href: modules/2_data_preparation/1_self_study/04_review.qmd
+              text: "Review"
+        - section: "DataLab: Iteration 2"
+          href: modules/2_data_preparation/2_datalab/00_overview.qmd
           contents:
-            - datalab/iteration-2/01_understanding_smiles.qmd
-            - datalab/iteration-2/02_understanding_stability_data.ipynb
-            - datalab/iteration-2/03_understanding_homolumo_data.ipynb
-            - datalab/iteration-2/04_data_preparation.ipynb
-            - datalab/iteration-2/05_baseline.ipynb
-        - section: datalab/iteration-3/00_overview.qmd
+            - modules/2_data_preparation/2_datalab/01_understanding_smiles.qmd
+            - modules/2_data_preparation/2_datalab/02_understanding_stability_data.ipynb
+            - modules/2_data_preparation/2_datalab/03_understanding_homolumo_data.ipynb
+            - modules/2_data_preparation/2_datalab/04_data_preparation.ipynb
+            - modules/2_data_preparation/2_datalab/05_baseline.ipynb
+
+    - section: "3. Modeling & Evaluation"
+      href: modules/3_modeling_and_evaluation/00_overview.qmd
+      contents:
+        - section: "Self-study"
           contents:
-            - datalab/iteration-3/01_classification.ipynb
-            - datalab/iteration-3/02_regression.ipynb
-            - datalab/iteration-3/03_clustering.ipynb
-        - datalab/iteration-4/00_overview.qmd
-        - datalab/iteration-5/00_overview.qmd
-        - datalab/iteration-6/00_overview.qmd
+            - href: modules/3_modeling_and_evaluation/1_self_study/01_modeling_and_evaluation.ipynb
+              text: "Modeling & Evaluation"
+            - href: modules/3_modeling_and_evaluation/1_self_study/02_linear_regression.ipynb
+              text: "Linear Regression"
+            - href: modules/3_modeling_and_evaluation/1_self_study/03_logistic_regression.ipynb
+              text: "Logistic Regression"
+            - href: modules/3_modeling_and_evaluation/1_self_study/04_clustering.ipynb
+              text: "Clustering"
+            - href: modules/3_modeling_and_evaluation/1_self_study/05_review.qmd
+              text: "Review"
+        - section: "DataLab: Iteration 3"
+          href: modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd
+          contents:
+            - modules/3_modeling_and_evaluation/2_datalab/01_classification.ipynb
+            - modules/3_modeling_and_evaluation/2_datalab/02_regression.ipynb
+            - modules/3_modeling_and_evaluation/2_datalab/03_clustering.ipynb
+
+    - section: "4. Advanced Scikit-Learn"
+      href: modules/4_advanced_scikit_learn/00_overview.qmd
+      contents:
+        - section: "Self-study"
+          contents:
+            - href: modules/4_advanced_scikit_learn/1_self_study/01_pipelines_and_columntransformer.ipynb
+              text: "Pipelines & ColumnTransformer"
+            - href: modules/4_advanced_scikit_learn/1_self_study/02_review.qmd
+              text: "Review"
+        - href: modules/4_advanced_scikit_learn/2_datalab/00_overview.qmd
+          text: "DataLab: Iteration 4"
+
+    - section: "5. Tree-Based Algorithms"
+      href: modules/5_tree_based_algorithms/00_overview.qmd
+      contents:
+        - section: "Self-study"
+          contents:
+            - href: modules/5_tree_based_algorithms/1_self_study/01_decision_trees.ipynb
+              text: "Decision Trees"
+            - href: modules/5_tree_based_algorithms/1_self_study/02_random_forests.ipynb
+              text: "Random Forests"
+            - href: modules/5_tree_based_algorithms/1_self_study/03_gradient_boosting.ipynb
+              text: "Gradient Boosting"
+            - href: modules/5_tree_based_algorithms/1_self_study/04_review.qmd
+              text: "Review"
+        - href: modules/5_tree_based_algorithms/2_datalab/00_overview.qmd
+          text: "DataLab: Iteration 5"
+
+    - section: "6. Applied ML Research"
+      href: modules/6_applied_ml_research/00_overview.qmd
+      contents:
+        - section: "Self-study"
+          contents:
+            - href: modules/6_applied_ml_research/1_self_study/01_communicating_technical_work.qmd
+              text: "Communicating Technical Work"
+            - href: modules/6_applied_ml_research/1_self_study/02_understanding_ml_research.qmd
+              text: "Understanding ML Research"
+            - href: modules/6_applied_ml_research/1_self_study/03_from_research_to_practice.qmd
+              text: "Research to Practice"
+            - href: modules/6_applied_ml_research/1_self_study/04_review.qmd
+              text: "Review"
+        - href: modules/6_applied_ml_research/2_datalab/00_overview.qmd
+          text: "DataLab: Iteration 6"
 
     - href: whats-new.qmd
       text: "What's New"
@@ -195,6 +208,5 @@ format:
         <link rel="apple-touch-icon" href="https://ai.buas.nl/open-courses/introduction-to-ml/images/favicon/apple-touch-icon.png">
     filters:
       - filters/colab-button.lua
-      - filters/course-route.lua
     toc: true
     number-sections: false

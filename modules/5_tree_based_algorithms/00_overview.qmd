@@ -1,0 +1,29 @@
+---
+title: "Module 5: Tree-Based Algorithms"
+---
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/5_tree_based_algorithms/00_overview.html -->
+
+Decision trees, and models that combine many of them, are among the strongest models for tabular data. In this module you see how a single tree learns, and how random forests and gradient boosting combine many trees into a better model.
+
+## What you will be able to do
+
+After this module you can:
+
+- explain how a decision tree chooses its splits and why it overfits;
+- explain how random forests and gradient boosting combine trees, and tune their main hyperparameters;
+- interpret feature importances with care;
+- use a gradient boosting library with early stopping on a validation set.
+
+## Self-study
+
+Work through the activities in order:
+
+1. [Decision Trees](1_self_study/01_decision_trees.ipynb): a decision tree by hand and with scikit-learn, how a tree learns, overfitting, hyperparameters, and regression trees.
+2. [Random Forests](1_self_study/02_random_forests.ipynb): many trees trained on random parts of the data, their hyperparameters, voting and extra-trees.
+3. [Gradient Boosting](1_self_study/03_gradient_boosting.ipynb): trees that each correct the errors of the previous ones, their hyperparameters, XGBoost and LightGBM, AdaBoost and stacking.
+4. [Review](1_self_study/04_review.qmd): a summary of the module and a short quiz.
+
+## DataLab
+
+After the Self-study, apply what you learned in the DataLab project: [Iteration 5](2_datalab/00_overview.qmd).

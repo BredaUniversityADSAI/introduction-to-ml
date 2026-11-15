@@ -1,0 +1,66 @@
+---
+title: "Iteration 1"
+---
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/1_foundations/2_datalab/00_overview.html -->
+
+After the Self-study of Module 1, you start the DataLab: a project in which you apply what you learned to a real client problem. Self-study and DataLab take turns: each module ends with a DataLab iteration that uses what its Self-study taught, and the project is where most of the learning happens. At the end of this iteration you have your first classification, regression and clustering models for the project.
+
+## The project
+
+Your client, the OMEGA Lab, develops organic solar cells. To find out whether a new molecule is a good material for a solar cell, the lab has to make it and measure it, which takes weeks. The lab would like to know which molecules are worth that effort before anyone makes them.
+
+{{< include ../../../_includes/project-figure.qmd >}}
+
+Your task is to build models that take a molecule and predict three of its properties: the HOMO and LUMO energy levels (a regression problem) and its stability (a classification problem with the classes `low`, `medium` and `high`). Each molecule is given as a SMILES string, a line of text that describes its structure.
+
+## How the project works
+
+The project follows an **iterative CRISP-DM workflow**. Rather than completing each part of the machine-learning process only once, you revisit data understanding, data preparation, modeling and evaluation as your understanding of the problem develops. Each pass through the workflow is an iteration, and each module of the course ends with one. With every iteration, the guidance decreases:
+
+| Iteration | Data | Guidance | You end with |
+|---|---|---|---|
+| 1 (this one) | `starter_dataset.xlsx`: 80 molecules, ready for modelling | Step by step | Your first classification, regression and clustering models |
+| [2](../../2_data_preparation/2_datalab/00_overview.qmd) | The raw HOPV files: 350 molecules | Structured notebooks; more decisions are yours | Your own dataset and a baseline on it |
+| [3](../../3_modeling_and_evaluation/2_datalab/00_overview.qmd) | Your HOPV dataset | Structured notebooks | Cross-validated, tuned models and your first test score |
+| [4](../../4_advanced_scikit_learn/2_datalab/00_overview.qmd) | HOPV + a lab database + the test molecules | Pointers only | Your models as pipelines, trained on more data, and an explanation of your test score |
+| [5](../../5_tree_based_algorithms/2_datalab/00_overview.qmd) | All sources | Pointers only | Better models, and a validation you can trust |
+| [6](../../6_applied_ml_research/2_datalab/00_overview.qmd) | All sources | Pointers only | Your final models, scored on the test set, and a write-up of your solution as a portfolio project |
+
+The iterations build on each other: the notebooks of one iteration save files, such as your processed dataset, that later iterations read. There is no fixed sequence in Iterations 4 to 6. You may revisit any part of the machine-learning workflow, including data understanding, data preparation, feature engineering, validation, model selection and hyperparameter tuning, and continue iterating based on evidence until you are satisfied with your solution.
+
+From Iteration 3 on, you score your models on 200 test molecules that are not in any of your training files ([how](../../3_modeling_and_evaluation/2_datalab/00_overview.qmd#scoring-your-predictions)).
+
+There are no deadlines and no grades: work at your own pace. When a notebook mentions what the client expects, such as a target score or a justification of your choices, treat it as advice rather than a requirement.
+
+## This iteration
+
+The aim of this iteration is to build your first models for the project: a classification model, a regression model and a clustering model. They don't have to be good yet. What matters is that you go through the whole workflow once, from the problem to working models.
+
+This iteration is highly guided. In later iterations, you will revisit these steps in greater depth and make increasingly more decisions yourself.
+
+### The starter dataset
+
+You work with `starter_dataset.xlsx`, a dataset of 80 molecules that is ready to use. Every row is one molecule:
+
+| Column | Contains |
+|---|---|
+| A (`smiles`) | The SMILES string of the molecule |
+| B to HJ | 217 molecular descriptors computed with RDKit: the features |
+| HK to HM (`homo`, `lumo`, `stability`) | The three targets |
+
+The dataset is prepared so that you can almost use it as it is: the descriptors are your features `X`, and each target is a `y`. In the Module 1 Self-study you trained models this way on small public datasets. Now you do the same on the project data.
+
+### Complete the pages and notebooks
+
+Work through the following pages **in order**:
+
+1. [Business Understanding](01_business_understanding.qmd)
+2. [Data Understanding](02_data_understanding.qmd)
+3. [Classification](03_classification.ipynb)
+4. [Regression](04_regression.ipynb)
+5. [Clustering](05_clustering.ipynb)
+
+The Regression and Clustering notebooks build on the Classification notebook and are shorter. Once you have completed all three notebooks, you have finished your first machine-learning cycle.
+
+In [Iteration 2](../../2_data_preparation/2_datalab/00_overview.qmd), after the Module 2 Self-study, you revisit the workflow in greater depth.

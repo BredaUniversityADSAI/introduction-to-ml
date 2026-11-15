@@ -1,0 +1,156 @@
+---
+title: "Iteration 3"
+---
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/3_modeling_and_evaluation/2_datalab/00_overview.html -->
+
+After the Self-study of Module 3, you apply what you learned to the project. At the end of this iteration you have cross-validated, tuned models and your first test score.
+
+In Iteration 2, you built your own dataset from the raw HOPV files and trained your Iteration 1 models on it. Those scores are your baseline.
+
+In Iteration 3, you go deeper into modeling and evaluation, with what you learned in the Module 3 Self-study. You improve the baseline **one step at a time**: you replace the single train/test split with cross-validation, tune the hyperparameters, and measure how good your clusters are. At the end, you score your models on the test molecules for the first time.
+
+Evaluation gets the most attention in this iteration, because every decision you make from now on is based on a score: which features, which model, which settings. If the score does not show how well the model predicts new molecules, those decisions go wrong without you noticing, until the model is used, or in this project, until you see your test score. With 347 molecules, the score of a single train/test split depends a lot on which molecules end up in the test set. Cross-validation gives a more reliable estimate and shows how much the score varies.
+
+The work is still structured, but you make more of the decisions yourself.
+
+## Classification
+
+Evaluate the stability model with cross-validation and tune its hyperparameters.
+
+Complete:
+
+* [Classification](01_classification.ipynb)
+
+## Regression
+
+Do the same for the HOMO and LUMO models.
+
+Complete:
+
+* [Regression](02_regression.ipynb)
+
+## Clustering
+
+Choose the number of clusters with the elbow method and the silhouette score, compare K-Means with HDBSCAN, and look for clusters that help your supervised models.
+
+Complete:
+
+* [Clustering](03_clustering.ipynb)
+
+## Your first submission
+
+When you have finished the notebooks, score your classification and regression models on the [test molecules](#scoring-your-predictions).
+
+The 200 test molecules are in `data/003_test_data/`, in two sample submissions: `classification_sample_submission.csv` (columns `id`, `smiles` and `stability`) and `regression_sample_submission.csv` (`id`, `smiles`, `homo` and `lumo`). They contain only SMILES and placeholder values. Compute the molecular descriptors of these molecules the same way as in the [Data Preparation](../../2_data_preparation/2_datalab/04_data_preparation.ipynb) notebook of Iteration 2, predict with your models, replace the placeholder values with your predictions and save the file under a new name. Keep the `id` column: the scorer matches your predictions to the molecules with it.
+
+::: {.callout-warning}
+## Infinite and missing descriptor values
+For a few test molecules, some descriptors are infinite or missing. The HOPV molecules hardly have this problem, so your models have not seen it before, and `predict` stops with `ValueError: Input X contains infinity or a value too large for dtype('float32')`. Replace the infinite values with `NaN` first, `X_test = X_test.replace([np.inf, -np.inf], np.nan)`, and handle the missing values as in section 4 of [Data Preparation](../../2_data_preparation/1_self_study/01_data_prep.ipynb) in the Module 2 Self-study: tree-based models in scikit-learn, such as a random forest, accept `NaN`; for other models, fill them in with a `SimpleImputer` fitted on your training data. In [Iteration 4](../../4_advanced_scikit_learn/2_datalab/00_overview.qmd) you find out which molecules and descriptors are affected, and why.
+:::
+
+::: {.callout-tip}
+## Expect a lower score
+Expect your test score to be much worse than your cross-validation score; for stability possibly no better than the sample submission, which predicts `medium` for every molecule (macro-F1 about 0.22). That is not a bug in your code. Finding out why is where [Iteration 4](../../4_advanced_scikit_learn/2_datalab/00_overview.qmd) starts.
+:::
+
+## Scoring your predictions {#scoring-your-predictions}
+
+[]{#the-kaggle-competitions}
+
+Each problem has its own metric:
+
+- **Stability** (classification): the macro-averaged F1 score, so the classes `low`, `medium` and `high` count equally. Higher is better.
+- **HOMO and LUMO** (regression): the mean absolute error (MAE) over all `homo` and `lumo` predictions together, in eV. This is the average of the HOMO MAE and the LUMO MAE. Lower is better.
+
+### Running the scorer
+
+Run the scorer from the course folder, with the file you want to score:
+
+```bash
+uv run python tools/score.py data/003_test_data/my_energy_submission.csv
+```
+
+```
+Energy levels: MAE over homo and lumo, in eV, lower is better
+  public score  (100 molecules): 0.180  (homo 0.164, lumo 0.196)   [public score #1]
+  private score (100 molecules): hidden. Add --private once you have chosen your final model.
+```
+
+This example file predicts the average HOMO and LUMO of the HOPV molecules for every test molecule; a useful model does better. From a notebook in a `2_datalab/` folder of a module, the same command is:
+
+```python
+%run ../../../tools/score.py ../../../data/003_test_data/my_energy_submission.csv
+```
+
+The scorer recognizes the problem from the column names, and it checks the file before it scores it. If something is wrong, such as a missing row, a misspelled column name or a class name in capitals, it scores nothing and tells you what to fix:
+
+```
+Not scored: 50 of the 200 test molecules have no prediction: M151, M152, M153 (and 47
+  more). Predict every molecule of the sample submission.
+```
+
+The scorer needs no account and no internet connection.
+
+### The public and the private score
+
+The test molecules are split into two halves of 100. Every run shows the **public score**, on the first half. Use it as feedback while you work: does this model do better on new molecules than the previous one? But each time you change your model because of the public score, the model is fitted a little more to those 100 molecules, and the public score becomes a little too optimistic.
+
+The other half gives the **private score**, which the scorer only shows when you ask for it with `--private`. Ask for it once, for the model you chose on your validation results, typically your final model in Iteration 6:
+
+```bash
+uv run python tools/score.py data/003_test_data/my_energy_submission.csv --private
+```
+
+```
+Energy levels: MAE over homo and lumo, in eV, lower is better
+  public score  (100 molecules): 0.180  (homo 0.164, lumo 0.196)   [public score #2]
+  private score (100 molecules): 0.185  (homo 0.164, lumo 0.206)
+
+  This was your first look at the private energy levels score, and it is recorded in
+  data/003_test_data/score_log.csv. It is an honest estimate only for a model you chose
+  without it.
+```
+
+Because no decision was based on these 100 molecules, the private score is an honest estimate of how well your model predicts molecules it has never seen. If you look again later, the scorer still shows the score, but it starts with a reminder:
+
+```
+  Warning: you first looked at the private energy levels score on 2026-11-13; this is
+  look #2. If you changed your model after seeing it, this score is no longer an honest
+  estimate for unseen molecules.
+```
+
+### The score log
+
+Every run adds a row to `data/003_test_data/score_log.csv`: the time, the problem, the file, the public score and, if you asked for it, the private score.
+
+```
+time,task,file,public,private
+2026-11-13T09:53:04,energy levels,data/003_test_data/my_energy_submission.csv,0.18,
+2026-11-13T09:53:05,energy levels,data/003_test_data/my_energy_submission.csv,0.18,0.185
+```
+
+The scorer uses the log to number your public scores and to remember when you first looked at the private score. For you, it is a record of every model you scored, which helps when you keep an experiment log from [Iteration 4](../../4_advanced_scikit_learn/2_datalab/00_overview.qmd) onward. Git ignores the log, so it stays on your computer.
+
+The scorer runs on your computer and the true values are in the repository, so nothing stops you from looking at the private score more often or deleting the log. The advice to look at the private score once is there so that it stays an honest estimate for you. The [reference scores](#reference-scores) below show how good your score is.
+
+### Reference scores {#reference-scores}
+
+To give you an idea of what is possible, these are the scores of a few reference solutions (public / private):
+
+| Solution | Stability, macro-F1 | HOMO and LUMO, MAE (eV) |
+|---|---|---|
+| Sample submission (`medium`, HOMO −5 eV, LUMO −3 eV for every molecule) | 0.222 / 0.222 | 0.388 / 0.385 |
+| Random forest trained on the HOPV data (an Iteration 3 model) | 0.203 / 0.352 | 0.197 / 0.195 |
+| A reference solution at the end of Iteration 4 (random forest) | 0.842 / 0.837 | 0.106 / 0.107 |
+| A stronger reference solution (gradient boosting) | 0.849 / 0.847 | 0.093 / 0.087 |
+
+How the reference solutions were built, all with fixed settings and without tuning, on the RDKit descriptors of [Data Preparation](../../2_data_preparation/2_datalab/04_data_preparation.ipynb):
+
+- Random forest on HOPV: 300 trees, balanced class weights, trained on the HOPV molecules.
+- End of Iteration 4: the same random forest, trained on the HOPV molecules and the lab database.
+- Gradient boosting: LightGBM on the descriptors plus Morgan fingerprints (counts of small substructures of the molecule), trained on the HOPV molecules and the lab database.
+
+The same model gives very different test scores depending on the data it was trained on. Finding out why is the subject of Iteration 4.
+
+You keep scoring your models in Iterations 4 to 6, as they improve. If you want to compare your solution with other learners, share your private score and describe your approach in the course [Discussions](https://github.com/BredaUniversityADSAI/introduction-to-ml/discussions/categories/show-and-tell). Your copy of the course is private, so paste the code that matters instead of a link; after Iteration 6 you can link your portfolio repository.

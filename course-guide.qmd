@@ -2,80 +2,31 @@
 title: "Course Guide"
 ---
 
-This is the machine learning course that first-year students of [Applied Data Science & AI](https://ai.buas.nl/) at Breda University of Applied Sciences take, adapted for independent learning. It is free, with no registration, no deadlines and no certificate.
+This is the machine learning course that first-year students of [Applied Data Science & AI](https://ai.buas.nl/) at Breda University of Applied Sciences take, adapted for independent learning. It is free, with no registration, no deadlines and no certificate. The course is a GitHub repository that you copy to your own computer: you write and run the code in its Jupyter notebooks there, and you read the pages here on this website.
 
-## Self-study and DataLab
+![An organic solar cell. In this course, you build machine learning models that predict properties of the molecules these cells are made of. Photo: ["OPV slot-die"](https://commons.wikimedia.org/wiki/File:OPV_slot-die.jpg) by FreudianCritz, Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), cropped.](images/course-guide/organic_solar_cell.jpg){width="70%" fig-align="center" fig-alt="Photo: gloved hands bending a thin, flexible organic solar module, a shiny film with many narrow parallel stripes."}
 
-The course has two parts.
+## Modules, Self-study and DataLab
 
-The **Self-study** teaches machine learning in six themes. Theme 1 gives you the whole picture first. It starts with an overview of what machine learning is, lets you train your first classification, regression and clustering models, and ends with a small project that goes through every stage, from the question to a saved model. After Theme 1 you have done a complete machine learning project, in a simple form. This follows the approach of David Perkins in *Making Learning Whole* (2009): learn to play a simple version of the whole game first, then work on its parts. Themes 2 to 6 each go deeper into one part: preparing and exploring data, modeling and evaluation, pipelines, tree-based models, and applied machine learning research.
+The course has six modules, and each module has two parts: a **Self-study** and a **DataLab iteration**. In the Self-study, you learn new machine learning concepts and methods. In the DataLab, you apply what you learned to a real client project. You complete both parts before moving to the next module.
 
-The **DataLab** is a client project: you predict properties of molecules for organic solar cells, for the OMEGA Lab of Prof. Derya Baran at KAUST. Here you apply what you learned, and this is the core of the course. Machine learning is a practical skill. You learn it by deciding what to do with real data, writing the code, and finding out why a model does worse than you expected. The Self-study gives you the concepts and tools for this work, and the project shows you which of them you need to understand better. The project runs in six iterations, each with less guidance than the one before. From Iteration 3 on, you score your models on 200 test molecules that you haven't seen.
+For example, in Module 1, you learn how to build your first classification, regression and clustering models. In DataLab Iteration 1, you apply these methods to the client project, predicting properties of molecules for organic solar cells. Later, in Module 5, you learn more advanced algorithms, such as random forests and gradient boosting. In DataLab Iteration 5, you apply these algorithms to the same project. This pattern continues throughout the course: you learn new methods, apply them to the project, and gradually build more advanced solutions.
 
-## Take turns
+### Self-study
 
-Study a theme, then apply it in the DataLab iteration with the same number, before you start the next theme. A theme introduces the concepts, and the iteration makes you use them on real data. Using a concept is how you come to understand it, so you learn each theme much better when you apply it right away. If you study all six themes first, you apply Theme 1 only after five more themes, which is too late for the project to help you learn it.
+The Self-study teaches you the concepts and methods of machine learning. Module 1 gives you the whole picture first: you learn what machine learning is, train simple models, and complete a small project that goes through every stage, from the question to a saved model.
 
-```{=html}
-<div class="route-figure">
-  <figure class="route-card">
-    <p class="route-card-label is-good">Recommended</p>
-    <p class="route-card-title">Take turns: theme, iteration, next theme</p>
-```
+This follows the approach of David Perkins in *Making Learning Whole* (2009): learn to play a simple version of the whole game first, then work on its parts. Modules 2 to 6 each go deeper into one part: preparing and exploring data, modeling and evaluation, pipelines, tree-based models, and applied machine learning research.
 
-{{< include _includes/route-recommended.qmd >}}
+### DataLab
 
-```{=html}
-    <figcaption>Six steps. In each step you study a theme and apply it right away in the iteration with the same number.</figcaption>
-  </figure>
-  <figure class="route-card is-muted">
-    <p class="route-card-label is-bad">Not recommended</p>
-    <p class="route-card-title">All Self-study first, then the DataLab</p>
-    <svg viewBox="0 0 360 448" role="img" aria-labelledby="rf2-title">
-      <title id="rf2-title">Not recommended: Themes 1 to 6 first, then Iterations 1 to 6.</title>
-      <defs>
-        <marker id="rf2-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path class="rf-arrowhead" d="M1 1.5 L8.5 5 L1 8.5"/>
-        </marker>
-      </defs>
-      <text class="rf-col rf-col-ss" x="104" y="22">Self-study</text>
-      <text class="rf-col rf-col-dl" x="276" y="22">DataLab</text>
-      <g class="rf-link">
-        <path d="M104 83 V112" marker-end="url(#rf2-arrow)"/>
-        <path d="M104 151 V180" marker-end="url(#rf2-arrow)"/>
-        <path d="M104 219 V248" marker-end="url(#rf2-arrow)"/>
-        <path d="M104 287 V316" marker-end="url(#rf2-arrow)"/>
-        <path d="M104 355 V384" marker-end="url(#rf2-arrow)"/>
-        <path d="M276 83 V112" marker-end="url(#rf2-arrow)"/>
-        <path d="M276 151 V180" marker-end="url(#rf2-arrow)"/>
-        <path d="M276 219 V248" marker-end="url(#rf2-arrow)"/>
-        <path d="M276 287 V316" marker-end="url(#rf2-arrow)"/>
-        <path d="M276 355 V384" marker-end="url(#rf2-arrow)"/>
-      </g>
-      <g class="rf-link rf-link-jump">
-        <path d="M157 404 C 200 404, 180 64, 222 64" marker-end="url(#rf2-arrow)"/>
-      </g>
-      <g class="rf-node rf-ss">
-        <rect x="52" y="46" width="104" height="36" rx="18"/><text x="104" y="64">Theme 1</text>
-        <rect x="52" y="114" width="104" height="36" rx="18"/><text x="104" y="132">Theme 2</text>
-        <rect x="52" y="182" width="104" height="36" rx="18"/><text x="104" y="200">Theme 3</text>
-        <rect x="52" y="250" width="104" height="36" rx="18"/><text x="104" y="268">Theme 4</text>
-        <rect x="52" y="318" width="104" height="36" rx="18"/><text x="104" y="336">Theme 5</text>
-        <rect x="52" y="386" width="104" height="36" rx="18"/><text x="104" y="404">Theme 6</text>
-      </g>
-      <g class="rf-node rf-dl">
-        <rect x="224" y="46" width="104" height="36" rx="18"/><text x="276" y="64">Iteration 1</text>
-        <rect x="224" y="114" width="104" height="36" rx="18"/><text x="276" y="132">Iteration 2</text>
-        <rect x="224" y="182" width="104" height="36" rx="18"/><text x="276" y="200">Iteration 3</text>
-        <rect x="224" y="250" width="104" height="36" rx="18"/><text x="276" y="268">Iteration 4</text>
-        <rect x="224" y="318" width="104" height="36" rx="18"/><text x="276" y="336">Iteration 5</text>
-        <rect x="224" y="386" width="104" height="36" rx="18"/><text x="276" y="404">Iteration 6</text>
-      </g>
-    </svg>
-    <figcaption>You apply the first themes only after all six, too late for the project to help you learn them.</figcaption>
-  </figure>
-</div>
-```
+The DataLab is a client project: you predict properties of molecules for organic solar cells, for the OMEGA Lab of Prof. Derya Baran at KAUST.
+
+{{< include _includes/project-figure.qmd >}}
+
+This is the core of the course. Machine learning is a practical skill. You learn it by deciding what to do with real data, writing the code, and finding out why a model does worse than you expected. The Self-study gives you the concepts and tools for this work, and the project shows you which of them you need to understand better.
+
+The project runs in six iterations, one per module. Each iteration builds on the previous one, with progressively less guidance as you become more independent. From Iteration 3 onward, you score your models on 200 test molecules that you haven't seen.
 
 ## Work on your own computer
 
@@ -84,22 +35,36 @@ Most of your work happens in Jupyter notebooks: you read the explanations, run t
 - [GitHub](https://github.com/) holds the course. With a free account, you make your own private copy of the course there, which keeps a backup of your work.
 - [Git](https://git-scm.com/) downloads your copy to your computer and keeps a history of your work. When you save your work, Git sends it to your copy on GitHub.
 - [uv](https://docs.astral.sh/uv/) installs Python and the exact package versions the course uses (the packages go into a folder inside the course), so that your notebooks give the same results as ours.
-- [VS Code](https://code.visualstudio.com/) opens and runs the notebooks. In VS Code you see the course as folders, one per theme and one per iteration, with the files numbered in the order you work through them. The `.qmd` files are the pages of this website: read those here.
+- [VS Code](https://code.visualstudio.com/) opens and runs the notebooks. In VS Code you see the course in the folder `modules/`, one folder per module with its Self-study and its DataLab, and the files numbered in the order you work through them. The `.qmd` files are the pages of this website: read those here.
 
-[Set Up Your Computer](setup.qmd) explains every step, with links to two short courses if you are new to Git and GitHub. It takes about 30 minutes.
+## The six modules {#the-modules}
 
-## The course route
+[]{#the-course-route}
 
-The six steps of the course, with what each part covers. The menu lists all of Self-study before the DataLab, and so does the Next link at the bottom of each page. At the end of each theme and each iteration, a note on the page points you to what comes next.
-
-::: {.course-route}
-:::
+1. [Foundations of Machine Learning](modules/1_foundations/00_overview.qmd)
+    - Self-study: what machine learning is, your first classification, regression and clustering models with scikit-learn, and one small project from start to finish.
+    - DataLab, [Iteration 1](modules/1_foundations/2_datalab/00_overview.qmd): the client's problem and a starter dataset of 80 molecules; your first classification, regression and clustering models for the project.
+2. [Data Preparation & Understanding](modules/2_data_preparation/00_overview.qmd)
+    - Self-study: preparing data (scaling, encoding, missing values), exploring it (distributions, relationships, PCA), and checking that it matches the data a model will be used on (leakage, distribution shift).
+    - DataLab, [Iteration 2](modules/2_data_preparation/2_datalab/00_overview.qmd): the raw HOPV files of 350 molecules; understand the stability and HOMO/LUMO data, prepare your own dataset, and train a baseline on it.
+3. [Modeling & Evaluation](modules/3_modeling_and_evaluation/00_overview.qmd)
+    - Self-study: cross-validation, hyperparameter tuning and evaluation metrics, then linear regression, logistic regression and clustering: how the models work and how to choose their settings.
+    - DataLab, [Iteration 3](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd): cross-validation and hyperparameter tuning for your models, a closer look at your clusters, and your first score on the test molecules.
+4. [Advanced Scikit-Learn](modules/4_advanced_scikit_learn/00_overview.qmd)
+    - Self-study: pipelines and the ColumnTransformer: preprocessing and model in one object.
+    - DataLab, [Iteration 4](modules/4_advanced_scikit_learn/2_datalab/00_overview.qmd): rebuild your models as pipelines, add the lab database and the test molecules to your data, and find out why your test score differs from your cross-validation score.
+5. [Tree-Based Algorithms](modules/5_tree_based_algorithms/00_overview.qmd)
+    - Self-study: decision trees, random forests and gradient boosting.
+    - DataLab, [Iteration 5](modules/5_tree_based_algorithms/2_datalab/00_overview.qmd): tree-based models and boosting on the project, a validation strategy that resembles the test molecules, clustering all molecules, and an analysis of your errors.
+6. [Applied ML Research](modules/6_applied_ml_research/00_overview.qmd)
+    - Self-study: communicating technical work, reading ML research, and testing its ideas in your own project.
+    - DataLab, [Iteration 6](modules/6_applied_ml_research/2_datalab/00_overview.qmd): ideas from research papers, your final models scored on the test set, and a write-up of your solution as a portfolio project.
 
 ## Other ways to use the course
 
 ### Reading only
 
-Read the pages and notebooks here on the website. Nothing to install. The notebooks show the code and, in the Self-study, its output. Start with [What is Machine Learning?](self-study/theme-1/01_what_is_machine_learning.qmd), which you can try out in your browser. You will understand the ideas, but you only really learn machine learning by writing the code yourself.
+Read the pages and notebooks here on the website. Nothing to install. The notebooks show the code and, in the Self-study, its output. Start with [What is Machine Learning?](modules/1_foundations/1_self_study/01_what_is_machine_learning.qmd), which you can try out in your browser. You will understand the ideas, but you only really learn machine learning by writing the code yourself.
 
 ### A quick look in Google Colab
 
@@ -107,7 +72,7 @@ Every notebook page has an "Open in Colab" button that runs the notebook in your
 
 ### You already know machine learning
 
-Go to the project. Read the [Business Understanding](datalab/iteration-1/01_business_understanding.qmd) and [Data Understanding](datalab/iteration-1/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](datalab/iteration-2/03_understanding_homolumo_data.ipynb) and [computing molecular descriptors](datalab/iteration-2/04_data_preparation.ipynb), score a first model on the [test molecules](datalab/iteration-3/00_overview.qmd#scoring-your-predictions), then start [Iteration 4](datalab/iteration-4/00_overview.qmd), where the project becomes open-ended. The Self-study pages are there when you want to look something up.
+Go to the project. Read the [Business Understanding](modules/1_foundations/2_datalab/01_business_understanding.qmd) and [Data Understanding](modules/1_foundations/2_datalab/02_data_understanding.qmd) pages for the problem and the data, skim the Iteration 2 notebooks on [reading the HOPV file](modules/2_data_preparation/2_datalab/03_understanding_homolumo_data.ipynb) and [computing molecular descriptors](modules/2_data_preparation/2_datalab/04_data_preparation.ipynb), score a first model on the [test molecules](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd#scoring-your-predictions), then start [Iteration 4](modules/4_advanced_scikit_learn/2_datalab/00_overview.qmd), where the project becomes open-ended. The Self-study pages are there when you want to look something up.
 
 ### You are a teacher
 
@@ -132,4 +97,4 @@ The notebooks mix explanations with exercises, marked "Your Turn", and empty cel
 
 ## The test set
 
-The course repository includes 200 test molecules and a scorer, for both problems (stability and energy levels). How to score your predictions, and what the public and private scores mean, is in [Iteration 3](datalab/iteration-3/00_overview.qmd#scoring-your-predictions). You score your models for the first time at the end of Iteration 3; expect that first score to be lower than your cross-validation score.
+The course repository includes 200 test molecules and a scorer, for both problems (stability and energy levels). How to score your predictions, and what the public and private scores mean, is in [Iteration 3](modules/3_modeling_and_evaluation/2_datalab/00_overview.qmd#scoring-your-predictions). You score your models for the first time at the end of Iteration 3; expect that first score to be lower than your cross-validation score.

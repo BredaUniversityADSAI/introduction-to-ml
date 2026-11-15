@@ -1,0 +1,24 @@
+---
+title: "Module 4: Advanced Scikit-Learn"
+---
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/4_advanced_scikit_learn/00_overview.html -->
+
+A model is rarely used on raw data: the data is first scaled, encoded or completed. In this module you learn to put these steps and the model together in one object. That keeps your code short, and you can cross-validate and tune the whole object at once, the preprocessing included. It also keeps your cross-validation honest: the preprocessing is fitted again in every fold, on the training part only.
+
+## What you will be able to do
+
+After this module you can:
+
+- combine preprocessing and a model in a `Pipeline`, with a `ColumnTransformer` for different types of columns;
+- explain why preprocessing must be fitted inside each fold, and cross-validate and tune a whole pipeline;
+- save a fitted pipeline and use it to predict new data.
+
+## Self-study
+
+1. [Pipelines & ColumnTransformer](1_self_study/01_pipelines_and_columntransformer.ipynb): pipelines, why cross-validation needs them, column transformers that treat each type of column differently, and tuning a whole pipeline.
+2. [Review](1_self_study/02_review.qmd): a summary of the module and a short quiz.
+
+## DataLab
+
+After the Self-study, apply what you learned in the DataLab project: [Iteration 4](2_datalab/00_overview.qmd).

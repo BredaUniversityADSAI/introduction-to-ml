@@ -1,6 +1,6 @@
 [project]
 name = "introduction-to-ml"
-version = "0.7.6"
+version = "0.7.7"
 description = "Introduction to Machine Learning: an open course from Applied Data Science & AI, Breda University of Applied Sciences."
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
@@ -13,7 +13,7 @@ dependencies = [
     "scikit-learn==1.9.1",
     "optuna==5.0.0",
     "joblib==1.6.0",
-    # Gradient boosting libraries (self-study notebook 011). On macOS, xgboost and lightgbm need
+    # Gradient boosting libraries (Gradient Boosting notebook, Module 5). On macOS, xgboost and lightgbm need
     # the OpenMP runtime: brew install libomp
     "xgboost==3.4.1",
     "lightgbm==4.7.0",

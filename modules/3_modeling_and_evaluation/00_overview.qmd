@@ -1,0 +1,30 @@
+---
+title: "Module 3: Modeling & Evaluation"
+---
+
+<!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/3_modeling_and_evaluation/00_overview.html -->
+
+So far you tested each model once, on one test set, and used the models as black boxes. In this module you first learn to evaluate and compare models reliably and to tune their settings. Then you look inside three models. In each of those notebooks you first train the model with scikit-learn, then build its algorithm yourself in a few lines of NumPy and check that you get the same result. Knowing how a model works helps you choose its settings and understand when it fails.
+
+## What you will be able to do
+
+After this module you can:
+
+- estimate performance reliably with cross-validation and a validation set, and use the test set once;
+- choose features, models and hyperparameters, and tell underfitting from overfitting;
+- choose and interpret metrics for classification and regression;
+- explain how linear regression, logistic regression and K-Means work, and implement them with NumPy.
+
+## Self-study
+
+Work through the activities in order:
+
+1. [Modeling & Evaluation](1_self_study/01_modeling_and_evaluation.ipynb): cross-validation (also by group), validation and test sets, feature and model selection, hyperparameter tuning, overfitting, and metrics for classification and regression.
+2. [Linear Regression](1_self_study/02_linear_regression.ipynb): fitting a line, gradient descent, more than one feature, R², polynomial features and regularization.
+3. [Logistic Regression](1_self_study/03_logistic_regression.ipynb): from a line to a probability, the log loss, the decision threshold, precision-recall and ROC curves, and more than two classes.
+4. [Clustering](1_self_study/04_clustering.ipynb): distances and scaling, K-Means, choosing the number of clusters with the elbow and the silhouette score, and density-based clustering.
+5. [Review](1_self_study/05_review.qmd): a summary of the module and a short quiz.
+
+## DataLab
+
+After the Self-study, apply what you learned in the DataLab project: [Iteration 3](2_datalab/00_overview.qmd).
