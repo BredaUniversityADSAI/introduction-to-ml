@@ -1,4 +1,6 @@
-# What is Machine Learning?
+---
+title: "What is Machine Learning?"
+---
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/1_foundations/1_self_study/01_what_is_machine_learning.html -->
 

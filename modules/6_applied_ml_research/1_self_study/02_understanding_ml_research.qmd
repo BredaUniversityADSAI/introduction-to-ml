@@ -1,4 +1,6 @@
-# Understanding Machine Learning Research
+---
+title: "Understanding Machine Learning Research"
+---
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/6_applied_ml_research/1_self_study/02_understanding_ml_research.html -->
 

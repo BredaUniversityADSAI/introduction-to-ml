@@ -1,4 +1,6 @@
-# Iteration 6 {.unnumbered}
+---
+title: "Iteration 6"
+---
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/6_applied_ml_research/2_datalab/00_overview.html -->
 

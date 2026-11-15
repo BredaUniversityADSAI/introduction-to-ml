@@ -1,4 +1,6 @@
-# Iteration 1 {.unnumbered}
+---
+title: "Iteration 1"
+---
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/1_foundations/2_datalab/00_overview.html -->
 

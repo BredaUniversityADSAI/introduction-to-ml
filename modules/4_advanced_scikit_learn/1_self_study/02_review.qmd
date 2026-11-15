@@ -1,4 +1,6 @@
-# Module 4 Review
+---
+title: "Module 4 Review"
+---
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/4_advanced_scikit_learn/1_self_study/02_review.html -->
 

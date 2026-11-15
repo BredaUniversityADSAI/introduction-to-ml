@@ -1,4 +1,6 @@
-# Leakage and Distribution Shift
+---
+title: "Leakage and Distribution Shift"
+---
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/2_data_preparation/1_self_study/03_leakage_and_distribution_shift.html -->
 

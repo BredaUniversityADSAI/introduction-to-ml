@@ -1,4 +1,6 @@
-# Iteration 4 {.unnumbered}
+---
+title: "Iteration 4"
+---
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/4_advanced_scikit_learn/2_datalab/00_overview.html -->
 

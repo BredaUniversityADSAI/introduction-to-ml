@@ -1,4 +1,6 @@
-# Module 3 Review
+---
+title: "Module 3 Review"
+---
 
 <!-- This file is the source of a page on the course website. Read it there: https://ai.buas.nl/open-courses/introduction-to-ml/modules/3_modeling_and_evaluation/1_self_study/05_review.html -->
 
