@@ -6,6 +6,10 @@ This course is an **early release**. Like an early-release book, it is complete 
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.7.8 · 15 November 2026
+
+- [From Research to Practice](modules/6_applied_ml_research/1_self_study/03_from_research_to_practice.qmd), [Decision Trees](modules/5_tree_based_algorithms/1_self_study/01_decision_trees.ipynb), [Random Forests](modules/5_tree_based_algorithms/1_self_study/02_random_forests.ipynb), [Gradient Boosting](modules/5_tree_based_algorithms/1_self_study/03_gradient_boosting.ipynb) and [Pipelines & ColumnTransformer](modules/4_advanced_scikit_learn/1_self_study/01_pipelines_and_columntransformer.ipynb) no longer judge whether a difference between two models is real by comparing it with the spread of the fold scores. This completes the change of v0.7.5.
+
 ## v0.7.7 · 15 November 2026
 
 The course is now organized in six modules, so that the menu, the Next link and the folders all follow the order in which you work.
