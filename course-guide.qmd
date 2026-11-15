@@ -26,10 +26,6 @@ This is the core of the course. Machine learning is a practical skill. You learn
 
 The project runs in six iterations, one per module. Each iteration builds on the previous one, with progressively less guidance as you become more independent. From Iteration 3 onward, you score your models on 200 test molecules that you haven't seen.
 
-## Take turns
-
-The menu, the Next link at the bottom of each page and the folders in VS Code all follow the same order: Self-study, then DataLab, then the next module. The Self-study introduces the concepts, and the DataLab iteration makes you use them on real data. Using a concept is how you come to understand it, so you learn a module much better when you apply it right away. Don't leave the DataLab for later: if you study all six Self-study parts first, you apply Module 1 only after five more modules, which is too late for the project to help you learn it. The DataLab iterations also build on each other: an iteration reads files, such as your processed dataset, that an earlier iteration saved.
-
 ## Work on your own computer
 
 Most of your work happens in Jupyter notebooks: you read the explanations, run the code, change it and write your own. The DataLab notebooks also save files that later notebooks read. That is why we recommend that you work in your own copy of the course, on your own computer, with GitHub and three tools:
