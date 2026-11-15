@@ -6,13 +6,25 @@ This is the machine learning course that first-year students of [Applied Data Sc
 
 ## Modules, Self-study and DataLab
 
-The course has six modules, and each module has two parts: a Self-study and a DataLab iteration.
+The course has six modules, and each module has two parts: a **Self-study** and a **DataLab iteration**. In the Self-study, you learn new machine learning concepts and methods. In the DataLab, you apply what you learned to a real client project. You complete both parts before moving to the next module.
 
-The **Self-study** teaches the concepts of machine learning. Module 1 gives you the whole picture first. It starts with an overview of what machine learning is, lets you train your first classification, regression and clustering models, and ends with a small project that goes through every stage, from the question to a saved model. After the Module 1 Self-study you have done a complete machine learning project, in a simple form. This follows the approach of David Perkins in *Making Learning Whole* (2009): learn to play a simple version of the whole game first, then work on its parts. Modules 2 to 6 each go deeper into one part: preparing and exploring data, modeling and evaluation, pipelines, tree-based models, and applied machine learning research.
+For example, in **Module 1**, you learn how to build your first classification, regression and clustering models. In **DataLab Iteration 1**, you apply these methods to the client project, predicting properties of molecules for organic solar cells. Later, in **Module 5**, you learn more advanced algorithms, such as random forests and gradient boosting. In **DataLab Iteration 5**, you apply these algorithms to the same project. This pattern continues throughout the course: you learn new methods, apply them to the project, and gradually build more advanced solutions.
 
-The **DataLab** is a client project: you predict properties of molecules for organic solar cells, for the OMEGA Lab of Prof. Derya Baran at KAUST. Here you apply what you learned, and this is the core of the course. Machine learning is a practical skill. You learn it by deciding what to do with real data, writing the code, and finding out why a model does worse than you expected. The Self-study gives you the concepts and tools for this work, and the project shows you which of them you need to understand better. The project runs in six iterations, one at the end of each module, each with less guidance than the one before. From Iteration 3 on, you score your models on 200 test molecules that you haven't seen.
+### Self-study
+
+The Self-study teaches you the concepts and methods of machine learning. Module 1 gives you the whole picture first: you learn what machine learning is, train simple models, and complete a small project that goes through every stage, from the question to a saved model.
+
+This follows the approach of David Perkins in *Making Learning Whole* (2009): learn to play a simple version of the whole game first, then work on its parts. Modules 2 to 6 each go deeper into one part: preparing and exploring data, modeling and evaluation, pipelines, tree-based models, and applied machine learning research.
+
+### DataLab
+
+The DataLab is a client project: you predict properties of molecules for organic solar cells, for the OMEGA Lab of Prof. Derya Baran at KAUST.
 
 ![A molecule, written as a SMILES string, goes into your models, which predict its HOMO and LUMO energy levels and its stability.](images/datalab/molecule_to_predictions.png){fig-alt="Diagram: a drawing of an organic molecule with its SMILES string, an arrow to a box labeled your models, and an arrow to three predictions: HOMO (energy level in eV), LUMO (energy level in eV) and stability (low, medium or high)."}
+
+**This is the core of the course.** Machine learning is a practical skill. You learn it by deciding what to do with real data, writing the code, and finding out why a model does worse than you expected. The Self-study gives you the concepts and tools for this work, and the project shows you which of them you need to understand better.
+
+The project runs in six iterations, one per module. Each iteration builds on the previous one, with progressively less guidance as you become more independent. From Iteration 3 onward, you score your models on 200 test molecules that you haven't seen.
 
 ## Take turns
 
