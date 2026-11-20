@@ -6,6 +6,10 @@ The course is complete. Its version stays below 1.0 until a learner has worked t
 
 Found a mistake or something unclear? Use "Report an issue" on any page, or [open an issue on GitHub](https://github.com/BredaUniversityADSAI/introduction-to-ml/issues).
 
+## v0.8.1 · 20 November 2026
+
+- [Understanding HOMO/LUMO Data](modules/2_data_preparation/2_datalab/03_understanding_homolumo_data.ipynb) in Iteration 2: the note at the top no longer asks you to check a file from an earlier notebook. This notebook needs only `HOPV_homolumo.data`, which is part of the repository.
+
 ## v0.8.0 · 15 November 2026
 
 - The course is complete, so it is no longer marked as an early release: the banner at the top of every page is gone, and the [open courses page](https://ai.buas.nl/open-courses/) no longer labels it "Early release".
